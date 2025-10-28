@@ -12,7 +12,7 @@ import projects from "../../../lib/data/project.json"; // 경로 맞는지 확�
 import Image from "next/image";
 import { ProjectDetail } from "../../../components/pjDetail";
 import "../../../styles/projects.scss";
-import { addClass } from "p5";
+
 
 // 무작위 셔플 함수 (Fisher–Yates)
 function shuffle(array) {
