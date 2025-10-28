@@ -4,7 +4,15 @@ import students from "../../../lib/data/students.json";
 import { StudentCard } from "../../../components/studentCard";
 import '../../../styles/students.scss';
 import { StudentDetail } from "../../../components/stDetail";
+import { shuffle } from "../projects/page";
 
+
+function fillEmptySlots(arr, perRow = 3) {
+  const remainder = arr.length % perRow;
+  if (remainder === 0) return arr;
+  const blanks = Array(perRow - remainder).fill({ isEmpty: true });
+  return [...arr, ...blanks];
+}
 const allStudents = students.students;
 
 export default function Students() {
@@ -13,9 +21,12 @@ export default function Students() {
   const [selectStudent, setSelectStudent] = useState(null);
   const [detailModal, setDetailModal] = useState(false);
 
-  useEffect(() => {
-    setSortList(allStudents);
-  }, []);
+
+
+useEffect(() => {
+  const shuffled = shuffle(allStudents);
+  setSortList(fillEmptySlots(shuffled, 3));
+}, []);
 
   const listHandler = (role) => {
     if (role === "All") {
@@ -70,12 +81,24 @@ export default function Students() {
     (
     
     Array.isArray(sortList) &&
-          sortList.map((s, i) => (
+          sortList.map((s, i) => 
+             s.isEmpty ? (
+      <StudentCard key={i} 
+              student={s}
+              onClick={()=> {
+                setSelectStudent(s)
+                setDetailModal(true)}}
+                isEmpty={true}
+             />
+         ) : (
+            
+            
             <StudentCard key={i} 
               student={s}
               onClick={()=> {
                 setSelectStudent(s)
                 setDetailModal(true)}}
+                isEmpty={false}
              />
 
     )

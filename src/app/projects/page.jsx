@@ -15,7 +15,7 @@ import "../../../styles/projects.scss";
 
 
 // 무작위 셔플 함수 (Fisher–Yates)
-function shuffle(array) {
+export function shuffle(array) {
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
