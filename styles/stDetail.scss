@@ -1,0 +1,17 @@
+@use "./globals.scss";
+
+
+.StudentDetail{
+    position: fixed;
+    display: flex;
+    z-index:100;
+    width:100vw;
+    height:100vh;
+    background-color: black;
+    .profileImagePlaceholder{
+        position: relative;
+        height:100%;
+        width: fit-content;
+        aspect-ratio: 32/45;
+    }
+}

@@ -1,0 +1,321 @@
+@use "./globals.scss";
+
+@keyframes cardAddRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.blackBg {
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  background-color: black;
+}
+
+.projects {
+  width: 100%;
+  padding-top: clamp(200px, 40vh, 240px);
+  padding-left: clamp(1.75rem, 3.1vw, 3.75rem);
+  padding-right: clamp(1.75rem, 3.1vw, 3.75rem);
+  padding-bottom: clamp(200px, 40vh, 240px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(38px, 5vh, 46px);
+}
+
+.projectListPlaceHolder {
+  width: 100%;
+  display: flex;
+  gap: 5%;
+
+  .projectList {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    .ShowingCount {
+      position: absolute;
+      right: 0;
+      top: -50px;
+      color: globals.$color-darkGray;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .mapProjectList {
+      width: 100%;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+      }
+
+      .ImagePlaceHolder {
+        &.project {
+          max-width: 340px;
+          width: 100%;
+          aspect-ratio: 114/161;
+          opacity: 0;
+        //   margin-bottom: clamp(2.5px, 1vw, 20px);
+          cursor: pointer;
+          animation: cardAddRight 0.5s ease-out forwards;
+          animation-delay: var(--animation-delay);
+        }
+      }
+    }
+  }
+
+  .projectNameListPlaceHolder {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    width: 20%;
+    height: fit-content;
+    max-width: 330px;
+    @include globals.body;
+
+    .marker-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .marker {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      background-color: globals.$color-blue;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 100;
+    }
+
+    .projectNameCard {
+      position: relative;
+      width: 100%;
+      padding-top: 5px;
+      padding-bottom: 4px;
+      padding-left: 15px;
+      font-size: 15px;
+      display: flex;
+      gap: 30%;
+      z-index: 2;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+
+      &.is-hidden {
+        opacity: 0.2;
+        pointer-events: none;
+      }
+
+      &.active {
+        background-color: globals.$color-blue;
+      }
+    }
+  }
+}
+
+.SortingBarList {
+  display: flex;
+  width:100%;
+  gap: 28px;
+
+  .SortingBar {
+    @include globals.body;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    width: clamp(157px, 10vw, 290px);
+
+    letter-spacing: -0.54px;
+    position: relative;
+    background-color: globals.$color-darkGray;
+    padding: 11 20;
+    z-index: 50;
+    border-radius: 100;
+    justify-content: space-between;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &.is-open {
+
+      
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    .keyWardList {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      left: 0;
+      top: 120%;
+      transition: all 0.8s ease-out;
+      overflow: hidden;
+      border-radius: 30px;
+      background-color: globals.$color-blue;
+
+
+  
+
+      > button {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        padding: 11px 20px;
+        overflow: hidden; // Important for the max-height animation
+
+        &.active {
+          animation: listOut 0.5s 0.3s ease-out forwards,
+          rightSlide 0.4s cubic-bezier(0.81, 0, 1, 1) forwards;
+        }
+
+        &.re-entering {
+          animation: listIn 0.4s ease-out forwards,
+            leftSlide 0.4s cubic-bezier(0, 0, 0.19, 1) forwards;
+        }
+      }
+    }
+  }
+
+  .activeFilterChips{
+    align-self: flex-end;
+    display: flex;
+      gap: 28px;
+
+      .chip{
+            @include globals.body;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap:10px;
+        transform: translateX(-100%);
+    letter-spacing: -0.54px;
+    position: relative;
+    background-color: globals.$color-blue;
+    padding: 11 20;
+    z-index: 50;
+    border-radius: 100;
+    justify-content: space-between;
+    opacity: 0;
+
+    animation: leftSlideIn 0.3s 0.2s ease-out forwards;
+
+    &.is-removing {
+      animation: chipSlideOut 0.3s ease-out forwards;
+    }
+      }
+  }
+}
+
+@keyframes listOut{
+  from {
+    max-height: 50px; // A value larger than the element's actual height
+    
+  }
+  to {
+    
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@keyframes listIn {
+  from {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  to {
+    max-height: 50px; // A value larger than the element's actual height
+  }
+}
+
+@keyframes rightSlide{
+  from{
+    transform: translateX(0%);
+  }
+  to{
+    transform: translateX(100%);
+  }
+}
+
+@keyframes leftSlide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes leftSlideIn{
+  from{
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .projectListPlaceHolder {
+    .projectList {
+      .mapProjectList {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .projectListPlaceHolder {
+    .projectList {
+      .mapProjectList {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .projectListPlaceHolder {
+    .projectList {
+      .mapProjectList {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}

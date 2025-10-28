@@ -1,13 +1,13 @@
-import Image from "next/image";
-import GuestBook from "../../pages/guestBook";
-import  GoPivot  from "../../pages/goPivot";
-import MakeObjectPage from "../../pages/makeObject";
+import Link from "next/link";
+import '../../styles/globals.scss';
+import GoPivot from "../../pages/goPivot";
 
 export default function Home() {
   return (
     <div>
-      
-      <MakeObjectPage/>
+      <Link href="/students">Students</Link>
+      <Link href="/projects">Projects</Link>
+      <GoPivot/>
     </div>
   );
 }

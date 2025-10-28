@@ -11,7 +11,8 @@ const AUTO_SPEED_Y = 0.003; // 항상 천천히 회전 (Y축 기준)
 
 export default function GoPivot() {
   const holderRef = useRef(null);
-  const pivotRef  = useRef(null);
+
+  const [arrangement, setArrangement] = useState('orbit'); // 'orbit' or 'stack'
 
   // State for trajectories' UI-facing properties
   const [trajectories, setTrajectories] = useState([
@@ -64,13 +65,11 @@ export default function GoPivot() {
 
   const getPivot = useCallback(() => {
     const holder = holderRef.current;
-    const pivot  = pivotRef.current;
-    if (!holder || !pivot) return null;
+    if (!holder) return null;
     const hr = holder.getBoundingClientRect();
-    const pr = pivot.getBoundingClientRect();
     return {
-      cx: pr.left + pr.width / 2 - hr.left,
-      cy: pr.top  + pr.height / 2 - hr.top,
+      cx: hr.width / 2,
+      cy: hr.height / 2,
       w: hr.width,
       h: hr.height,
     };
@@ -183,14 +182,25 @@ export default function GoPivot() {
             : null;
           const customShapes = currentCustomObject ? currentCustomObject.shapes : null;
 
-          const slice = (Math.PI * 2) / count;
           const cosY = Math.cos(angleY), sinY = Math.sin(angleY);
           const cosX = Math.cos(angleX), sinX = Math.sin(angleX);
 
           for (let i = 0; i < count; i++) {
-            let x = Math.cos(i * slice) * radius;
-            let y = 0;
-            let z = Math.sin(i * slice) * radius;
+            let x, y, z;
+
+            if (arrangement === 'orbit') {
+              const slice = (Math.PI * 2) / count;
+              x = Math.cos(i * slice) * radius;
+              y = 0;
+              z = Math.sin(i * slice) * radius;
+            } else { // stack mode
+              const layerHeight = 15;
+              const rotationPerLayer = 0.15;
+              const angle = i * rotationPerLayer;
+              x = Math.cos(angle) * radius;
+              y = (i - count / 2) * layerHeight;
+              z = Math.sin(angle) * radius;
+            }
 
             const xz = x * cosY - z * sinY;
             const zz = x * sinY + z * cosY;
@@ -205,11 +215,20 @@ export default function GoPivot() {
             const px = cx + xz * persp;
             const py = cy + yz * persp;
 
-            let rotationStyle = "";
-            if (pointToCenter && (objectType === "line" || objectType === "square" || objectType === "custom")) { // Custom objects can also point to center
-              const angle = Math.atan2(cy - py, cx - px);
-              rotationStyle = ` rotate(${angle}rad)`;
+            let individualRotationStyle = "";
+            if (arrangement === 'stack') {
+              const rotationPerLayer = 0.15; // Same as used for position
+              const individualAngle = i * rotationPerLayer;
+              individualRotationStyle = ` rotate(${individualAngle}rad)`;
             }
+
+            let pointToCenterRotationStyle = "";
+            if (arrangement === 'orbit' && pointToCenter && (objectType === "line" || objectType === "square" || objectType === "custom")) {
+              const angle = Math.atan2(cy - py, cx - px);
+              pointToCenterRotationStyle = ` rotate(${angle}rad)`;
+            }
+
+            const finalRotationStyle = `${individualRotationStyle}${pointToCenterRotationStyle}`;
 
             const normZ = (zz2 / radius);
             const opacity = 0.25 + ((normZ + 1) / 2) * 0.75;
@@ -218,7 +237,7 @@ export default function GoPivot() {
               key: `${trajIndex}-${i}`,
               left: px,
               top: py,
-              transform: `translate(-50%, -50%) scale(${scale.toFixed(3)})${rotationStyle}`,
+              transform: `translate(-50%, -50%) scale(${scale.toFixed(3)})${finalRotationStyle}`,
               opacity: Math.max(0, Math.min(1, opacity)).toFixed(3),
               type: objectType,
               customShapes: customShapes, // Pass custom shapes to rendered object
@@ -233,7 +252,7 @@ export default function GoPivot() {
 
     frameId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frameId);
-  }, [getPivot, trajectories, customObjects]); // Added customObjects to dependencies
+  }, [getPivot, trajectories, customObjects, arrangement]); // Added customObjects and arrangement to dependencies
 
   const latestObjectsRef = useRef(); // Moved up for clarity, but was already there
 
@@ -322,7 +341,12 @@ export default function GoPivot() {
 
   return (
     <div style={{ width:"100vw", height:"100vh", background:"#202225", color:"#ccc" }}>
-      <div style={{ padding:12, display:"flex", gap:8, flexWrap: "wrap" }}>
+      <div style={{ padding:12, display:"flex", gap:8, flexWrap: "wrap", alignItems: 'center' }}>
+        {/* Arrangement mode switcher */}
+        <button onClick={() => setArrangement(a => a === 'orbit' ? 'stack' : 'orbit')}>
+          {arrangement === 'orbit' ? '레이어 모드로' : '궤도 모드로'}
+        </button>
+
         {/* Trajectory selectors */}
         {trajectories.map((traj, i) => (
           <button key={traj.id} onClick={() => setSelectedIndex(i)} disabled={i === selectedIndex}>
@@ -355,7 +379,7 @@ export default function GoPivot() {
           <span style={{ marginLeft: 16, color: '#aaa' }}>커스텀 오브젝트 없음</span>
         )}
 
-        <button onClick={handleSetPointToCenter} style={{ marginLeft: 16 }}>
+        <button onClick={handleSetPointToCenter} style={{ marginLeft: 16 }} disabled={arrangement === 'stack'}>
           중심점 바라보기: {selectedTrajectory.pointToCenter ? "ON" : "OFF"}
         </button>
         <span style={{ marginLeft:16, color:"#aaa" }}>
@@ -373,16 +397,6 @@ export default function GoPivot() {
         onContextMenu={onContextMenu}
         style={{ position:"relative", width:"100%", height:"calc(100vh - 56px)", overflow:"hidden", cursor: "crosshair" }}
       >
-        {/* 중심점 */}
-        <div
-          ref={pivotRef}
-          style={{
-            position:"absolute", left:"50%", top:"50%",
-            width:8, height:8, transform:"translate(-50%,-50%)",
-            borderRadius:"50%", background:"#9ef",
-            boxShadow:"0 0 10px rgba(150,255,255,0.9)", zIndex:5
-          }}
-        />
         {/* Render objects */}
         {renderedObjects.map(obj => (
           <div
@@ -408,4 +422,3 @@ export default function GoPivot() {
     </div>
   );
 }
-
