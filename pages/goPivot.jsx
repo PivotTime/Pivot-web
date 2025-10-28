@@ -194,7 +194,10 @@ export default function GoPivot() {
               y = 0;
               z = Math.sin(i * slice) * radius;
             } else { // stack mode
-              const layerHeight = 15;
+              const maxLayerHeight = 20;
+              const minLayerHeight = 2;
+              const layerHeight = Math.max(minLayerHeight, maxLayerHeight - (maxLayerHeight - minLayerHeight) * Math.pow(count / MAX, 0.5));
+
               const rotationPerLayer = 0.15;
               const angle = i * rotationPerLayer;
               x = Math.cos(angle) * radius;
