@@ -225,6 +225,10 @@ const allTopic = useMemo(() => {
   const projectNameListRef = useRef(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const target = projectNameListRef.current;
     if (!target) return;
 
