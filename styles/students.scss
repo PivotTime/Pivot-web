@@ -12,47 +12,212 @@
   padding-bottom: clamp(200px, 40vh, 240px);
   display: flex;
   flex-direction: column;
+  gap: clamp(40px, 7.04vh, 76px);
 
   .sortingSection {
+    position: relative;
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .searchBox {
+      width: clamp(200px, 17.7vw, 360px);
+      height: fit-content;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: #ffffff solid 1px;
+      padding-bottom: 15px;
+    }
+
+    .searchInput {
+      position: relative;
+      width: 100%;
+      margin-left: -1px;
+      color: #ffffff;
+      &::placeholder {
+        color: #ffffff;
+        opacity: 0.6; // 브라우저별로 기본 투명도 제어
+                transition: opacity 0.15s ease-in-out;
+      }
+
+      /* ✅ 브라우저 호환성 (특히 Safari) */
+      &::-webkit-input-placeholder {
+        color: #ffffff;
+        opacity: 0.6;
+      }
+      &::-moz-placeholder {
+        color: #ffffff;
+        opacity: 0.6;
+      }
+      &:-ms-input-placeholder {
+        color: #ffffff;
+        opacity: 0.6;
+      }
+      &:-moz-placeholder {
+        color: #ffffff;
+        opacity: 0.6;
+      }
+
+     &:focus,
+    &:focus-visible{
+       outline: none;
+  border: none;
+   &::placeholder {
+        color: #ffffff;
+        opacity: 0; // 브라우저별로 기본 투명도 제어
+        transition: opacity 0.15s ease-in-out;
+      }
+    }
+
+         
+    }
+
+    .sortingBar {
+      display: flex;
+      font-size: clamp(14px, 1.15vw, 22px);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 132%; /* 29.04px */
+      letter-spacing: -0.66px;
+      gap: 22px;
+
+      > button {
+        color: #ffffff;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.2s ease-in-out;
+        &:hover {
+          opacity: 1;
+        }
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
   }
+  @keyframes cardAddRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+  .DecorationPivot{
+    position: absolute;
+  }
+
   .StudentCard {
+    position: relative;
     display: flex;
     flex-direction: column;
     color: white;
-    gap:clamp(1rem, 2.31vh, 1.5625rem);
+    gap: clamp(1rem, 2.31vh, 1.5625rem);
     cursor: pointer;
+    opacity: 0;
+    animation: cardAddRight 0.5s ease-out forwards;
+    animation-delay: var(--animation-delay);
+    z-index: 10;
+    .DecorationPivot{
+      z-index: 1;
+      pointer-events: none;
+          .RectSvg, .LineSvg, .CircleSvg{
+        z-index:1;
+      }
+    }
+    &.empty {
+      position: relative;
+      opacity: 0;
+      cursor: default;
+      z-index: 1;
+
+      >p{
+        opacity: 0;
+      }
+
+    }
 
     .ImgPlaceHolder {
-        overflow: hidden;
-        position: relative;
+      overflow: hidden;
+      position: relative;
+      z-index: 10;
 
       &.Profile {
         width: 100%;
         aspect-ratio: 337/481;
-        
+
         img {
-            transition: transform 0.3s ease-in-out;
+          transition: transform 0.3s ease-in-out;
         }
       }
     }
 
-    .textBox{
-        display: flex;
-        flex-direction: column;
-        gap: clamp(0.625rem, 0.93vh, 0.75rem) ;
-        .name {
-          font-weight: 600;
-          line-height: 132%; /* 34.32px */
-          letter-spacing: -0.78px;
-          font-size: clamp(1rem, 1.35vw, 1.625rem);
-        }
+    .textBox {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.625rem, 0.93vh, 0.75rem);
+      .name {
+        font-weight: 600;
+        line-height: 132%; /* 34.32px */
+        letter-spacing: -0.78px;
+        font-size: clamp(1rem, 1.35vw, 1.625rem);
+      }
     }
 
     &:hover {
-        .ImgPlaceHolder.Profile img {
-            transform: scale(1.1);
-        }
+      .ImgPlaceHolder.Profile img {
+        transform: scale(1.1);
+      }
     }
+  }
+}
+
+
+.LineSvg {
+  animation: spin 25s linear infinite;
+  transform-origin: center center;
+}
+
+.RectSvg {
+  animation:reverseSpin 25s linear infinite;
+  transform-origin: center center;
+}
+
+.CircleSvg {
+  animation: bob 4s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reverseSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes bob {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

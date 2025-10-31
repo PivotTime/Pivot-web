@@ -1,0 +1,138 @@
+
+// ---------------------------------------------------------
+// Viewport baseline: 1920 × 1080
+// font-size responsive clamp variables (vw / vh versions)
+// min ~= 80% of target px (rounded); max = target px
+// ---------------------------------------------------------
+
+$color-blue : #0051FF;
+$color-lightGray:#E1E1E1;
+$color-darkGray:#313131;
+
+// 13px ~ 25px
+$fs-13-vw: clamp(10px, 0.68vw, 13px);
+$fs-14-vw: clamp(11px, 0.73vw, 14px);
+$fs-15-vw: clamp(12px, 0.78vw, 15px);
+$fs-16-vw: clamp(13px, 0.83vw, 16px);
+$fs-17-vw: clamp(14px, 0.89vw, 17px);
+$fs-18-vw: clamp(14px, 0.94vw, 18px);
+$fs-19-vw: clamp(15px, 0.99vw, 19px);
+$fs-20-vw: clamp(16px, 1.04vw, 20px);
+$fs-21-vw: clamp(17px, 1.09vw, 21px);
+$fs-22-vw: clamp(18px, 1.15vw, 22px);
+$fs-23-vw: clamp(18px, 1.20vw, 23px);
+$fs-24-vw: clamp(19px, 1.25vw, 24px);
+$fs-25-vw: clamp(20px, 1.30vw, 25px);
+
+$fs-13-vh: clamp(10px, 1.2vh, 13px);
+$fs-14-vh: clamp(11px, 1.3vh, 14px);
+$fs-15-vh: clamp(12px, 1.39vh, 15px);
+$fs-16-vh: clamp(13px, 1.48vh, 16px);
+$fs-17-vh: clamp(14px, 1.57vh, 17px);
+$fs-18-vh: clamp(14px, 1.67vh, 18px);
+$fs-19-vh: clamp(15px, 1.76vh, 19px);
+$fs-20-vh: clamp(16px, 1.85vh, 20px);
+$fs-21-vh: clamp(17px, 1.94vh, 21px);
+$fs-22-vh: clamp(18px, 2.04vh, 22px);
+$fs-23-vh: clamp(18px, 2.13vh, 23px);
+$fs-24-vh: clamp(19px, 2.22vh, 24px);
+$fs-25-vh: clamp(20px, 2.31vh, 25px);
+
+// 30px ~ 40px
+$fs-30-vw: clamp(24px, 1.56vw, 30px);
+$fs-31-vw: clamp(25px, 1.61vw, 31px);
+$fs-32-vw: clamp(26px, 1.67vw, 32px);
+$fs-33-vw: clamp(26px, 1.72vw, 33px);
+$fs-34-vw: clamp(27px, 1.77vw, 34px);
+$fs-35-vw: clamp(28px, 1.82vw, 35px);
+$fs-36-vw: clamp(29px, 1.88vw, 36px);
+$fs-37-vw: clamp(30px, 1.93vw, 37px);
+$fs-38-vw: clamp(30px, 1.98vw, 38px);
+$fs-39-vw: clamp(31px, 2.03vw, 39px);
+$fs-40-vw: clamp(32px, 2.08vw, 40px);
+
+$fs-150-vw: clamp(120px, 7.81vw, 150px);
+$fs-160-vw: clamp(128px, 8.33vw, 160px);
+$fs-170-vw: clamp(136px, 8.85vw, 170px);
+$fs-180-vw: clamp(144px, 9.38vw, 180px);
+$fs-190-vw: clamp(152px, 9.90vw, 190px);
+$fs-200-vw: clamp(160px, 10.42vw, 200px);
+
+// vh 기반
+$fs-150-vh: clamp(120px, 13.89vh, 150px);
+$fs-160-vh: clamp(128px, 14.81vh, 160px);
+$fs-170-vh: clamp(136px, 15.74vh, 170px);
+$fs-180-vh: clamp(144px, 16.67vh, 180px);
+$fs-190-vh: clamp(152px, 17.59vh, 190px);
+$fs-200-vh: clamp(160px, 18.52vh, 200px);
+
+$fs-30-vh: clamp(24px, 2.78vh, 30px);
+$fs-31-vh: clamp(25px, 2.87vh, 31px);
+$fs-32-vh: clamp(26px, 2.96vh, 32px);
+$fs-33-vh: clamp(26px, 3.06vh, 33px);
+$fs-34-vh: clamp(27px, 3.15vh, 34px);
+$fs-35-vh: clamp(28px, 3.24vh, 35px);
+$fs-36-vh: clamp(29px, 3.33vh, 36px);
+$fs-37-vh: clamp(30px, 3.43vh, 37px);
+$fs-38-vh: clamp(30px, 3.52vh, 38px);
+$fs-39-vh: clamp(31px, 3.61vh, 39px);
+$fs-40-vh: clamp(32px, 3.70vh, 40px);
+
+// ---------------------------------------------------------
+// Quick helpers (선택사항): VW / VH 버전 쉽게 쓰는 mixin
+// ---------------------------------------------------------
+@mixin fs-vw($px) {
+  font-size: var(--tmp); // fallback 제거용 더미
+  @if $px == 13 { font-size: $fs-13-vw; }
+  @else if $px == 14 { font-size: $fs-14-vw; }
+  @else if $px == 15 { font-size: $fs-15-vw; }
+  @else if $px == 16 { font-size: $fs-16-vw; }
+  @else if $px == 17 { font-size: $fs-17-vw; }
+  @else if $px == 18 { font-size: $fs-18-vw; }
+  @else if $px == 19 { font-size: $fs-19-vw; }
+  @else if $px == 20 { font-size: $fs-20-vw; }
+  @else if $px == 21 { font-size: $fs-21-vw; }
+  @else if $px == 22 { font-size: $fs-22-vw; }
+  @else if $px == 23 { font-size: $fs-23-vw; }
+  @else if $px == 24 { font-size: $fs-24-vw; }
+  @else if $px == 25 { font-size: $fs-25-vw; }
+  @else if $px == 30 { font-size: $fs-30-vw; }
+  @else if $px == 31 { font-size: $fs-31-vw; }
+  @else if $px == 32 { font-size: $fs-32-vw; }
+  @else if $px == 33 { font-size: $fs-33-vw; }
+  @else if $px == 34 { font-size: $fs-34-vw; }
+  @else if $px == 35 { font-size: $fs-35-vw; }
+  @else if $px == 36 { font-size: $fs-36-vw; }
+  @else if $px == 37 { font-size: $fs-37-vw; }
+  @else if $px == 38 { font-size: $fs-38-vw; }
+  @else if $px == 39 { font-size: $fs-39-vw; }
+  @else if $px == 40 { font-size: $fs-40-vw; }
+}
+
+@mixin fs-vh($px) {
+  font-size: var(--tmp);
+  @if $px == 13 { font-size: $fs-13-vh; }
+  @else if $px == 14 { font-size: $fs-14-vh; }
+  @else if $px == 15 { font-size: $fs-15-vh; }
+  @else if $px == 16 { font-size: $fs-16-vh; }
+  @else if $px == 17 { font-size: $fs-17-vh; }
+  @else if $px == 18 { font-size: $fs-18-vh; }
+  @else if $px == 19 { font-size: $fs-19-vh; }
+  @else if $px == 20 { font-size: $fs-20-vh; }
+  @else if $px == 21 { font-size: $fs-21-vh; }
+  @else if $px == 22 { font-size: $fs-22-vh; }
+  @else if $px == 23 { font-size: $fs-23-vh; }
+  @else if $px == 24 { font-size: $fs-24-vh; }
+  @else if $px == 25 { font-size: $fs-25-vh; }
+  @else if $px == 30 { font-size: $fs-30-vh; }
+  @else if $px == 31 { font-size: $fs-31-vh; }
+  @else if $px == 32 { font-size: $fs-32-vh; }
+  @else if $px == 33 { font-size: $fs-33-vh; }
+  @else if $px == 34 { font-size: $fs-34-vh; }
+  @else if $px == 35 { font-size: $fs-35-vh; }
+  @else if $px == 36 { font-size: $fs-36-vh; }
+  @else if $px == 37 { font-size: $fs-37-vh; }
+  @else if $px == 38 { font-size: $fs-38-vh; }
+  @else if $px == 39 { font-size: $fs-39-vh; }
+  @else if $px == 40 { font-size: $fs-40-vh; }
+}

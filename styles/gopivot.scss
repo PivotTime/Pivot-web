@@ -1,25 +1,371 @@
-.pivotPoint {
+@use "./variable";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.objectControl {
+  top:0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  &.off{
+    pointer-events: none;
+  }
+}
+
+.ControlBox {
   position: relative;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transform-style: preserve-3d;
-  animation: rotate 4s linear infinite;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  min-width: 132px;
+  gap: 12px;
+  .name {
+    font-size: variable.$fs-19-vw;
+    opacity: 0.6;
+    font-weight: 400;
+    letter-spacing: -0.38px;
+  }
+  .middleLine {
+    height: 1px;
+    width: 100%;
+    background-color: #ffffff;
+    opacity: 0.6;
+  }
+  .objectSelectList {
+    display: flex;
+    gap: 16px;
+
+    > div {
+      cursor: pointer;
+    }
+  }
+
+  .Property {
+    font-size: variable.$fs-40-vw;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: -0.8px;
+  }
 }
 
-@keyframes rotate {
-  from {
-    transform: translate(-50%, -50%) rotateY(0deg);
+.introBg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  min-height: 900px;
+  min-width: 1500px;
+
+  .goPivotHero {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    height: 60%;
+    min-height: 500px;
+
+    .titleBox {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(30px, 3.7vh, 40px);
+      align-items: center;
+      > p {
+        @include variable.fs-vw(20);
+        color: white;
+        letter-spacing: -0.6px;
+      }
+    }
   }
-  to {
-    transform: translate(-50%, -50%) rotateY(360deg);
+  
+}
+.makePivot {
+  display: flex;
+  height:100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  padding: 68px 0px;
+  padding-top: 56px;
+
+}
+.startBtn {
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    color: black;
+    background-color: white;
+    margin-top: variable.$fs-200-vh;
+    padding: 8px 85px;
+
+    padding-top: 9px;
+    border-radius: 100;
+    @include variable.fs-vw(20);
+
+    cursor: pointer;
+    z-index: 100;
+  }
+
+.topBar {
+  position: relative;
+      z-index: 100;
+  width: 93.85vw;
+  display: flex;
+  justify-content: space-between;
+
+  .max-3 {
+    font-size: variable.$fs-17-vw;
+    opacity: 0.6;
+  }
+  .backBtn {
+    display: flex;
+    align-items: center;
+    gap: variable.$fs-17-vw;
+
+    cursor: pointer;
+  }
+
+  .addPivotSlots {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    justify-content: end;
+    gap: variable.$fs-17-vh;
+    margin-top: 20px;
+
+    height: clamp(50px, 6.76vh, 73px);
+    .addListPlaceHolder {
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      height: clamp(28px, 3.24vh, 35px);
+    }
+    .topRight {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .PivotLength {
+      display: flex;
+      width: fit-content;
+      .LengthCard {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        height: clamp(28px, 3.24vh, 35px);
+        padding: 5px 25px;
+
+        box-shadow: inset 0 0 0 1px #ffffff;
+
+        &.selected {
+          background-color: #ffffff;
+          color: black;
+        }
+
+        .text {
+          margin: 0 0;
+        }
+      }
+    }
+    .BtnList {
+      display: flex;
+      aspect-ratio: 2/1;
+      height: 100%;
+      .Btn {
+        position: relative;
+        aspect-ratio: 1/1;
+        height: 100%;
+        cursor: pointer;
+        box-shadow: inset 0 0 0 1px #ffffff;
+        .line {
+          background-color: white;
+          position: absolute;
+
+          &.A {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 1.5px;
+          }
+
+          &.B {
+            width: 1.5px;
+            height: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
   }
 }
 
-.object{
-    position: absolute;
+.PivotInfoPlaceHolder {
+  position: relative;
+  display: flex;
+  // flex-direction: column;
+  justify-content: space-between;
+  width: 93.85vw;
+  height: 80vh;
+
+  .leftLine {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    
+    .leftBottom{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(50px, 6.48vh, 70px);
+      z-index: 100;
+    }
+
+    .NameInput {
+      position: relative;
+              z-index: 100;
+      display: flex;
+      align-items: end;
+      .Input {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        font-size: clamp(32px, 2.5vw, 48px);
+        font-weight: 400;
+        border-bottom: #ffffff solid 1px;
+        color: #ffffff;
+        width: fit-content;
+        max-width: 250px;
+
+        line-height: 160%; /* 77.44px */
+        letter-spacing: -0.968px;
+        &::placeholder {
+          color: white;
+          opacity: 0.2; // 브라우저별로 기본 투명도 제어
+          transition: opacity 0.15s ease-in-out;
+        }
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          border: none;
+          border-bottom: variable.$color-blue solid 1px;
+        }
+      }
+
+      .whoIsMaker {
+        margin-bottom: -5px;
+        font-size: variable.$fs-25-vw;
+        opacity: 0.6;
+      }
+    }
+
+    .ControlBoxList {
+      display: flex;
+      gap: 14px;
+    }
+  }
+
+  .rightLine {
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: clamp(50px, 6.48vh, 70px);
+    .startBtn{
+      margin-top:clamp(90px, 11.11vh, 120px) ;
+      width:100%;
+    }
+    .mouseBox {
+      position: relative;
+              z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+      background-color: variable.$color-darkGray;
+      border-radius: 14px;
+      .mouseInteraction {
+        position: relative;
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        gap: 10px;
+        width: fit-content;
+        min-width: 190px;
+        padding: 0  20px;
+        .text {
+          font-size: variable.$fs-16-vw;
+          font-weight: 500;
+          letter-spacing: -0.48px;
+          justify-self: end;
+          > span {
+            padding: 6px 12px;
+            margin-right: 10px;
+            border: #ffffff solid 1px;
+            border-radius: 100;
+          }
+        }
+      }
+      .middleLine {
+        width: 100%;
+        height: 1px;
+
+        background-color: #ffffff;
+      }
+    }
+    .Button.active {
+      svg {
+        circle, rect {
+          fill: white;
+          stroke: black;
+        }
+        /* If there's a specific inner circle that should always be white, ensure it's not overridden */
+        circle[fill="white"] {
+          fill: white;
+        }
+      }
+    }
+  }
+}
+    
+    .rightBotBox{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      z-index: 100;
+      .Button{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        gap: 18px;
+      }
+    }
+  
+
+
+.doneBg{
+  width: 100vw;
+  height:100vh;
+
+  .done{
+    left: 50%;
+    transform: translateX(-40%);
+  }
 }

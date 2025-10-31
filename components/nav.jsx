@@ -262,6 +262,8 @@ export default function Nav() {
                 .join(" ");
               return (
                 <Fragment key={tab.id}>
+                  
+                  <Link key={index} href="/goPivot">
                   <button
                     type="button"
                     role="tab"
@@ -277,8 +279,11 @@ export default function Nav() {
                     onFocus={() => setHoveredTab(tab.id)}
                     onBlur={() => setHoveredTab(null)}
                   >
+                    
                     {tab.label}
+
                   </button>
+                  </Link>
                   {index < TAB_ITEMS.length - 1 && (
                     <span className="line" aria-hidden="true">
                       <svg

@@ -83,6 +83,8 @@ export function StudentDetail({ student, onClick }) {
               />
             </div>
           </div>
+
+          {/* 여기 팀별 오브젝트 들어갈 것*/}
         </div>
       </div>
     </div>
