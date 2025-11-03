@@ -1,7 +1,38 @@
 import Image from "next/image";
 import '../styles/stDetail.scss';
+import { DeveloperPivot, DesignerPivot, PlannerPivot } from "./keyObject";
+import { getProjectIdByName } from "../lib/util/getProjectId";
 
 export function StudentDetail({ student, onClick }) {
+
+
+
+  const roleText = (r) => {
+    switch(r){
+      case "Designer" :
+        return "디자이너";
+         case "Planner" :
+        return "기획자";
+         case "Developer" :
+        return "개발자";
+    }
+  }
+
+  
+  const rolePivot = (r) => {
+    switch(r){
+      case "Designer" :
+        return (
+
+          <DesignerPivot/>
+        );
+         case "Planner" :
+        return (< PlannerPivot/>);
+         case "Developer" :
+        return (<DeveloperPivot/>);
+    }
+  }
+
   const linkType = (link) => {
     switch (link) {
       case link && link.includes("behance"):
@@ -11,21 +42,27 @@ export function StudentDetail({ student, onClick }) {
         return "Website";
     }
   };
+  console.log(student.name)
 
   return (
     <div className="StudentDetail">
       <div className="profileImagePlaceholder">
         <Image
           alt={`${student.name} profile photo`}
-          //   src={`/images/profile/${Id}.png`}
-          src={`/images/profile/kimyoungeun.png`}
-          fill
-          sizes="auto"
-          style={{ objectFit: "cover" }}
+            src={`/images/profile/${student.Id}.png`}
+          // src={`/images/profile/kimyoungeun.png`}
+          unoptimized                   // ← 원본 그대로 전달(재인코딩/리사이즈 X)
+  width={1000}                  // 원본 픽셀 크기 기입
+  height={2000}
+  style={{ maxWidth: "100%", height: "auto" }} // 업스케일 방지
+  priority
+    placeholder="blur"
+        blurDataURL = {`/images/profile/${student.Id}.png`}
         />
       </div>
       <div className="rightSec">
         <svg
+        className="exitBtn"
           width="29"
           height="29"
           viewBox="0 0 29 29"
@@ -37,19 +74,28 @@ export function StudentDetail({ student, onClick }) {
           <path d="M0.353516 0.353516L28.3535 28.3535" stroke="white" />
           <path d="M28.3535 0.353516L0.353513 28.3535" stroke="white" />
         </svg>
-        <div className="infoList">
-          <div className="infoBox project">{student.project}</div>
-          <div className="infoBox role">{student.role}</div>
-        </div>
-        <p>
-          {student.name} <span>{student.enName}</span>
+        <div className="firstLine">
+        <p className="studentName">
+          {student.name} <span>{student.enname}</span>
+          
         </p>
+        <div className="commentBox">
+        {student.comment} {roleText(student.role)} {student.name}입니다.
+
+              <div className="lengthLine left"> <div className="line"></div></div>
+      <div className="lengthLine right"> <div className="line"></div></div>
+      <div className="TransverseLine top"> <div className="line"></div></div>
+      <div className="TransverseLine bottom"><div className="line"></div></div>
+        </div>
+        </div>
 
         <div className="overviewList">
           <div className="overviewBox">
             <p className="contentsName">Portfolio</p>
             <div className="portfolio">
-              {linkType(student.PortfolioSrc)}
+
+              <a href={student.portfolioSrc} target="_blank" rel="noopener noreferrer">
+              <p>{linkType(student.portfolioSrc) }</p>
               <span>
                 <svg
                   width="7"
@@ -65,6 +111,7 @@ export function StudentDetail({ student, onClick }) {
                   />
                 </svg>
               </span>
+              </a>
             </div>
           </div>
           <div className="overviewBox">
@@ -76,15 +123,23 @@ export function StudentDetail({ student, onClick }) {
             <div className="ImagePlaceHolder projectPoster">
               <Image
                 alt={`${student.project} Poster image`}
-                src={`/images/project/${student.project}.png`}
-                fill
-                size="auto"
+                src={`/images/project/wide/${getProjectIdByName(student.project)}.png`}
+               fill
+               sizes={1000}
                 style={{ objectFit: "cover" }}
               />
+              <div className="gradientCover">
+                <p className="projectName">{student.project}</p>
+
+              </div>
+              
             </div>
           </div>
+          <div className="roleSvg">
+                     {rolePivot(student.role)}
 
-          {/* 여기 팀별 오브젝트 들어갈 것*/}
+          </div>
+
         </div>
       </div>
     </div>

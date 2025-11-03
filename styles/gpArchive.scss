@@ -1,0 +1,108 @@
+.archive-page {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+
+  color: #ccc;
+  
+  font-family: "Pretendard", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: #fff;
+    font-size: 32px;
+    letter-spacing: -0.5px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    color: #aaa;
+    margin-bottom: 40px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  a.link {
+    color: #9ef;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 60px;
+    transition: opacity 0.2s ease;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .archive-gallery-container {
+    display: flex;
+    flex-direction: column; // Arrange rows vertically
+    gap: 20px; // Gap between the two rows
+    width: 100%;
+    height: calc(2 * (33.33vh - 14px) + 20px); // Total height for two rows + gap
+    overflow: hidden; // Hide overflow from container, rows will scroll
+
+    .archive-gallery-row {
+      display: flex;
+      flex-direction: row; // Arrange items horizontally
+      overflow-x: auto; // Enable horizontal scrolling for each row
+      overflow-y: hidden; // Hide vertical overflow within the row
+      padding-bottom: 20px; // For scrollbar
+      gap: 50px; // Gap between cards in a row
+      flex-shrink: 0; // Prevent rows from shrinking
+      height: calc(33.33vh - 14px); // Height for a single row
+      align-items: flex-start; // Align cards to the start of the row
+    }
+  }
+
+  .archive-card {
+    position: relative; // Added for overlay positioning
+    width: calc(33.33vh - 14px); // Three columns with adjusted gap
+    height: calc(33.33vh - 14px); // Explicitly set height
+    flex-shrink: 0; // Added to prevent shrinking
+    aspect-ratio: 1/1; // Maintain aspect ratio for animation
+    // background: #000;
+    border-radius: 2px;
+   // overflow: hidden; // Removed to allow objects outside card boundaries
+    
+    .info-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7); // Semi-transparent overlay
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      transition: opacity 0.3s ease;
+      pointer-events: none; // Allow mouse events to pass through when not hovered
+      
+      .card-title {
+        color: #fff;
+        font-size: 1.2em;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      .card-tag {
+        color: #9ef;
+        font-size: 0.9em;
+        margin-bottom: 5px;
+      }
+
+      .card-date {
+        color: #aaa;
+        font-size: 0.8em;
+      }
+    }
+  }
+}

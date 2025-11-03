@@ -1,0 +1,1200 @@
+{
+    "students": [
+        {
+            "Id": "Choiyejun",
+            "name": "최예준",
+            "role": "Designer",
+            "comment": "유일한 궤적을 그려나가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/addchoi",
+            "project": "PIVOT TIME"
+        },
+        {
+            "Id": "Kimyoungeun",
+            "name": "김영은",
+            "role": "Planner",
+            "comment": "오늘의 열정으로 내일의 궤적을 그리는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "PIVOT TIME"
+        },
+        {
+            "Id": "Jeongsehyun",
+            "name": "정세현",
+            "role": "Designer",
+            "comment": "흐름 속에 중심을 세우는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "PIVOT TIME"
+        },
+        {
+            "Id": "Kimgayoung",
+            "name": "김가영",
+            "role": "Developer",
+            "comment": "변화를 기다리지 않고, 스스로 전환을 만들어가는",
+            "portfolioSrc": "https://rkyxung.github.io/react-portfolio/",
+            "project": "PIVOT TIME"
+        },
+        {
+            "Id": "Jeongyeonsu",
+            "name": "정연수",
+            "role": "Developer",
+            "comment": "부드러운 궤적 위에서, 자연스러운 전환을 만드는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "PIVOT TIME"
+        },
+        {
+            "Id": "Honghyunsu",
+            "name": "홍현수",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "PIVOT TIME"
+        },
+        {
+            "Id": "Chohyejin",
+            "name": "조혜진",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "MEMO:Re"
+        },
+        {
+            "Id": "Jeonkwonhee",
+            "name": "전권희",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "MEMO:Re"
+        },
+        {
+            "Id": "Limeojin",
+            "name": "임어진",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "MEMO:Re"
+        },
+        {
+            "Id": "Hwangtaehtun",
+            "name": "황태현",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "MEMO:Re"
+        },
+        {
+            "Id": "Hongeunjae",
+            "name": "홍은재",
+            "role": "Designer",
+            "comment": "변화의 축 위에서 새로운 흐름을 설계하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "MEMO:Re"
+        },
+        {
+            "Id": "Yanghyeonjeong",
+            "name": "양현정",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "MEMO:Re"
+        },
+        {
+            "Id": "Kangminji",
+            "name": "강민지",
+            "role": "Designer",
+            "comment": "사람의 마음을 잇는 중심의 축",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "빛결"
+        },
+        {
+            "Id": "Parkyeojin",
+            "name": "박여진",
+            "role": "Designer",
+            "comment": "다채로운 시선으로 궤적을 그려가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/24c9c9af",
+            "project": "빛결"
+        },
+        {
+            "Id": "Simeunbi",
+            "name": "심은비",
+            "role": "Designer",
+            "comment": "회전 속에서도 중심을 잃지 않는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/ximxunxi",
+            "project": "빛결"
+        },
+        {
+            "Id": "Hwangseonha",
+            "name": "황선하",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "빛결"
+        },
+        {
+            "Id": "Chayerin",
+            "name": "차예린",
+            "role": "Planner",
+            "comment": "아이디어의 중심에서 회전을 그리는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "빛결"
+        },
+        {
+            "Id": "Kimyein",
+            "name": "김예인",
+            "role": "Designer",
+            "comment": "변화의 순간마다 새로운 궤적을 그려가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "빛결"
+        },
+        {
+            "Id": "Leeyeonseo",
+            "name": "이연서",
+            "role": "Planner",
+            "comment": "흐름의 중심에서 변화를 그려가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "한올"
+        },
+        {
+            "Id": "Parkminji",
+            "name": "박민지",
+            "role": "Planner",
+            "comment": "변화 속에서도 중심을 지키며, 새 궤적을 그리는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "한올"
+        },
+        {
+            "Id": "Parksihyeon",
+            "name": "박시현",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "한올"
+        },
+        {
+            "Id": "Kimminju",
+            "name": "김민주",
+            "role": "Designer",
+            "comment": "흔들림 없는 중심, 끊임없는 전환을 시도하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "한올"
+        },
+        {
+            "Id": "KimminseoA",
+            "name": "김민서",
+            "role": "Designer",
+            "comment": "아이디어의 궤적을 그리고 경험의 깊이를 더하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/29cf22f9",
+            "project": "한올"
+        },
+        {
+            "Id": "Joheewon",
+            "name": "조희원",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "O.K"
+        },
+        {
+            "Id": "Gilljeongjun",
+            "name": "길정준",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "O.K"
+        },
+        {
+            "Id": "Annahee",
+            "name": "안나희",
+            "role": "Designer",
+            "comment": "사용자의 중심에서 시각적 경험을 설계하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "O.K"
+        },
+        {
+            "Id": "Limwooseok",
+            "name": "임우석",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "O.K"
+        },
+        {
+            "Id": "Parkmingyu",
+            "name": "박민규",
+            "role": "Developer",
+            "comment": "중심을 지키며 전환을 이끄는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://github.com/mnmnlilimnmnlil",
+            "project": "O.K"
+        },
+        {
+            "Id": "Jeonghyejin",
+            "name": "정혜진",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "O.K"
+        },
+        {
+            "Id": "Leejeongwon",
+            "name": "이정원",
+            "role": "Designer",
+            "comment": "경험을 새롭게 전환하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Pinimo"
+        },
+        {
+            "Id": "Jojaeyoon",
+            "name": "조재윤",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Pinimo"
+        },
+        {
+            "Id": "Kangsarang",
+            "name": "강사랑",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Pinimo"
+        },
+        {
+            "Id": "Leeyujin",
+            "name": "이유진",
+            "role": "Designer",
+            "comment": "디자인 트렌드의 중심 축",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/2ceb5739",
+            "project": "Pinimo"
+        },
+        {
+            "Id": "Moonkyungjae",
+            "name": "문경재",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Pinimo"
+        },
+        {
+            "Id": "Janghyunseo",
+            "name": "장현서",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Pinimo"
+        },
+        {
+            "Id": "LeeWonYoung",
+            "name": "이원영",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "피하몽"
+        },
+        {
+            "Id": "Kimsolhwi",
+            "name": "김솔휘",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "피하몽"
+        },
+        {
+            "Id": "Kimyoungchan",
+            "name": "김영찬",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "피하몽"
+        },
+        {
+            "Id": "Kangjaeyeon",
+            "name": "강재연",
+            "role": "Designer",
+            "comment": "수많은 궤적을 쌓아 하나의 우주를 만들어 나가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/a9623903/projects",
+            "project": "피하몽"
+        },
+        {
+            "Id": "Kwondannwoo",
+            "name": "권단우",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "피하몽"
+        },
+        {
+            "Id": "Kimjeonga",
+            "name": "김정아",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "피하몽"
+        },
+        {
+            "Id": "Baekdana",
+            "name": "백다나",
+            "role": "Planner",
+            "comment": "깊이 파고들어 나만의 궤적을 그려가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Cops"
+        },
+        {
+            "Id": "Hayeonseo",
+            "name": "하연서",
+            "role": "Designer",
+            "comment": "시선의 전환으로 새로운 가치를 만드는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Cops"
+        },
+        {
+            "Id": "Kimsuyeon",
+            "name": "김수연",
+            "role": "Developer",
+            "comment": "기술의 축을 세우고 변화를 전환시키는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Cops"
+        },
+        {
+            "Id": "Goodahye",
+            "name": "구다혜",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Cops"
+        },
+        {
+            "Id": "Goeunah",
+            "name": "고은아",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Cops"
+        },
+        {
+            "Id": "Ansoyoon",
+            "name": "안소윤",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Cops"
+        },
+        {
+            "Id": "Choihyunyoung",
+            "name": "최현영",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Qpid"
+        },
+        {
+            "Id": "KimminseoB",
+            "name": "김민서",
+            "role": "Designer",
+            "comment": "멈추지 않고 열정의 상승 궤적을 그려나가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/047109b9",
+            "project": "Qpid"
+        },
+        {
+            "Id": "Nodohee",
+            "name": "노도희",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Qpid"
+        },
+        {
+            "Id": "Baekyuri",
+            "name": "백유리",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Qpid"
+        },
+        {
+            "Id": "Chominseo",
+            "name": "조민서",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Qpid"
+        },
+        {
+            "Id": "Hongjeongmin",
+            "name": "홍정민",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Qpid"
+        },
+        {
+            "Id": "Leesia",
+            "name": "이시아",
+            "role": "Planner",
+            "comment": "축이 되는 기획으로, 전환을 이끄는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "아트랑"
+        },
+        {
+            "Id": "Jigangju",
+            "name": "지강주",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "아트랑"
+        },
+        {
+            "Id": "Leegayoung",
+            "name": "이가영",
+            "role": "Designer",
+            "comment": "즐거움을 바탕으로 다채로운 궤적을 찾아나가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "아트랑"
+        },
+        {
+            "Id": "Janghyeyeon",
+            "name": "장혜연",
+            "role": "Planner",
+            "comment": "막다른 길에서도, 전환점을 찾아내는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://hyeyeon-portfolio.vercel.app/",
+            "project": "아트랑"
+        },
+        {
+            "Id": "Hansubin",
+            "name": "한수빈",
+            "role": "Designer",
+            "comment": "끊없이 전환하며 나만의 궤적을 그려나가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/suuub__in",
+            "project": "아트랑"
+        },
+        {
+            "Id": "Leejei",
+            "name": "이제이",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "아트랑"
+        },
+        {
+            "Id": "Baekseoyoon",
+            "name": "백서윤",
+            "role": "Planner",
+            "comment": "사용자 중심의 아이디어 회전 속에서 길을 찾는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Boutine"
+        },
+        {
+            "Id": "Kimbomin",
+            "name": "김보민",
+            "role": "Designer",
+            "comment": "열정으로 나만의 궤적을 만들어가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Boutine"
+        },
+        {
+            "Id": "Leenakyoung",
+            "name": "이나경",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Boutine"
+        },
+        {
+            "Id": "Parksohyeon",
+            "name": "박소현",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Boutine"
+        },
+        {
+            "Id": "Moonminkyung",
+            "name": "문민경",
+            "role": "Designer",
+            "comment": "끊임없는 회전을 통해 사람과 감각을 잇는",
+            "portfolioSrc": "https://www.behance.net/bbce7083",
+            "project": "Boutine"
+        },
+        {
+            "Id": "Parkjihye",
+            "name": "박지혜",
+            "role": "Developer",
+            "comment": "웹의 중심축에서 회전하며 전환을 이끄는 인터랙티브",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Boutine"
+        },
+        {
+            "Id": "Kimeunbi",
+            "name": "김은비",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "J와P"
+        },
+        {
+            "Id": "Minkyunghwa",
+            "name": "민경화",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "J와P"
+        },
+        {
+            "Id": "Joeunchae",
+            "name": "조은채",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "J와P"
+        },
+        {
+            "Id": "Jeongsoeun",
+            "name": "정소은",
+            "role": "Designer",
+            "comment": "회전과 전환 사이에서 새로운 질서를 시각화하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "J와P"
+        },
+        {
+            "Id": "KimminseoC",
+            "name": "김민서",
+            "role": "Planner",
+            "comment": "축 처진 어깨도 열정으로 일으키는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "J와P"
+        },
+        {
+            "Id": "Leetaehyung",
+            "name": "이태형",
+            "role": "Developer",
+            "comment": "기술과 예술의 궤적을 엮어 정교한 경험을 구현하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "NOL:EUM"
+        },
+        {
+            "Id": "Leenarin",
+            "name": "이나린",
+            "role": "Designer",
+            "comment": "자유롭게 흐르고, 전환의 순간에도 균형을 잡는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "NOL:EUM"
+        },
+        {
+            "Id": "Hongheekwon",
+            "name": "홍희권",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "NOL:EUM"
+        },
+        {
+            "Id": "Yangchaeyoon",
+            "name": "양채윤",
+            "role": "Developer",
+            "comment": "변화를 읽되 중심을 지키는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/yam1031",
+            "project": "NOL:EUM"
+        },
+        {
+            "Id": "Kwonhyukmin",
+            "name": "권혁민",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "NOL:EUM"
+        },
+        {
+            "Id": "Yoonseohyun",
+            "name": "윤서현",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "NOL:EUM"
+        },
+        {
+            "Id": "Choijiye",
+            "name": "최지예",
+            "role": "Planner",
+            "comment": "빠르게 회전하며 변화하는 콘텐츠들 속 중심을 잡는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "NOL:EUM"
+        },
+        {
+            "Id": "Kimkyungrin",
+            "name": "김경린",
+            "role": "Planner",
+            "comment": "콘텐츠의 우주를 거침없는 궤적으로 항해하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "BEYOND THE ABYSS"
+        },
+        {
+            "Id": "Kimdongjoon",
+            "name": "김동준",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "BEYOND THE ABYSS"
+        },
+        {
+            "Id": "Jeonghyunbin",
+            "name": "정현빈",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "BEYOND THE ABYSS"
+        },
+        {
+            "Id": "Moonjeongil",
+            "name": "문정일",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "BEYOND THE ABYSS"
+        },
+        {
+            "Id": "Choiminseok",
+            "name": "최민석",
+            "role": "Designer",
+            "comment": "시대의 중심에서 흐름을 디자인하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "BEYOND THE ABYSS"
+        },
+        {
+            "Id": "Leeminseok",
+            "name": "이민석",
+            "role": "Developer",
+            "comment": "전환은 빠른데 궤적은 수상한",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://minguri22261078.github.io/min-portfolio/",
+            "project": "BEYOND THE ABYSS"
+        },
+        {
+            "Id": "Kimyeji",
+            "name": "김예지",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "BEYOND THE ABYSS"
+        },
+        {
+            "Id": "Yooyeeun",
+            "name": "유예은",
+            "role": "Planner",
+            "comment": "아이디어의 중심축에서 방향을 설계하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Melt0℃"
+        },
+        {
+            "Id": "Limseohyun",
+            "name": "임서현",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Melt0℃"
+        },
+        {
+            "Id": "Kimminji",
+            "name": "김민지",
+            "role": "Designer",
+            "comment": "전환의 순간마다 또 다른 궤적을 그려내는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Melt0℃"
+        },
+        {
+            "Id": "Jangjuwon",
+            "name": "장주원",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Melt0℃"
+        },
+        {
+            "Id": "Kimsieun",
+            "name": "김시은",
+            "role": "Developer",
+            "comment": "아이디어의 궤적을 따라 최상의 경험을 구현하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://sieun533.github.io/react-portfolio/",
+            "project": "Melt0℃"
+        },
+        {
+            "Id": "Yeonsuhyun",
+            "name": "연수현",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Melt0℃"
+        },
+        {
+            "Id": "Jeongsieun",
+            "name": "정시은",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Log!n"
+        },
+        {
+            "Id": "Jangyeryeong",
+            "name": "장예령",
+            "role": "Designer",
+            "comment": "스스로 빛나는 궤적을 만들어가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Log!n"
+        },
+        {
+            "Id": "Kimgyubin",
+            "name": "김규빈",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Log!n"
+        },
+        {
+            "Id": "Kimseohyun",
+            "name": "김서현",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Log!n"
+        },
+        {
+            "Id": "Hwangyujin",
+            "name": "황유진",
+            "role": "Developer",
+            "comment": "열정으로 붙잡고, 생각을 전환하며 완성하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Log!n"
+        },
+        {
+            "Id": "Kimmoonjeong",
+            "name": "김문정",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "Log!n"
+        },
+        {
+            "Id": "Parkjyeonhyun",
+            "name": "박정연",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "피하몽"
+        },
+        {
+            "Id": "Parkdabin",
+            "name": "박다빈",
+            "role": "Planner",
+            "comment": "작은 회전으로 큰 궤적을 만드는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://planner-dabinpark.notion.site",
+            "project": "project H."
+        },
+        {
+            "Id": "Nokwonhoo",
+            "name": "노권후",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "project H."
+        },
+        {
+            "Id": "Simjeongbin",
+            "name": "심정빈",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "project H."
+        },
+        {
+            "Id": "Oheongeun",
+            "name": "오정은",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "project H."
+        },
+        {
+            "Id": "Kimjihyeon",
+            "name": "김지현",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "project H."
+        },
+        {
+            "Id": "Baejunil",
+            "name": "배준일",
+            "role": "Developer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "project H."
+        },
+        {
+            "Id": "Chuoohyun",
+            "name": "추주현",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "GYEOB"
+        },
+        {
+            "Id": "Seoyeon",
+            "name": "서연",
+            "role": "Designer",
+            "comment": "궤적 위에 열정을 새기는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "GYEOB"
+        },
+        {
+            "Id": "Ohjihyeon",
+            "name": "오지현",
+            "role": "Designer",
+            "comment": "흐름에 질문을 던지고, 중심을 세우는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/1b92e2fa/projects",
+            "project": "GYEOB"
+        },
+        {
+            "Id": "Leegahyun",
+            "name": "이가연",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "GYEOB"
+        },
+        {
+            "Id": "Namseoyeon",
+            "name": "남서연",
+            "role": "Designer",
+            "comment": "궤적을 설계하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "GYEOB"
+        },
+        {
+            "Id": "Parkrin",
+            "name": "박린",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "GYEOB"
+        },
+        {
+            "Id": "Kimjian",
+            "name": "김지안",
+            "role": "Designer",
+            "comment": "궤적 위 자신만의 결을 새기는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/jakim9158",
+            "project": "돈쭐"
+        },
+        {
+            "Id": "Yoonnayoon",
+            "name": "윤나윤",
+            "role": "Designer",
+            "comment": "나만의 궤적을 따라 방향을 찾아가는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/eead21e9",
+            "project": "돈쭐"
+        },
+        {
+            "Id": "Leeyoosin",
+            "name": "이유신",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "돈쭐"
+        },
+        {
+            "Id": "Leeboram",
+            "name": "이보람",
+            "role": "Designer",
+            "comment": "남과 다른 궤적으로 디자인의 경계를 확장하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "https://www.behance.net/boramlogin",
+            "project": "돈쭐"
+        },
+        {
+            "Id": "Kimhyunchae",
+            "name": "김현채",
+            "role": "Designer",
+            "comment": "머리속에서 일어나는 모든 창의성을 세상으로 전환하는",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "돈쭐"
+        },
+        {
+            "Id": "Jeonggayoung",
+            "name": "정가영",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "돈쭐"
+        },
+        {
+            "Id": "Jeongyoochan",
+            "name": "정유찬",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "EvidenceClicker"
+        },
+        {
+            "Id": "Yooyongseok",
+            "name": "유용석",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "EvidenceClicker"
+        },
+        {
+            "Id": "Leejoohwan",
+            "name": "이주환",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "EvidenceClicker"
+        },
+        {
+            "Id": "Leejiyoon",
+            "name": "이지윤",
+            "role": "Designer",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "EvidenceClicker"
+        },
+        {
+            "Id": "Gaminjin",
+            "name": "가민진",
+            "role": "Planner",
+            "comment": "",
+            "eMail": "exgample@kawon.ac.kr",
+            "enname": "example",
+            "portfolioSrc": "",
+            "project": "EvidenceClicker"
+        }
+    ]
+}

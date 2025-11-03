@@ -7,18 +7,31 @@ export default async function handler(req, res) {
       console.log('[comment][GET] start');
       const snap = await db.collection('comments').orderBy('createdAt', 'desc').get();
       const items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+      // 4개의 열로 나누기
+      const columns = [[], [], [], []];
+      items.forEach(item => {
+        // 가장 짧은 열을 찾아서 아이템 추가
+        const shortestColumn = columns.reduce((shortest, current) => 
+          current.length < shortest.length ? current : shortest, 
+          columns[0]
+        );
+        shortestColumn.push(item);
+      });
+
       console.log('[comment][GET] ok, count=', items.length);
-      return res.status(200).json(items); // ← 항상 JSON
+      return res.status(200).json(columns); // ← 4개 열이 담긴 2D 배열
     }
 
     if (req.method === 'POST') {
       console.log('[comment][POST] body=', req.body);
-      const { nicName, message } = req.body || {};
-      if (!nicName || !message) {
-        return res.status(400).json({ error: 'nicName, message 필수' });
+      const { nicName, fromName, message } = req.body || {};
+      if (!nicName || !fromName || !message) {
+        return res.status(400).json({ error: 'nicName, fromName, message 필수' });
       }
       const ref = await db.collection('comments').add({
         nicName,
+        fromName,
         message,
         createdAt: new Date(),
       });

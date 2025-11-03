@@ -4,13 +4,71 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  >button{
+background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer}
 }
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a[disabled],
+a[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+
+ .background{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    pointer-events: none;
+  }
+
+  .borderBox{
+        pointer-events: auto;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 12px;
+          .Button{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        gap: 18px;
+        width: 250px;
+        padding: 0 13px ;
+      }
+
+      &.system{
+              display: flex;
+      flex-direction: column;
+      gap: 15px;
+           width: fit-content;
+      }
+  }
 
 .objectControl {
   top:0;
+  left: 0;
   position: absolute;
   width: 100%;
   height: 100%;
+  transition: all 1s ease-in-out;
 
   &.off{
     pointer-events: none;
@@ -33,16 +91,98 @@
   .middleLine {
     height: 1px;
     width: 100%;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.5);
     opacity: 0.6;
   }
+  .shapeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border: 1px solid #242424;
+  border-top:1px solid rgba(255, 255, 255, 0.5) ;
+  width: clamp(200px, 14.69vw, 282px);
+  aspect-ratio: 282/245;
+  background: #000;
+  padding: 8px;
+  // row-gap: 10px;
+  >div{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 13px;
+    transition: all 0.3s ease-in-out;
+    background-color: #000;
+
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.10);
+    }
+
+    .line, .lineBot{
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.20);
+    }
+
+    &:nth-child(odd){
+      .line{
+        height: calc(100% - 7px);
+        width: 1px;
+        right: -0.5px;
+        top: 0;
+
+        &.right{
+          top: auto;
+          bottom: 0;
+        }
+      }
+      .lineBot{
+         height: 1px;
+        width: calc(100% - 14px);
+        left: 50%;
+        top: -0.5px;
+        transform: translateX(-50%);
+      }
+    }
+
+    
+    &:nth-child(even){
+      .line{
+        height: 1px;
+        width: calc(100% - 14px);
+        left: 50%;
+        top: -0.5px;
+        transform: translateX(-50%);
+      }
+    }
+      
+    &:nth-child(4){
+      background-color: rgba(255, 255, 255, 0.10);
+    }
+    .Icon{
+      align-self: self-end;
+    }
+
+    .CUSTOMtextLine{
+        display: flex;
+        align-items: center;gap: 10px;
+      }
+    
+  }
+}
+
+
+
   .objectSelectList {
     display: flex;
     gap: 16px;
 
     > div {
       cursor: pointer;
+      
     }
+    
   }
 
   .Property {
@@ -59,8 +199,10 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   min-height: 900px;
   min-width: 1500px;
+  padding-top: 16%;
 
   .goPivotHero {
     display: flex;
@@ -68,7 +210,7 @@
     height: fit-content;
 
     align-items: center;
-    justify-content: end;
+    justify-content: start;
     width: 100%;
     height: 60%;
     min-height: 500px;
@@ -85,6 +227,37 @@
       }
     }
   }
+  .samplePivotPlace{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50vh;
+
+
+    >svg{
+      position: absolute;
+      left: 50%;
+      top:50%;
+      &.A{
+        transform: translate(-350%, -40%);
+      }
+      &.B{
+        transform: translate(-190%, -70%);
+      }
+      &.C{
+        transform: translate(57%, -40%);
+      }
+      &.D{
+        transform: translate(210%, -60%);
+      }
+
+      &.bg{
+        left:0;
+       bottom: 0;
+      }
+    }
+  }
   
 }
 .makePivot {
@@ -96,7 +269,10 @@
   color: white;
   position: relative;
   padding: 68px 0px;
-  padding-top: 56px;
+  padding-top: 3vh;
+  overflow: hidden;
+
+ 
 
 }
 .startBtn {
@@ -105,16 +281,38 @@
     letter-spacing: -0.4px;
     color: black;
     background-color: white;
-    margin-top: variable.$fs-200-vh;
-    padding: 8px 85px;
+    margin-top: clamp(65px, 8.33vh, 90px);
+    padding: 10px ;
+    padding-top: 12px;
+
+    width: clamp(200px, 14.69vw, 282px);
 
     padding-top: 9px;
-    border-radius: 100;
     @include variable.fs-vw(20);
 
     cursor: pointer;
     z-index: 100;
+
+    &.goArchive{
+      border: rgba(255, 255, 255, 0.5) 1px solid;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top:10px;
+      font-weight: 300;
+       background-color: rgba(255, 255, 255, 0.2);
+       display: flex;
+       justify-content: center;
+    }
   }
+
+  .backBtn {
+    display: flex;
+    align-items: center;
+    gap: variable.$fs-17-vw;
+    font-size: variable.$fs-18-vw;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
 
 .topBar {
   position: relative;
@@ -126,13 +324,6 @@
   .max-3 {
     font-size: variable.$fs-17-vw;
     opacity: 0.6;
-  }
-  .backBtn {
-    display: flex;
-    align-items: center;
-    gap: variable.$fs-17-vw;
-
-    cursor: pointer;
   }
 
   .addPivotSlots {
@@ -214,7 +405,9 @@
 }
 
 .PivotInfoPlaceHolder {
+  pointer-events: none;
   position: relative;
+  z-index: 100;
   display: flex;
   // flex-direction: column;
   justify-content: space-between;
@@ -222,11 +415,60 @@
   height: 80vh;
 
   .leftLine {
+
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+
+      .mouseBox {
+      position: relative;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+      background-color: #000000;
+      border:1px solid rgba(255, 255, 255, 0.20);
+      width: fit-content;
+
+      .mouseInteraction {
+        position: relative;
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        gap: 10px;
+        width: fit-content;
+        // min-width: 190px;
+        padding: 0 20px;
+        .svgPlaceHolder{
+          aspect-ratio: 1/1;
+          height: 100%;
+        }
+        >svg{
+          transform: scale(0.8);          
+        }
+        .text {
+          font-size: variable.$fs-15-vw;
+          font-weight: 500;
+          letter-spacing: -0.48px;
+          justify-self: end;
+          white-space: nowrap;
+          > span {
+            padding: 6px 12px;
+            margin-right: 10px;
+            border:  rgba(255, 255, 255, 0.5) solid 1px;
+          }
+        }
+      }
+      .middleLine {
+        width: 100%;
+        height: 1px;
+
+        background-color: rgba(255, 255, 255, 0.20);
+      }
+    }
     
     .leftBottom{
       position: relative;
@@ -241,6 +483,7 @@
               z-index: 100;
       display: flex;
       align-items: end;
+      pointer-events: auto;
       .Input {
         background-color: transparent;
         outline: none;
@@ -281,54 +524,46 @@
   }
 
   .rightLine {
+    pointer-events: auto;
     position: relative;
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:end;
     padding-top: clamp(50px, 6.48vh, 70px);
     .startBtn{
       margin-top:clamp(90px, 11.11vh, 120px) ;
-      width:100%;
+          width: clamp(200px, 14.69vw, 282px);
     }
-    .mouseBox {
-      position: relative;
-              z-index: 100;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      padding: 20px;
-      background-color: variable.$color-darkGray;
-      border-radius: 14px;
-      .mouseInteraction {
-        position: relative;
-        display: flex;
-        align-items: center;
-        // justify-content: space-between;
-        gap: 10px;
-        width: fit-content;
-        min-width: 190px;
-        padding: 0  20px;
-        .text {
-          font-size: variable.$fs-16-vw;
-          font-weight: 500;
-          letter-spacing: -0.48px;
-          justify-self: end;
-          > span {
-            padding: 6px 12px;
-            margin-right: 10px;
-            border: #ffffff solid 1px;
-            border-radius: 100;
-          }
-        }
-      }
-      .middleLine {
-        width: 100%;
-        height: 1px;
 
-        background-color: #ffffff;
-      }
+    .modeToggle{
+       width: clamp(200px, 14.69vw, 282px);
+       margin-bottom: clamp(38px, 3.5vh, 50px);
+        > div{
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+         height:  clamp(38px, 3.5vh, 50px);
+         width: 100%;
+         padding: 8px;
+         transition: all 0.3s ease-in-out;
+          &.line{
+            height: 100%;
+            width: 1px;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0.20);
+          }
+
+          &.active{
+            background-color: rgba(#E1E1E1, 0.2) 
+          }
+         &:hover{
+          background-color: rgba(#E1E1E1, 0.1) ;
+          
+         }
+        }
     }
+
     .Button.active {
       svg {
         circle, rect {
@@ -350,12 +585,7 @@
       flex-direction: column;
       gap: 22px;
       z-index: 100;
-      .Button{
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        gap: 18px;
-      }
+
     }
   
 
@@ -363,9 +593,123 @@
 .doneBg{
   width: 100vw;
   height:100vh;
+    padding-top: 10vh;
+    padding-left: 3vw;
+  
 
   .done{
     left: 50%;
-    transform: translateX(-40%);
+    transform: translateX(-30%);
+  }
+
+  .goPivotDone {
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    transform: translate(-50%, -50% );
+    white-space: pre-wrap; /* Add this line */
+    text-align: center; /* Optional: to center the multi-line text */
+    padding: 20px;
+    font-size: 1.5em; /* Adjust as needed */
+    width: fit-content;
+
+
+
+    .ResultContainer{
+      display: flex;
+      flex-direction: column;
+      gap: 90px;
+
+      .TitleText{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .MakersPivot{
+        font-size: clamp(50px, 3.75vw, 72px);
+        line-height: 110%;
+        letter-spacing: -2.16px;
+        text-align: start;
+      }
+      .Result{
+        text-align: start;
+        line-height: 165%;
+        font-weight: 500;
+      font-size:variable.$fs-20-vw ;
+        
+  
+  }
+  .buttonList{
+    display: flex;
+    position: relative;
+
+    .btn{
+      cursor: pointer;
+      padding: 8.72px;
+      // padding-top: 9.5px;
+      width: 198.737px;
+      height: fit-content;
+      font-size:variable.$fs-20-vw ;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      transition: all 0.3s ease-in-out;
+
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+  .eventCard{
+            position: absolute;
+            top: 250%;
+            font-size: variable.$fs-18-vw;
+            line-height: 145%;
+            letter-spacing: -0.45px;
+            width: fit-content;
+            padding: 15px 35px;
+            background-color: rgba(255, 255, 255, 0.20);
+            border-radius: 10;
+            text-align: start;
+          
+            >svg{
+            position: absolute;
+            right: 20px;
+            top: 15px;
+          }
+
+          .Triangle{
+            position: absolute;
+            bottom: 100%;
+            left:20%;
+            width: 0;
+height: 0;
+border-style: solid;
+border-width: 25px 0px 0px 25px;
+border-color: transparent transparent transparent rgba(255, 255, 255, 0.2);
+          }
+  
+          }
+    }
+  }
+}
+
+.modal-overlay{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 101;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  .modal-content{
+    padding: 30px;
+    aspect-ratio: 1140/720;
+    width:60%;
+    background-color: #000;
+    color: #ffffff;
+    border: rgba(255, 255, 255, 0.2) solid 1px;
   }
 }

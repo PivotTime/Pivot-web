@@ -1,5 +1,30 @@
 @use "./globals.scss";
 
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a[disabled],
+a[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
 .ProjectDetailModal {
   display: flex;
   position: fixed;
@@ -20,7 +45,7 @@
     .pjDetail{
     position: sticky;
     top: 0;
-    width: 50vw;
+    width: 65vw;
     height: 100vh;}
 
 }
@@ -28,7 +53,7 @@
 .rightSec {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
 }
 
 .rightSecA {
@@ -207,8 +232,38 @@ background: #0051FF;
         gap: clamp(1.5rem, 5vh, 3.2rem);
     }
     .team{
+      position: relative;
         width: 100%;
         aspect-ratio: 249/196;
+
+      .teamPhotoA, .teamPhotoB {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .teamPhotoA {
+        z-index: 1;
+        opacity: 1;
+      }
+
+      .teamPhotoB {
+        z-index: 2;
+        opacity: 0;
+      }
+
+      &:hover {
+        .teamPhotoA {
+          opacity: 0;
+        }
+        .teamPhotoB {
+          opacity: 1;
+        }
+      }
     }
 
     .bottomLine{
@@ -252,6 +307,7 @@ background: #0051FF;
         padding-top: 5%;
         gap:clamp(0.75rem, 0.78vw, 0.9375rem);
         .HistoryCard{
+          position: relative;
             width: 100%;
             aspect-ratio: 133/90;
             

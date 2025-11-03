@@ -1,5 +1,9 @@
 @use "./globals.scss";
 
+button{
+  padding: 0;
+}
+
 @keyframes cardAddRight {
   0% {
     opacity: 0;
@@ -32,7 +36,7 @@
 .projectListPlaceHolder {
   width: 100%;
   display: flex;
-  gap: 5%;
+  justify-content: space-between;
 
   .projectList {
     position: relative;
@@ -62,11 +66,46 @@
       }
 
       .ImagePlaceHolder {
+        position: relative;
+
         &.project {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           max-width: 340px;
           width: 100%;
           aspect-ratio: 114/161;
           opacity: 0;
+          transform: scale(1);
+          .Thumbnail{
+            transition: all 0.1s ease-out;
+          }
+          .LogoBox{
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.1s ease-out;
+          }
+           
+         &:hover{
+          .Thumbnail,.LogoBox{
+            transform: scale(0.9);
+          }
+
+          .Thumbnail{
+            opacity: 0;
+          }
+
+          .LogoBox{
+              opacity: 1;
+          }
+         }
+
+          
         //   margin-bottom: clamp(2.5px, 1vw, 20px);
           cursor: pointer;
           animation: cardAddRight 0.5s ease-out forwards;
@@ -80,10 +119,12 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     color: #ffffff;
     width: 20%;
-    height: fit-content;
+    height: 65vh;
     max-width: 330px;
+    margin-left: 5%;
     @include globals.body;
 
     .marker-mask {
@@ -114,14 +155,20 @@
       width: 100%;
       padding-top: 5px;
       padding-bottom: 4px;
-      padding-left: 15px;
+      padding-left: 100px;
       font-size: 15px;
       display: flex;
+      align-items: center;
+      justify-content: start;
       gap: 30%;
       z-index: 2;
       cursor: pointer;
       transition: opacity 0.3s ease;
 
+      .num{
+        position: absolute;
+        left: 15px;
+      }
       &.is-hidden {
         opacity: 0.2;
         pointer-events: none;
@@ -135,17 +182,20 @@
 }
 
 .SortingBarList {
+  position: relative;
   display: flex;
+  align-items: center;
   width:100%;
-  gap: 28px;
+  gap: 18px;
+
 
   .SortingBar {
-    @include globals.body;
+    font-size: globals.$fs-17-vw;
     color: #ffffff;
     display: flex;
     align-items: center;
-    width: clamp(157px, 10vw, 290px);
-
+    width: clamp(127px, 6vw, 290px);
+    font-weight: 400;
     letter-spacing: -0.54px;
     position: relative;
     background-color: globals.$color-darkGray;
@@ -176,18 +226,32 @@
       transition: all 0.8s ease-out;
       overflow: hidden;
       border-radius: 30px;
-      background-color: globals.$color-blue;
+      /* From https://css.glass */
+      background: rgba(0, 0, 0, 0.34);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(100px);
+      // -webkit-backdrop-filter: blur(200px);
+      // border: 1px solid rgba(0, 0, 0, 0.3);
+      padding: 7px;
 
 
   
 
-      > button {
+      > div {
+        cursor: pointer;
+        font-size: globals.$fs-16-vw;
         width: 100%;
         display: flex;
         justify-content: start;
         padding: 11px 20px;
         overflow: hidden; // Important for the max-height animation
+        transition: background-color 0.3s ease-in-out;
+                  border-radius: 100;
 
+        &:hover{
+          background: rgba(200, 200, 200, 0.2);
+          border-radius: 100;
+        }
         &.active {
           animation: listOut 0.5s 0.3s ease-out forwards,
           rightSlide 0.4s cubic-bezier(0.81, 0, 1, 1) forwards;
@@ -206,18 +270,24 @@
     display: flex;
       gap: 28px;
 
-      .chip{
-            @include globals.body;
+      
+  }
+}
+
+.chip{
+
     color: #ffffff;
+    border: #ffffff solid 1px;
     display: flex;
     align-items: center;
     width: fit-content;
     gap:10px;
-        transform: translateX(-100%);
+    transform: translateX(-100%);
     letter-spacing: -0.54px;
     position: relative;
-    background-color: globals.$color-blue;
-    padding: 11 20;
+            font-size: globals.$fs-16-vw;
+
+    padding: 7 20;
     z-index: 50;
     border-radius: 100;
     justify-content: space-between;
@@ -228,9 +298,19 @@
     &.is-removing {
       animation: chipSlideOut 0.3s ease-out forwards;
     }
-      }
+
+    &.ClearAll{
+      position: absolute;
+      z-index:100;
+      top: calc(clamp(38px, 5vh, 46px) * -1.7);
+      right: 0;
+      
+    }
+
+  .chipRemove{
+    cursor: pointer;
   }
-}
+      }
 
 @keyframes listOut{
   from {
@@ -285,7 +365,7 @@
   }
   to{
     transform: translateX(0%);
-    opacity: 1;
+    opacity: 0.6;
   }
 }
 

@@ -1,17 +1,204 @@
 @use "./globals.scss";
 
+.StudentDetail {
+  position: fixed;
+  display: flex;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  .profileImagePlaceholder {
+    position: relative;
+    height: 100%;
+    width: fit-content;
+    aspect-ratio: 32/45;
+  }
 
-.StudentDetail{
-    position: fixed;
+  .rightSec {
+    position: relative;
+    flex: 1;
+    color: #ffffff;
     display: flex;
-    z-index:100;
-    width:100vw;
-    height:100vh;
-    background-color: black;
-    .profileImagePlaceholder{
-        position: relative;
-        height:100%;
-        width: fit-content;
-        aspect-ratio: 32/45;
+    flex-direction: column;
+    gap: clamp(45px, 5.83vh, 63px);
+    padding: 69px;
+    .projectPoster {
+      position: relative;
     }
+    .firstLine {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(24px, 3.15vh, 34px);
+      padding-right: globals.$fs-150-vw;
+    }
+    .studentName {
+      font-size: clamp(35px, 2.6vw, 50px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      > span {
+        font-size: globals.$fs-18-vw;
+        font-weight: 500;
+        letter-spacing: -0.54px;
+        color: #9a9a9a;
+      }
+    }
+
+    .commentBox {
+      position: relative;
+      z-index: 10;
+      padding: 14px 30px;
+      background-color: #262626;
+    }
+
+    .lengthLine {
+      position: absolute;
+      display: flex;
+      align-items: center;
+
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+      width: 1px;
+
+      &.left {
+        left: 0px;
+      }
+      &.right {
+        right: 0px;
+      }
+
+      .line {
+        background-color: #e1e1e1;
+        height: calc(100% - 10px);
+        width: 100%;
+      }
+    }
+
+    .TransverseLine {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &.top {
+        top: 0px;
+      }
+
+      &.bottom {
+        bottom: 0px;
+      }
+      .line {
+        background-color: #e1e1e1;
+        width: calc(100% - 10px);
+        height: 100%;
+      }
+    }
+    .exitBtn {
+      align-self: flex-end;
+      margin-top: -20px;
+    }
+
+    .overviewList {
+      display: flex;
+      flex-direction: column;
+      gap: 54px;
+      .overviewBox {
+        display: flex;
+        gap: clamp(50px, 3.65vw, 70px);
+        .contentsName {
+          font-size: globals.$fs-18-vw;
+          font-weight: 600;
+          color: #9a9a9a;
+          letter-spacing: -0.54px;
+          min-width: 70px;
+        }
+
+        .portfolio {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          
+          >a{
+            color: #fff; text-decoration: none; outline: none;
+            display: flex;
+               align-items: center;
+          gap: 10px;
+
+                    > span {
+            margin-top: 4px;
+          }
+          }
+
+        }
+
+        .projectPoster {
+          position: relative;
+          aspect-ratio: 410/266;
+          width: clamp(280px, 21.35vw, 410px);
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          overflow: hidden;
+          z-index: 2;
+
+          img {
+            transition: transform 0.3s ease-in-out;
+          }
+
+          &:hover {
+            img {
+              transform: scale(1.1);
+            }
+          }
+
+          
+            .gradientCover {
+                opacity: 1;
+            position: absolute;
+            background: #000000;
+            background: linear-gradient(
+              0deg,
+              rgba(0, 0, 0, 0.63) 0%,
+              rgba(51, 51, 51, 0) 100%
+            );
+            z-index: 3;
+            width: 100%;
+            height: 70%;
+            bottom: 0;
+            transition: all 0.3s ease-in-out;
+
+            .projectName {
+                opacity: 1;
+              position: absolute;
+              padding: 6px 10px;
+              border: #ffffff 1px solid;
+              font-size: clamp(9px, 0.625vw, 12px);
+              border-radius: 100;
+              right: 16px;
+              bottom: 18px;
+              transition: all 0.3s ease-in-out;
+            }
+          
+          }
+
+        }
+      }
+    }
+    .roleSvg {
+      width: 50vw; 
+      height: auto;
+      position: absolute;
+      bottom: -10px;
+      left:40% ;
+      transform: rotate(-15deg);
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }

@@ -42,7 +42,7 @@ const randomSvg25 = function randomSvg25(svgArr) {
 };
 
 export function StudentCard({ student, onClick, isEmpty, index, ...props }) {
-  const { Id, Name, Role, Project } = student;
+  const { Id, name, role, project } = student;
    const [randomSvgList, setRandomSvgList] = useState([]);
 
    useEffect(()=>{
@@ -66,20 +66,22 @@ export function StudentCard({ student, onClick, isEmpty, index, ...props }) {
 
           <div className="ImgPlaceHolder Profile">
             <Image
-              alt={`${Name} 프로필 사진`}
-              //   src={`/images/profile/${Id}.png`}
-              src={`/images/profile/kimyoungeun.png`}
-              fill
-              sizes="auto"
-              style={{ objectFit: "cover" }}
+              alt={`${name} 프로필 사진`}
+                src={`/images/profile/${Id}.png`}
+              // src={`/images/profile/kimyoungeun.png`}
+            width={1000}                  // 원본 픽셀 크기 기입
+  height={2000}
+  style={{ maxWidth: "100%", height: "auto" }} // 업스케일 방지
+  priority
             />
+            
           </div>
           <div className="textBox">
-            <p className="name">{Name}</p>
+            <p className="name">{name}</p>
             <p>
-              {Project}
+              {project}
               <span> | </span>
-              {Role}
+              {role}
             </p>
           </div>
         </div>

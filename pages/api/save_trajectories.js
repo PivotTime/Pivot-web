@@ -4,18 +4,32 @@ import { Timestamp } from 'firebase-admin/firestore';
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const trajectoriesData = req.body;
+      const { name, tags, objects, trajectories } = req.body;
 
-      // Basic validation: check if data is an array
-      if (!Array.isArray(trajectoriesData)) {
-        return res.status(400).json({ message: 'Invalid data format. Array expected.' });
+      if (!name || typeof name !== 'string' || name.trim() === '') {
+        return res.status(400).json({ message: 'Invalid data format. Name is required.' });
+      }
+
+      if (!Array.isArray(tags) || tags.length === 0) {
+        return res.status(400).json({ message: 'Invalid data format. Non-empty array of tags expected.' });
+      }
+
+      if (!Array.isArray(objects) || objects.length === 0) {
+        return res.status(400).json({ message: 'Invalid data format. Non-empty array of objects expected.' });
+      }
+
+      if (!Array.isArray(trajectories)) { // Basic validation for trajectories
+        return res.status(400).json({ message: 'Invalid data format. Array of trajectories expected.' });
       }
 
       const collectionRef = db.collection('pivot-submissions');
       
       const docRef = await collectionRef.add({
+        name: name,
+        tags: tags,
         createdAt: Timestamp.now(),
-        objects: trajectoriesData,
+        objects: objects,
+        trajectories: trajectories, // Save trajectories
       });
 
       console.log(`Successfully saved data to Firestore. Document ID: ${docRef.id}`);

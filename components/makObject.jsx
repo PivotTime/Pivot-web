@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import '../styles/makeObject.scss'
 
 // =============================
 // Canvas Drawing (Pure JS version)
@@ -37,6 +38,23 @@ function useHiDPICanvas(canvasRef, onSize, dprMax = 2) {
   }, [canvasRef, dprMax, onSize]);
 }
 
+// Drawing logic
+function drawShape(ctx, shape) {
+  ctx.save();
+  ctx.beginPath();
+  ctx.lineWidth = shape.style.lineWidth;
+  ctx.strokeStyle = shape.style.stroke;
+  if (shape.type === "line") {
+    shape.points.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+  } else if (shape.type === "rect") {
+    ctx.rect(shape.x, shape.y, shape.w, shape.h);
+  } else { // circle
+    ctx.arc(shape.cx, shape.cy, shape.r, 0, 2 * Math.PI);
+  }
+  ctx.stroke();
+  ctx.restore();
+}
+
 export default function DrawingCanvas({
   initialTool = "line",
   width = 900,
@@ -44,10 +62,11 @@ export default function DrawingCanvas({
   background = "#000000",
   onChange,    // (shapes: Shape[]) => void
   onExport,    // ({ json: Shape[], pngBlob: Blob|null }) => void
+  onSave,      // (newCustomObject: { id: string, shapes: Shape[], createdAt: number }) => void
 }) {
   const canvasRef = useRef(null);
   const [tool, setTool] = useState(initialTool); // "line" | "rect" | "circle"
-  const [stroke, setStroke] = useState("#111");
+  const [stroke, setStroke] = useState("#ffffff");
   const [lineWidth, setLineWidth] = useState(2);
 
   /** @type {[Shape[], Function]} */
@@ -55,110 +74,111 @@ export default function DrawingCanvas({
   /** @type {[Shape|null, Function]} */
   const [draft, setDraft] = useState(null);
 
+  useHiDPICanvas(canvasRef);
+
+  useEffect(() => {
+    const canvas = canvasRef.current; if (!canvas) return;
+    const ctx = canvas.getContext("2d"); if (!ctx) return;
+
+    // Clear canvas
+    const rect = canvas.getBoundingClientRect();
+    ctx.clearRect(0, 0, rect.width, rect.height);
+
+    // Draw committed shapes
+    shapes.forEach(shape => drawShape(ctx, shape));
+
+    // Draw draft shape
+    if (draft) drawShape(ctx, draft);
+
+  }, [shapes, draft]);
+
   const undoStack = useRef([]); // Shape[][]
   const redoStack = useRef([]); // Shape[][]
 
   const style = useMemo(() => ({ stroke, lineWidth }), [stroke, lineWidth]);
 
-  useEffect(() => { onChange && onChange(shapes); }, [shapes, onChange]);
-
-  useHiDPICanvas(canvasRef);
-
-  // =========== Rendering loop ===========
+  // Use a ref to store the latest draft state to avoid stale closures
+  const latestDraft = useRef(draft);
   useEffect(() => {
-    let raf = 0;
-    const canvas = canvasRef.current; if (!canvas) return;
-    const ctx = canvas.getContext("2d"); if (!ctx) return;
+    latestDraft.current = draft;
+  }, [draft]);
 
-    const draw = () => {
-      const rect = canvas.getBoundingClientRect();
-      ctx.clearRect(0, 0, rect.width, rect.height);
-
-      // background
-      ctx.save();
-      ctx.fillStyle = background;
-      ctx.fillRect(0, 0, rect.width, rect.height);
-      ctx.restore();
-
-      const drawShape = (s) => {
-        ctx.save();
-        ctx.strokeStyle = s.style.stroke;
-        ctx.lineWidth = s.style.lineWidth;
-        ctx.lineJoin = "round";
-        ctx.lineCap = "round";
-        ctx.beginPath();
-        if (s.type === "line") {
-          const pts = s.points;
-          if (pts.length) ctx.moveTo(pts[0].x, pts[0].y);
-          for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-          ctx.stroke();
-        } else if (s.type === "rect") {
-          ctx.strokeRect(s.x, s.y, s.w, s.h);
-        } else if (s.type === "circle") {
-          ctx.arc(s.cx, s.cy, Math.max(0, s.r), 0, Math.PI * 2);
-          ctx.stroke();
-        }
-        ctx.restore();
-      };
-
-      for (const s of shapes) drawShape(s);
-      if (draft) drawShape(draft);
-
-      raf = requestAnimationFrame(draw);
-    };
-    raf = requestAnimationFrame(draw);
-    return () => cancelAnimationFrame(raf);
-  }, [background, shapes, draft]);
-
-  // =========== Pointer helpers ===========
-  const getPos = (e) => {
-    const rect = e.target.getBoundingClientRect();
-    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
-  };
-
-  const commit = (next) => {
-    undoStack.current.push(shapes.map(s => ({ ...s })));
-    redoStack.current = [];
-    setShapes(prev => [...prev, next]);
-    setDraft(null);
-  };
-
-  const pointerDown = (e) => {
-    e.target.setPointerCapture(e.pointerId);
-    const { x, y } = getPos(e);
-    if (tool === "line") {
-      setDraft({ id: crypto.randomUUID(), type: "line", points: [{ x, y }], style });
-    } else if (tool === "rect") {
-      setDraft({ id: crypto.randomUUID(), type: "rect", x, y, w: 0, h: 0, style });
-    } else if (tool === "circle") {
-      setDraft({ id: crypto.randomUUID(), type: "circle", cx: x, cy: y, r: 0, style });
-    }
-  };
+  // Use a ref to store the requestAnimationFrame ID
+  const rafId = useRef(null);
 
   const pointerMove = (e) => {
-    if (!draft) return;
-    const { x, y } = getPos(e);
+    if (!latestDraft.current) return; // Use latestDraft.current
 
-    setDraft(prev => {
-      if (!prev) return prev;
-      if (prev.type === "line") {
-        return { ...prev, points: [...prev.points, { x, y }] };
-      } else if (prev.type === "rect") {
-        return { ...prev, w: x - prev.x, h: y - prev.y };
-      } else { // circle
-        const dx = x - prev.cx; const dy = y - prev.cy;
-        const r = Math.hypot(dx, dy);
-        return { ...prev, r: r < 0 ? 0 : r };
-      }
+    // Cancel any pending animation frame
+    if (rafId.current) {
+      cancelAnimationFrame(rafId.current);
+    }
+
+    rafId.current = requestAnimationFrame(() => {
+      const { x, y } = getPos(e);
+
+      setDraft(prev => {
+        if (!prev) return prev;
+        if (prev.type === "line") {
+          return { ...prev, points: [prev.points[0], { x, y }] };
+        } else if (prev.type === "rect") {
+          return { ...prev, w: x - prev.x, h: y - prev.y };
+        } else { // circle
+          const dx = x - prev.cx; const dy = y - prev.cy;
+          const r = Math.hypot(dx, dy);
+          return { ...prev, r: r < 0 ? 0 : r };
+        }
+      });
+      rafId.current = null; // Reset rafId after execution
     });
   };
 
+  // Clear any pending animation frame on unmount
+  useEffect(() => {
+    return () => {
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current);
+      }
+    };
+  }, []);
+
   const pointerUp = () => {
     if (!draft) return;
-    if (draft.type === "line" && draft.points.length < 2) { setDraft(null); return; }
+    // 직선 그리기의 경우, 시작점과 끝점 두 개가 있어야 유효한 선
+    if (draft.type === "line" && (!draft.points || draft.points.length < 2)) {
+      setDraft(null);
+      return;
+    }
     if (draft.type === "rect" && Math.abs(draft.w) < 1 && Math.abs(draft.h) < 1) { setDraft(null); return; }
     if (draft.type === "circle" && draft.r < 0.5) { setDraft(null); return; }
     commit(draft);
+  };
+
+  const pointerDown = (e) => {
+    const { x, y } = getPos(e);
+    const newDraft =
+      tool === "line"
+        ? { id: "" + Date.now(), type: "line", points: [{ x, y }, { x, y }], style }
+        : tool === "rect"
+          ? { id: "" + Date.now(), type: "rect", x, y, w: 0, h: 0, style }
+          : { id: "" + Date.now(), type: "circle", cx: x, cy: y, r: 0, style };
+    setDraft(newDraft);
+    undoStack.current.push(shapes.map(s => ({ ...s })));
+    redoStack.current = [];
+  };
+
+  // =========== Helper Functions ===========
+  const getPos = (e) => {
+    const rect = canvasRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    return { x, y };
+  };
+
+  const commit = (newShape) => {
+    setShapes(prev => [...prev, newShape]);
+    setDraft(null);
+    onChange && onChange([...shapes, newShape]);
   };
 
   // =========== Toolbar Actions ===========
@@ -221,6 +241,9 @@ export default function DrawingCanvas({
 
       if (response.ok) {
         alert(`도형이 Firestore에 저장되었습니다! ID: ${result.docId}`);
+        if (onSave) {
+          onSave({ id: result.docId, shapes: shapes, createdAt: Date.now() });
+        }
       } else {
         alert(`도형 저장 실패: ${result.message}`);
       }
@@ -244,59 +267,105 @@ export default function DrawingCanvas({
     };
     reader.readAsText(file);
   };
+return (
+  <div className="canvasEditor">
+    {/* Drawing Area */}
+    <div className="canvasWrapper">
+      <canvas
+        ref={canvasRef}
+        className="drawingCanvas"
+        onPointerDown={pointerDown}
+        onPointerMove={pointerMove}
+        onPointerUp={pointerUp}
+        onPointerCancel={() => setDraft(null)}
+      />
+    </div>
 
-  return (
-    <div className="w-full max-w-[980px] mx-auto p-4">
-      {/* Toolbar */}
-      <div className="flex flex-wrap items-center gap-2 mb-3">
-        <label className="font-medium">Tool:</label>
-        {["line", "rect", "circle"].map(t => (
-          <button key={t}
-            className={`px-3 py-1 rounded-2xl border ${tool === t ? "bg-black text-white" : "bg-white"}`}
-            onClick={() => setTool(t)}>
-            {t}
-          </button>
-        ))}
-        <div className="ml-4 flex items-center gap-2">
-          <label>Stroke</label>
-          <input type="color" value={stroke} onChange={e => setStroke(e.target.value)} />
-        </div>
-        <div className="flex items-center gap-2">
-          <label>Width</label>
-          <input type="range" min={1} max={16} value={lineWidth} onChange={e => setLineWidth(parseInt(e.target.value))} />
-          <span className="text-sm w-6 text-right">{lineWidth}</span>
-        </div>
-        <div className="flex-1" />
-        <button className="px-3 py-1 rounded border" onClick={undo}>Undo</button>
-        <button className="px-3 py-1 rounded border" onClick={redo}>Redo</button>
-        <button className="px-3 py-1 rounded border" onClick={clearAll}>Clear</button>
-        <button className="px-3 py-1 rounded border" onClick={exportJSON}>Export JSON</button>
-        <button className="px-3 py-1 rounded border" onClick={exportPNG}>Export PNG</button>
-        <button className="px-3 py-1 rounded border" onClick={saveToFirestore}>Save to Firestore</button>
-        <label className="px-3 py-1 rounded border cursor-pointer">Import JSON
-          <input type="file" accept="application/json" className="hidden" onChange={e => { if (e.target.files && e.target.files[0]) importJSON(e.target.files[0]); }} />
-        </label>
+    {/* Floating Toolbar */}
+    <div className="floatingToolbar">
+      <div className="toolGroup">
+        <button onClick={undo}><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="16.9747" cy="16.9745" r="16.9745" transform="rotate(90 16.9747 16.9745)" fill="#2B2B2B"/>
+<path d="M25.6074 16.9766L9.1891 16.9766" stroke="#8E8E8E" strokeWidth="1.8"/>
+<path d="M16.5254 9.64453L9.19416 16.9758L16.5254 24.307" stroke="#8E8E8E" strokeWidth="1.8"/>
+</svg>
+</button>
+        <button onClick={redo}><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="16.9745" cy="16.9747" r="16.9745" transform="rotate(-90 16.9745 16.9747)" fill="#2B2B2B"/>
+<path d="M8.3418 16.9727L24.7601 16.9727" stroke="#8E8E8E" strokeWidth="1.8"/>
+<path d="M17.4238 24.3047L24.7551 16.9735L17.4238 9.64222" stroke="#8E8E8E" strokeWidth="1.8"/>
+</svg>
+
+</button>
+        <button onClick={clearAll}><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="16.9745" cy="16.9747" r="16.9745" transform="rotate(-90 16.9745 16.9747)" fill="#9F9F9F"/>
+<path d="M10.2344 23.7109L16.9732 16.9721L10.2344 10.2332" stroke="#3D3D3D" strokeWidth="1.8"/>
+<path d="M23.7129 10.2344L16.974 16.9732L23.7129 23.7121" stroke="#3D3D3D" strokeWidth="1.8"/>
+</svg>
+</button>
+        
       </div>
 
-      {/* Canvas wrapper */}
-      <div className="border rounded-xl overflow-hidden shadow-sm" style={{ width, height, background:"black" }}>
-        <canvas
-          ref={canvasRef}
-          className="w-full h-full touch-none"
-          onPointerDown={pointerDown}
-          onPointerMove={pointerMove}
-          onPointerUp={pointerUp}
-          onPointerCancel={() => setDraft(null)}
+      <div className="divider" />
+
+      <div className="controlGroup">
+        <label>Width</label>
+        <input
+          type="range"
+          min={1}
+          max={16}
+          value={lineWidth}
+          onChange={e => setLineWidth(parseInt(e.target.value))}
         />
       </div>
 
-      {/* Debug */}
-      <details className="mt-3">
-        <summary className="cursor-pointer text-sm text-gray-600">Shapes JSON (live)</summary>
-        <pre className="p-2 bg-gray-50 rounded max-h-64 overflow-auto text-xs">{JSON.stringify(shapes, null, 2)}</pre>
-      </details>
+      <div className="divider" />
+
+      <div className="actionGroup">
+        {/* {["line", "rect", "circle"].map(t => ( */}
+          <button
+            key={"line"}
+            className={`toolButton ${tool === "line" ? "active" : ""}`}
+            onClick={() => setTool("line")}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.636318 22.8193L22.8188 0.636806" stroke="#E1E1E1" strokeWidth="1.8"/>
+          </svg>
+
+          </button>
+           <button
+            key={"rect"}
+            className={`toolButton ${tool === "circle" ? "active" : ""}`}
+            onClick={() => setTool("circle")}
+          >
+           <svg width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="1" x="24.2637" y="24.2637" width="23.3635" height="23.3635" rx="11.6817" transform="rotate(-180 24.2637 24.2637)" stroke="#E1E1E1" strokeWidth="1.8"/>
+</svg>
+
+          </button>
+          <button
+            key={"circle"}
+            className={`toolButton ${tool === "rect" ? "active" : ""}`}
+            onClick={() => setTool("rect")}
+          >
+           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="1" x="22.4521" y="22.4521" width="21.5518" height="21.5518" transform="rotate(-180 22.4521 22.4521)" stroke="#E1E1E1" strokeWidth="1.8"/>
+</svg>
+
+
+          </button>
+        
+        <button className="exportBtn" onClick={saveToFirestore}>SAVE</button>
+      </div>
     </div>
-  );
+
+    {/* Optional Debug JSON */}
+    {/* <details className="debugPanel">
+      <summary>Shapes JSON (live)</summary>
+      <pre>{JSON.stringify(shapes, null, 2)}</pre>
+    </details> */}
+  </div>
+);
 }
 
 // =============================

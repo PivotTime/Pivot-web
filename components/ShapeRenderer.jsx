@@ -5,26 +5,42 @@ import { CanvasLine, CanvasCircle, CanvasSquare } from './basicObject'; // Assum
 function VectorPreview({ shapes, width, height }) {
   if (!shapes || shapes.length === 0) return null;
 
-  // Find max dimensions to scale correctly
-  let maxX = 0, maxY = 0;
+  // Find min/max dimensions to scale correctly
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+
   shapes.forEach(s => {
     if (s.type === "line") {
-      s.points.forEach(p => { maxX = Math.max(maxX, p.x); maxY = Math.max(maxY, p.y); });
+      s.points.forEach(p => {
+        minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x);
+        minY = Math.min(minY, p.y); maxY = Math.max(maxY, p.y);
+      });
     } else if (s.type === "rect") {
-      maxX = Math.max(maxX, s.x + s.w); maxY = Math.max(maxY, s.y + s.h);
+      minX = Math.min(minX, s.x, s.x + s.w); maxX = Math.max(maxX, s.x, s.x + s.w);
+      minY = Math.min(minY, s.y, s.y + s.h); maxY = Math.max(maxY, s.y, s.y + s.h);
     } else if (s.type === "circle") {
-      maxX = Math.max(maxX, s.cx + s.r); maxY = Math.max(maxY, s.cy + s.r);
+      minX = Math.min(minX, s.cx - s.r); maxX = Math.max(maxX, s.cx + s.r);
+      minY = Math.min(minY, s.cy - s.r); maxY = Math.max(maxY, s.cy + s.r);
     }
   });
 
-  const viewBoxWidth = maxX > 0 ? maxX : width;
-  const viewBoxHeight = maxY > 0 ? maxY : height;
+  // Fallback for empty shapes or shapes with zero dimensions
+  const effectiveMinX = isFinite(minX) ? minX : 0;
+  const effectiveMinY = isFinite(minY) ? minY : 0;
+  const effectiveMaxX = isFinite(maxX) ? maxX : width;
+  const effectiveMaxY = isFinite(maxY) ? maxY : height;
+
+  const viewBoxWidth = effectiveMaxX - effectiveMinX;
+  const viewBoxHeight = effectiveMaxY - effectiveMinY;
+
+  // Use calculated viewBox dimensions directly
+  const finalViewBoxWidth = Math.max(viewBoxWidth, 1);
+  const finalViewBoxHeight = Math.max(viewBoxHeight, 1);
 
   return (
     <svg
       width="100%" // Scale to fit parent div
       height="100%"
-      viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
+      viewBox={`${effectiveMinX} ${effectiveMinY} ${finalViewBoxWidth} ${finalViewBoxHeight}`}
       preserveAspectRatio="xMidYMid meet"
       style={{ overflow: 'visible' }} // Allow strokes to go slightly outside
     >

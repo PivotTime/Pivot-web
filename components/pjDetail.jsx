@@ -3,10 +3,14 @@ import { getProjectLink } from "../lib/util/projectLink";
 import Image from "next/image";
 import "../styles/pjDetail.scss";
 
+import { useState } from "react"; // Import useState
+
 export function ProjectDetail({ project, closeModal }) {
   if (!project) {
     return null;
   }
+
+  const [isHovered, setIsHovered] = useState(false); // New state for hover
 
   return (
     <div className="ProjectDetailModal">
@@ -15,7 +19,7 @@ export function ProjectDetail({ project, closeModal }) {
           alt={`${project.name} Poster image`}
           src={`/images/project/${project.id}.png`}
           fill
-          size="auto"
+          sizes={1000}
           style={{ objectFit: "cover" }}
         />
       </div>
@@ -35,14 +39,7 @@ export function ProjectDetail({ project, closeModal }) {
               <path d="M28.3535 0.353516L0.353513 28.3535" stroke="white" />
             </svg>
 
-            <div className="infoList">
-              {(project.field ?? []).map((field, i) => (
-                <div key={i} className="infoBox">
-                  {field}
-                </div>
-              ))}
-              <div className="infoBox last">{`TEAM.${project.teamName}`}</div>
-            </div>
+
 
             <div className="titleBox">
               <p className="title">{project.name}</p>
@@ -109,14 +106,27 @@ export function ProjectDetail({ project, closeModal }) {
         </div>
         <div className="rightSecB">
           <div className="teamPlaceHolder">
-            <div className="ImagePlaceHolder team">
-              <Image
-                alt={`${project.teamName} team Photo`}
-                src={`/images/team/${project.id}/${project.id}.png`}
-                fill
-                size="auto"
-                style={{ objectFit: "contain" }}
-              />
+            <div
+            className="ImagePlaceHolder team"
+            onMouseEnter={() => setIsHovered(true)} // Set hover state to true
+            onMouseLeave={() => setIsHovered(false)} // Set hover state to false
+          >
+            <Image
+              className="teamPhotoA"
+              alt={`${project.teamName} team Photo`}
+              src={`/images/team/${project.id}1.png`}
+              fill
+              size={500}
+              style={{ objectFit: "contain" }}
+            />
+            <Image
+              className={`teamPhotoB ${isHovered ? "hovered" : ""}`} // Conditionally add 'hovered' class
+              alt={`${project.teamName} team Photo`}
+              src={`/images/team/${project.id}2.png`}
+              fill
+              size={500}
+              style={{ objectFit: "contain" }}
+            />
             </div>
 
             <div className="bottomLine"></div>
@@ -134,25 +144,25 @@ export function ProjectDetail({ project, closeModal }) {
               <div className="HistoryCard ImagePlaceHolder">
                 <Image
                     alt={`${project.teamName} 추억 사진 1`}
-                    src={`/images/team/${project.id}/history/1.png`}
+                    src={`/images/team/history/${project.id}.png`}
                     size="auto"
                     fill
                     style={{objectFit:"cover"}}
                 />
               </div>
-                            <div className="HistoryCard ImagePlaceHolder">
+               <div className="HistoryCard ImagePlaceHolder">
                 <Image
                     alt={`${project.teamName} 추억 사진 2`}
-                    src={`/images/team/${project.id}/history/2.png`}
+                    src={`/images/team/history/${project.id}(1).png`}
                     size="auto"
                     fill
                     style={{objectFit:"cover"}}
                 />
               </div>
-                            <div className="HistoryCard ImagePlaceHolder">
+              <div className="HistoryCard ImagePlaceHolder">
                 <Image
                     alt={`${project.teamName} 추억 사진 3`}
-                    src={`/images/team/${project.id}/history/3.png`}
+                    src={`/images/team/history/${project.id}(2).png`}
                     size="auto"
                     fill
                     style={{objectFit:"cover"}}

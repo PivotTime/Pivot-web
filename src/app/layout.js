@@ -1,6 +1,7 @@
 'use client';
 import { usePathname } from "next/navigation";
 import Nav from "../../components/nav";
+import '../../styles/globals.scss';
 
 export default function Layout({ children }) {
   const pathname = usePathname();

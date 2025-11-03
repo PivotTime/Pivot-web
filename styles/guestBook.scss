@@ -1,0 +1,254 @@
+@use "./variable";
+
+button {
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  appearance: none; /* 브라우저 기본 외형 제거 */
+}
+
+
+.GuestBook {
+  padding-top: clamp(200px, 40vh, 240px);
+  padding-left: clamp(1.75rem, 3.1vw, 3.75rem);
+  padding-right: clamp(1.75rem, 3.1vw, 3.75rem);
+  padding-bottom: clamp(200px, 40vh, 240px);
+  display: flex;
+  flex-direction: column;
+  gap:clamp(70px, 9.26vh, 100px) ;
+
+  .addMassageContainer {
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+
+    justify-content: space-between;
+
+    .title {
+      font-size: variable.$fs-28-vw;
+      color: #ffffff;
+      letter-spacing: -3%;
+      line-height: 160%;
+    }
+
+    .messageContainer {
+      display: flex;
+      flex-direction: column;
+      gap: variable.$fs-40-vh;
+      height: 100%;
+      width: 58%;
+      padding-top: variable.$fs-15-vh;
+
+      .submitBtn {
+        padding: 15px 22px;
+        font-size: variable.$fs-20-vw;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &.off{
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        &.on{
+             pointer-events: auto;
+             opacity: 1;
+
+             &:hover{
+                background-color: #0051ff;
+             }
+        }
+      }
+      .textareaContainer {
+        position: relative;
+        width: 100%;
+        flex: 1;
+
+        padding: 30px 29px;
+        > textarea {
+          resize: none;
+          width: 100%;
+          height: 100%;
+          background-color: transparent;
+          outline: none;
+          border: none;
+          font-size: variable.$fs-18-vw;
+          color: #ffffff;
+          letter-spacing: -0.5px;
+        }
+
+        .lengthLine {
+          position: absolute;
+          display: flex;
+          align-items: center;
+
+          top: 50%;
+          transform: translateY(-50%);
+          height: 100%;
+          width: 1px;
+          padding-top: 11px;
+          padding-bottom: 11px;
+          &.left {
+            left: 0px;
+          }
+          &.right {
+            right: 0px;
+          }
+
+          > div {
+            background-color: #e1e1e1;
+            height: calc(100% - 22px);
+            width: 100%;
+          }
+        }
+
+        .TransverseLine {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          height: 1px;
+          left: 50%;
+          transform: translateX(-50%);
+
+          &.top {
+            top: 0px;
+          }
+
+          &.bottom {
+            bottom: 0px;
+          }
+          > div {
+            background-color: #e1e1e1;
+            width: calc(100% - 22px);
+            height: 100%;
+          }
+        }
+      }
+      .nameInputBox {
+        display: flex;
+        gap: variable.$fs-20-vw;
+
+        > div {
+          width: 32%;
+          min-width: 250px;
+          display: flex;
+          gap: 10px;
+          font-size: variable.$fs-20-vw;
+          padding: 15px 22px;
+          border: #ffffff solid 1px;
+          color: #ffffff;
+
+          font-weight: 500;
+
+          > input {
+            background-color: transparent;
+            outline: none;
+            border: none;
+            letter-spacing: -3%;
+            font-size: variable.$fs-20-vw;
+            color: #ffffff;
+            &:focus,
+            &:focus-visible {
+              outline: none;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .commentList {
+    .columns {
+      display: flex;
+      justify-content: space-between;
+      color: white;
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: variable.$fs-25-vw;
+        position: relative;
+        width: calc(25% - 15px);
+      }
+    }
+  }
+}
+
+.MessageBox {
+  display: flex;
+  flex-direction: column;
+  gap: variable.$fs-25-vh;
+  position: relative;
+  height: fit-content;
+  background-color: rgba(38, 38, 38, 0.5);
+  padding: variable.$fs-26-vw variable.$fs-26-vh;
+
+  .toFrom {
+    font-size: variable.$fs-20-vw;
+    letter-spacing: -2%;
+    // line-height: 160%;
+    &.right {
+      align-self: flex-end;
+    }
+  }
+
+  .messageText {
+    font-size: variable.$fs-18-vw;
+    line-height: 160%;
+    letter-spacing: -2%;
+  }
+
+  .lengthLine {
+    position: absolute;
+    display: flex;
+    align-items: center;
+
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: 1px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    &.left {
+      left: -1px;
+    }
+    &.right {
+      right: -1px;
+    }
+
+    > div {
+      background-color: #e1e1e1;
+      height: calc(100% - 22px);
+      width: 100%;
+    }
+  }
+
+  .TransverseLine {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &.top {
+      top: -1px;
+    }
+
+    &.bottom {
+      bottom: -1px;
+    }
+    > div {
+      background-color: #e1e1e1;
+      width: calc(100% - 22px);
+      height: 100%;
+    }
+  }
+}

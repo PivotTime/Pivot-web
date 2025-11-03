@@ -34,6 +34,9 @@
       width: 100%;
       margin-left: -1px;
       color: #ffffff;
+      background-color: transparent;
+      outline: none;
+      border: none;
       &::placeholder {
         color: #ffffff;
         opacity: 0.6; // 브라우저별로 기본 투명도 제어
@@ -81,10 +84,10 @@
       letter-spacing: -0.66px;
       gap: 22px;
 
-      > button {
+      > div {
         color: #ffffff;
         cursor: pointer;
-        opacity: 0.6;
+        opacity: 0.4;
         transition: opacity 0.2s ease-in-out;
         &:hover {
           opacity: 1;
@@ -147,11 +150,13 @@
       z-index: 10;
 
       &.Profile {
+
         width: 100%;
         aspect-ratio: 337/481;
 
         img {
           transition: transform 0.3s ease-in-out;
+                  transform: scale(1);
         }
       }
     }

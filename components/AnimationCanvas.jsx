@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import ShapeRenderer from './ShapeRenderer';
 
 const MAX = 200;
@@ -9,10 +9,12 @@ const AUTO_SPEED_Y = 0.003;
 
 export default function AnimationCanvas({ trajectories, arrangement, customObjects, animationRefs, selectedIndex, latestObjectsRef }) {
   const holderRef = useRef(null);
-  const shapeNodesRef = useRef([]);
   const dragModeRef = useRef(null);
   const dragStartRef = useRef({ x: 0, y: 0, ax: 0, ay: 0 });
   const lastAngleUpdateRef = useRef(0);
+  const shapeNodesRef = useRef([]);
+  const [renderedObjects, setRenderedObjects] = useState([]); // 렌더링될 오브젝트들의 상태
+  const [objectCustomShapes, setObjectCustomShapes] = useState(Array(MAX).fill(null));
 
   const getPivot = useCallback(() => {
     const holder = holderRef.current;
@@ -118,6 +120,7 @@ export default function AnimationCanvas({ trajectories, arrangement, customObjec
               ? customObjects.find((co) => co.id === customObjectId)
               : null;
           const customShapes = currentCustomObject ? currentCustomObject.shapes : null;
+         
 
           const cosY = Math.cos(angleY), sinY = Math.sin(angleY);
           const cosX = Math.cos(angleX), sinX = Math.sin(angleX);
@@ -187,6 +190,15 @@ export default function AnimationCanvas({ trajectories, arrangement, customObjec
               customShapes: customShapes,
             });
 
+            // Update objectCustomShapes for the current object
+            if (objectType === 'custom' && JSON.stringify(objectCustomShapes[objIndex]) !== JSON.stringify(customShapes)) {
+              setObjectCustomShapes(prev => {
+                const newArr = [...prev];
+                newArr[objIndex] = customShapes;
+                return newArr;
+              });
+            }
+
             const node = shapeNodesRef.current[objIndex];
             if (node) {
               node.style.display = 'block';
@@ -222,7 +234,7 @@ export default function AnimationCanvas({ trajectories, arrangement, customObjec
     frameId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frameId);
   }, [getPivot, trajectories, customObjects, arrangement, animationRefs, latestObjectsRef]);
-  console.log('[AnimationCanvas] render');
+
   return (
     <div
       ref={holderRef}
@@ -248,6 +260,9 @@ export default function AnimationCanvas({ trajectories, arrangement, customObjec
           </div>
           <div className="shape-container" data-type="line" style={{display: 'none'}}>
             <ShapeRenderer type="line" width={160} height={60} />
+          </div>
+          <div className="shape-container" data-type="custom" style={{display: 'none'}}>
+            <ShapeRenderer type="custom" customShapes={objectCustomShapes[i]} width={240} height={240} />
           </div>
         </div>
       ))}
