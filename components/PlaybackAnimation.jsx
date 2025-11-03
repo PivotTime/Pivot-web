@@ -1,6 +1,6 @@
 
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, memo } from 'react'; // Import memo
 import ShapeRenderer from './ShapeRenderer';
 
 const MAX = 200;
@@ -12,7 +12,7 @@ export default function PlaybackAnimation({ trajectories, customObjects, arrange
   const holderRef = useRef(null);
   const animationRefs = useRef(
     trajectories.map((traj, i) => ({
-      radius: (traj.radius || (i === 0 ? 220 : i === 1 ? 300 : 150)) * 0.3, // Revert radius scaling to 0.2
+      radius: (traj.radius || (i === 0 ? 220 : i === 1 ? 300 : 150)) , // Revert radius scaling to 0.2
       sizeFactor: (traj.sizeFactor || (i === 0 ? 1 : i === 1 ? 0.8 : 1.2)) * 1.0, // Set sizeFactor scaling to 1.0 (no additional scaling)
       angleX: traj.angleX !== undefined ? traj.angleX : (i === 0 ? 0 : i === 1 ? 0.2 : -0.2), // Use saved angleX or default
       angleY: traj.angleY !== undefined ? traj.angleY : (i === 0 ? 0 : i === 1 ? 1.5 : -1.5), // Use saved angleY or default

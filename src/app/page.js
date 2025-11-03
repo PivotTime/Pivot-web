@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Main from "../../pages/main";
 
 
 // import GoPivot from "../../pages/goPivot";
@@ -9,7 +10,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div>
-
+      <Main/>
     </div>
   );
 }

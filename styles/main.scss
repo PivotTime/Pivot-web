@@ -1,0 +1,257 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff")
+    format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff")
+    format("woff");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff")
+    format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff")
+    format("woff");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff")
+    format("woff");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff")
+    format("woff");
+  font-weight: 900;
+  font-display: swap;
+}
+
+$font-main: "Pretendard", sans-serif;
+$font-weight-medium: 500;
+
+// typography.scss (compact version)
+
+$font-main: "Pretendard", sans-serif;
+$font-weight-medium: 500;
+
+// TITLE
+// 약 33.5px max
+@mixin title {
+  font-family: $font-main;
+  font-weight: $font-weight-medium;
+  font-size: clamp(
+    1.4rem,
+    // ~22.4px
+    1.8vw,
+    // 유동
+    2.09rem // ~33.5px
+  );
+}
+
+@mixin title2 {
+  font-family: $font-main;
+  font-weight: $font-weight-medium;
+  font-size: clamp(1.125rem, 1.979vw, 3rem);
+}
+
+// H1
+// 약 26px max
+@mixin h1 {
+  font-family: $font-main;
+  font-weight: $font-weight-medium;
+  font-size: clamp(
+    1.2rem,
+    // ~19.2px
+    1.4vw,
+    // 유동
+    1.63rem // ~26px
+  );
+}
+
+// H2
+// 약 23px max
+@mixin h2 {
+  font-family: $font-main;
+  font-weight: $font-weight-medium;
+  font-size: clamp(
+    1.05rem,
+    // ~16.8px
+    1.2vw,
+    // 유동
+    1.44rem // ~23px
+  );
+}
+
+// 본문
+// 약 20px max
+@mixin body {
+  font-family: $font-main;
+  font-weight: $font-weight-medium;
+  font-size: clamp(
+    0.9rem,
+    // ~14.4px
+    1vw,
+    // 유동
+    1.25rem // ~20px
+  );
+}
+
+// SUB
+// 약 17px max
+@mixin sub {
+  font-family: $font-main;
+  font-weight: $font-weight-medium;
+  font-size: clamp(
+    0.8rem,
+    // ~12.8px
+    0.9vw,
+    // 유동
+    1.06rem // ~17px
+  );
+}
+
+@mixin bodyText {
+  font-size: clamp(0.875rem, 1.04vw, 1.375rem);
+  font-family: "Pretendard";
+}
+
+@mixin infoText {
+  font-size: clamp(0.6em, 0.73vw, 1.2rem);
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.03rem;
+  line-height: 1.35;
+}
+
+$blue: #0051ff;
+$height: 56.25vw;
+$section-height: 100dvh; // 섹션 높이 기본값
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: #000;
+  /* overflow: hidden; // 스크롤을 막는 주범이므로 삭제 */
+}
+
+main {
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  color: #fff;
+  box-sizing: border-box;
+  /* overflow: hidden; // 스크롤을 막는 주범이므로 삭제 */
+}
+
+.snap-container {
+  position: relative;
+  flex: 1 1 auto;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  // 네비게이션 바 높이만큼 스크롤 패딩을 주어 콘텐츠가 가려지지 않게 합니다.
+  // 기존의 padding-top과 padding: 0 충돌을 해결합니다.
+  // scroll-padding-top: var(--nav-offset); // scroll-margin-top으로 대체
+}
+
+
+.snap-container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.snap-container.scrolling-locked {
+  overflow-y: hidden;
+}
+
+// 첫 번째 섹션(HeroSection)을 제외한 모든 스냅 섹션에 네비게이션 바 높이만큼의 스크롤 마진을 적용합니다.
+// 이는 실제 공간을 만들지 않고 스냅 위치만 조정하여 네비게이션 바 아래에 정확히 스냅되도록 합니다.
+.snap-section:not(:first-child) {
+  scroll-margin-top: 0.05vw;
+}
+
+.snap-section {
+  position: relative;
+  // 모든 섹션의 높이를 화면 전체 높이(100dvh)로 통일하여 스냅을 일관성 있게 만듭니다.
+  height: 100dvh;
+  flex: 0 0 100dvh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
+/* hero-section에 대한 별도 높이 지정이 더 이상 필요 없으므로 삭제합니다. */
+/*
+.snap-section.hero-section {
+  min-height: 100dvh;
+  flex: 0 0 100dvh;
+}
+*/
+
+.snap-section--auto {
+  // footer 등 내용에 따라 높이가 유동적인 섹션
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.webImage {
+  position: absolute;
+  width: 100vw;
+  height: auto;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  z-index: 0;
+  display: none;
+}

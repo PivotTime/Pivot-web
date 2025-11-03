@@ -5,6 +5,7 @@ import "../../../styles/gopivot.scss";
 import Link from "next/link";
 import Nav from "../../../components/nav";
 import DrawingCanvas from "../../../components/makObject.jsx"; // makObject 컴포넌트 임포트
+import InfoBox from "../../../components/infoBox";
 
 const MAX = 200;
 
@@ -1172,6 +1173,7 @@ export default function GoPivot() {
                 </defs>
               </svg>
             </div>
+            <InfoBox/>
           </div>
         )}
         {pivotStep === "make" && (
@@ -1924,9 +1926,7 @@ export default function GoPivot() {
                 </g>
                 </svg>
                 <div className="Triangle"></div>
-
-              </div>
-              
+                </div>
               </div>
              
               
@@ -1937,6 +1937,7 @@ export default function GoPivot() {
             
           </div>
         </div>
+        <InfoBox/>
      </>)}
      
      </div>

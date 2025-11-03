@@ -14,6 +14,11 @@ a {
   cursor: pointer;
 }
 
+.infoBox{
+  position: fixed;
+  bottom: 0;
+}
+
 a:hover,
 a:focus,
 a:active {
@@ -241,15 +246,23 @@ a[aria-disabled="true"] {
       top:50%;
       &.A{
         transform: translate(-350%, -40%);
+        animation: float-A 4.2s ease-in-out infinite;
+     
       }
       &.B{
         transform: translate(-190%, -70%);
+        animation: float-B 3.8s ease-in-out infinite;
+
       }
       &.C{
         transform: translate(57%, -40%);
+        animation: float-C 3.5s ease-in-out infinite;
+
       }
       &.D{
         transform: translate(210%, -60%);
+        animation: float-D 4s ease-in-out infinite;
+
       }
 
       &.bg{
@@ -711,5 +724,41 @@ border-color: transparent transparent transparent rgba(255, 255, 255, 0.2);
     background-color: #000;
     color: #ffffff;
     border: rgba(255, 255, 255, 0.2) solid 1px;
+  }
+}
+
+@keyframes float-A {
+  0%, 100% {
+    top: 50%;
+  }
+  50% {
+    top: calc(50% - 10px);
+  }
+}
+
+@keyframes float-B {
+  0%, 100% {
+    top: 50%;
+  }
+  50% {
+    top: calc(50% - 10px);
+  }
+}
+
+@keyframes float-C {
+  0%, 100% {
+    top: 50%;
+  }
+  50% {
+    top: calc(50% - 10px);
+  }
+}
+
+@keyframes float-D {
+  0%, 100% {
+    top: 50%;
+  }
+  50% {
+    top: calc(50% - 10px);
   }
 }
