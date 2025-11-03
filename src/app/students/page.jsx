@@ -4,6 +4,7 @@ import students from '../../../lib/data/students.json';
 import { StudentCard } from '../../../components/studentCard';
 import '../../../styles/students.scss';
 import { StudentDetail } from '../../../components/stDetail';
+import { Footer } from '../../../components/footer';
 
 // Fisher–Yates
 function shuffle(array) {
@@ -205,6 +206,7 @@ export default function Students() {
           )}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

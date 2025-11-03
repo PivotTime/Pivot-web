@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import "../../../styles/guestBook.scss";
+import { Footer } from "../../../components/footer";
 
 export function MessageBox ({to, from, message}){
   return(
@@ -59,6 +60,7 @@ export default function GuestBook() {
   }
 
   return (
+    <>
     <main className="GuestBook">
       <div className="addMassageContainer">
         <p className="title">새로운 축으로 나아갈 우리들에게<br></br>따뜻한 응원의 메시지를 남겨주세요.</p>
@@ -114,7 +116,12 @@ export default function GuestBook() {
           </div>
         )}
       </div>
+
+      
     </main>
+    
+    <Footer/>
+    </>
   );
 }
 

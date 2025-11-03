@@ -12,6 +12,7 @@ import projects from "../../../lib/data/project.json";
 import Image from "next/image";
 import { ProjectDetail } from "../../../components/pjDetail";
 import "../../../styles/projects.scss";
+import { Footer } from "../../../components/footer";
 
 // Fisher–Yates
 export function shuffle(array) {
@@ -328,6 +329,7 @@ export default function Projects() {
   }, [stableBase]);
 
   return (
+    <>
     <div className="projects blackBg">
       {modalState && selectedProject && (
         <ProjectDetail
@@ -607,5 +609,7 @@ export default function Projects() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }

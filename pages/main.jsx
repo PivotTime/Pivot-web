@@ -15,6 +15,7 @@ import VisualSection from "../components/mainSections/VisualSection";
 import TypographySection from "../components/mainSections/TypographySection";
 import SloganSection from "../components/mainSections/SloganSection";
 import MainFooterSection from "../components/mainSections/MainFooterSection";
+import { Footer } from "../components/footer";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -63,6 +64,8 @@ export default function Main() {
         <section className="footer-section">
           <MainFooterSection />
         </section>
+
+
       </div>
     </main>
   );
