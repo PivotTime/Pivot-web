@@ -646,7 +646,7 @@ export default function GoPivot() {
               href="/gpArchive"
               className="startBtn goArchive" // 버튼 스타일을 여기로 옮기기
             >
-              FEED!
+              공유하기
             </Link>
             <div className="samplePivotPlace">
               <svg
@@ -1927,7 +1927,7 @@ export default function GoPivot() {
               <p className="Result">{pivotMessage}</p>
               <div className="buttonList">
               <div className="btn">저장하기</div>
-              <Link  href="/gpArchive" className="btn" onClick={submitData}>FEED!</Link>
+              <Link  href="/gpArchive" className="btn" onClick={submitData}>PIVOT ARCHIVE</Link>
 
                <div className="eventCard">
                 <p>오프라인전시(11.21) 한정 <br></br> My Pivot Time 카드를 받아가세요!</p>
