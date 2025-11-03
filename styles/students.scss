@@ -37,6 +37,7 @@
       background-color: transparent;
       outline: none;
       border: none;
+      font-size: clamp(17px, 1.09vw, 21px);
       &::placeholder {
         color: #ffffff;
         opacity: 0.6; // 브라우저별로 기본 투명도 제어
