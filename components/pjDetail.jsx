@@ -117,15 +117,15 @@ export function ProjectDetail({ project, closeModal }) {
               src={`/images/team/${project.id}1.png`}
               fill
               size={500}
-              style={{ objectFit: "contain" }}
+              style={{ objectFit: "cover" }}
             />
             <Image
               className={`teamPhotoB ${isHovered ? "hovered" : ""}`} // Conditionally add 'hovered' class
               alt={`${project.teamName} team Photo`}
               src={`/images/team/${project.id}2.png`}
-              fill
-              size={500}
-              style={{ objectFit: "contain" }}
+              width={1920}
+              height={1080}
+              style={{ objectFit: "cover" }}
             />
             </div>
 

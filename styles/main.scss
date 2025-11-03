@@ -78,6 +78,8 @@ $font-weight-medium: 500;
 $font-main: "Pretendard", sans-serif;
 $font-weight-medium: 500;
 
+
+
 // TITLE
 // 약 33.5px max
 @mixin title {
@@ -187,6 +189,8 @@ main {
   background: #000;
   color: #fff;
   box-sizing: border-box;
+
+
   /* overflow: hidden; // 스크롤을 막는 주범이므로 삭제 */
 }
 

@@ -6,7 +6,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 import "../styles/main.scss";
 
-import Nav from "../components/nav";
+// import Nav from "../components/nav";
 import HeroSection from "../components/mainSections/HeroSection";
 import VideoSection from "../components/mainSections/VideoSection";
 import KeywordsSection from "../components/mainSections/KeywordsSection";
@@ -30,7 +30,7 @@ export default function Main() {
 
   return (
     <main ref={mainRef}>
-      <Nav />
+      {/* <Nav /> */}
       <div>
         <section className="hero-section">
           <HeroSection />

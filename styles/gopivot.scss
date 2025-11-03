@@ -121,6 +121,11 @@ a[aria-disabled="true"] {
     transition: all 0.3s ease-in-out;
     background-color: #000;
 
+    &.active{
+        background-color: rgba(255, 255, 255, 0.2);
+    
+    }
+
     &:hover{
       background-color: rgba(255, 255, 255, 0.10);
     }
@@ -162,9 +167,8 @@ a[aria-disabled="true"] {
       }
     }
       
-    &:nth-child(4){
-      background-color: rgba(255, 255, 255, 0.10);
-    }
+
+      
     .Icon{
       align-self: self-end;
     }

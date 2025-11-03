@@ -226,12 +226,11 @@ button{
       transition: all 0.8s ease-out;
       overflow: hidden;
       border-radius: 30px;
-      /* From https://css.glass */
       background: rgba(0, 0, 0, 0.34);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(100px);
-      // -webkit-backdrop-filter: blur(200px);
-      // border: 1px solid rgba(0, 0, 0, 0.3);
+      -webkit-backdrop-filter: blur(200px);
+      border: 1px solid rgba(0, 0, 0, 0.3);
       padding: 7px;
 
 
@@ -268,7 +267,8 @@ button{
   .activeFilterChips{
     align-self: flex-end;
     display: flex;
-      gap: 28px;
+    align-items: center;
+      gap: 10px;
 
       
   }
@@ -287,7 +287,7 @@ button{
     position: relative;
             font-size: globals.$fs-16-vw;
 
-    padding: 7 20;
+    padding: 9px 20px;
     z-index: 50;
     border-radius: 100;
     justify-content: space-between;
