@@ -193,193 +193,192 @@ $section-height: 100dvh;
     z-index: -1;
     // display: none;
   }
-}
 
-.logo svg {
-  width: 17.44vw;
+  .logo svg {
+    width: 17.44vw;
 
-  path {
-    fill: $blue;
+    path {
+      fill: $blue;
+    }
+
+    rect {
+      fill: $blue;
+    }
   }
 
-  rect {
-    fill: $blue;
+  .txt-wrap {
+    position: fixed;
+    padding: 4.5vw 0 0.4vw 0;
+    z-index: 5;
+
+    p {
+      @include body;
+      line-height: 1.6;
+      padding-top: 0.8vw;
+    }
   }
-}
 
-.txt-wrap {
-  position: fixed;
-  padding: 4.5vw 0 0.4vw 0;
-  z-index: 5;
-
-  p {
-    @include body;
-    line-height: 1.6;
-    padding-top: 0.8vw;
-  }
-}
-
-.graphic {
-  position: absolute;
-  right: 6vw;
-  top: 65%;
-  transform: translateY(-50%);
-  width: 60vw;
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  overflow: visible;
-}
-
-.graphic-objects {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  transform-origin: center;
-  will-change: transform;
-  &.no-interaction, &.no-interaction * {
-    pointer-events: none !important;
-  }
-}
-
-.graphic-slot {
-  position: absolute;
-  top: -34vw;
-  left: -44vw;
-  width: 10%;
-  height: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform-origin: 200% center;
-  cursor: pointer;
-
-  canvas {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.line canvas {
-  transform: scale(1);
-}
-
-.circle {
-  top: -26vw;
-  left: -36vw;
-  transform: scale(0.8);
-}
-
-.square {
-  transform: scaleY(-1) rotate(-25deg);
-  top: -2vw;
-  left: -48vw;
-}
-
-.label {
-  @include sub;
-  position: absolute;
-  padding: 0.16vw 1.04vw;
-  border-radius: 1.56vw;
-  border: 1px solid #e1e1e1;
-  background: #000;
-  line-height: 1.32;
-  letter-spacing: -0.03rem;
-  white-space: nowrap;
-}
-
-.kor {
-  top: 29.8vw;
-  left: 17vw;
-}
-
-.en {
-  top: 15.4vw;
-  right: 1.8vw;
-}
-
-// 최종 단계에서 보이는 새 라벨들
-.final-labels {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-
-  // 개별 라벨 공통 스타일
-  .final-label {
+  .graphic {
     position: absolute;
+    right: 6vw;
+    top: 65%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+  }
+
+  .graphic-objects {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    transform-origin: center;
+    will-change: transform;
+    &.no-interaction,
+    &.no-interaction * {
+      pointer-events: none !important;
+    }
+  }
+
+  .graphic-slot {
+    position: absolute;
+    top: -34vw;
+    left: -44vw;
+    width: 10%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: 200% center;
+    cursor: pointer;
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .line canvas {
+    transform: scale(1.5);
+  }
+
+  .circle {
+    top: -37vw;
+    left: -50vw;
+    transform: scale(1.1);
+  }
+
+  .square {
+    transform: scale(0.9) scaleY(-1) rotate(-28deg);
+    top: -4vw;
+    left: -45vw;
+  }
+
+  .label {
+    @include sub;
+    position: absolute;
+    padding: 0.16vw 1.04vw;
+    border-radius: 1.56vw;
+    border: 1px solid #e1e1e1;
+    background: #000;
+    line-height: 1.32;
+    letter-spacing: -0.03rem;
+    white-space: nowrap;
+  }
+
+  .kor {
+    top: 29.8vw;
+    left: 17vw;
+  }
+
+  .en {
+    top: 15.4vw;
+    right: 1.8vw;
+  }
+
+  // 최종 단계에서 보이는 새 라벨들
+  .final-labels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
     @include sub;
     color: #fff;
-    pointer-events: none;
+    line-height: 1.32;
+    letter-spacing: -0.03rem;
 
-    .kor {
-      padding: 0.16vw 1.04vw;
-      border-radius: 1.56vw;
-      border: 1px solid #e1e1e1;
-      background: #000;
-      display: inline-block;
-      margin-bottom: 0.6vw;
-      letter-spacing: -0.03rem;
-      white-space: nowrap;
-      position: relative;
-
-      // 중앙 점 + 라벨 연결선(visual-hover.svg) 구성
-      &::before {
-        content: "";
-        position: absolute;
-        width: 0.7vw; height: 0.7vw;
-        border-radius: 50%;
-        background: #000;
-        border: 1px solid #e1e1e1;
-        left: -1vw; top: 50%; transform: translate(-100%, -50%);
-      }
-    }
-
-    .en {
-      @include infoText;
-      opacity: 0.8;
-    }
-
-    // 라벨-대상 오브젝트 연결선 (시안 동일 형태)
-    &::after {
-      content: "";
+    .final-label {
       position: absolute;
-      background: url('/objects/visual-hover.svg') no-repeat center / contain;
-      opacity: 0.9;
-      pointer-events: none;
-    }
-  }
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.5vw;
+      width: max-content;
+      text-align: left;
 
-  // 위치는 현재 시안 기준 대략치 (vw 단위)
-  .planning {
-    top: 9.5vw; // 우상단 라인 근처
-    right: 3.5vw;
-    text-align: right;
-    &::after {
-      width: 16vw; height: 6vw;
-      right: 7.2vw; top: -2.2vw;
-      transform: rotate(12deg);
-    }
-  }
+      svg {
+        width: 13vw;
+        height: auto;
+        transform-origin: center;
+      }
 
-  .design {
-    top: 32vw; // 중앙 원 아래쪽 좌측
-    left: 13vw;
-    text-align: left;
-    &::after {
-      width: 18vw; height: 6vw;
-      left: 6.2vw; top: -2.4vw;
-      transform: rotate(-8deg);
-    }
-  }
+      div {
+        @include h2;
+        letter-spacing: -0.04rem;
+      }
 
-  .programming {
-    top: 38.7vw; // 우하단 사각파형 좌측
-    right: 2vw;
-    text-align: right;
-    &::after {
-      width: 20vw; height: 7vw;
-      right: 8.4vw; top: -1.4vw;
-      transform: rotate(4deg);
+      p {
+        margin: 0;
+        font-size: clamp(0.7rem, 0.78vw, 1.1rem);
+        opacity: 0.85;
+      }
+
+      &.planning {
+        top: 9.4vw;
+        right: 4.2vw;
+        text-align: right;
+        align-items: flex-end;
+
+        svg {
+          transform: scaleX(-1);
+        }
+
+        div,
+        p {
+          margin-right: -1vw;
+        }
+      }
+
+      &.design {
+        top: 31.6vw;
+        left: 10.8vw;
+        align-items: flex-start;
+
+        svg {
+          transform: scaleY(-1);
+        }
+
+        div,
+        p {
+          margin-left: -1.2vw;
+        }
+      }
+
+      &.programming {
+        top: 39.2vw;
+        right: 3vw;
+        text-align: right;
+        align-items: flex-end;
+
+        svg {
+          transform: scaleX(-1);
+        }
+
+        div,
+        p {
+          margin-right: -0.6vw;
+        }
+      }
     }
   }
 }
