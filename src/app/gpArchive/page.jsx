@@ -5,7 +5,7 @@ export const revalidate = 0;           // 항상 최신 (또는 dynamic='force-d
 export const dynamic = 'force-dynamic';
 
 async function getSubmissions(initialLimit = 5) { // Add initialLimit parameter
-  const { db } = await import('@/lib/firebase-admin.server.js');
+  const { db } = await import('../../lib/firebase-admin.server');
 
   const snap = await db
     .collection('pivot-submissions')

@@ -1,5 +1,5 @@
 import 'server-only';
-import { db } from '@/lib/firebase-admin.server.js';
+import { db } from '../../src/lib/firebase-admin.server.js';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
