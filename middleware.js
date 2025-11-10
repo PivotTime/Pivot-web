@@ -10,7 +10,7 @@ export function middleware(req) {
 
 
   if (now.getTime() < target) {
-    url.pathname = "/goPivot"; 
+    url.pathname = "/CountDown"; 
     return NextResponse.redirect(url);
   }
 
