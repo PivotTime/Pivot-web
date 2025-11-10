@@ -15,6 +15,7 @@ import {
 import Link from "next/link";
 import { gsap } from "gsap";
 import "../styles/nav.scss";
+import { Hamburger } from "./hamburger";
 
 // 네비게이션 탭에 표시될 아이템들의 정보(id와 텍스트)를 배열로 미리 정의합니다.
 const TAB_ITEMS = [
@@ -61,7 +62,10 @@ const NAV_ITEMS = [
   ];
 
 // 다른 파일에서 이 네비게이션 컴포넌트를 사용할 수 있도록 Nav 함수를 기본으로 내보냅니다.
-export default function Nav() {
+export default function Nav({ setMouseParticlesEnabled }) {
+
+  const [hamburger,setHamburger] = useState(false)
+
   // Tab_Switcher 상태
   const [activeTab, setActiveTab] = useState("none");
   const [hoveredTab, setHoveredTab] = useState(null);
@@ -99,7 +103,9 @@ export default function Nav() {
   };
 
   const handleToggle = () => {
-    setIsToggled((current) => !current);
+    const newToggledState = !isToggled;
+    setIsToggled(newToggledState);
+    setMouseParticlesEnabled(newToggledState);
   };
 
   const animateMarker = useCallback(() => {
@@ -191,6 +197,13 @@ export default function Nav() {
 
   return (
       <nav>
+
+        {hamburger && 
+        
+        <Hamburger
+          exit={() => setHamburger(false)}
+        />
+        }
         <div>
           <Link href="/">
             <svg
@@ -346,7 +359,7 @@ export default function Nav() {
                     }}
                     onClick={
                       item.id === "hamburger"
-                        ? handleToggle
+                        ? () => setHamburger(true)
                         : () => handleNavTabToggle(item.id)
                     }
                     onMouseEnter={() => setHoveredNavTab(item.id)}

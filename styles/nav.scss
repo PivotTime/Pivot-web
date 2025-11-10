@@ -1,3 +1,5 @@
+@use "./variable";
+
 a {
   color: inherit;
   text-decoration: none;
@@ -414,5 +416,201 @@ nav {
     opacity: 0;
     z-index: 1;
     pointer-events: none;
+  }
+}
+
+
+.hamburgerModal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E1E1E1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height:100vh;
+  padding: 20vh 12vw;
+  padding-bottom: 17vh;
+  background-color: #000;
+  z-index: 200;
+
+  .btnList{
+    display: flex;
+    width: 100%;
+  }
+  .LogoPlaceHolder{
+    position: relative;
+  }
+  >svg{
+    height: 100%;
+    width: auto;
+  }
+  .exitBtn{
+    position: absolute;
+    right: 5vw;
+    top:5vh;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: #C5C5C5;
+    height: 3vh;
+    aspect-ratio:1/1 ;
+    border-radius: 100%;
+    min-height: 36px;
+  }
+
+  .BtnPlaceHolder{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+
+
+    .middleLine{
+      width: 100%;
+      height: 1px;
+      background-color: #E1E1E1;
+      opacity: 0.2;
+    }
+    .BtnList{
+      position: relative;
+      width:100%; 
+      height: auto;
+      display: flex;
+      justify-content: space-between;
+      .Btn{
+        display: flex;
+        width: 30%;
+        height: 2.8vw;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+
+      path, rect{
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover{
+        color: #0051ff;
+        .gpGpInfo{
+         color: #0051ff; 
+        }
+        
+        svg{
+          rect,
+          
+          path{fill:#0051ff;}
+
+          
+        }
+      }
+        
+
+        .gpGpInfo{
+          position: absolute;
+          top:  calc((clamp(40px, 4vh, 50px)) * -1) ;
+          letter-spacing: -0.3px;
+          font-size: variable.$fs-16-vw;
+          color: #e1e1e1;
+          opacity: 0.6;
+          font-weight: 400;
+          transition: all 0.3s ease-in-out;
+        }
+
+        >span{
+          font-size: clamp(55px, 4.11vw, 77px);
+          display: flex;
+          align-items: center;
+          font-weight: 400;
+          letter-spacing: -2px;
+          padding-bottom: 5px;
+        }
+
+        &.middle{
+          >p{
+            margin-left: 10px;
+            font-weight: 400;
+            letter-spacing: 0.6px;
+          }
+        }
+
+        &.top{
+
+          >div{
+            height: 100%;
+            width: auto;
+            >svg{
+            height: 100%;
+            
+          }
+          }
+          flex-direction: column;
+          
+        }
+
+      }
+    }
+    .infoText{
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: clamp(50px, 5.21vw, 100px);
+
+      .bottomInfo{
+        display: flex;
+        flex-direction: column;
+        gap: variable.$fs-16-vh;
+
+        &.last{
+          align-self: flex-end;
+          justify-self: end;
+          align-items: end;
+          text-align: end;
+          flex: 1;
+
+          .LogoPlaceHolder{
+            height: 25px;
+            width: 80px;
+          }
+          .info{
+            opacity: 0.8;
+          }
+        }
+      }
+
+     
+
+
+      .title{
+        font-size: variable.$fs-18-vw;
+        font-weight: 400;
+        letter-spacing: -0.4px;
+        color: #E1E1E1;
+        opacity: 0.7;
+      }
+      .info{
+        position: relative;
+        font-weight: 200;
+        letter-spacing: -0.3px;
+        font-size: variable.$fs-14-vw;
+        color: #E1E1E1;
+        opacity: 0.5;
+        line-height: 150%;
+         .number{
+        font-size: 10px;
+        position: absolute;
+          margin-left: 3px;
+          margin-top: -3;
+      }
+      }
+      .subTitle{
+        display: inline-block;
+        width:variable.$fs-40-vw ;
+        margin-right: 10px;
+      }
+    }
   }
 }

@@ -293,6 +293,8 @@ export default function GoPivot() {
         ...traj,
         angleX: animationRefs.current[index].angleX,
         angleY: animationRefs.current[index].angleY,
+        radius: animationRefs.current[index].radius, // Add radius
+        sizeFactor: animationRefs.current[index].sizeFactor, // Add sizeFactor
       }));
 
       const response = await fetch("/api/save_trajectories", {
@@ -513,7 +515,7 @@ export default function GoPivot() {
 
   return (
     <>
-      {pivotStep !== "make" && <Nav />}
+      {/* {pivotStep !== "make" && <Nav />} */}
       <div
         className={`${pivotStep === "intro" && `introBg`} ${
           pivotStep === "make" && `makeBg`

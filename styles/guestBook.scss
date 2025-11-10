@@ -20,6 +20,7 @@ button {
   display: flex;
   flex-direction: column;
   gap:clamp(70px, 9.26vh, 100px) ;
+  height: fit-content;
 
   .addMassageContainer {
     width: 100%;
@@ -50,9 +51,16 @@ button {
         font-weight: 500;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
+        background-color: #e1e1e1;
+        color: black;
+        opacity: 0.3;
+        
+        
         &.off{
             pointer-events: none;
             opacity: 0.3;
+            background-color: #e1e1e1;
+            color: black;
         }
 
         &.on{
@@ -67,6 +75,7 @@ button {
       .textareaContainer {
         position: relative;
         width: 100%;
+        // min-height: 500px;
         flex: 1;
 
         padding: 30px 29px;

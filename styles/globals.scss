@@ -297,3 +297,31 @@ $font-weight-medium: 500;
   );
 }
 
+.mouse-particles-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none; /* 클릭 막지 않게 */
+}
+
+.particle-toggle-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10000;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #ffffff55;
+  background: #000000aa;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.particle-toggle-btn:hover {
+  transform: translateY(-2px);
+  background: #ffffff22;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}

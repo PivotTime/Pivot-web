@@ -19,7 +19,7 @@ export default function PlaybackAnimation({ trajectories, customObjects, arrange
     }))
   );
   const shapeNodesRef = useRef([]);
-  const [objectCustomShapes, setObjectCustomShapes] = useState(Array(MAX).fill(null));
+  const [customObjectForNode, setCustomObjectForNode] = useState(Array(MAX).fill(null));
 
   const getPivot = () => {
     const holder = holderRef.current;
@@ -108,10 +108,10 @@ export default function PlaybackAnimation({ trajectories, customObjects, arrange
             const normZ = zz2 / radius;
             const opacity = 0.25 + ((normZ + 1) / 2) * 0.75;
 
-            if (objectType === 'custom' && JSON.stringify(objectCustomShapes[objIndex]) !== JSON.stringify(customShapes)) {
-              setObjectCustomShapes(prev => {
+            if (objectType === 'custom' && JSON.stringify(customObjectForNode[objIndex]) !== JSON.stringify(currentCustomObject)) {
+              setCustomObjectForNode(prev => {
                 const newArr = [...prev];
-                newArr[objIndex] = customShapes;
+                newArr[objIndex] = currentCustomObject;
                 return newArr;
               });
             }
@@ -163,7 +163,12 @@ export default function PlaybackAnimation({ trajectories, customObjects, arrange
             <ShapeRenderer type="line" width={160} height={60} />
           </div>
           <div className="shape-container" data-type="custom" style={{display: 'none'}}>
-            <ShapeRenderer type="custom" customShapes={objectCustomShapes[i]} width={240} height={240} />
+            <ShapeRenderer 
+              type="custom" 
+              customShapes={customObjectForNode[i]?.shapes} 
+              width={customObjectForNode[i]?.width || 240} 
+              height={customObjectForNode[i]?.height || 240} 
+            />
           </div>
         </div>
       ))}

@@ -457,7 +457,12 @@ export default function Projects() {
               onClick={() => removeFilter("topic", t)}
             >
               <span className="chipLabel">{t}</span>
-              <span className="chipRemove">×</span>
+              <span className="chipRemove">
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.459473 0.459717L10.4341 10.4343" stroke="white" strokeWidth="1.3"/>
+                  <path d="M10.4341 0.459717L0.459478 10.4343" stroke="white" strokeWidth="1.3"/>
+                </svg>
+              </span>
             </div>
           ))}
 
@@ -470,10 +475,9 @@ export default function Projects() {
               <span className="chipLabel">{f}</span>
               <span className="chipRemove">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.459473 0.459717L10.4341 10.4343" stroke="white" strokeWidth="1.3"/>
-<path d="M10.4341 0.459717L0.459478 10.4343" stroke="white" strokeWidth="1.3"/>
-</svg>
-
+                <path d="M0.459473 0.459717L10.4341 10.4343" stroke="white" strokeWidth="1.3"/>
+                <path d="M10.4341 0.459717L0.459478 10.4343" stroke="white" strokeWidth="1.3"/>
+                </svg>
               </span>
             </div>
           ))}

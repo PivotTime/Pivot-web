@@ -1,0 +1,83 @@
+@use "./variable";
+
+
+.BehindPage{
+    display: flex;
+    padding:variable.$fs-60-vw ;
+    justify-content: end;
+    position: relative;
+    width: 100vw;
+    height: fit-content;
+
+    .videoPlaceHolder{
+        position: fixed;
+        left: 0;
+        top: 0;
+        width:100%;
+        height: 100vh;
+        video{
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    .leftLogoBox{
+        position: fixed;
+        left:variable.$fs-60-vw;
+        bottom: calc(variable.$fs-40-vh + 10px) ;
+        display: flex;
+        flex-direction: column;
+        gap:27px ;
+        width: fit-content;
+        height: fit-content;
+        color:#E1E1E1 ;
+        z-index: 5;
+
+        >p{
+            font-size: variable.$fs-20-vw;
+            font-weight: 500;
+            line-height: 160%; /* 32px */
+            letter-spacing: -0.6px;
+            opacity: 0.8;
+        }
+        svg{
+             z-index: 5;
+        }
+    }
+    .nameListBox{
+        position: relative;
+        
+        display: flex;
+        flex-direction: column;
+    color: white;
+
+    .CreditBox{
+        display: flex;
+        flex-direction: column;
+        font-size: variable.$fs-20-vw;
+        .title{
+            font-weight: 600;
+            line-height: 160%; /* 32px */
+            letter-spacing: -0.6px;
+        }
+        .middleLine{
+            width: 100%;
+            height: 1px;
+            background-color: white;
+        }
+        .listBox{
+            display: flex;
+
+            .teamName{
+                min-width: 200px;
+            }
+
+            .nameGrid{
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    }
+    }
+    
+}
+
