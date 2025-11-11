@@ -9,14 +9,13 @@ export default function Layout({ children }) {
   const pathname = usePathname();
   const hideNavA = pathname.startsWith("/goPivot");
   const hideNavB = pathname.startsWith("/countDown");
-  const hideNavC = pathname.startsWith("/gpArchive");
   const [mouseParticlesEnabled, setMouseParticlesEnabled] = useState(false);
 
   return (
     <html lang="ko">
       <body>
         <MouseParticlesToggle enabled={mouseParticlesEnabled} />
-       {!hideNavA && !hideNavB && !hideNavC && (
+       {!hideNavA && !hideNavB && (
   <Nav setMouseParticlesEnabled={setMouseParticlesEnabled} />
 )}
 
