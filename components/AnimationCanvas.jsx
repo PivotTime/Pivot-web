@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useCallback, useState } from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import ShapeRenderer from './ShapeRenderer';
 
 const MAX = 200;
@@ -7,7 +7,7 @@ const CAM_DIST = 800;
 const Z_EPS = 1;
 const AUTO_SPEED_Y = 0.003;
 
-export default function AnimationCanvas({ trajectories, arrangement, customObjects, animationRefs, selectedIndex, latestObjectsRef }) {
+function AnimationCanvas({ trajectories, arrangement, customObjects, animationRefs, selectedIndex, latestObjectsRef }) {
   const holderRef = useRef(null);
   const dragModeRef = useRef(null);
   const dragStartRef = useRef({ x: 0, y: 0, ax: 0, ay: 0 });
@@ -269,3 +269,5 @@ export default function AnimationCanvas({ trajectories, arrangement, customObjec
     </div>
   );
 }
+
+export default React.memo(AnimationCanvas);

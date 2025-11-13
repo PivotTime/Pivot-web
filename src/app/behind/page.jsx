@@ -62,26 +62,23 @@ export default function Behind() {
 
       </div>
       <div className="nameListBox">
+        <div className="ScrollPlzBox">
+              <p>SCROLL DOWN</p>
+              <svg
+                width="16"
+                height="9"
+                viewBox="0 0 16 9"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.46072 0.458226L7.93744 7.98138L15.4141 0.458276"
+                  stroke="white"
+                  strokeWidth="1.3"
+                />
+              </svg>
+            </div>
         <div className="sec A">
-            <CreditBox
-             title="졸업전시준비위원회"
-             nameList = {
-                <>
-                <NameList
-                    teamName ="위원장"
-                    listArr = {allCreditNames.위원장}
-                />
-                 <NameList
-                    teamName ="총무"
-                    listArr = {allCreditNames.총무}
-                />
-                <NameList
-                    teamName ="홍보팀"
-                    listArr = {allCreditNames.홍보팀}
-                />
-                </>
-            }
-            />
             <CreditBox
              title="졸업전시준비위원회"
              nameList = {
@@ -277,6 +274,14 @@ export default function Behind() {
                 </>
             }
             />
+        </div>
+        <div className="sec I">
+            <svg width="92" height="17" viewBox="0 0 92 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.0995 0V2.88851H15.8233V0H0V16.361H8.82892V7.55289H82.1399V16.361H91.1543V0H23.0995Z" fill="white"/>
+            </svg>
+            <p>©2025. Delight Insight PIVOTTIME All Right Reserved.</p>
+
+
         </div>
       </div>
     </div>

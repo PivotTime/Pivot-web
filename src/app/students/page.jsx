@@ -98,7 +98,9 @@ export default function Students() {
   // 검색
   const handleSearch = (e) => {
     if (!mounted) return;
+    //입력값 대소문자 다 대문자 처리
     const value = e.target.value.toLowerCase();
+    //검색값 state에 추가
     setSearchText(value);
 
     const filtered = allStudents.filter((a) =>

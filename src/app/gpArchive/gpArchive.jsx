@@ -1,28 +1,29 @@
-
 'use client';
-import { useState, useEffect, useRef, useCallback } from 'react'; // Add useCallback
+import { useState, useEffect, useRef, useCallback } from 'react';
 import '../../../styles/gpArchive.scss';
 import Link from 'next/link';
 import ArchiveCard from './ArchiveCard';
-import {GpArchiveInfoBox} from './GpArchiveInfoBox'; // New import
+import { GpArchiveInfoBox } from './GpArchiveInfoBox';
 import InfoBox from '../../../components/infoBox';
 
-export default function ArchiveClient({ submissions: initialSubmissions, error, initialLastDocId, initialHasMore }) { // Accept new props
+
+export default function ArchiveClient() {
   const [customObjects, setCustomObjects] = useState([]);
   const [loadingCustomObjects, setLoadingCustomObjects] = useState(true);
   const galleryRowRef = useRef(null);
 
-  const [submissions, setSubmissions] = useState(initialSubmissions); // Manage submissions state
-  const [lastDocId, setLastDocId] = useState(initialLastDocId); // Manage lastDocId state
-  const [hasMore, setHasMore] = useState(initialHasMore); // Manage hasMore state
-  const [loadingMore, setLoadingMore] = useState(false); // Loading state for more submissions
+  const [submissions, setSubmissions] = useState([]);
+  const [lastDoc, setLastDoc] = useState(null); // 페이지네이션을 위해 마지막 문서를 저장
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [error, setError] = useState(null);
 
   const [showInfoBox, setShowInfoBox] = useState(false);
   const [infoBoxData, setInfoBoxData] = useState(null);
 
-  // New functions for info box
   const handleCardHover = useCallback((data) => {
-    setInfoBoxData({ name: data.name, tag: data.tags ? data.tags.map(t => `#${t}`).join(' ') : '' }); // data에서 name과 tags 추출 및 포맷팅
+    setInfoBoxData({ name: data.name, tag: data.tags ? data.tags.map(t => `#${t}`).join(' ') : '' });
     setShowInfoBox(true);
   }, []);
 
@@ -32,21 +33,37 @@ export default function ArchiveClient({ submissions: initialSubmissions, error, 
   }, []);
 
   useEffect(() => {
-    const fetchCustomObjects = async () => {
+    const fetchInitialData = async () => {
+      setLoading(true);
       try {
+        // Fetch initial submissions from API
+        const subResponse = await fetch('/api/get_submissions?limit=5');
+        if (!subResponse.ok) {
+          throw new Error(`HTTP error! status: ${subResponse.status}`);
+        }
+        const subData = await subResponse.json();
+        setSubmissions(subData.submissions);
+        setLastDoc(subData.lastDocId);
+        setHasMore(subData.hasMore);
+
+        // Fetch custom objects from API
         setLoadingCustomObjects(true);
-        const response = await fetch("/api/get_custom_objects");
-        if (!response.ok)
-          throw new Error(`HTTP error! status: ${response.status}`);
-        const data = await response.json();
-        setCustomObjects(data);
-      } catch (error) {
-        console.error("Error fetching custom objects:", error);
+        const customObjResponse = await fetch('/api/get_custom_objects');
+        if (!customObjResponse.ok) {
+          throw new Error(`HTTP error! status: ${customObjResponse.status}`);
+        }
+        const customObjData = await customObjResponse.json();
+        setCustomObjects(customObjData);
+
+      } catch (err) {
+        console.error("Error fetching initial data from API:", err);
+        setError(err.message);
       } finally {
+        setLoading(false);
         setLoadingCustomObjects(false);
       }
     };
-    fetchCustomObjects();
+    fetchInitialData();
   }, []);
 
   const handleWheelScroll = (event) => {
@@ -57,39 +74,48 @@ export default function ArchiveClient({ submissions: initialSubmissions, error, 
   };
 
   const loadMoreSubmissions = useCallback(async () => {
-    if (loadingMore || !hasMore) return; // Prevent multiple fetches or if no more items
+    if (loadingMore || !hasMore || !lastDoc) return;
 
     setLoadingMore(true);
     try {
-      const response = await fetch(`/api/get_submissions?limit=5&${lastDocId ? `lastDocId=${lastDocId}` : ''}`);
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const data = await response.json();
+      const moreSubResponse = await fetch(`/api/get_submissions?limit=5&lastDocId=${lastDoc}`);
+      if (!moreSubResponse.ok) {
+        throw new Error(`HTTP error! status: ${moreSubResponse.status}`);
+      }
+      const moreSubData = await moreSubResponse.json();
 
-      setSubmissions((prevSubmissions) => [...prevSubmissions, ...data.submissions]);
-      setLastDocId(data.lastDocId);
-      setHasMore(data.hasMore);
-    } catch (error) {
-      console.error("Error fetching more submissions:", error);
+      setSubmissions((prev) => [...prev, ...moreSubData.submissions]);
+      setLastDoc(moreSubData.lastDocId);
+      setHasMore(moreSubData.hasMore);
+    } catch (err) {
+      console.error("Error fetching more submissions from API:", err);
     } finally {
       setLoadingMore(false);
     }
-  }, [loadingMore, hasMore, lastDocId]);
+  }, [loadingMore, hasMore, lastDoc]);
 
   useEffect(() => {
     const galleryElement = galleryRowRef.current;
-    if (!galleryElement) return;
+    if (!galleryElement || loading) return;
 
     const handleScroll = () => {
-      // Check if scrolled to the end (or near the end)
-      if (galleryElement.scrollWidth - galleryElement.scrollLeft <= galleryElement.clientWidth + 200) { // 200px buffer
+      if (galleryElement.scrollWidth - galleryElement.scrollLeft <= galleryElement.clientWidth + 200) {
         loadMoreSubmissions();
       }
     };
 
     galleryElement.addEventListener('scroll', handleScroll);
     return () => galleryElement.removeEventListener('scroll', handleScroll);
-  }, [loadMoreSubmissions]);
+  }, [loadMoreSubmissions, loading]);
 
+  if (loading) {
+    return (
+      <div className="archive-page">
+        <h1>궤적 아카이브</h1>
+        <p>궤적을 불러오는 중...</p>
+      </div>
+    );
+  }
 
   if (error) {
     return (
@@ -124,15 +150,15 @@ export default function ArchiveClient({ submissions: initialSubmissions, error, 
               key={submission.id}
               submission={submission}
               customObjects={customObjects}
-              onHover={handleCardHover} // New prop
-              onLeave={handleCardLeave} // New prop
+              onHover={handleCardHover}
+              onLeave={handleCardLeave}
             />
           ))
         }
-        {loadingMore && <p>더 많은 궤적을 불러오는 중...</p>} {/* Loading indicator */}
-        {!hasMore && submissions.length > 0 && <p>모든 궤적을 불러왔습니다.</p>} {/* End of content indicator */}
+        {loadingMore && <p>더 많은 궤적을 불러오는 중...</p>}
+        {!hasMore && submissions.length > 0 && <p>모든 궤적을 불러왔습니다.</p>}
       </div>
-      {showInfoBox && infoBoxData && ( // Render GpArchiveInfoBox
+      {showInfoBox && infoBoxData && (
         <GpArchiveInfoBox
           data={infoBoxData}
         />
@@ -141,5 +167,4 @@ export default function ArchiveClient({ submissions: initialSubmissions, error, 
       <InfoBox/>
     </div>
   );
-
 }

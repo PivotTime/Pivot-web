@@ -7,7 +7,16 @@ import Nav from "../../../components/nav";
 import DrawingCanvas from "../../../components/makObject.jsx"; // makObject 컴포넌트 임포트
 import InfoBox from "../../../components/infoBox";
 
-const MAX = 200;
+const MAX = 50;
+
+const debounce = (func, delay) => {
+  let timeout;
+  return function(...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), delay);
+  };
+};
 
 function ControlBox({ name, element }) {
   return (
@@ -21,7 +30,7 @@ function ControlBox({ name, element }) {
 
 export default function GoPivot() {
   const [shape, setShape] = useState("")
-  const [pivotStep, setPivotStep] = useState("intro");
+  const [pivotStep, setPivotStep] = useState("make");
   const [arrangement, setArrangement] = useState("orbit");
   const [displayAngles, setDisplayAngles] = useState({ x: 0, y: 0 });
   const [trajectories, setTrajectories] = useState([
@@ -53,6 +62,10 @@ export default function GoPivot() {
   const [fetchError, setFetchError] = useState(null);
   const [pivotCount, setPivotCount] = useState(1);
   const [makerName, setMakerName] = useState("");
+  const debouncedSetMakerName = useCallback(
+    debounce((value) => setMakerName(value), 300),
+    []
+  );
   const [interactionState, setInteractionState] = useState(true);
   const [pivotMessage, setPivotMessage] = useState(""); // New state variable
   const [generatedTag, setGeneratedTag] = useState(null);
@@ -1184,8 +1197,10 @@ export default function GoPivot() {
             <div className="topBar">
               <div className="backBtn" onClick={() => setPivotStep("intro")}>
                 <svg
-                  width="47"
-                  height="47"
+                  style={{
+                    width: "clamp(23px, 2.45vw, 47px)",
+                    height: "clamp(23px, 2.45vw, 47px)",
+                  }}
                   viewBox="0 0 47 47"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1290,7 +1305,7 @@ export default function GoPivot() {
             {makePivotModal && (
                         <div className="modal-overlay">
                           <div className="modal-content">
-                            <button className="modal-close-btn" onClick={() => setMakePivotModal(false)}><svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <button className="modal-close-btn" onClick={() => setMakePivotModal(false)}><svg style={{width: 'clamp(15px, 1.51vw, 29px)', height: 'clamp(15px, 1.51vw, 29px)'}} viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.353516 0.353516L28.3535 28.3535" stroke="#E1E1E1"/>
 <path d="M28.3535 0.353516L0.353513 28.3535" stroke="#E1E1E1"/>
 </svg>
@@ -1317,8 +1332,7 @@ export default function GoPivot() {
                   <div className="mouseInteraction">
                     <div className="svgPlaceHolder">
                       <svg
-                        width="52"
-                        height="50"
+                        style={{width: 'clamp(26px, 2.71vw, 52px)', height: 'clamp(25px, 2.60vw, 50px)'}}
                         viewBox="0 0 52 50"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1383,8 +1397,7 @@ export default function GoPivot() {
                   <div className="mouseInteraction">
                     <div className="svgPlaceHolder">
                       <svg
-                        width="48"
-                        height="46"
+                        style={{width: 'clamp(24px, 2.5vw, 48px)', height: 'clamp(23px, 2.4vw, 46px)'}}
                         viewBox="0 0 48 46"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1444,8 +1457,7 @@ export default function GoPivot() {
                   <div className="mouseInteraction">
                     <div className="svgPlaceHolder">
                       <svg
-                        width="48"
-                        height="46"
+                        style={{width: 'clamp(24px, 2.5vw, 48px)', height: 'clamp(23px, 2.4vw, 46px)'}}
                         viewBox="0 0 48 46"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1512,8 +1524,7 @@ export default function GoPivot() {
                         onClick={handleSetPointToCenter}
                       >
                         <svg
-                          width="47"
-                          height="47"
+                          style={{width: 'clamp(23px, 2.45vw, 47px)', height: 'clamp(23px, 2.45vw, 47px)'}}
                           viewBox="0 0 47 47"
                           xmlns="http://www.w3.org/2000/svg"
                         >
@@ -1570,8 +1581,7 @@ export default function GoPivot() {
                         }
                       >
                         <svg
-                          width="47"
-                          height="47"
+                          style={{width: 'clamp(23px, 2.45vw, 47px)', height: 'clamp(23px, 2.45vw, 47px)'}}
                           viewBox="0 0 47 47"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -1671,8 +1681,7 @@ export default function GoPivot() {
                       }>
                         <svg
                           className="Icon"
-                          width="30"
-                          height="30"
+                          style={{width: 'clamp(15px, 1.56vw, 30px)', height: 'clamp(15px, 1.56vw, 30px)'}}
                           viewBox="0 0 30 30"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -1692,8 +1701,7 @@ export default function GoPivot() {
                       }}>
                         <svg
                           className="Icon"
-                          width="32"
-                          height="32"
+                          style={{width: 'clamp(16px, 1.67vw, 32px)', height: 'clamp(16px, 1.67vw, 32px)'}}
                           viewBox="0 0 32 32"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -1717,8 +1725,7 @@ export default function GoPivot() {
                       }}>
                         <svg
                           className="Icon"
-                          width="30"
-                          height="30"
+                          style={{width: 'clamp(15px, 1.56vw, 30px)', height: 'clamp(15px, 1.56vw, 30px)'}}
                           viewBox="0 0 30 30"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -1740,7 +1747,7 @@ export default function GoPivot() {
                       <div className={shape==="custom" ? "active":""} onClick={() => {setMakePivotModal(true)
                         setShape("custom")
                       }}>
-                          <svg className="Icon" width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <svg className="Icon" style={{width: 'clamp(18px, 1.93vw, 37px)', height: 'clamp(18px, 1.88vw, 36px)'}} viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.5488 6.13867H21.7988V6.6508L22.2758 6.83722L22.5488 6.13867ZM25.8018 8.01855L25.3328 8.60385L25.7327 8.92428L26.1766 8.66818L25.8018 8.01855ZM30.4717 5.32422L31.1212 4.94921L30.7463 4.2999L30.0969 4.67459L30.4717 5.32422ZM35.0049 13.1758L35.3797 13.8254L36.0295 13.4505L35.6544 12.8008L35.0049 13.1758ZM30.3389 15.8682L29.964 15.2186L29.5207 15.4744L29.5973 15.9805L30.3389 15.8682ZM30.4805 17.75H31.2305V17.75L30.4805 17.75ZM30.3389 19.6318L29.5973 19.5196L29.5207 20.0255L29.9639 20.2813L30.3389 19.6318ZM35.002 22.3242L35.6515 22.6992L36.0265 22.0497L35.377 21.6747L35.002 22.3242ZM30.4688 30.1758L30.0937 30.8253L30.7432 31.2004L31.1183 30.5508L30.4688 30.1758ZM25.8018 27.4805L26.1768 26.831L25.7328 26.5746L25.3327 26.8952L25.8018 27.4805ZM22.5488 29.3613L22.2758 28.6628L21.7988 28.8492V29.3613H22.5488ZM22.5488 34.749V35.499H23.2988V34.749H22.5488ZM13.4824 34.749H12.7324V35.499H13.4824V34.749ZM13.4824 29.3633H14.2324V28.851L13.7553 28.6647L13.4824 29.3633ZM10.2256 27.4814L10.6946 26.8962L10.2945 26.5755L9.85048 26.832L10.2256 27.4814ZM5.56055 30.1758L4.91101 30.5508L5.28606 31.2004L5.93565 30.8252L5.56055 30.1758ZM1.02734 22.3232L0.65221 21.6738L0.0029304 22.0488L0.377808 22.6982L1.02734 22.3232ZM5.68848 19.6309L6.06361 20.2803L6.50656 20.0244L6.43004 19.5187L5.68848 19.6309ZM5.54785 17.75L4.79785 17.75V17.75H5.54785ZM5.68848 15.8691L6.43003 15.9814L6.50661 15.4754L6.06343 15.2196L5.68848 15.8691ZM1.02441 13.1768L0.374899 12.8018L-0.000136256 13.4513L0.649457 13.8263L1.02441 13.1768ZM5.55762 5.3252L5.9326 4.67567L5.2831 4.3007L4.9081 4.95019L5.55762 5.3252ZM10.2246 8.01953L9.84963 8.66906L10.2936 8.92539L10.6937 8.60475L10.2246 8.01953ZM13.4824 6.13672L13.7552 6.83534L14.2324 6.649V6.13672H13.4824ZM13.4824 0.75V0H12.7324V0.75H13.4824ZM22.5488 0.75H23.2988V0H22.5488V0.75ZM18.0146 12.083V11.333H18.0146L18.0146 12.083ZM12.3486 17.749L11.5986 17.749V17.749H12.3486ZM18.0146 23.416L18.0146 24.166H18.0146V23.416ZM23.6816 17.749H24.4316V17.749L23.6816 17.749ZM22.5488 6.13867L22.2758 6.83722C23.3875 7.2717 24.4164 7.86963 25.3328 8.60385L25.8018 8.01855L26.2707 7.43326C25.2369 6.6049 24.076 5.93028 22.8218 5.44012L22.5488 6.13867ZM25.8018 8.01855L26.1766 8.66818L30.8465 5.97385L30.4717 5.32422L30.0969 4.67459L25.427 7.36892L25.8018 8.01855ZM30.4717 5.32422L29.8222 5.69922L34.3554 13.5508L35.0049 13.1758L35.6544 12.8008L31.1212 4.94921L30.4717 5.32422ZM35.0049 13.1758L34.63 12.5262L29.964 15.2186L30.3389 15.8682L30.7137 16.5178L35.3797 13.8254L35.0049 13.1758ZM30.3389 15.8682L29.5973 15.9805C29.6847 16.5575 29.7304 17.1484 29.7305 17.75L30.4805 17.75L31.2305 17.75C31.2304 17.0722 31.1789 16.4063 31.0804 15.7559L30.3389 15.8682ZM30.4805 17.75H29.7305C29.7305 18.3514 29.6847 18.9426 29.5973 19.5196L30.3389 19.6318L31.0804 19.7441C31.1789 19.0939 31.2305 18.4277 31.2305 17.75H30.4805ZM30.3389 19.6318L29.9639 20.2813L34.6269 22.9737L35.002 22.3242L35.377 21.6747L30.7139 18.9823L30.3389 19.6318ZM35.002 22.3242L34.3524 21.9492L29.8192 29.8008L30.4688 30.1758L31.1183 30.5508L35.6515 22.6992L35.002 22.3242ZM30.4688 30.1758L30.8438 29.5263L26.1768 26.831L25.8018 27.4805L25.4267 28.1299L30.0937 30.8253L30.4688 30.1758ZM25.8018 27.4805L25.3327 26.8952C24.4161 27.6298 23.3875 28.2283 22.2758 28.6628L22.5488 29.3613L22.8219 30.0599C24.0765 29.5695 25.237 28.8942 26.2708 28.0657L25.8018 27.4805ZM22.5488 29.3613H21.7988V34.749H22.5488H23.2988V29.3613H22.5488ZM22.5488 34.749V33.999H13.4824V34.749V35.499H22.5488V34.749ZM13.4824 34.749H14.2324V29.3633H13.4824H12.7324V34.749H13.4824ZM13.4824 29.3633L13.7553 28.6647C12.6421 28.2299 11.612 27.6314 10.6946 26.8962L10.2256 27.4814L9.75656 28.0667C10.7915 28.8961 11.9538 29.5715 13.2096 30.0619L13.4824 29.3633ZM10.2256 27.4814L9.85048 26.832L5.18545 29.5263L5.56055 30.1758L5.93565 30.8252L10.6007 28.1309L10.2256 27.4814ZM5.56055 30.1758L6.21008 29.8008L1.67688 21.9483L1.02734 22.3232L0.377808 22.6982L4.91101 30.5508L5.56055 30.1758ZM1.02734 22.3232L1.40248 22.9727L6.06361 20.2803L5.68848 19.6309L5.31334 18.9814L0.65221 21.6738L1.02734 22.3232ZM5.68848 19.6309L6.43004 19.5187C6.34289 18.9426 6.29785 18.3517 6.29785 17.75H5.54785H4.79785C4.79785 18.4266 4.8485 19.0925 4.94691 19.743L5.68848 19.6309ZM5.54785 17.75L6.29785 17.75C6.29787 17.1481 6.34283 16.5575 6.43003 15.9814L5.68848 15.8691L4.94692 15.7569C4.84843 16.4076 4.79788 17.0733 4.79785 17.75L5.54785 17.75ZM5.68848 15.8691L6.06343 15.2196L1.39937 12.5272L1.02441 13.1768L0.649457 13.8263L5.31352 16.5187L5.68848 15.8691ZM1.02441 13.1768L1.67393 13.5518L6.20713 5.7002L5.55762 5.3252L4.9081 4.95019L0.374899 12.8018L1.02441 13.1768ZM5.55762 5.3252L5.18263 5.97472L9.84963 8.66906L10.2246 8.01953L10.5996 7.37L5.9326 4.67567L5.55762 5.3252ZM10.2246 8.01953L10.6937 8.60475C11.6113 7.86922 12.6418 7.27012 13.7552 6.83534L13.4824 6.13672L13.2096 5.4381C11.9533 5.92868 10.7907 6.60463 9.75554 7.43432L10.2246 8.01953ZM13.4824 6.13672H14.2324V0.75H13.4824H12.7324V6.13672H13.4824ZM13.4824 0.75V1.5H22.5488V0.75V0H13.4824V0.75ZM22.5488 0.75H21.7988V6.13867H22.5488H23.2988V0.75H22.5488ZM18.0146 12.083L18.0146 11.333C14.4713 11.3333 11.5989 14.2057 11.5986 17.749L12.3486 17.749L13.0986 17.7491C13.0989 15.0341 15.2997 12.8332 18.0147 12.833L18.0146 12.083ZM12.3486 17.749H11.5986C11.5986 21.2925 14.471 24.1657 18.0146 24.166L18.0146 23.416L18.0147 22.666C15.2997 22.6658 13.0986 20.4643 13.0986 17.749H12.3486ZM18.0146 23.416V24.166C21.5584 24.166 24.4316 21.2928 24.4316 17.749H23.6816H22.9316C22.9316 20.4643 20.73 22.666 18.0146 22.666V23.416ZM23.6816 17.749L24.4316 17.749C24.4313 14.2054 21.5581 11.333 18.0146 11.333V12.083V12.833C20.7299 12.833 22.9314 15.0341 22.9316 17.7491L23.6816 17.749Z" fill="#E1E1E1"/>
                           </svg>
                         <span className="CUSTOMtextLine">

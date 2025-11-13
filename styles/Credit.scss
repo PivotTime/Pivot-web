@@ -8,6 +8,7 @@
     position: relative;
     width: 100vw;
     height: fit-content;
+    padding-top: 90vh;
 
     .videoPlaceHolder{
         position: fixed;
@@ -48,16 +49,20 @@
         
         display: flex;
         flex-direction: column;
+        gap: variable.$fs-50-vh;
     color: white;
 
     .CreditBox{
         display: flex;
         flex-direction: column;
+        gap: variable.$fs-30-vh;
         font-size: variable.$fs-20-vw;
+        width: fit-content;
         .title{
             font-weight: 600;
             line-height: 160%; /* 32px */
             letter-spacing: -0.6px;
+            min-height:variable.$fs-32-vw ;
         }
         .middleLine{
             width: 100%;
@@ -66,6 +71,7 @@
         }
         .listBox{
             display: flex;
+            
 
             .teamName{
                 min-width: 200px;
@@ -73,7 +79,14 @@
 
             .nameGrid{
                 display: grid;
+                grid-row-gap:10px;
+                font-weight: 300;
+                grid-column-gap: 15px;
                 grid-template-columns: repeat(6, 1fr);
+                
+                &.Professor{
+                    grid-template-columns: repeat(4, 1fr);
+                }
             }
         }
     }
@@ -81,3 +94,55 @@
     
 }
 
+.ScrollPlzBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: fit-content;
+      min-height: 40px;
+      gap: 10px;
+      > svg {
+        min-height: 20px;
+        animation: floatDownHint 1.6s ease-in-out infinite both;
+      }
+    }
+
+.sec{
+    position: relative;
+    display: flex;
+    gap: variable.$fs-85-vw;
+    &.A{
+        margin-bottom: calc(variable.$fs-200-vh + variable.$fs-50-vh) ;
+    }
+
+    &.C, &.E, &.G{
+        justify-content: flex-end;
+    }
+
+    &.G, &.H, &.I{
+        margin-top:calc(variable.$fs-200-vh + variable.$fs-50-vh);
+    }
+
+    &.I{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+
+    }
+}
+
+@keyframes floatDownHint {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
