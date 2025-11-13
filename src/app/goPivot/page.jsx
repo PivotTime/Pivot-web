@@ -1771,11 +1771,13 @@ export default function GoPivot() {
                     const tag = getPivotTag();
                     setPivotMessage(message); // 상태에 메시지 저장
                     setGeneratedTag(tag);
-                    setPivotStep("done");
+                    // setPivotStep("done");
                     setInteractionState(false);
+                    submitData();
+                    alert(`${makerName} 팀 오브젝트 저장 완료!`)
                   }}
                 >
-                  GO PIVOT!
+                  팀 오브젝트 저장하기!
                 </button>
               </div>
               
@@ -1936,7 +1938,9 @@ export default function GoPivot() {
               <p className="Result">{pivotMessage}</p>
               <div className="buttonList">
               <div className="btn">저장하기</div>
-              <Link  href="/gpArchive" className="btn" onClick={submitData}>공유하기</Link>
+              <Link  href="/gpArchive" className="btn" 
+              // onClick={submitData}
+              >공유하기</Link>
 
                <div className="eventCard">
                 <p>오프라인전시(11.21) 한정 <br></br> My Pivot Time 카드를 받아가세요!</p>
