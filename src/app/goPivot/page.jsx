@@ -259,9 +259,12 @@ export default function GoPivot() {
   }, []);
 
   useEffect(() => {
-    const el = holderRef.current;
-    if (!el) return;
     const onWheel = (e) => {
+      const el = holderRef.current;
+      if (!el || !el.contains(e.target)) {
+        return;
+      }
+
       e.preventDefault();
       const now = performance.now();
       if (now - wheelTS.current < 60) return;
@@ -284,8 +287,9 @@ export default function GoPivot() {
         })
       );
     };
-    el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel);
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+    return () => window.removeEventListener("wheel", onWheel);
   }, [selectedIndex, pivotStep]);
 
   const latestObjectsRef = useRef();
@@ -1195,7 +1199,7 @@ export default function GoPivot() {
         {pivotStep === "make" && (
           <div className="makePivot">
             <div className="topBar">
-              <div className="backBtn" onClick={() => setPivotStep("intro")}>
+              {/* <div className="backBtn" onClick={() => setPivotStep("intro")}>
                 <svg
                   style={{
                     width: "clamp(23px, 2.45vw, 47px)",
@@ -1217,7 +1221,7 @@ export default function GoPivot() {
                   />
                 </svg>
                 <p>BACK TO MAIN</p>
-              </div>
+              </div> */}
               <div
                 style={{
                   padding: 12,
@@ -1252,20 +1256,18 @@ export default function GoPivot() {
                     <div
                       className="Btn add"
                       onClick={() => {
-                        setPivotCount((prevPivotCount) => {
-                          const newPivotCount = Math.min(3, prevPivotCount + 1);
-                          if (newPivotCount > prevPivotCount) {
-                            setTrajectories((prevTrajectories) =>
-                              prevTrajectories.map((traj, i) => {
-                                if (i === newPivotCount - 1) {
-                                  return { ...traj, count: 3 };
-                                }
-                                return traj;
-                              })
-                            );
-                          }
-                          return newPivotCount;
-                        });
+                        if (pivotCount >= 3) return;
+                        const newPivotCount = pivotCount + 1;
+                        setTrajectories((prevTrajectories) =>
+                          prevTrajectories.map((traj, i) => {
+                            if (i === newPivotCount - 1) {
+                              return { ...traj, count: 3 };
+                            }
+                            return traj;
+                          })
+                        );
+                        setPivotCount(newPivotCount);
+                        setSelectedIndex(newPivotCount - 1);
                       }}
                     >
                       <div className="line A"></div>
@@ -1771,13 +1773,13 @@ export default function GoPivot() {
                     const tag = getPivotTag();
                     setPivotMessage(message); // 상태에 메시지 저장
                     setGeneratedTag(tag);
-                    // setPivotStep("done");
+                    setPivotStep("done");
                     setInteractionState(false);
                     submitData();
                     alert(`${makerName} 팀 오브젝트 저장 완료!`)
                   }}
                 >
-                  팀 오브젝트 저장하기!
+                  팀 오브젝트!
                 </button>
               </div>
               
