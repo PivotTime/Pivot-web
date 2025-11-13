@@ -532,7 +532,7 @@ export default function GoPivot() {
 
   return (
     <>
-      {/* {pivotStep !== "make" && <Nav />} */}
+      {pivotStep !== "make" && <Nav />}
       <div
         className={`${pivotStep === "intro" && `introBg`} ${
           pivotStep === "make" && `makeBg`
@@ -1199,7 +1199,7 @@ export default function GoPivot() {
         {pivotStep === "make" && (
           <div className="makePivot">
             <div className="topBar">
-              {/* <div className="backBtn" onClick={() => setPivotStep("intro")}>
+              <div className="backBtn" onClick={() => setPivotStep("intro")}>
                 <svg
                   style={{
                     width: "clamp(23px, 2.45vw, 47px)",
@@ -1221,7 +1221,7 @@ export default function GoPivot() {
                   />
                 </svg>
                 <p>BACK TO MAIN</p>
-              </div> */}
+              </div>
               <div
                 style={{
                   padding: 12,
@@ -1396,7 +1396,7 @@ export default function GoPivot() {
                     </p>
                   </div>
                   <div className="middleLine"></div>
-                  {/* <div className="mouseInteraction">
+                  <div className="mouseInteraction">
                     <div className="svgPlaceHolder">
                       <svg
                         style={{width: 'clamp(24px, 2.5vw, 48px)', height: 'clamp(23px, 2.4vw, 46px)'}}
@@ -1453,8 +1453,8 @@ export default function GoPivot() {
                       <span>좌 드래그</span>
                       크기 변경
                     </p>
-                  </div> */}
-                  {/* <div className="middleLine"></div> */}
+                  </div>
+                  <div className="middleLine"></div>
 
                   <div className="mouseInteraction">
                     <div className="svgPlaceHolder">
@@ -1774,12 +1774,10 @@ export default function GoPivot() {
                     setPivotMessage(message); // 상태에 메시지 저장
                     setGeneratedTag(tag);
                     setPivotStep("done");
-                    setInteractionState(false);
-                    submitData();
-                    alert(`${makerName} 팀 오브젝트 저장 완료!`)
+
                   }}
                 >
-                  팀 오브젝트!
+                  GO PIVOT!
                 </button>
               </div>
               
@@ -1945,7 +1943,7 @@ export default function GoPivot() {
               >공유하기</Link>
 
                <div className="eventCard">
-                <p>오프라인전시(11.21) 한정 <br></br> My Pivot Time 카드를 받아가세요!</p>
+                <p>오프라인전시(11.21) 한정 <br></br> My Pivot Time 포토카드를 받아가세요!</p>
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g opacity="0.5">
                 <path d="M11.3535 0.354492L0.353516 11.3537" stroke="white"/>
