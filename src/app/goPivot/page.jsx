@@ -1394,7 +1394,7 @@ export default function GoPivot() {
                     </p>
                   </div>
                   <div className="middleLine"></div>
-                  <div className="mouseInteraction">
+                  {/* <div className="mouseInteraction">
                     <div className="svgPlaceHolder">
                       <svg
                         style={{width: 'clamp(24px, 2.5vw, 48px)', height: 'clamp(23px, 2.4vw, 46px)'}}
@@ -1451,8 +1451,8 @@ export default function GoPivot() {
                       <span>좌 드래그</span>
                       크기 변경
                     </p>
-                  </div>
-                  <div className="middleLine"></div>
+                  </div> */}
+                  {/* <div className="middleLine"></div> */}
 
                   <div className="mouseInteraction">
                     <div className="svgPlaceHolder">
