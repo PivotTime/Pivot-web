@@ -21,6 +21,7 @@ export default function ArchiveClient() {
 
   const [showInfoBox, setShowInfoBox] = useState(false);
   const [infoBoxData, setInfoBoxData] = useState(null);
+  const [newlyAdded, setNewlyAdded] = useState(new Set());
 
   const handleCardHover = useCallback((data) => {
     setInfoBoxData({ name: data.name, tag: data.tags ? data.tags.map(t => `#${t}`).join(' ') : '' });
@@ -31,6 +32,40 @@ export default function ArchiveClient() {
     setShowInfoBox(false);
     setInfoBoxData(null);
   }, []);
+
+  const fetchNewSubmissions = useCallback(async () => {
+    if (submissions.length === 0 || document.hidden) return;
+
+    const sinceDocId = submissions[0].id;
+    try {
+      const response = await fetch(`/api/get_submissions?sinceDocId=${sinceDocId}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      if (data.submissions && data.submissions.length > 0) {
+        const newSubmissions = data.submissions.filter(
+          (newSub) => !submissions.some((existingSub) => existingSub.id === newSub.id)
+        );
+
+        if (newSubmissions.length > 0) {
+          setSubmissions(prev => [...newSubmissions, ...prev]);
+          setNewlyAdded(new Set(newSubmissions.map(s => s.id)));
+        }
+      }
+    } catch (err) {
+      console.error("Error fetching new submissions:", err);
+    }
+  }, [submissions]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchNewSubmissions();
+    }, 5000); // Poll every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [fetchNewSubmissions]);
+
 
   useEffect(() => {
     const fetchInitialData = async () => {
@@ -84,7 +119,12 @@ export default function ArchiveClient() {
       }
       const moreSubData = await moreSubResponse.json();
 
-      setSubmissions((prev) => [...prev, ...moreSubData.submissions]);
+      setSubmissions((prev) => {
+        const newSubmissions = moreSubData.submissions.filter(
+          (newSub) => !prev.some((existingSub) => existingSub.id === newSub.id)
+        );
+        return [...prev, ...newSubmissions];
+      });
       setLastDoc(moreSubData.lastDocId);
       setHasMore(moreSubData.hasMore);
     } catch (err) {
@@ -152,11 +192,12 @@ export default function ArchiveClient() {
               customObjects={customObjects}
               onHover={handleCardHover}
               onLeave={handleCardLeave}
+              isNew={newlyAdded.has(submission.id)}
             />
           ))
         }
-        {loadingMore && <p>더 많은 궤적을 불러오는 중...</p>}
-        {!hasMore && submissions.length > 0 && <p>모든 궤적을 불러왔습니다.</p>}
+        {loadingMore && <p></p>}
+        {!hasMore && submissions.length > 0 && <p></p>}
       </div>
       {showInfoBox && infoBoxData && (
         <GpArchiveInfoBox

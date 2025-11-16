@@ -209,7 +209,7 @@ a[aria-disabled="true"] {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: hidden;
   min-height: 900px;
   padding-top: 16%;
 
@@ -241,7 +241,8 @@ a[aria-disabled="true"] {
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
-    height: 50vh;
+    height: 100vh;
+    overflow: hidden;
 
 
     >svg{
@@ -270,7 +271,7 @@ a[aria-disabled="true"] {
       }
 
       &.bg{
-        left:0;
+      left:0;
        bottom: 0;
       }
     }
@@ -308,7 +309,7 @@ a[aria-disabled="true"] {
     @include variable.fs-vw(20);
 
     cursor: pointer;
-    z-index: 100;
+    z-index: 40;
 
     &.goArchive{
       border: rgba(255, 255, 255, 0.5) 1px solid;

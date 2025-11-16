@@ -1,0 +1,414 @@
+$font-main: "Pretendard", sans-serif;
+$font-weight-medium: 500;
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  height: 100vh;
+
+  box-sizing: border-box;
+  background: #000;
+  opacity: 1;
+  font-family: $font-main;
+  font-weight: $font-weight-medium;
+  color: #E1E1E1;
+  overflow-x: hidden;
+  overflow-y: hidden; // 페이지 스크롤 막기
+}
+
+// 로딩 화면
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+
+  &.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .loading-spinner {
+    width: 4vw;
+    height: 4vw;
+    border: 0.2vw solid rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .loading-text {
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    color: #E1E1E1;
+    margin: 0;
+  }
+
+  .loading-progress {
+    font-size: clamp(0.875rem, 1vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gpArchiveImg {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100vh;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+
+  &.is-loaded {
+    opacity: 1;
+  }
+
+  &.is-loading {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .undo {
+    position: absolute;
+    padding: 0 3.07vw;
+    top: 5.5vh;
+    right: 0;
+    width: 1.46vw;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    
+    &.is-dimmed {
+      opacity: 0.3;
+      filter: brightness(0.65);
+      pointer-events: none;
+    }
+  }
+
+  // 검색 바 (students.scss 스타일)
+  .searchBox {
+    position: fixed;
+    top: 14.5vh;
+    right: 3.2vw;
+    width: 17.55vw;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #ffffff solid 0.05vw;
+    padding-bottom: 0.78vw;
+    z-index: 100;
+
+    svg {
+      width: 1.146vw;
+      padding-right: 0.6vw;
+    }
+
+    .searchInput {
+      position: relative;
+      width: 100%;
+      margin-left: -0.05vw;
+      color: #ffffff;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      font-size: 0.94vw;
+      font-weight: 400;
+      line-height: 1.32;
+      letter-spacing: -0.03rem;
+      
+      &::placeholder {
+        color: #ffffff;
+        opacity: 0.6;
+        transition: opacity 0.15s ease-in-out;
+      }
+
+      /* 브라우저 호환성 */
+      &::-webkit-input-placeholder {
+        color: #ffffff;
+        opacity: 0.6;
+      }
+      &::-moz-placeholder {
+        color: #ffffff;
+        opacity: 0.6;
+      }
+      &:-ms-input-placeholder {
+        color: #ffffff;
+        opacity: 0.6;
+      }
+      &:-moz-placeholder {
+        color: #ffffff;
+        opacity: 0.6;
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        border: none;
+        &::placeholder {
+          color: #ffffff;
+          opacity: 0;
+          transition: opacity 0.15s ease-in-out;
+        }
+      }
+
+      // 등록되지 않은 닉네임 검색 시 placeholder를 value와 동일한 스타일로
+      &.not-found {
+        &::placeholder {
+          opacity: 1;
+        }
+        &::-webkit-input-placeholder {
+          opacity: 1;
+        }
+        &::-moz-placeholder {
+          opacity: 1;
+        }
+        &:-ms-input-placeholder {
+          opacity: 1;
+        }
+        &:-moz-placeholder {
+          opacity: 1;
+        }
+      }
+    }
+
+    svg {
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+  }
+
+  // 배경 이미지들
+  .background-images {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+
+    .background-image {
+      position: absolute;
+      width: 8vw;
+      height: 8vw;
+      pointer-events: none; // 클릭 이벤트 비활성화
+      overflow: hidden;
+      border-radius: 0; // border-radius 제거
+      opacity: 0.3;
+      will-change: transform, y;
+
+      img {
+        filter: grayscale(100%);
+      }
+
+    }
+  }
+
+  // 원형 레이아웃 컨테이너 (하단 반원)
+  .circle-container {
+    --orbit-center-x: 53%; // 원의 중심 X (화면 중앙)
+    --orbit-center-y: 750%; // 원의 중심 Y (화면 아래쪽으로 내려서 상단만 보이도록)
+    --archive-rotation: 0deg;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  // 원형 레이아웃 이미지들 (원의 접선 방향으로 기울어짐)
+  .circle-image {
+    --image-aspect: 0.66;
+    --rotated-x: 0vw;
+    --rotated-y: 0vh;
+    --rotation-angle: 0deg;
+    
+    position: absolute;
+    top: var(--orbit-center-y);
+    left: var(--orbit-center-x);
+    height: 50.93vh;
+    width: calc(50.93vh * var(--image-aspect, 0.66));
+    pointer-events: none; // 클릭 이벤트 비활성화
+    overflow: visible; // 닉네임 박스가 보이도록 visible로 변경
+    transition: transform 0.1s ease;
+    will-change: transform;
+    z-index: 1;
+    transform-origin: center center;
+    
+    // 원의 접선 방향으로 기울이면서 위치 이동
+    transform: translate(calc(-50% + var(--rotated-x)), calc(-50% + var(--rotated-y)))
+               rotate(var(--rotation-angle));
+
+    img {
+      filter: grayscale(0%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block; // 이미지 하단 여백 제거
+    }
+
+    .roleBadge {
+      display: inline-flex;
+      align-items: center;
+      position: absolute;
+      top: 100%; // 이미지 하단에 위치
+      margin-top: 2.5vh; // gap 2vw
+      left: 50%;
+      transform: translateX(-50%); // 가로 정중앙
+      z-index: 3;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    
+    .roleBadge-name {
+      font-size: 1vw;
+      padding: 0.65svh 1.05vw;
+    }
+
+    // designer, developer, default를 먼저 정의 (planner보다 먼저)
+    .roleBadge-designer .roleBadge-name {
+      border: 0.05vw solid rgb(255, 255, 255);
+      border-radius: 1vw;
+    }
+    
+    .roleBadge-developer .roleBadge-name {
+      border: 0.05vw solid rgba(255, 255, 255);
+    }
+    
+    .roleBadge-default .roleBadge-name {
+      border: 0.05vw solid rgba(255, 255, 255);
+    }
+
+    .roleBadge-planner {
+      position: relative;
+      
+      // 왼쪽 변
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.6vh;
+        bottom: 0.6vh;
+        width: 0.05vw;
+        background: rgb(255, 255, 255);
+      }
+      
+      // 오른쪽 변
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0.6vh;
+        bottom: 0.6vh;
+        width: 0.05vw;
+        background: rgb(255, 255, 255);
+      }
+      
+      .roleBadge-name {
+        position: relative;
+        border: none ;
+        
+        // 위쪽 변
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0.24vw;
+          right: 0.24vw;
+          height: 0.05vw;
+          background: rgb(255, 255, 255);
+        }
+        
+        // 아래쪽 변
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0.24vw;
+          right: 0.24vw;
+          height: 0.05vw;
+          background: rgb(255, 255, 255);
+        }
+      }
+    }
+  }
+
+  // 스크롤 스페이서
+  .scroll-spacer {
+    position: relative;
+    z-index: 0;
+  }
+
+  // 푸터
+  .footer {
+    width: 100%;
+    position: fixed;
+    padding: 0 4.17vw 7.3vh;
+    bottom: -1.5vh;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    gap: 1.5vw;
+    margin-top: auto;
+    align-items: center;
+  
+    .semesterBadge {
+      svg {
+        width: 8.85vw;
+      }
+      
+      .semester-svg-01 {
+        width: 7.86vw; // 01 SVG만 따로 width 지정
+      }
+    }
+    
+    .semesterInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3vh;
+      line-height: 1.6;
+      letter-spacing: -0.03rem;
+    
+      div {
+        margin: 0;
+        font-size: 1.146vw;
+      }
+    
+      p {
+        margin: 0;
+        font-size: 1.04vw;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+}

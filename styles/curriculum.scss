@@ -1,0 +1,866 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff")
+    format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff")
+    format("woff");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff")
+    format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff")
+    format("woff");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff")
+    format("woff");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff")
+    format("woff");
+  font-weight: 900;
+  font-display: swap;
+}
+
+@mixin largeTxt {
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: 1.41vw;
+  line-height: 0.95;
+  letter-spacing: -0.03rem;
+  text-align: center;
+}
+
+@mixin mediumTxt {
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: 1.04vw;
+  line-height: 1.35;
+  letter-spacing: -0.03rem;
+  text-align: center;
+}
+
+@mixin smallTxt {
+  font-family: $font-main;
+  font-weight: 600;
+  font-size: 0.94vw;
+  line-height: 0.95;
+  letter-spacing: -0.03rem;
+  text-align: center;
+}
+
+@mixin titleBox {
+  display: flex;
+  width: 11.76vw;
+  height: 4.025vh;
+  background-color: #e1e1e1;
+  color: #000;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@mixin contentBox {
+  display: flex;
+  width: 11.67vw;
+  height: 3.89vh;
+  background-color: #000;
+  border: 0.05vw solid #e1e1e1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+$font-main: "Pretendard", sans-serif;
+$blue: #0051ff;
+
+.curriculum {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .webImage {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: -1;
+    display: none;
+  }
+
+  .grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    svg {
+      width: 100vw;
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    @include mediumTxt;
+
+    p {
+      margin: 0;
+    }
+
+    span {
+      width: 0.47vw;
+      height: 0.47vw;
+      background-color: #fff;
+    }
+  }
+
+  .intro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.3vh;
+    height: 100vh;
+
+    .symbols {
+      display: flex;
+      width: fit-content;
+      margin-top: -4.3vh;
+      gap: 1vw;
+
+      .circle {
+        svg {
+          width: 3.13vw;
+        }
+      }
+
+      .line {
+        svg {
+          width: 2.35vw;
+        }
+      }
+
+      .rectangle {
+        svg {
+          width: 2vw;
+        }
+      }
+    }
+
+    .logo {
+      width: fit-content;
+      svg {
+        width: 52.14vw;
+      }
+    }
+
+    .txt {
+      @include mediumTxt;
+      margin-top: 0.5vh;
+      line-height: 1.6;
+      transition-delay: 0.5s;
+    }
+
+    .scrollGuide {
+      position: absolute;
+      bottom: 8vh;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.83vw;
+      font-weight: 400;
+      color: #fff;
+      animation: bounce 1.8s ease-in infinite;
+
+      p {
+        margin: 0;
+      }
+
+      svg {
+        width: 1.04vw;
+        margin-top: 1vh;
+      }
+    }
+
+      .infoBox {
+    position: absolute;
+   align-self: center;
+  display: flex;
+  bottom: 0;
+  justify-content: space-between;
+  font-size: clamp(0.75rem, 0.73vw, 1.2rem);
+  font-weight: 500;
+  width: 93.85vw;
+  height: fit-content;
+  color: #fff;
+  letter-spacing: -0.03rem;
+  line-height: 1.35;
+  pointer-events: none;
+
+
+  .left {
+    display: flex;
+    column-gap: 4.5vw;
+    text-align: left;
+  }
+
+  .location {
+    text-align: left;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  }
+
+  }
+
+  .convergence-section {
+    height: 100vh;
+
+    .title {
+      padding-top: 11vh;
+      transition-delay: 0.2s;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      padding-top: 17.4vh;
+      position: relative;
+      transition-delay: 0.5s;
+
+      > * {
+        display: flex;
+        position: absolute;
+        border-radius: 50%;
+        width: 16.86vw;
+        height: 16.86vw;
+        @include largeTxt;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          border: 0.05vw solid #fff;
+          background: transparent;
+          transition: background-color 0.25s ease-out,
+            border-color 0.12s ease-out;
+          z-index: -1;
+        }
+
+        &:hover {
+          z-index: 2;
+        }
+
+        &:hover::before {
+          background-color: $blue;
+          border-color: transparent;
+          transition-duration: 0.45s;
+          transition-timing-function: ease;
+        }
+      }
+
+      .design {
+        &:hover .design-hover {
+          opacity: 1;
+          transition-duration: 1s;
+          transition-timing-function: ease;
+        }
+
+        .design-hover {
+          position: absolute;
+          display: flex;
+          top: -7.8vh;
+          left: 11vw;
+          width: 30vw;
+          font-size: 0.94vw;
+          line-height: 1.8;
+          letter-spacing: -0.03rem;
+          opacity: 0;
+          z-index: -2;
+          transition: opacity 0.1s ease-out;
+
+          svg {
+            width: 11.94vw;
+            margin-top: -8.5vh;
+          }
+
+          .txt {
+            div {
+              border: 0.045vw solid #fff;
+              background: #000;
+              padding: 0.8vh 0.8vw;
+            }
+
+            p {
+              text-align: left;
+            }
+          }
+        }
+      }
+
+      .media {
+        margin: 20.8vh 0 0 -14vw;
+
+        &:hover .media-hover {
+          opacity: 1;
+          transition-duration: 1s;
+          transition-timing-function: ease;
+        }
+
+        .media-hover {
+          position: absolute;
+          display: flex;
+          top: 4vh;
+          left: -26vw;
+          width: 30vw;
+          font-size: 0.94vw;
+          line-height: 1.8;
+          letter-spacing: -0.03rem;
+          opacity: 0;
+          z-index: -2;
+          transition: opacity 0.1s ease-out;
+
+          svg {
+            width: 11.56vw;
+            margin-top: -6vh;
+          }
+
+          .txt {
+            div {
+              border: 0.045vw solid #fff;
+              background: #000;
+              padding: 0.8vh 0.8vw;
+            }
+
+            p {
+              text-align: left;
+            }
+          }
+        }
+      }
+
+      .technology {
+        margin: 20.8vh 0 0 14vw;
+
+        &:hover .technology-hover {
+          opacity: 1;
+          transition-duration: 1s;
+          transition-timing-function: ease;
+        }
+
+        .technology-hover {
+          position: absolute;
+          display: flex;
+          top: 4vh;
+          left: 16.6vw;
+          width: 30vw;
+          font-size: 0.94vw;
+          line-height: 1.8;
+          letter-spacing: -0.03rem;
+          opacity: 0;
+          z-index: -2;
+          transition: opacity 0.1s ease-out;
+
+          svg {
+            width: 5.99vw;
+            margin-top: -4vh;
+          }
+
+          .txt {
+            div {
+              border: 0.045vw solid #fff;
+              background: #000;
+              padding: 0.8vh 0.8vw;
+            }
+
+            p {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .curriculum-section {
+    @include smallTxt;
+
+    .title {
+      margin-top: 13.2vh;
+      @include mediumTxt;
+      margin-bottom: 5vh;
+      transition-delay: 0.2s;
+    }
+
+
+    .circle-object {
+      position: absolute;
+      z-index: -1;
+      margin-top: 97vh;
+      right: 3vw;
+
+      svg {
+        width: 29.74vw;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18vh; //top-bottom gap
+      padding: 0 14.69vw 0 10.94vw;
+      transition-delay: 0.5s;
+
+      
+
+      .studio {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden;
+        gap: 7.5vh;
+        margin-top: 2.2vh;
+        right: 13.7vw;
+
+        .line {
+          position: absolute;
+          top: 2%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: -1;
+
+          svg {
+            width: 0.05vw;
+          }
+        }
+
+        .title {
+          @include titleBox;
+          margin: 0;
+          margin-bottom: 1vh;
+        }
+
+        .g2t1 {
+          padding-top: 28vh;
+        }
+
+        .g2t2 {
+          padding-top: 10.8vh;
+        }
+
+        .g3t2 {
+          padding-top: 48vh;
+        }
+
+        .g4t2 {
+          margin-top: -0.3vh;
+        }
+
+        > div[class^="g"] {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5vh;
+
+          p {
+            @include contentBox;
+            margin: 0;
+          }
+        }
+      }
+
+      .wrapper-inner-top {
+        display: grid;
+        grid-template-columns: 0.5vw repeat(5, 1fr);
+        // grid-template-rows: auto repeat(4, auto);
+        gap: 3vw; //year-content gap
+        margin-top: 2.2vh;
+        padding-right: 14.79vw;
+
+        .core-job-skills,
+        .planner,
+        .design,
+        .programming {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 7vh; //학기별 gap
+
+          .line {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+
+            svg {
+              width: 0.05vw;
+            }
+          }
+
+          .title {
+            @include titleBox;
+            margin: 0;
+            margin-bottom: 1vh;
+          }
+
+          .g1t1 {
+            padding-top: 0.7vh;
+          }
+
+          > div[class^="g"] {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5vh; //학기별 안 gap
+
+            p {
+              @include contentBox;
+              margin: 0;
+            }
+          }
+        }
+
+        .core-job-skills {
+          grid-column: 2;
+          grid-row: 1 / 6;
+
+          .g2t1 {
+            padding-top: 5.7vh;
+          }
+
+          .g2t2 {
+            padding-top: 11.4vh;
+          }
+        }
+
+        .planner {
+          grid-column: 3;
+          grid-row: 1 / 6;
+
+          .g2t1 {
+            margin-top: 5.7vh;
+          }
+
+          .g2t2 {
+            margin-top: 0.3vh;
+          }
+        }
+
+        .design {
+          grid-column: 4;
+          grid-row: 1 / 6;
+
+          .g2t1 {
+            margin-top: 5.7vh;
+          }
+
+          .g2t2 {
+            margin-top: 0.3vh;
+          }
+        }
+
+        .programming {
+          grid-column: 5;
+          grid-row: 1 / 6;
+
+          .g2t1 {
+            margin-top: 5.7vh;
+          }
+
+          .g2t2 {
+            margin-top: 0.3vh;
+          }
+        }
+      }
+    }
+
+    .core-job-skills,
+    .MajorGE {
+      p {
+        position: relative;
+        &[data-semester]::before {
+          content: attr(data-semester);
+          position: absolute;
+          left: -3.5vw;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #fff;
+          font-size: 1.04vw;
+          font-weight: 600;
+          line-height: 0.95;
+          letter-spacing: 0.05rem;
+        }
+      }
+    }
+
+    .wrapper-inner-bottom {
+      display: grid;
+      grid-template-columns: 0.5vw repeat(5, 1fr);
+      // grid-template-rows: auto repeat(4, auto);
+      gap: 3vw; //year-content gap
+      padding-right: 14.79vw;
+      overflow-y: hidden;
+
+      .g3t1 {
+        padding-top: 3vh;
+      }
+
+      .MajorGE {
+        position: relative;
+        grid-column: 2;
+        grid-row: 1 / 5;
+        display: flex;
+        flex-direction: column;
+        gap: 7.2vh;
+
+        .line {
+          position: absolute;
+          top: 7.6%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: -1;
+
+          svg {
+            width: 0.05vw;
+          }
+        }
+
+        .title {
+          @include titleBox;
+          margin: 0;
+          margin-bottom: 1vh;
+        }
+
+        > div[class^="g"] {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5vh;
+
+          p {
+            @include contentBox;
+            margin: 0;
+          }
+        }
+      }
+
+      .AdvancedMajor {
+        position: relative;
+        grid-column: 4 / 6;
+        grid-row: 1 / 5;
+        display: flex;
+        flex-direction: column;
+        gap: 7.2vh;
+        padding-left: 1vw;
+        justify-self: center;
+        align-items: center;
+
+        .title {
+          @include titleBox;
+          margin: 0;
+          margin-bottom: 1vh;
+        }
+
+        > div {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          gap: 3vw;
+        }
+
+        .line {
+          position: absolute;
+          top: 3%;
+          left: 51%;
+          transform: translateX(-50%);
+          z-index: -1;
+
+          svg {
+            width: 29.74vw;
+          }
+        }
+
+        .left,
+        .center,
+        .right {
+          display: flex;
+          flex-direction: column;
+          gap: 7vh;
+
+          > div[class^="g"] {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5vh;
+
+            p {
+              @include contentBox;
+              margin: 0;
+            }
+          }
+
+          .g3t2 {
+            padding-top: 0.2vh;
+          }
+
+          .g4t1 {
+            padding-top: 0.2vh;
+          }
+
+          .g4t2 {
+            margin-top: 0.3vh;
+            
+          }
+        }
+      }
+    }
+  }
+
+  .career-section {
+    margin-top: 20vh;
+    @include smallTxt;
+
+    .title {
+        transition-delay: 0.2s;
+    }
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 3.05vw;
+      padding: 0 14.69vw 0 14.375vw;
+      transition-delay: 0.5s;
+
+      .title {
+        @include titleBox;
+        margin: 6.8vh 0 8.5vh 0;
+      }
+
+      p {
+        @include contentBox;
+      }
+
+      .line {
+        position: absolute;
+        margin-top: 6.8vh;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        svg {
+          width: 0.05vw;
+        }
+      }
+
+      .Agency,
+      .Creator,
+      .MotionGraphic,
+      .Immersive,
+      .Advancement {
+        position: relative;
+        height: fit-content;
+        width: fit-content;
+        overflow-y: hidden;
+        overflow-x: auto;
+
+        >p{
+          margin-top: 1.6vh;;
+        }
+      }
+    }
+
+    .square-object,
+    .line-object {
+      position: absolute;
+      z-index: -1;
+    }
+
+    .square-object {
+      margin-top: -27vh;
+      svg {
+        width: 31.04vw;
+      }
+    }
+
+    .line-object {
+      margin-top: 35vh;
+      right: 15vw;
+      svg {
+        width: 23.23vw;
+      }
+    }
+  }
+}

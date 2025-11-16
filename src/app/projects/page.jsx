@@ -551,7 +551,7 @@ export default function Projects() {
                   <Image
                     className="Logo"
                     alt={`${p.name} 로고`}
-                    src={`/images/project/hoverCaed/${p.id}.png`}
+                    src={`/images/project/hoverCaed/${p.id}.webp`}
                    fill
                     sizes="100vw"
                     style={{objectFit:"contain", pointerEvents: "none" }}
@@ -561,7 +561,7 @@ export default function Projects() {
                 <Image
                   className="Thumbnail"
                   alt={`${p.name} Thumbnail image`}
-                  src={`/images/project/${p.id}.png`}
+                  src={`/images/project/${p.id}.webp`}
                   fill
                   sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ objectFit: "cover", pointerEvents: "none" }}

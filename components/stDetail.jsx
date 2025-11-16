@@ -49,7 +49,7 @@ export function StudentDetail({ student, onClick }) {
       <div className="profileImagePlaceholder">
         <Image
           alt={`${student.name} profile photo`}
-            src={`/images/profile/${student.Id}.png`}
+            src={`/images/profile/${student.Id}.webp`}
           // src={`/images/profile/kimyoungeun.png`}
           unoptimized                   // ← 원본 그대로 전달(재인코딩/리사이즈 X)
   width={1000}                  // 원본 픽셀 크기 기입

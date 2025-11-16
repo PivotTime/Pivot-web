@@ -221,8 +221,7 @@ nav {
   box-sizing: border-box;
   transition: all 0.6s ease-in-out;
   z-index: 90;
-}
-
+  
 .logo {
   width: clamp(
     6.25vw,
@@ -231,6 +230,8 @@ nav {
   ); /* 화면 크기에 따라 120~320px 사이로 유연하게 크기 조절 */
   height: auto;
   display: block;
+}
+
 }
 
 .Tab_Switcher {
@@ -433,7 +434,7 @@ nav {
   padding: 20vh 12vw;
   padding-bottom: 17vh;
   background-color: #000;
-  z-index: 200;
+  z-index: 500;
 
   .btnList{
     display: flex;

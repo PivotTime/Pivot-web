@@ -67,7 +67,7 @@ export function StudentCard({ student, onClick, isEmpty, index, ...props }) {
           <div className="ImgPlaceHolder Profile">
             <Image
               alt={`${name} 프로필 사진`}
-                src={`/images/profile/${Id}.png`}
+                src={`/images/profile/${Id}.webp`}
               // src={`/images/profile/kimyoungeun.png`}
             width={1000}                  // 원본 픽셀 크기 기입
   height={2000}

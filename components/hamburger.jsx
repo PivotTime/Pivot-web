@@ -24,7 +24,7 @@ export function Hamburger({ exit }) {
       </div>
       <div className="BtnPlaceHolder">
         <div className="BtnList">
-          <Link href="/getPivot" className="Btn top" onClick={exit}>
+          <Link href="/getFever" className="Btn top" onClick={exit}>
             <p className="gpGpInfo">120명의 열정이 모여 만들어진 아카이브</p>
             <div>
               <svg
@@ -277,7 +277,7 @@ export function Hamburger({ exit }) {
 
             <span>ehind</span>
           </Link>
-          <Link href="curriculum" className="Btn middle" onClick={exit}>
+          <Link href="/curriculum" className="Btn middle" onClick={exit}>
             <svg
               viewBox="0 0 50 57"
               fill="none"

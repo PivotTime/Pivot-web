@@ -17,7 +17,7 @@ export function ProjectDetail({ project, closeModal }) {
       <div className="ImagePlaceHolder pjDetail">
         <Image
           alt={`${project.name} Poster image`}
-          src={`/images/project/${project.id}.png`}
+          src={`/images/project/${project.id}.webp`}
           fill
           sizes={1000}
           style={{ objectFit: "cover" }}
@@ -72,8 +72,8 @@ export function ProjectDetail({ project, closeModal }) {
             <div className="overviewWrap">
               <div className="overviewBox">
                 <div>
-                  <p>분야</p>
-                  <span>{project.field}</span>
+                  <p>주제</p>
+                  <span>{project.topic}</span>
                 </div>
                 <div>
                   <p>대상</p>
@@ -114,7 +114,7 @@ export function ProjectDetail({ project, closeModal }) {
             <Image
               className="teamPhotoA"
               alt={`${project.teamName} team Photo`}
-              src={`/images/team/${project.id}1.png`}
+              src={`/images/team/${project.id}1.webp`}
               fill
               size={500}
               style={{ objectFit: "cover" }}
@@ -122,7 +122,7 @@ export function ProjectDetail({ project, closeModal }) {
             <Image
               className={`teamPhotoB ${isHovered ? "hovered" : ""}`} // Conditionally add 'hovered' class
               alt={`${project.teamName} team Photo`}
-              src={`/images/team/${project.id}2.png`}
+              src={`/images/team/${project.id}2.webp`}
               width={1920}
               height={1080}
               style={{ objectFit: "cover" }}
@@ -144,7 +144,7 @@ export function ProjectDetail({ project, closeModal }) {
               <div className="HistoryCard ImagePlaceHolder">
                 <Image
                     alt={`${project.teamName} 추억 사진 1`}
-                    src={`/images/team/history/${project.id}.png`}
+                    src={`/images/team/history/${project.id}.webp`}
                     size="auto"
                     fill
                     style={{objectFit:"cover"}}
@@ -153,7 +153,7 @@ export function ProjectDetail({ project, closeModal }) {
                <div className="HistoryCard ImagePlaceHolder">
                 <Image
                     alt={`${project.teamName} 추억 사진 2`}
-                    src={`/images/team/history/${project.id}(1).png`}
+                    src={`/images/team/history/${project.id}(1).webp`}
                     size="auto"
                     fill
                     style={{objectFit:"cover"}}
@@ -162,7 +162,7 @@ export function ProjectDetail({ project, closeModal }) {
               <div className="HistoryCard ImagePlaceHolder">
                 <Image
                     alt={`${project.teamName} 추억 사진 3`}
-                    src={`/images/team/history/${project.id}(2).png`}
+                    src={`/images/team/history/${project.id}(2).webp`}
                     size="auto"
                     fill
                     style={{objectFit:"cover"}}

@@ -1,0 +1,461 @@
+// Visual section styles placeholder
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff")
+    format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff")
+    format("woff");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff")
+    format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff")
+    format("woff");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff")
+    format("woff");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff")
+    format("woff");
+  font-weight: 900;
+  font-display: swap;
+}
+
+$font-main: "Pretendard", sans-serif;
+$font-weight-medium: 500;
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  background: #000;
+  opacity: 1;
+  font-family: $font-main;
+  font-weight: $font-weight-medium;
+  color: #E1E1E1;
+  overflow: hidden;
+}
+
+
+.gpArchiveTxt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0 3.07vw;
+
+  .undo {
+    position: absolute;
+    top: 5.5vh;
+    right: 0;
+    width: 1.46vw;
+    cursor: pointer;
+    padding: 0 3.07vw;
+    z-index: 10;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    
+    &.is-dimmed {
+      opacity: 0.3;
+      filter: brightness(0.65);
+      pointer-events: none;
+    }
+  }
+  
+  .columns {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 100%; 
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1.09vw;
+      overflow: hidden; // 다시 hidden으로 (스크롤은 cardsWrapper에서 처리)
+      min-height: 0; // flex 자식이 스크롤 가능하도록
+      height: 100%; // 부모 높이에 맞춤
+      transition: opacity 0.3s ease, filter 0.3s ease;
+
+      &:nth-child(4),
+      &:nth-child(6) {
+        border-left: 1px solid rgba(255,255,255,0.2);
+      }
+
+      &:nth-child(6) {
+        border-right: 1px solid rgba(255,255,255,0.2);
+      }
+
+      &.is-dimmed {
+        border-color: rgba(255, 255, 255, 0.05);
+        pointer-events: none; // 클릭 비활성화
+      }
+    }
+
+    .columnHeader {
+      position: absolute;
+      top: 8.45vh;
+      display: flex;
+      gap: 0.2vh;
+      flex-direction: column;
+      align-items: flex-start;
+      font-weight: 600;
+      line-height: 1.6;
+      letter-spacing: -0.03em;
+      z-index: 2;
+      transition: opacity 0.3s ease, filter 0.3s ease;
+      
+      &--1 {
+        left: 0;
+        width: 25%;
+        padding-left: 1.09vw;
+      }
+      
+      &--2 {
+        left: 25%;
+        width: 25%;
+        padding-left: 1.09vw;
+      }
+      
+      &--3 {
+        left: 50%;
+        width: 25%;
+        padding-left: 1.09vw;
+      }
+      
+      &--4 {
+        left: 75%;
+        width: 25%;
+        padding-left: 1.09vw;
+      }
+
+
+      div {
+        color: rgba(225, 225, 225, 0.3);
+        font-size: 1.04vw;
+      }
+
+      p {
+        color: rgba(225, 225, 225, 1);
+        font-size: 1.25vw;
+        margin: 0;
+      }
+    
+      // 선택된 질문의 헤더만 선명하게 (컬럼 틀은 어둡지만 헤더는 선명)
+      &.is-selected {
+        opacity: 1;
+      }
+      
+      // dimmed 상태일 때 헤더도 어둡게 (단, is-selected가 아닌 경우만)
+      &.is-dimmed:not(.is-selected) {
+        opacity: 0.3;
+        filter: brightness(0.65);
+      }
+    }
+
+    .cardsWrapper {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 0;
+      scrollbar-width: none; // Firefox에서 스크롤바 숨김
+      -ms-overflow-style: none; // IE/Edge에서 스크롤바 숨김
+    
+      // Chrome/Safari에서 스크롤바 숨김
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+    
+      .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.85vh;
+        will-change: transform; // 성능 최적화
+    
+        .card {
+          width: 100%;
+          box-sizing: border-box;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          padding: 2.04vh 1.04vw 1.2vh;
+          background: rgba(2, 2, 2, 0.4);
+          display: flex;
+          flex-direction: column;
+          gap: 0.93vh;
+          cursor: pointer;
+          transition: opacity 0.3s ease, filter 0.3s ease, transform 0.2s ease;
+        
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45);
+          }
+        
+          &.is-dimmed {
+            opacity: 0.3;
+            filter: brightness(0.65);
+            pointer-events: none;
+          }
+        
+          &.is-selected {
+            opacity: 1;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(33, 33, 33, 0.8);
+            pointer-events: auto; // 선택된 카드는 클릭 가능
+            z-index: 10;
+            position: relative;
+          }
+          
+          // 선택된 카드는 dimmed 되지 않도록
+          &.is-selected.is-dimmed {
+            opacity: 1;
+          }
+
+          .cardText {
+            margin: 0;
+            font-size: 0.88vw;
+            line-height: 1.6;
+            letter-spacing: -0.02em;
+          }
+
+          .roleBadge {
+            display: inline-flex;
+            align-items: center;
+            padding-top: 0.93vh;
+            align-self: flex-end; // card의 오른쪽 끝에 위치
+          }
+          
+          .roleBadge-name {
+            font-size: 0.8vw;
+            padding: 0.46vh 0.73vw;
+          }
+    
+          .roleBadge-planner {
+            position: relative;
+            
+            // 왼쪽 변
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 1.26vh;
+              bottom: 0.42vh;
+              width: 0.04vw;
+              background: rgb(255, 255, 255);
+            }
+            
+            // 오른쪽 변
+            &::after {
+              content: '';
+              position: absolute;
+              right: 0;
+              top: 1.26vh;
+              bottom: 0.42vh;
+              width: 0.04vw;
+              background: rgb(255, 255, 255);
+            }
+            
+            .roleBadge-name {
+              position: relative;
+              
+              // 위쪽 변
+              &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0.24vw;
+                right: 0.24vw;
+                height: 0.04vw;
+                background: rgb(255, 255, 255);
+              }
+              
+              // 아래쪽 변
+              &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0.24vw;
+                right: 0.24vw;
+                height: 0.04vw;
+                background: rgb(255, 255, 255);
+              }
+              
+              border: none;
+            }
+          }
+          
+          .roleBadge-designer .roleBadge-name {
+            border: 0.04vw solid rgb(255, 255, 255);
+            border-radius: 0.8vw;
+
+          }
+          
+          .roleBadge-developer .roleBadge-name {
+            border: 0.04vw solid rgba(255, 255, 255);
+          }
+          
+          .roleBadge-default .roleBadge-name {
+            border: 0.04vw solid rgba(255, 255, 255);
+          }
+        }
+        
+        .gpArchiveTxt-empty {
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.45);
+        }
+      }
+    }
+  }
+
+  .overlay-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 37.22vh;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.95;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, #000 63.18%);
+  }
+
+  .overlay-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 48.98vh;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.8;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, #000 42.21%);
+    transform: rotate(180deg);
+  }
+  
+  .footer {
+    width: 92%;
+    position: fixed;
+    padding: 0 4.17vw 7.3vh;
+    bottom: -1.5vh;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    gap: 1.5vw;
+    margin-top: auto;
+    align-items: center;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+    
+    &.is-dimmed {
+      opacity: 0.3;
+      filter: brightness(0.65);
+      pointer-events: none;
+    }
+  
+    .semesterBadge {
+      svg {
+        width: 8.85vw;
+      }
+      
+      .semester-svg-01 {
+        width: 7.86vw; // 01 SVG만 따로 width 지정
+      }
+    }
+    
+    .semesterInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3vh;
+      line-height: 1.6;
+      letter-spacing: -0.03rem;
+    
+      div {
+        margin: 0;
+        font-size: 1.146vw;
+      }
+    
+      p {
+        margin: 0;
+        font-size: 1.04vw;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+    
+    .footer-button {
+      width: 3.54vw;
+      height: 3.54vw;
+      border-radius: 50%;
+      opacity: 0.7;
+      background-color: #0051FF;
+      margin-left: auto;
+      cursor: pointer;
+      transition: opacity 0.3s ease, filter 0.3s ease;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+
+
+
+
+

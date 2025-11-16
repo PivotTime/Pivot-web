@@ -276,7 +276,7 @@ export default function Nav({ setMouseParticlesEnabled }) {
               return (
                 <Fragment key={tab.id}>
                   
-                  <Link key={index} href="/goPivot">
+                  <Link key={index} href={tab.label === "GO PIVOT" ? "/goPivot" : "/getFever"}>
                   <button
                     type="button"
                     role="tab"

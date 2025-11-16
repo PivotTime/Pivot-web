@@ -7,13 +7,13 @@ export default function InfoBox() {
           <br />
           32nd Delight Insight
         </div>
-        <div className="link" style={{...styles.location, ...styles.nowrap}}>
+        <div className="link" style={{...styles.link, ...styles.nowrap}}>
           Digital-media.kr
           <br />
           degreeshow/2025
         </div>
       </div>
-      <div className="location" >
+      <div className="location" style={{...styles.location}} >
         Kaywon Design Hall 5F
         <br />
         Nov. 21. FRI - Nov. 23. SUN
@@ -36,12 +36,16 @@ const styles = {
     pointerEvents: 'none',
     paddingBottom: "4.5vh", 
   },
+  link:{
+    textAlign:"left",
+  },
   left: {
     display: 'flex',
     columnGap: '4.5vw',
+    textAlign: 'left',
   },
   location: {
-    textAlign: 'left',
+    textAlign: 'right',
   },
   nowrap: {
     whiteSpace: 'nowrap',

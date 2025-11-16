@@ -103,13 +103,19 @@ export default function Students() {
     //검색값 state에 추가
     setSearchText(value);
 
+    //배열에서 필터링 때리기 값 넣은 거랑 학생객체 이름 비교해서
     const filtered = allStudents.filter((a) =>
       (a.name ?? '').toLowerCase().includes(value)
     );
 
+    //랜덤섞기
     const withRandomBlanks = insertRandomBlanks(filtered);
+
+    //현재 보여주는 학생 useState에 집어넣기(여백 넣어서)
+
     setSortList(fillEmptySlots(withRandomBlanks, 5));
-    setSelectedButton('All'); // 검색 시 탭 초기화 (선택)
+    //소팅 버튼 한거 다 초기화
+    setSelectedButton('All'); 
   };
 
   return (

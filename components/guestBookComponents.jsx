@@ -1,9 +1,9 @@
 "use client";
 import "../styles/guestBook.scss";
 
-export function MessageBox({ to, from, message }) {
+export function MessageBox({ to, from, message, isNew }) {
   return (
-    <div className="MessageBox">
+    <div className={`MessageBox ${isNew ? "newly-added" : ""}`}>
       <p className="toFrom">TO.{to}</p>
       <p className="messageText">{message}</p>
       <p className="toFrom right">FROM.{from}</p>
@@ -15,12 +15,13 @@ export function MessageBox({ to, from, message }) {
   );
 }
 
-export function CommentCard({ nicName, fromName, message, createdAt }) {
+export function CommentCard({ nicName, fromName, message, createdAt, isNew }) {
   return (
     <MessageBox
       to={nicName}
       from={fromName}
       message={message}
+      isNew={isNew}
     />
   );
 }

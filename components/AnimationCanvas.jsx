@@ -50,9 +50,9 @@ function AnimationCanvas({ trajectories, arrangement, customObjects, animationRe
       selectedAnim.radius += (targetR - selectedAnim.radius) * 0.25;
 
       if (dragModeRef.current === "size") {
-        // const norm = Math.min(1, dist / maxR);
-        // const targetSize = 0.5 + 1.5 * norm;
-        // selectedAnim.sizeFactor += (targetSize - selectedAnim.sizeFactor) * 0.35;
+        const norm = Math.min(1, dist / maxR);
+        const targetSize = 0.5 + 1.5 * norm;
+        selectedAnim.sizeFactor += (targetSize - selectedAnim.sizeFactor) * 0.35;
       } else if (dragModeRef.current === "rotate") {
         const dxDrag = e.clientX - dragStartRef.current.x;
         const dyDrag = e.clientY - dragStartRef.current.y;

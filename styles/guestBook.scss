@@ -261,3 +261,85 @@ button {
     }
   }
 }
+
+
+@media (max-width: 1024px) {
+  .GuestBook {
+    flex-direction: column;
+    gap: 100px;
+    .addMassageContainer {
+      flex-direction: column;
+      height: fit-content;
+      gap: 50px;
+      .messageContainer {
+        width: 100%;
+      }
+    }
+    .commentList {
+      .columns {
+        flex-wrap: wrap;
+        gap: 20px;
+        .column {
+          width: calc(50% - 10px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .GuestBook {
+    .commentList {
+      .columns {
+        .column {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// --- Animations ---
+
+// 새 댓글 추가 시 나타나는 애니메이션
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.GuestBook {
+  .addMassageContainer {
+    .messageContainer {
+      .nameInputBox,
+      .textareaContainer {
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      }
+
+      // 제출 중일 때의 스타일
+      &.submitting {
+        .nameInputBox,
+        .textareaContainer {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+    }
+  }
+
+  .commentList {
+    .columns {
+      .column {
+        // 각 열의 새로 추가된 댓글에 애니메이션 적용
+        > .MessageBox.newly-added {
+          animation: fadeInDown 0.7s ease-out forwards;
+        }
+      }
+    }
+  }
+}

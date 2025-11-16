@@ -6,6 +6,7 @@ import Link from "next/link";
 import Nav from "../../../components/nav";
 import DrawingCanvas from "../../../components/makObject.jsx"; // makObject 컴포넌트 임포트
 import InfoBox from "../../../components/infoBox";
+import html2canvas from 'html2canvas';
 
 const MAX = 50;
 
@@ -30,7 +31,7 @@ function ControlBox({ name, element }) {
 
 export default function GoPivot() {
   const [shape, setShape] = useState("")
-  const [pivotStep, setPivotStep] = useState("make");
+  const [pivotStep, setPivotStep] = useState("intro");
   const [arrangement, setArrangement] = useState("orbit");
   const [displayAngles, setDisplayAngles] = useState({ x: 0, y: 0 });
   const [trajectories, setTrajectories] = useState([
@@ -70,6 +71,18 @@ export default function GoPivot() {
   const [pivotMessage, setPivotMessage] = useState(""); // New state variable
   const [generatedTag, setGeneratedTag] = useState(null);
   const [makePivotModal, setMakePivotModal] = useState(false);
+  const canvasContainerRef = useRef(null);
+
+  const handleSaveImage = () => {
+    if (canvasContainerRef.current) {
+      html2canvas(canvasContainerRef.current).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `${makerName}s pivot.png`
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+  };
 
   const handleCustomObjectSave = useCallback(async (newCustomObject) => {
     // Firestore에서 최신 커스텀 오브젝트 목록을 다시 불러옵니다.
@@ -235,7 +248,6 @@ export default function GoPivot() {
     { radius: 150, sizeFactor: 1.2, angleX: -0.2, angleY: -1.5 },
   ]);
   const wheelTS = useRef(0);
-  const holderRef = useRef(null);
 
   useEffect(() => {
     const fetchCustomObjects = async () => {
@@ -260,7 +272,7 @@ export default function GoPivot() {
 
   useEffect(() => {
     const onWheel = (e) => {
-      const el = holderRef.current;
+      const el = canvasContainerRef.current;
       if (!el || !el.contains(e.target)) {
         return;
       }
@@ -1788,7 +1800,7 @@ export default function GoPivot() {
           
           <>
           <div
-            ref={holderRef}
+            ref={canvasContainerRef}
             className={`objectControl ${interactionState ? "" : "off"} ${
               pivotStep === "done" ? "done" : ""
             }`}
@@ -1937,9 +1949,9 @@ export default function GoPivot() {
                             <p className="MakersPivot">{`${makerName}'s`} <br />PIVOT TIME</p>
               <p className="Result">{pivotMessage}</p>
               <div className="buttonList">
-              <div className="btn">저장하기</div>
+              <div className="btn" onClick={handleSaveImage}>저장하기</div>
               <Link  href="/gpArchive" className="btn" 
-              // onClick={submitData}
+              onClick={submitData}
               >공유하기</Link>
 
                <div className="eventCard">

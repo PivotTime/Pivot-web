@@ -55,14 +55,12 @@
     overflow-x: auto; // Enable horizontal scrolling for each row
     overflow-y: hidden; // Hide vertical overflow within the row
     padding-bottom: 20px; // For scrollbar
-    gap: 30vw; // Gap between cards in a row
+    // gap: 30vw; // Gap between cards in a row - REMOVED FOR ANIMATION
     flex-shrink: 0; // Prevent rows from shrinking
     height: 100vh; // Adjusted height for a single row (approx 2 * old height + gap)
     align-items: center; // Align cards to the start of the row
     width: 100%; // Ensure it takes full width
     padding-left: 30vw;
-
-
   }
 
   .archive-card {
@@ -71,10 +69,11 @@
     height: calc(33.33vh - 14px); // Explicitly set height
     flex-shrink: 0; // Added to prevent shrinking
     aspect-ratio: 1/1; // Maintain aspect ratio for animation
-    // background: #000;
     border-radius: 2px;
-   // overflow: hidden; // Removed to allow objects outside card boundaries
-    
+    transform: translateY(var(--translateY));
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), margin-left 1s cubic-bezier(0.25, 1, 0.5, 1);
+    margin-left: 30vw;
+
     .info-overlay {
       position: absolute;
       top: 0;
@@ -102,9 +101,15 @@
         font-size: 0.9em;
         margin-bottom: 5px;
       }
-
-
     }
+  }
+
+  .archive-gallery-row > .archive-card:first-child {
+    margin-left: 0;
+  }
+
+  .archive-card.new-card-enter {
+    transform: translateX(-100vw) translateY(var(--translateY));
   }
 }
 

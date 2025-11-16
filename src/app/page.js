@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Main from "../../pages/main";
+import Main from "./main/page";
 
 
 // import GoPivot from "../../pages/goPivot";
