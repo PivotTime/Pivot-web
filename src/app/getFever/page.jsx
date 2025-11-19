@@ -1,12 +1,12 @@
+
+
 import { Suspense } from "react";
-import GetFeverClient from "./GetFeverClient";
-import WindowIntroWrapper from "../../../components/loading";
+import GetFeverClientWrapper from "./GetFeverClientWrapper";
 
 export default function GetFeverPage() {
   return (
-
-    <WindowIntroWrapper
-        children={<GetFeverClient />}
-        />
+    <Suspense fallback={<WindowIntroWrapper children={<></>}/>}>
+      <GetFeverClientWrapper />
+    </Suspense>
   );
 }
