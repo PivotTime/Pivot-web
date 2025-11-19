@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { CanvasLine, CanvasCircle, CanvasSquare } from './basicObject'; // Assuming basicObject is in the same directory
 

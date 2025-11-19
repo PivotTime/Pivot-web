@@ -55,6 +55,8 @@ export default function Main() {
   };
 
   return (
+        <WindowIntroWrapper
+        children={
     <main ref={mainRef}>
       {showTopBtn && (
         <button className="topBtn" ref={topBtnRef} onClick={scrollToHero} aria-label="맨 위로">
@@ -102,6 +104,6 @@ export default function Main() {
         </section>
       </div>
       <Footer/>
-    </main>
+    </main>}/>
   );
 }
