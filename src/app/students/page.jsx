@@ -5,6 +5,7 @@ import { StudentCard } from '../../../components/studentCard';
 import '../../../styles/students.scss';
 import { StudentDetail } from '../../../components/stDetail';
 import { Footer } from '../../../components/footer';
+import WindowIntroWrapper from '../../../components/loading';
 
 // Fisher–Yates
 function shuffle(array) {
@@ -47,18 +48,6 @@ function insertRandomBlanks(arr, ratio = 4, minGap = 2) {
   return result;
 }
 
-// 마지막 줄 칸수 맞추기 (비랜덤, SSR/CSR 영향 없음)
-function fillEmptySlots(arr, perRow = 5) {
-  const remainder = arr.length % perRow;
-  if (remainder === 0) return arr;
-  const need = perRow - remainder;
-  const blanks = Array.from({ length: need }, (_, i) => ({
-    isEmpty: true,
-    Id: `empty-fill-${i}`,
-  }));
-  return [...arr, ...blanks];
-}
-
 const allStudents = students.students;
 
 export default function Students() {
@@ -78,7 +67,7 @@ export default function Students() {
     if (!mounted) return;
     const base = shuffle(allStudents);
     const withRandomBlanks = insertRandomBlanks(base);
-    setSortList(fillEmptySlots(withRandomBlanks, 5));
+    setSortList([...withRandomBlanks, { isEmpty: true, Id: 'empty-final' }]);
   }, [mounted]);
 
   // role 필터
@@ -91,7 +80,7 @@ export default function Students() {
         : allStudents.filter((s) => s.role === role);
     const shuffled = shuffle(base);
     const withRandomBlanks = insertRandomBlanks(shuffled);
-    setSortList(fillEmptySlots(withRandomBlanks, 5));
+    setSortList([...withRandomBlanks, { isEmpty: true, Id: 'empty-final' }]);
     setSearchText(''); // 필터 클릭 시 검색어 초기화 (선택)
   };
 
@@ -109,16 +98,20 @@ export default function Students() {
     );
 
     //랜덤섞기
-    const withRandomBlanks = insertRandomBlanks(filtered);
+    const shuffled = shuffle(filtered);
+    const withRandomBlanks = insertRandomBlanks(shuffled);
 
     //현재 보여주는 학생 useState에 집어넣기(여백 넣어서)
 
-    setSortList(fillEmptySlots(withRandomBlanks, 5));
+    setSortList([...withRandomBlanks, { isEmpty: true, Id: 'empty-final' }]);
     //소팅 버튼 한거 다 초기화
     setSelectedButton('All'); 
   };
 
   return (
+    <WindowIntroWrapper
+    pageName={"학생 목록"}
+    children={
     <>
       {mounted && detailModal && selectStudent && (
         <StudentDetail
@@ -126,6 +119,8 @@ export default function Students() {
           onClick={() => setDetailModal(false)}
         />
       )}
+
+
 
       <div className="Students">
         <div className="sortingSection">
@@ -163,7 +158,7 @@ export default function Students() {
               type="text"
               value={searchText}
               onChange={handleSearch}
-              placeholder="찾으시는 학생 이름을 입력 해 주세요"
+              placeholder="이름을 입력 해 주세요"
             />
             <svg
               width="22"
@@ -185,7 +180,7 @@ export default function Students() {
         <div className="studentsList">
           {/* ✅ 수화 전에는 리스트를 렌더하지 않음 (서버/클라 동일 DOM 보장) */}
           {!mounted ? null : sortList.length === 0 ? (
-            <div className="notFind">조건에 맞는 학생이 없습니다</div>
+            <div className="notFind"></div>
           ) : (
             sortList.map((s, i) =>
               s.isEmpty ? (
@@ -215,6 +210,6 @@ export default function Students() {
         </div>
       </div>
       <Footer/>
-    </>
+    </>}/>
   );
 }

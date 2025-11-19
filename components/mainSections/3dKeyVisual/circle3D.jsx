@@ -7,13 +7,11 @@ import { useEffect, useRef } from "react";
 // three.js의 모든 기능을 불러옴 (3D 장면, 카메라, 오브젝트, 재질 등)
 import * as THREE from "three";
 
-// GSAP(자바스크립트 애니메이션 전용 라이브러리) 불러오기
-import { gsap } from "gsap";
-
 // 1. isZoomed prop을 받도록 수정
 export default function Circle3D({
   isZoomed = false,
   interactive = true,
+  enableHover = true,
 } = {}) {
   // three.js가 생성한 캔버스를 붙일 HTML 요소를 가리키는 참조 생성
   const containerRef = useRef(null);
@@ -24,7 +22,9 @@ export default function Circle3D({
   // 3. 카메라 객체 자체를 저장할 Ref 생성
   const cameraRef = useRef(null);
   const interactiveRef = useRef(interactive);
+  const hoverEnabledRef = useRef(enableHover);
   interactiveRef.current = interactive;
+  hoverEnabledRef.current = enableHover;
 
   // 컴포넌트가 처음 렌더링될 때 한 번만 실행되는 부분
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function Circle3D({
 
     // 클린업(정리) 함수에서 접근할 수 있도록 변수 선언
     let renderer, geometry, material;
-    let animationFrameId; // ⚠️ 애니메이션 프레임 ID 추가
+    let animationFrameId; 
 
     // ===== Scene(3D 무대 역할) 생성 =====
     const scene = new THREE.Scene(); // 장면을 생성하여 모든 3D 객체를 담을 공간 생성
@@ -64,10 +64,9 @@ export default function Circle3D({
       0.1, // 가까운 클리핑 평면 (이 거리보다 가까운 객체는 보이지 않음)
       3000 // 먼 클리핑 평면 (이 거리보다 먼 객체는 보이지 않음)
     );
-    camera.position.set(0, -20, 420); // 카메라를 Z축 방향으로 뒤로 이동시켜 장면 전체를 볼 수 있게 설정
+    camera.position.set(0, 10, 420); // 카메라를 Z축 방향으로 뒤로 이동시켜 장면 전체를 볼 수 있게 설정
     cameraRef.current = camera; // 4. ref에 현재 카메라 인스턴스 저장
 
-    // ⚠️ [수정]
     // targetCameraZRef의 초기값을 카메라의 실제 위치(420)로 설정
     targetCameraZRef.current = camera.position.z;
 
@@ -84,6 +83,20 @@ export default function Circle3D({
 
     // DOM에 추가 (클린업을 위해 ref.current를 변수에 저장)
     currentContainer.appendChild(renderer.domElement); // 렌더러가 생성한 캔버스를 HTML에 추가
+
+    const handleContextLost = (event) => {
+      event.preventDefault();
+      console.warn("[Circle3D] WebGL context lost – rendering paused.");
+    };
+    const handleContextRestored = () => {
+      console.info("[Circle3D] WebGL context restored.");
+    };
+    renderer.domElement.addEventListener("webglcontextlost", handleContextLost, false);
+    renderer.domElement.addEventListener(
+      "webglcontextrestored",
+      handleContextRestored,
+      false
+    );
 
     // ===== 3D 오브젝트 그룹 생성 =====
     const objectGroup = new THREE.Group(); // 여러 오브젝트를 하나로 묶기 위한 그룹 생성
@@ -102,6 +115,7 @@ export default function Circle3D({
       color: 0xffffff, // 선 색상 흰색 지정
       transparent: true, // 투명도 설정 가능하도록 활성화
       opacity: 0.7, // 선의 투명도 설정
+      linewidth: 2,
     });
 
     // ===== 단일 원(프로필 형태) 정의 =====
@@ -187,16 +201,19 @@ export default function Circle3D({
 
     // ===== 마우스 움직임 감지 함수 정의 =====
     const handleMouseMove = (e) => {
-      // ⚠️ [수정 1/4] ⭐️
-      // 호버(회전) 로직은 interactive 값과 상관없이 *항상* 실행합니다.
-      // (HeroSection과 VisualSection 모두 호버 회전이 필요)
+      // 호버(회전) 로직은 enableHover가 true일 때만 실행합니다.
+      if (!hoverEnabledRef.current) {
+        return;
+      }
+
+      // 호버(회전) 로직은 enableHover가 true일 때만 실행합니다.
       const x = (e.clientX / window.innerWidth) * 2 - 1; // 마우스의 X좌표를 -1~1 범위로 정규화
       const y = (e.clientY / window.innerHeight) * 2 - 1; // 마우스의 Y좌표를 -1~1 범위로 정규화
       targetY = initialRotationY + x * sensitivity; // 마우스 좌우 움직임으로 Y축 회전값 설정
       targetX = initialRotationX + y * sensitivity * -1; // 마우스 상하 움직임으로 X축 회전값 설정
       targetZ = initialRotationZ + x * sensitivityZ; // 마우스 좌우 움직임으로 Z축 회전값 설정
 
-      // ⚠️ [수정 2/4] ⭐️
+
       // 드래그(줌/라인 수 변경) 로직은 interactive가 false일 때만 (HeroSection) 실행합니다.
       if (!interactiveRef.current) {
         if (isRightDragging) {
@@ -237,7 +254,6 @@ export default function Circle3D({
       }
     };
     const handleMouseDown = (e) => {
-      // ⚠️ [수정 3/4] ⭐️
       // interactive가 true일 때 (VisualSection)는 드래그를 막습니다.
       if (interactiveRef.current) {
         return;
@@ -259,7 +275,6 @@ export default function Circle3D({
     };
 
     const handleMouseUp = (e) => {
-      // ⚠️ [수정 4/4] ⭐️
       // interactive가 true일 때 (VisualSection)는 드래그를 막습니다.
       if (interactiveRef.current) {
         return;
@@ -290,7 +305,6 @@ export default function Circle3D({
       }
     };
 
-    // ⚠️ [수정]
     // 이벤트 리스너를 항상 바인딩합니다.
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mousedown", handleMouseDown);
@@ -299,20 +313,17 @@ export default function Circle3D({
 
     // ===== 애니메이션 함수 정의 =====
     const animate = () => {
-      animationFrameId = requestAnimationFrame(animate); // ⚠️ ID 저장
+      animationFrameId = requestAnimationFrame(animate); 
 
-      // ⚠️ [수정]
       // interactive가 false일 때 (HeroSection) + 드래그 중이 아닐 때만 중앙으로 복귀
       if (!interactiveRef.current && !isLeftDragging && !isRightDragging) {
         targetX += (initialRotationX - targetX) * 0.08;
         targetY += (initialRotationY - targetY) * 0.08;
         targetZ += (initialRotationZ - targetZ) * 0.08;
         targetLineCount += (BASE_LINES - targetLineCount) * 0.1;
-        // (isZoomed가 false일 때 BASE_CAMERA_Z로 돌아감)
-        if (!isZoomed) {
-          targetCameraZRef.current +=
-            (BASE_CAMERA_Z - targetCameraZRef.current) * 0.1;
-        }
+        // 기본 카메라 Z값으로 복귀
+        targetCameraZRef.current +=
+          (BASE_CAMERA_Z - targetCameraZRef.current) * 0.1;
       }
 
       currentLineCount += (targetLineCount - currentLineCount) * 0.1;
@@ -329,13 +340,10 @@ export default function Circle3D({
         cameraRef.current.position.z = currentCameraZ;
       }
 
-      gsap.to(objectGroup.rotation, {
-        x: targetX, // 목표 X축 회전값으로 애니메이션
-        y: targetY, // 목표 Y축 회전값으로 애니메이션
-        z: targetZ, // Z축 회전값도 GSAP에 전달
-        duration: 1, // 애니메이션 지속 시간
-        ease: "power2.out", // 감속 애니메이션 적용
-      });
+      const rotationEase = 0.08;
+      objectGroup.rotation.x += (targetX - objectGroup.rotation.x) * rotationEase;
+      objectGroup.rotation.y += (targetY - objectGroup.rotation.y) * rotationEase;
+      objectGroup.rotation.z += (targetZ - objectGroup.rotation.z) * rotationEase;
       // 12. Ref의 카메라로 렌더링합니다.
       if (renderer && cameraRef.current) {
         renderer.render(scene, cameraRef.current); // 현재 장면을 카메라 시점에서 렌더링
@@ -356,9 +364,8 @@ export default function Circle3D({
 
     // ===== 컴포넌트가 사라질 때 실행되는 정리 코드 =====
     return () => {
-      cancelAnimationFrame(animationFrameId); // ⚠️ 프레임 취소
-
-      // ⚠️ [수정]
+      cancelAnimationFrame(animationFrameId);
+   
       // 리스너를 항상 제거하도록 변경
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mousedown", handleMouseDown);
@@ -366,6 +373,18 @@ export default function Circle3D({
       window.removeEventListener("contextmenu", handleContextMenu);
 
       window.removeEventListener("resize", handleResize); // 리사이즈 이벤트 제거
+      if (renderer?.domElement) {
+        renderer.domElement.removeEventListener(
+          "webglcontextlost",
+          handleContextLost,
+          false
+        );
+        renderer.domElement.removeEventListener(
+          "webglcontextrestored",
+          handleContextRestored,
+          false
+        );
+      }
 
       // DOM 요소 안전하게 제거
       if (currentContainer && renderer.domElement) {
@@ -381,25 +400,16 @@ export default function Circle3D({
 
   // 14. 줌(스크롤)을 위한 별도의 useEffect (컴포넌트 최상위 레벨)
   useEffect(() => {
-    // ⚠️ [수정] ⭐️
-    // 1. interactive가 true일 때 (VisualSection)
+    // interactive가 true일 때 (VisualSection)
     // 짤리지 않도록 고정된 Z값을 설정합니다 (550).
     if (interactive) {
       // prop을 직접 사용
       targetCameraZRef.current = 550; // (이 값을 조절해서 짤리지 않게 하세요)
+    } else {
+      // interactive=false(HeroSection)에서는 기본 카메라 Z값 유지 (420)
+      targetCameraZRef.current = 420;
     }
-    // 2. interactive가 false일 때 (HeroSection)
-    // 기존 isZoomed 로직을 따릅니다.
-    else {
-      if (isZoomed) {
-        // 줌 아웃 (true)
-        targetCameraZRef.current = 500;
-      } else {
-        // 줌 인 (false)
-        targetCameraZRef.current = 420; // 줌 인 (기본값)
-      }
-    }
-  }, [isZoomed, interactive]); // ref 대신 prop을 의존성 배열에 사용
+  }, [interactive]); // ref 대신 prop을 의존성 배열에 사용
 
   // ===== three.js 캔버스를 표시할 HTML 요소 반환 =====
   return (

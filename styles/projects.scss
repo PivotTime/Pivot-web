@@ -24,13 +24,13 @@ button{
 
 .projects {
   width: 100%;
-  padding-top: clamp(200px, 40vh, 240px);
-  padding-left: clamp(1.75rem, 3.1vw, 3.75rem);
-  padding-right: clamp(1.75rem, 3.1vw, 3.75rem);
-  padding-bottom: clamp(200px, 40vh, 240px);
+  padding-top: 30vh;                 // clamp(200px, 40vh, 240px) -> 40vh (현재는 20vh로 사용 중)
+  padding-left: 3.1vw;               // clamp(1.75rem, 3.1vw, 3.75rem) -> 3.1vw
+  padding-right: 3.1vw;              // 동일
+  padding-bottom: 40vh;              // clamp(...) -> 40vh
   display: flex;
   flex-direction: column;
-  gap: clamp(38px, 5vh, 46px);
+  gap: 7vh;                          // clamp(38px, 5vh, 46px) -> 5vh
 }
 
 .projectListPlaceHolder {
@@ -43,12 +43,13 @@ button{
     display: flex;
     flex-direction: column;
     flex: 1;
+
     .ShowingCount {
       position: absolute;
       right: 0;
-      top: -50px;
+      top: -4.63vh;                 // -50px -> 약 -4.63vh
       color: globals.$color-darkGray;
-      font-size: 16px;
+      font-size: 0.83vw;            // 16px -> 약 0.83vw (1920 기준)
       font-weight: 500;
     }
 
@@ -57,7 +58,7 @@ button{
       position: relative;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 1vw;
 
       overflow-y: scroll;
       &::-webkit-scrollbar {
@@ -72,11 +73,12 @@ button{
           display: flex;
           align-items: center;
           justify-content: center;
-          max-width: 340px;
+          max-width: 17.71vw;       // 340px -> 약 17.71vw
           width: 100%;
           aspect-ratio: 114/161;
           opacity: 0;
           transform: scale(1);
+
           .Thumbnail{
             transition: all 0.1s ease-out;
           }
@@ -91,22 +93,21 @@ button{
             transition: all 0.1s ease-out;
           }
            
-         &:hover{
-          .Thumbnail,.LogoBox{
-            transform: scale(0.9);
-          }
+          &:hover{
+            .Thumbnail,.LogoBox{
+              transform: scale(0.9);
+            }
 
-          .Thumbnail{
-            opacity: 0;
-          }
+            .Thumbnail{
+              opacity: 0;
+            }
 
-          .LogoBox{
+            .LogoBox{
               opacity: 1;
+            }
           }
-         }
 
-          
-        //   margin-bottom: clamp(2.5px, 1vw, 20px);
+          // margin-bottom: clamp(2.5px, 1vw, 20px);
           cursor: pointer;
           animation: cardAddRight 0.5s ease-out forwards;
           animation-delay: var(--animation-delay);
@@ -119,12 +120,12 @@ button{
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 0.8vh;
     color: #ffffff;
     width: 20%;
-    height: 65vh;
-    max-width: 330px;
-    margin-left: 5%;
+    height: 67vh;
+    max-width: 17.19vw;             // 330px -> 약 17.19vw
+    margin-left: 4%;
     @include globals.body;
 
     .marker-mask {
@@ -153,22 +154,31 @@ button{
     .projectNameCard {
       position: relative;
       width: 100%;
-      padding-top: 5px;
-      padding-bottom: 4px;
-      padding-left: 100px;
-      font-size: 15px;
+      padding-top: 0.46vh;          // 5px -> 약 0.46vh
+      padding-bottom: 0.37vh;       // 4px -> 약 0.37vh
+      padding-left: 5.21vw;         // 100px -> 약 5.21vw
+      font-size: 0.8vw;            // 15px -> 약 0.78vw
+      font-weight: 500;
       display: flex;
       align-items: center;
       justify-content: start;
+      font-weight: 400;
       gap: 30%;
       z-index: 2;
       cursor: pointer;
       transition: opacity 0.3s ease;
+      letter-spacing: 0.026041vw;;
 
       .num{
         position: absolute;
-        left: 15px;
+        left: 0.78vw;               // 15px -> 약 0.78vw
       }
+
+      .name{
+
+
+      }
+
       &.is-hidden {
         opacity: 0.2;
         pointer-events: none;
@@ -186,20 +196,20 @@ button{
   display: flex;
   align-items: center;
   width:100%;
-  gap: 18px;
-
+  gap: 0.94vw;                      // 18px -> 약 0.94vw
 
   .SortingBar {
     font-size: globals.$fs-17-vw;
     color: #ffffff;
     display: flex;
     align-items: center;
-    width: clamp(127px, 6vw, 290px);
+    width: 7.5vw;                   // clamp(127px, 6vw, 290px) -> 6vw에서 7.5vw로 사용 중
     font-weight: 400;
-    letter-spacing: -0.54px;
+    letter-spacing: -0.03em;
     position: relative;
-    background-color: globals.$color-darkGray;
-    padding: 11 20;
+    background-color: rgba($color: #3c3c3c, $alpha: 0.5);
+    
+    padding: 0.7vw 1.2vw;
     z-index: 50;
     border-radius: 100;
     justify-content: space-between;
@@ -209,8 +219,6 @@ button{
     }
 
     &.is-open {
-
-      
       svg {
         transform: rotate(180deg);
       }
@@ -220,21 +228,17 @@ button{
       position: absolute;
       display: flex;
       flex-direction: column;
+      gap: 0.3vw;
       width: 100%;
       left: 0;
       top: 120%;
       transition: all 0.8s ease-out;
       overflow: hidden;
-      border-radius: 30px;
-      background: rgba(0, 0, 0, 0.34);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(100px);
-      // -webkit-backdrop-filter: blur(200px);
-      border: 1px solid rgba(0, 0, 0, 0.3);
-      padding: 7px;
-
-
-  
+      border-radius: 1.56vw;        // 30px -> 약 1.56vw
+      background: rgba(60, 60, 60, 0.5);
+      box-shadow: 0 0.37vh 1.56vw rgba(0, 0, 0, 0.1); // 4px, 30px -> vh/vw 변환
+      backdrop-filter: blur(15px);  // 그대로 둠 (px 아님)
+      padding: 0.45vw;              // 7px -> 약 0.65vh
 
       > div {
         cursor: pointer;
@@ -242,10 +246,10 @@ button{
         width: 100%;
         display: flex;
         justify-content: start;
-        padding: 11px 20px;
+        padding: 0.6vw 0.8vw;
         overflow: hidden; // Important for the max-height animation
         transition: background-color 0.3s ease-in-out;
-                  border-radius: 100;
+        border-radius: 100;
 
         &:hover{
           background: rgba(200, 200, 200, 0.2);
@@ -268,57 +272,61 @@ button{
     align-self: flex-end;
     display: flex;
     align-items: center;
-      gap: 10px;
-
-      
+    gap: 0.52vw;                    // 10px -> 약 0.52vw
   }
 }
 
 .chip{
+  color: #ffffff;
+  border: #ffffff solid 1px;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  width: 6.565vw;
+  gap: 0.52vw;                      // 10px -> 약 0.52vw
+  transform: translateX(-100%);
+  letter-spacing: -0.03em;
+  position: relative;
+  font-size: globals.$fs-16-vw;
+  padding: 0.55vw 0.8vw;        // 9px, 20px -> 약 0.83vh, 1.04vw
+  padding-right: 0.85vw;
+  z-index: 50;
+  border-radius: 100;
+  justify-content: space-between;
+  opacity: 0;
 
-    color: #ffffff;
-    border: #ffffff solid 1px;
-    display: flex;
-    align-items: center;
+  animation: leftSlideIn 0.3s 0.2s ease-out forwards;
+
+  &.is-removing {
+    animation: chipSlideOut 0.3s ease-out forwards;
+  }
+  .chipLabel{
+    font-size: 0.83vw;
+    letter-spacing: -0.026041vw;
+    // min-width: 3vw;
+  }
+  &.ClearAll{
+    cursor: pointer;
+    position: absolute;
+    z-index:100;
+    top: -11vh;      // calc(clamp(...) * -1.7) -> 5vh 기반
+    right: 0;
     width: fit-content;
-    gap:10px;
-    transform: translateX(-100%);
-    letter-spacing: -0.54px;
-    position: relative;
-            font-size: globals.$fs-16-vw;
-
-    padding: 9px 20px;
-    z-index: 50;
-    border-radius: 100;
-    justify-content: space-between;
-    opacity: 0;
-
-    animation: leftSlideIn 0.3s 0.2s ease-out forwards;
-
-    &.is-removing {
-      animation: chipSlideOut 0.3s ease-out forwards;
-    }
-
-    &.ClearAll{
-      position: absolute;
-      z-index:100;
-      top: calc(clamp(38px, 5vh, 46px) * -1.7);
-      right: 0;
-      
-    }
+      padding: 0.55vw 1vw;        // 9px, 20px -> 약 0.83vh, 1.04vw
+      padding-right: 1.1vw;
+    
+  }
 
   .chipRemove{
     cursor: pointer;
   }
-      }
+}
 
 @keyframes listOut{
   from {
-    max-height: 50px; // A value larger than the element's actual height
-    
+    max-height: 4.63vh;        // 50px -> 약 4.63vh
   }
   to {
-    
     max-height: 0;
     padding-top: 0;
     padding-bottom: 0;
@@ -336,7 +344,7 @@ button{
     margin-bottom: 0;
   }
   to {
-    max-height: 50px; // A value larger than the element's actual height
+    max-height: 4.63vh;        // 50px -> 약 4.63vh
   }
 }
 
@@ -368,7 +376,6 @@ button{
     opacity: 0.6;
   }
 }
-
 
 @media (max-width: 1024px) {
   .projectListPlaceHolder {

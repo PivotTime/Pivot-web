@@ -24,7 +24,7 @@ export default function VideoSection() {
         }
       },
       {
-        threshold: 0.35,
+        threshold: 1,
       }
     );
 

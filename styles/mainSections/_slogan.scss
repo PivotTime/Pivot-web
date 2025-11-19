@@ -73,29 +73,18 @@
 $font-main: "Pretendard", sans-serif;
 $font-weight-medium: 500;
 
-// typography.scss (compact version)
-
-$font-main: "Pretendard", sans-serif;
-$font-weight-medium: 500;
-
 // TITLE
 // 약 33.5px max
 @mixin title {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.4rem,
-    // ~22.4px
-    1.8vw,
-    // 유동
-    2.09rem // ~33.5px
-  );
+  font-size: 1.8vw;
 }
 
 @mixin title2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(1.125rem, 1.979vw, 3rem);
+  font-size: 1.979vw;
 }
 
 // H1
@@ -103,13 +92,7 @@ $font-weight-medium: 500;
 @mixin h1 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.2rem,
-    // ~19.2px
-    1.4vw,
-    // 유동
-    1.63rem // ~26px
-  );
+  font-size: 1.4vw;
 }
 
 // H2
@@ -117,13 +100,7 @@ $font-weight-medium: 500;
 @mixin h2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.05rem,
-    // ~16.8px
-    1.2vw,
-    // 유동
-    1.44rem // ~23px
-  );
+  font-size: 1.2vw;
 }
 
 // 본문
@@ -131,13 +108,7 @@ $font-weight-medium: 500;
 @mixin body {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.9rem,
-    // ~14.4px
-    1vw,
-    // 유동
-    1.25rem // ~20px
-  );
+  font-size: 1vw;
 }
 
 // SUB
@@ -145,37 +116,29 @@ $font-weight-medium: 500;
 @mixin sub {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.8rem,
-    // ~12.8px
-    0.9vw,
-    // 유동
-    1.06rem // ~17px
-  );
+  font-size: 0.9vw;
 }
 
 @mixin bodyText {
-  font-size: clamp(0.875rem, 1.04vw, 1.375rem);
+  font-size: 1.04vw;
   font-family: "Pretendard";
 }
 
 @mixin infoText {
-  font-size: clamp(0.6em, 0.73vw, 1.2rem);
+  font-size: 0.73vw;
   font-weight: 500;
   color: #fff;
-  letter-spacing: -0.03rem;
+  letter-spacing: -0.03em;
   line-height: 1.35;
 }
 
-$blue: hsl(221, 100%, 50%);
-$height: 56.25vw;
-$section-height: 100dvh;
+$blue: #0051ff;
 
 .slogan {
   position: relative;
   width: 100vw;
-  height: $section-height;
-  padding-top: 7.7vw;
+  height: 100vh;
+  padding-top: 13.69vh;
   box-sizing: border-box;
   overflow: hidden;
 
@@ -193,7 +156,7 @@ $section-height: 100dvh;
   .slogan-container {
     position: relative;
     width: 93.75vw;
-    height: 44.53vw;
+    height: 79.16vh;
     background-color: $blue;
     margin: 0 auto;
     border-radius: 0.73vw;
@@ -206,23 +169,15 @@ $section-height: 100dvh;
   }
 
   .main-graphic {
-    top: -8.5vw;
+    top: -15.11vh;
     left: 16.5vw;
     svg {
       width: 61vw;
     }
   }
 
-  .sub-graphic {
-    top: -52vw;
-    left: -23vw;
-    svg {
-      width: 87.55vw;
-    }
-  }
-
   .GF {
-    top: 20vw;
+    top: 35.55vh;
     right: 7.5vw;
 
     svg {
@@ -238,7 +193,7 @@ $section-height: 100dvh;
   }
 
   .PT {
-    top: 24.5vw;
+    top: 43.55vh;
     left: 42.7vw;
     svg {
       width: 28.72vw;
@@ -257,18 +212,18 @@ $section-height: 100dvh;
     position: absolute;
     color: #000;
     right: 4.7vw;
-    bottom: 3.3vw;
+    bottom: 5.87vh;
 
     .title {
       font-family: "Pretendard";
       font-weight: 800;
-      font-size: clamp(0.8rem, 0.94vw, 1.4rem);
+      font-size: 0.94vw;
       line-height: 1.2;
       letter-spacing: -0.04rem;
     }
 
     .description {
-      padding-top: 1.3vw;
+      padding-top: 2.31vh;
 
       span {
         @include body;
@@ -331,36 +286,20 @@ $section-height: 100dvh;
     }
 
     20% {
-      transform: translateY(-2.2vw) translateX(-21vw);
+      transform: translateY(-3.91vh) translateX(-21vw);
       animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.05);
     }
 
     100% {
-      transform: translateY(-2.2vw) translateX(-46.6vw);
+      transform: translateY(-3.91vh) translateX(-46.6vw);
     }
   }
-
-  // // 👇 [추가] 3. GF(GET FEVER)가 두 번째로 움직이는 애니메이션
-  // // (예: 살짝 아래로 이동하며 PT와 자리를 맞춤)
-  // @keyframes getFeverMove2 {
-  //   from {
-  //     // 1번 애니메이션의 최종 상태 (translateX(-21vw))
-  //     transform: translateY(0) translateX(-21vw);
-  //   }
-  //   to {
-  //     // 2번 애니메이션의 최종 상태 (예: 2vw만큼 아래로)
-  //     transform: translateY(2vw) translateX(-21vw);
-  //   }
-  // }
-
-  // 2. 애니메이션 대상 요소들의 초기 (숨겨진) 상태
-  // 팝업 효과를 위해 약간 아래 + 투명하게 설정
 
   // (GF를 이 그룹에서 제외시킴)
   .txt-wrap > .title,
   .description > span {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.85vh);
     transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1),
       transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.1);
   }
@@ -368,7 +307,7 @@ $section-height: 100dvh;
   // GF의 초기상태를 별도로 정의 (transition 없음)
   .GF {
     opacity: 0;
-    transform: translateY(20px) translateX(0);
+    transform: translateY(1.85vh) translateX(0);
   }
 
   // [필수] SVG 선들의 "초기 숨김" 상태
@@ -388,16 +327,6 @@ $section-height: 100dvh;
     }
   }
 
-  @keyframes subGraphicAni {
-    from {
-      transform: translate(0, 0);
-      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.05);
-    }
-    to {
-      transform: translate(-0.5vw, 20vw);
-    }
-  }
-
   // 3. .is-visible 클래스가 추가되었을 때 (보이는) 상태
   /* ===========================================
    Slogan 섹션 인터랙션 (수정된 코드)
@@ -412,10 +341,6 @@ $section-height: 100dvh;
 
     .PT {
       animation: goPivotAnimation 1.25s ease-out 2.4s forwards;
-    }
-
-    .sub-graphic {
-      animation: subGraphicAni 1.25s ease-out 2.7s forwards;
     }
 
     // 텍스트 제목 (두 번째)
@@ -443,7 +368,8 @@ $section-height: 100dvh;
 
     /* --- Graphic Lines 애니메이션 실행 (하드코딩) --- */
     .main-graphic svg g {
-      $base-delay: 1.25s;
+      // 메인 그래픽 선이 GETFEVER 애니메이션과 동시에 나타나도록 지연시간 조정
+      $base-delay: 0.2s;
       $stagger-amount: 0.025s;
 
       path:nth-child(1) {
@@ -612,7 +538,7 @@ $section-height: 100dvh;
       }
     }
 
-    $path-end-time: 1.3s; // (0.1s + (40 * 0.025s) + 0.3s)
-    $logo-start-delay: $path-end-time + 0.2s; // 1.6s
+    $path-end-time: 1.2s; // 0.2s base delay + (40 * 0.025s)
+    $logo-start-delay: $path-end-time + 0.2s; // 1.4s
   }
 }

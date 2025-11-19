@@ -12,9 +12,17 @@
     height: 100%;
     width: fit-content;
     aspect-ratio: 32/45;
+    overflow: hidden;
+    // img{
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate(-50%, -50%);
+    // }
   }
 
   .rightSec {
+    overflow: hidden;
     position: relative;
     flex: 1;
     color: #ffffff;
@@ -32,22 +40,26 @@
       padding-right: globals.$fs-150-vw;
     }
     .studentName {
-      font-size: clamp(35px, 2.6vw, 50px);
+      font-size: 2.81vw;
       font-weight: 700;
-      letter-spacing: -1.5px;
+      letter-spacing: -0.0855vw;
       > span {
+        margin-left: 0.5vw;
         font-size: globals.$fs-18-vw;
-        font-weight: 500;
-        letter-spacing: -0.54px;
+        font-weight: 400;
+        letter-spacing: -0.03125vw;
         color: #9a9a9a;
       }
     }
 
     .commentBox {
+      pointer-events: none;
       position: relative;
+      width: fit-content;
       z-index: 10;
-      padding: 14px 30px;
-      background-color: #262626;
+      padding: 0.8vw 1.6vw;
+      background-color: rgba($color: #262626, $alpha: 0.5)  ;
+      font-size: globals.$fs-20-vw;
     }
 
     .lengthLine {
@@ -104,16 +116,21 @@
     .overviewList {
       display: flex;
       flex-direction: column;
-      gap: 54px;
+      gap: 4vh;
       .overviewBox {
         display: flex;
         gap: clamp(50px, 3.65vw, 70px);
+        font-weight: 500;
+                  letter-spacing: -0.03em;
         .contentsName {
           font-size: globals.$fs-18-vw;
           font-weight: 600;
           color: #9a9a9a;
-          letter-spacing: -0.54px;
+          letter-spacing: -0.03em;
           min-width: 70px;
+        }
+        .email{
+          font-size: globals.$fs-18-vw;
         }
 
         .portfolio {
@@ -125,11 +142,16 @@
           >a{
             color: #fff; text-decoration: none; outline: none;
             display: flex;
-               align-items: center;
+            align-items: center;
           gap: 10px;
+          font-size: globals.$fs-18-vw;
 
-                    > span {
-            margin-top: 4px;
+         .goWebPage {
+            margin-top: 2px;
+            svg{
+              height: 100%;
+              width: 0.4vw;
+            }
           }
           }
 
@@ -138,7 +160,7 @@
         .projectPoster {
           position: relative;
           aspect-ratio: 410/266;
-          width: clamp(280px, 21.35vw, 410px);
+          width: 21.35vw;
           cursor: pointer;
           transition: all 0.3s ease-in-out;
           overflow: hidden;
@@ -171,9 +193,9 @@
             transition: all 0.3s ease-in-out;
 
             .projectName {
-                opacity: 1;
+              opacity: 1;
               position: absolute;
-              padding: 6px 10px;
+              padding: 0.1vw 0.4vw;
               border: #ffffff 1px solid;
               font-size: clamp(9px, 0.625vw, 12px);
               border-radius: 100;

@@ -7,7 +7,7 @@ import '../../styles/globals.scss';
 
 export default function Layout({ children }) {
   const pathname = usePathname();
-  const hideNav = pathname.startsWith("/goPivot") || pathname.startsWith("/countDown")||pathname.startsWith("/gpArchive-img")||pathname.startsWith("/gpArchive-txt");
+  const hideNav = pathname.startsWith("/goPivot") || pathname.startsWith("/countDown")||pathname.startsWith("/gfArchive-img")||pathname.startsWith("/gfArchive-txt");
   
 
   const [mouseParticlesEnabled, setMouseParticlesEnabled] = useState(false);
@@ -15,12 +15,14 @@ export default function Layout({ children }) {
   return (
     <html lang="ko">
       <body>
-        <MouseParticlesToggle enabled={mouseParticlesEnabled} />
+        {!hideNav && <MouseParticlesToggle enabled={mouseParticlesEnabled} />}
        {!hideNav && (
   <Nav setMouseParticlesEnabled={setMouseParticlesEnabled} />
 )}
 
-        {children}
+        <div key={pathname}>
+          {children}
+        </div>
       </body>
     </html>
   );

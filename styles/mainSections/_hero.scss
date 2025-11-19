@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
   font-family: "Pretendard";
   src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff")
     format("woff");
@@ -73,29 +73,18 @@
 $font-main: "Pretendard", sans-serif;
 $font-weight-medium: 500;
 
-// typography.scss (compact version)
-
-$font-main: "Pretendard", sans-serif;
-$font-weight-medium: 500;
-
 // TITLE
 // 약 33.5px max
 @mixin title {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.4rem,
-    // ~22.4px
-    1.8vw,
-    // 유동
-    2.09rem // ~33.5px
-  );
+  font-size: 1.8vw;
 }
 
 @mixin title2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(1.125rem, 1.979vw, 3rem);
+  font-size: 1.979vw;
 }
 
 // H1
@@ -103,13 +92,7 @@ $font-weight-medium: 500;
 @mixin h1 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.2rem,
-    // ~19.2px
-    1.4vw,
-    // 유동
-    1.63rem // ~26px
-  );
+  font-size: 1.4vw;
 }
 
 // H2
@@ -117,13 +100,7 @@ $font-weight-medium: 500;
 @mixin h2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.05rem,
-    // ~16.8px
-    1.2vw,
-    // 유동
-    1.44rem // ~23px
-  );
+  font-size: 1.2vw;
 }
 
 // 본문
@@ -131,13 +108,7 @@ $font-weight-medium: 500;
 @mixin body {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.9rem,
-    // ~14.4px
-    1vw,
-    // 유동
-    1.25rem // ~20px
-  );
+  font-size: 1vw;
 }
 
 // SUB
@@ -145,44 +116,67 @@ $font-weight-medium: 500;
 @mixin sub {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.8rem,
-    // ~12.8px
-    0.9vw,
-    // 유동
-    1.06rem // ~17px
-  );
+  font-size: 0.9vw;
 }
 
 @mixin bodyText {
-  font-size: clamp(0.875rem, 1.04vw, 1.375rem);
+  font-size: 1.04vw;
   font-family: "Pretendard";
 }
 
 @mixin infoText {
-  font-size: clamp(0.6em, 0.73vw, 1.2rem);
+  font-size: 0.73vw;
   font-weight: 500;
   color: #fff;
-  letter-spacing: -0.03rem;
+  letter-spacing: -0.03em;
   line-height: 1.35;
 }
 
 $blue: #0051ff;
-$height: 56.25vw;
-$section-height: 100dvh;
+
+// 줌아웃 시 메인 오브젝트 스케일 값 (각 오브젝트별로 개별 설정)
+$zoom-out-scale-line: 0.5;
+$zoom-out-scale-circle: 0.4;
+$zoom-out-scale-square: 0.3;
 
 .hero {
   position: relative;
-  width: 93.85vw;
-  height: $section-height;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
+  padding: 0 3.075vw;
   overflow: hidden;
   box-sizing: border-box;
 
+  .webImage {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: -1;
+    display: none;
+  }
+
+  .grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    pointer-events: none;
+  
+    svg {
+      width: 100vw;
+      rect {
+        width: 100vw;
+      }
+    }
+  }
+
   // 1. 애니메이션 대상 요소들에 transition 추가
   .main-object,
-  .hero-text,
-  .hero-bg-grid {
+  .hero-text {
     transition: all 0.6s ease-in-out;
   }
 
@@ -190,128 +184,304 @@ $section-height: 100dvh;
   &.zoom_out {
     // 텍스트와 그리드 숨기기
     .hero-text,
-    .hero-bg-grid {
+    .mouse-info {
       opacity: 0;
       pointer-events: none;
     }
 
-    // 3D 오브젝트 축소
-    .main-object {
-      transform: scale(0.5); // 크기를 50%로 줄임
-      // .main-object가 이미 flex/center로 중앙 정렬되어 있으므로 scale만 적용
+    // 3D 오브젝트 축소 (각 오브젝트별로 개별 스케일 값 적용)
+    .main-object[data-object="line"] {
+      transform: scale($zoom-out-scale-line);
+    }
+    .main-object[data-object="circle"] {
+      transform: scale($zoom-out-scale-circle);
+    }
+    .main-object[data-object="square"] {
+      transform: scale($zoom-out-scale-square);
     }
   }
-  // --- ⬆️ 여기까지 수정/추가된 부분 ⬆️ ---
-}
 
-.hero-bg-grid {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: -2;
-
-  &__overlay {
+  // 팀 오브젝트 워랩
+  .team-object-wrap {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100vw;
-    height: 100vw;
-    transform: translate(-50%, -50%);
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    height: 100vh;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    z-index: 0;
+    perspective: 2600px;
+    transform-style: preserve-3d;
+
+    &.is-visible {
+      opacity: 1;
+    }
+
+    .team-object {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-style: preserve-3d;
+    }
+
+    .team-playback {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .team-playback__node {
+      position: absolute;
+      display: none;
+      will-change: transform, opacity;
+
+      .shape-container {
+        position: absolute;
+        inset: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+
+    .team-object__shape {
+      position: absolute;
+      transform-origin: center;
+    }
+
+    .team-object__shape--line {
+      width: 18vw;
+      height: 0.4vh;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+    }
+
+    .team-object__shape--circle {
+      width: 4.8vw;
+      height: 4.8vw;
+      border-radius: 50%;
+      border: 0.15vw solid rgba(255, 255, 255, 0.9);
+      background: transparent;
+    }
+
+    .team-object__shape--square {
+      width: 4.8vw;
+      height: 4.8vw;
+      border: 0.15vw solid rgba(255, 255, 255, 0.9);
+      background: transparent;
+    }
+
+    .team-object__label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.1vw;
+      color: #fff;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      text-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .team-object:hover .team-object__label {
+      opacity: 1;
+    }
   }
 
-  &__cell {
-    position: relative;
+  .mouse-info {
+    position: absolute;
+    top: 9.3vh;
+    right: 3.1vw;
+    display: flex;
+    gap: 0.35vw;
+    align-items: center;
+    opacity: 0.55;
+    transition: opacity 0.6s ease-in-out;
+    z-index: 2;
+
+    .info-icon {
+      svg {
+        margin-top: 0.5vh;
+        width: 0.93vw;
+      }
+    }
+
+    .info-text {
+      font-size: 0.9vw;
+      font-weight: 300;
+      color: #E1E1E1;
+      letter-spacing: -0.03em;
+      line-height: 1.35;
+      
+      p {
+        margin: 0;
+      }
+
+      span {
+        text-decoration: underline;
+        text-underline-offset: 0.45vh;
+        text-decoration-thickness: 0.05vw;
+      }
+    }
+
+    &:hover .infoUI {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .infoUI {
+      position: absolute;
+      font-size: 0.83vw;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #e1e1e1;
+      border-radius: 0.42vw;
+      border: 0.05vw solid rgba(255, 255, 255, 1);
+      background: rgba(0, 0, 0, 0.40);
+      backdrop-filter: blur(0.1vw);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      pointer-events: none;
+
+      top: 4.7vh;
+      left: 1.3vw;
+      padding: 1.48vh 1.146vw;
+
+    
+      > div {
+        display: flex;
+        gap: 0.68vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          border-radius: 0.16vw;
+          border: 0.05vw solid rgba(255, 255, 255, 1);
+          text-align: center;
+          width: 4.04vw;
+          height: 2.75vh;
+          padding: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          line-height: 1;
+          box-sizing: border-box;
+          vertical-align: middle;
+
+        }
+
+        
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .left-drag {
+        padding: 0 .63vw 1.06vh 0;
+
+        svg {
+          width: 2.24vw; 
+        }
+
+        border-bottom: 0.05vw solid rgba(255, 255, 255, 0.2);
+      }
+
+      .right-drag {
+        padding: 1.1vh .63vw 1.06vh 0;
+        svg {
+          width: 2.29vw; 
+        }
+
+        border-bottom: 0.05vw solid rgba(255, 255, 255, 0.2);
+      }
+
+      .click {
+        padding: 1.2vh .63vw 1.06vh 0;
+        svg {
+          width: 2.5vw;
+        }
+
+        span {
+          margin-left: -0.2vw;
+        }
+
+        border-bottom: 0.05vw solid rgba(255, 255, 255, 0.2);
+      }
+
+      .scroll {
+        padding: 1.15vh .63vw 0;
+        svg {
+          width: 2.24vw;
+        }
+
+      }
+  }
+}
+  
+  .main-object {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      transform: translate(50%, 50%);
-      background-color: #ffffff;
-    }
-
-    &::before {
-      width: 1px;
-      height: 5px;
-    }
-
-    &::after {
-      width: 5px;
-      height: 1px;
-    }
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
-
-.grid {
-  position: absolute;
-  z-index: 2;
-  pointer-events: none;
-  top: 7.8vw;
-  svg {
-    width: 92.71vw;
+  
+  .hero-text {
+    width: 100%;
+    margin-top: 66vh;
+    pointer-events: none;
   }
-}
+  
+  .hero-text .gF-gP {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .gf svg {
+    width: 16.09vw;
+    height: auto;
+  }
+  
+  .gp svg {
+    width: 12.72vw;
+    height: auto;
+  }
+  
+  .main-logo {
+    padding: 4.8vh 0 5vh 0;
+    display: flex;
+    justify-content: space-between;
 
-.main-object {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-text {
-  position: absolute;
-  width: 100%;
-  padding-top: 34vw;
-  pointer-events: none;
-  top: 0;
-}
-
-.hero-text .gF-gP {
-  display: flex;
-  justify-content: space-between;
-}
-
-.gf svg {
-  width: 15.88vw;
-
-  height: auto;
-}
-
-.gp svg {
-  width: 12.76vw;
-
-  height: auto;
-}
-
-.main-logo {
-  margin-top: 2.2vw;
-  display: flex;
-  justify-content: space-between;
-}
-
-.pivot {
-  width: 35vw;
-
-  height: auto;
-}
-
-.time {
-  width: 28.65vw;
-
-  height: auto;
+    .pivot {
+      width: 29.76vw;
+      height: auto;
+    }
+    
+    .time {
+      width: 24.37vw;
+      height: auto;
+    }
+    
+  }
 }
 

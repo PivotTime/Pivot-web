@@ -8,7 +8,6 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import responses from "../../../lib/data/gpArchive.json";
 import "../../../styles/gpArchiveTxt.scss";
 
-
 gsap.registerPlugin(ScrollToPlugin);
 
 // 학기 ID와 질문 그룹 매핑
@@ -69,7 +68,7 @@ const QUESTIONS_BY_SEMESTER = {
     {
       id: "2-1-1",
       label: "01",
-      title: "세분전공을 잘<br/>선택했다고 느낀 순간은?",
+      title: "세부전공을 잘<br/>선택했다고 느낀 순간은?",
     },
     {
       id: "2-1-2",
@@ -174,7 +173,7 @@ function buildAnswersBySemester(semesterId) {
   return grouped;
 }
 
-export default function GpArchiveTxt() {
+export default function GfArchiveTxt() {
   const searchParams = useSearchParams();
   const semesterId = searchParams?.get("id") ?? "01";
   const semesterInfo = SEMESTER_COPY[semesterId] ?? SEMESTER_COPY["01"];
@@ -197,17 +196,24 @@ export default function GpArchiveTxt() {
   // 선택된 카드 상태: { questionId: string, cardIndex: number } | null
   const [selectedCard, setSelectedCard] = useState(null);
   
+  const clearSelection = () => {
+    if (!selectedCard) return;
+    setSelectedCard(null);
+    animationRefs.current.forEach((anim) => {
+      if (anim && anim.resume) {
+        anim.resume();
+      }
+    });
+  };
+
   // 카드 클릭 핸들러
   const handleCardClick = (questionId, cardIndex) => {
-    if (selectedCard && selectedCard.questionId === questionId && selectedCard.cardIndex === cardIndex) {
-      // 같은 카드를 다시 클릭하면 선택 해제 및 애니메이션 재개
-      setSelectedCard(null);
-      // 모든 애니메이션 재개
-      animationRefs.current.forEach((anim) => {
-        if (anim && anim.resume) {
-          anim.resume();
-        }
-      });
+    if (
+      selectedCard &&
+      selectedCard.questionId === questionId &&
+      selectedCard.cardIndex === cardIndex
+    ) {
+      clearSelection();
     } else {
       // 새로운 카드 선택
       setSelectedCard({ questionId, cardIndex });
@@ -218,6 +224,16 @@ export default function GpArchiveTxt() {
         }
       });
     }
+  };
+
+  const handleBackgroundClick = (event) => {
+    if (!selectedCard) return;
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (target.closest(".card")) {
+      return;
+    }
+    clearSelection();
   };
 
   useEffect(() => {
@@ -409,7 +425,8 @@ export default function GpArchiveTxt() {
   }, [groupedAnswers, currentQuestions]);
 
   return (
-    <section className="gpArchiveTxt">
+    <section className="gfArchiveTxt" onClick={handleBackgroundClick}>
+      <img className="webImage" src="/images/GET FEVER TXT.png" alt="GET FEVER TXT.png" />
       <Link
         href="/getFever?section=archive"
         className={`undo ${selectedCard ? "is-dimmed" : ""}`}
@@ -447,8 +464,8 @@ export default function GpArchiveTxt() {
               } ${
                 (isColumnDimmed || isSelectedColumnDimmed) && !isSelectedColumn ? "is-dimmed" : ""
               }`}>
-                <div>{question.label}</div>
-                <div>
+                <div className="columnLabel">{question.label}</div>
+                <div className="columnTitle">
                   <p dangerouslySetInnerHTML={{ __html: question.title }} />
                 </div>
               </header>
@@ -490,7 +507,7 @@ export default function GpArchiveTxt() {
                       );
                     })
                   ) : (
-                    <p className="gpArchiveTxt-empty">답변이 아직 없습니다.</p>
+                    <p className="gfArchiveTxt-empty">답변이 아직 없습니다.</p>
                   )}
                 </div>
               </div>
@@ -503,17 +520,31 @@ export default function GpArchiveTxt() {
       <div className="overlay-top"></div>
       <div className="overlay-bottom"></div>
 
-      <footer className={`footer ${selectedCard ? "is-dimmed" : ""}`}>
+      <footer className={`gfFooter ${selectedCard ? "is-dimmed" : ""}`}>
         <div className="semesterBadge">
           {getSemesterSVG(semesterId)}
-        </div>
-        <div className="semesterInfo">
+
+          <div className="semesterInfo">
           <div>{semesterInfo.title}</div>
           <p>{semesterInfo.description}</p>
         </div>
-        <Link href={`/gpArchive-img?id=${semesterId}`} className="footer-button">
+        </div>
+
+        <Link href={`/gfArchive-img?id=${semesterId}`} className="button">
+          <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="35.7" cy="35.7" r="35.7" fill="#0051FF"/>
+<path d="M18.1372 20.0156H52.8635M18.1372 53.571H52.8635M15.3433 24.1265V49.624M56.0569 24.1265V49.624" stroke="#E1E1E1" strokeWidth="1.5"/>
+<path d="M20.1123 47.8333L26.7015 41.6133" stroke="#E1E1E1" strokeWidth="1.5"/>
+<path d="M34.1548 41.9577L40.5509 35.9199" stroke="#E1E1E1" strokeWidth="1.5"/>
+<path d="M28.1723 39.5645L35.8809 47.658" stroke="#E1E1E1" strokeWidth="1.5"/>
+<path d="M42.022 33.3437L52.6543 44.3638" stroke="#E1E1E1" strokeWidth="1.5"/>
+<circle cx="28.811" cy="30.8989" r="4.80125" stroke="#E1E1E1" strokeWidth="1.5"/>
+</svg>
         </Link>
       </footer>
+
+      <div className="click-none-top"></div>
+      <div className="click-none-bottom"></div>
     </section>
   );
 }
@@ -590,4 +621,3 @@ function getSemesterSVG(semesterId) {
   
   return svgMap[semesterId] || svgMap["01"];
 }
-

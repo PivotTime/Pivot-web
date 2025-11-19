@@ -8,7 +8,7 @@
     position: relative;
     width: 100vw;
     height: fit-content;
-    padding-top: 90vh;
+    padding-top: 100vh;
 
     .videoPlaceHolder{
         position: fixed;
@@ -28,7 +28,7 @@
         display: flex;
         flex-direction: column;
         gap:27px ;
-        width: fit-content;
+        width: 18vw;
         height: fit-content;
         color:#E1E1E1 ;
         z-index: 5;
@@ -37,7 +37,7 @@
             font-size: variable.$fs-20-vw;
             font-weight: 500;
             line-height: 160%; /* 32px */
-            letter-spacing: -0.6px;
+            letter-spacing: -0.04em;
             opacity: 0.8;
         }
         svg{
@@ -61,7 +61,7 @@
         .title{
             font-weight: 600;
             line-height: 160%; /* 32px */
-            letter-spacing: -0.6px;
+            letter-spacing: -0.04em;
             min-height:variable.$fs-32-vw ;
         }
         .middleLine{
@@ -74,7 +74,9 @@
             
 
             .teamName{
-                min-width: 200px;
+                min-width: 10vw;
+                font-size: variable.$fs-19-vw;
+                letter-spacing: -0.03em;
             }
 
             .nameGrid{
@@ -83,6 +85,8 @@
                 font-weight: 300;
                 grid-column-gap: 15px;
                 grid-template-columns: repeat(6, 1fr);
+                font-size: variable.$fs-19-vw;
+                letter-spacing: -0.03em;
                 
                 &.Professor{
                     grid-template-columns: repeat(4, 1fr);

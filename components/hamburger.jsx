@@ -204,7 +204,7 @@ export function Hamburger({ exit }) {
           <div className="Btn middle"></div>
         </div>
         <div className="BtnList">
-          <Link href="/student" className="Btn middle" onClick={exit}>
+          <Link href="/students" className="Btn middle" onClick={exit}>
             <svg
               viewBox="0 0 50 57"
               fill="none"

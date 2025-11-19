@@ -49,6 +49,9 @@ export function StudentCard({ student, onClick, isEmpty, index, ...props }) {
         setRandomSvgList(randomSvg25(svgArr));
    },[])
 
+
+  const roleUpper = (role ?? "").toUpperCase()
+
   return (
     <>
       {isEmpty ? (
@@ -78,10 +81,10 @@ export function StudentCard({ student, onClick, isEmpty, index, ...props }) {
           </div>
           <div className="textBox">
             <p className="name">{name}</p>
-            <p>
+            <p className="info">
               {project}
-              <span> | </span>
-              {role}
+              <span>&nbsp; | &nbsp;</span>
+              {roleUpper}
             </p>
           </div>
         </div>

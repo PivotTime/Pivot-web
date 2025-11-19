@@ -1,11 +1,11 @@
-'use client';
-import { useState, useEffect, useRef, useCallback } from 'react';
-import '../../../styles/gpArchive.scss';
-import Link from 'next/link';
-import ArchiveCard from './ArchiveCard';
-import { GpArchiveInfoBox } from './GpArchiveInfoBox';
-import InfoBox from '../../../components/infoBox';
-
+"use client";
+import { useState, useEffect, useRef, useCallback } from "react";
+import "../../../styles/gpArchive.scss";
+import Link from "next/link";
+import ArchiveCard from "./ArchiveCard";
+import { GpArchiveInfoBox } from "./GpArchiveInfoBox";
+import InfoBox from "../../../components/infoBox";
+import WindowIntroWrapper from "../../../components/loading";
 
 export default function ArchiveClient() {
   const [customObjects, setCustomObjects] = useState([]);
@@ -24,7 +24,10 @@ export default function ArchiveClient() {
   const [newlyAdded, setNewlyAdded] = useState(new Set());
 
   const handleCardHover = useCallback((data) => {
-    setInfoBoxData({ name: data.name, tag: data.tags ? data.tags.map(t => `#${t}`).join(' ') : '' });
+    setInfoBoxData({
+      name: data.name,
+      tag: data.tags ? data.tags.map((t) => `#${t}`).join(" ") : "",
+    });
     setShowInfoBox(true);
   }, []);
 
@@ -38,19 +41,22 @@ export default function ArchiveClient() {
 
     const sinceDocId = submissions[0].id;
     try {
-      const response = await fetch(`/api/get_submissions?sinceDocId=${sinceDocId}`);
+      const response = await fetch(
+        `/api/get_submissions?sinceDocId=${sinceDocId}`
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
       if (data.submissions && data.submissions.length > 0) {
         const newSubmissions = data.submissions.filter(
-          (newSub) => !submissions.some((existingSub) => existingSub.id === newSub.id)
+          (newSub) =>
+            !submissions.some((existingSub) => existingSub.id === newSub.id)
         );
 
         if (newSubmissions.length > 0) {
-          setSubmissions(prev => [...newSubmissions, ...prev]);
-          setNewlyAdded(new Set(newSubmissions.map(s => s.id)));
+          setSubmissions((prev) => [...newSubmissions, ...prev]);
+          setNewlyAdded(new Set(newSubmissions.map((s) => s.id)));
         }
       }
     } catch (err) {
@@ -66,13 +72,12 @@ export default function ArchiveClient() {
     return () => clearInterval(interval);
   }, [fetchNewSubmissions]);
 
-
   useEffect(() => {
     const fetchInitialData = async () => {
       setLoading(true);
       try {
         // Fetch initial submissions from API
-        const subResponse = await fetch('/api/get_submissions?limit=5');
+        const subResponse = await fetch("/api/get_submissions?limit=5");
         if (!subResponse.ok) {
           throw new Error(`HTTP error! status: ${subResponse.status}`);
         }
@@ -83,13 +88,12 @@ export default function ArchiveClient() {
 
         // Fetch custom objects from API
         setLoadingCustomObjects(true);
-        const customObjResponse = await fetch('/api/get_custom_objects');
+        const customObjResponse = await fetch("/api/get_custom_objects");
         if (!customObjResponse.ok) {
           throw new Error(`HTTP error! status: ${customObjResponse.status}`);
         }
         const customObjData = await customObjResponse.json();
         setCustomObjects(customObjData);
-
       } catch (err) {
         console.error("Error fetching initial data from API:", err);
         setError(err.message);
@@ -113,7 +117,9 @@ export default function ArchiveClient() {
 
     setLoadingMore(true);
     try {
-      const moreSubResponse = await fetch(`/api/get_submissions?limit=5&lastDocId=${lastDoc}`);
+      const moreSubResponse = await fetch(
+        `/api/get_submissions?limit=5&lastDocId=${lastDoc}`
+      );
       if (!moreSubResponse.ok) {
         throw new Error(`HTTP error! status: ${moreSubResponse.status}`);
       }
@@ -139,22 +145,20 @@ export default function ArchiveClient() {
     if (!galleryElement || loading) return;
 
     const handleScroll = () => {
-      if (galleryElement.scrollWidth - galleryElement.scrollLeft <= galleryElement.clientWidth + 200) {
+      if (
+        galleryElement.scrollWidth - galleryElement.scrollLeft <=
+        galleryElement.clientWidth + 200
+      ) {
         loadMoreSubmissions();
       }
     };
 
-    galleryElement.addEventListener('scroll', handleScroll);
-    return () => galleryElement.removeEventListener('scroll', handleScroll);
+    galleryElement.addEventListener("scroll", handleScroll);
+    return () => galleryElement.removeEventListener("scroll", handleScroll);
   }, [loadMoreSubmissions, loading]);
 
   if (loading) {
-    return (
-      <div className="archive-page">
-        <h1>궤적 아카이브</h1>
-        <p>궤적을 불러오는 중...</p>
-      </div>
-    );
+    return <WindowIntroWrapper pageName={"피봇"} children={<></>} />;
   }
 
   if (error) {
@@ -162,7 +166,9 @@ export default function ArchiveClient() {
       <div className="archive-page">
         <h1>궤적 아카이브</h1>
         <p className="err">데이터를 불러오는 중 오류가 발생했습니다: {error}</p>
-        <Link href="/goPivot" className="link">돌아가기</Link>
+        <Link href="/goPivot" className="link">
+          돌아가기
+        </Link>
       </div>
     );
   }
@@ -172,19 +178,24 @@ export default function ArchiveClient() {
       <div className="archive-page">
         <h1>궤적 아카이브</h1>
         <p>저장된 궤적이 없습니다.</p>
-        <Link href="/goPivot" className="link">만들러 가기</Link>
+        <Link href="/goPivot" className="link">
+          만들러 가기
+        </Link>
       </div>
     );
   }
 
   return (
+    <WindowIntroWrapper children={
     <div className="archive-page">
       <div
         className="archive-gallery-row"
         ref={galleryRowRef}
         onWheel={handleWheelScroll}
       >
-        {loadingCustomObjects ? <p>로딩중...</p> :
+        {loadingCustomObjects ? (
+          <WindowIntroWrapper pageName={"피봇"} children={<></>} />
+        ) : (
           submissions.map((submission) => (
             <ArchiveCard
               key={submission.id}
@@ -195,17 +206,13 @@ export default function ArchiveClient() {
               isNew={newlyAdded.has(submission.id)}
             />
           ))
-        }
+        )}
         {loadingMore && <p></p>}
         {!hasMore && submissions.length > 0 && <p></p>}
       </div>
-      {showInfoBox && infoBoxData && (
-        <GpArchiveInfoBox
-          data={infoBoxData}
-        />
-      )}
+      {showInfoBox && infoBoxData && <GpArchiveInfoBox data={infoBoxData} />}
 
-      <InfoBox/>
-    </div>
+      <InfoBox />
+    </div>} />
   );
 }

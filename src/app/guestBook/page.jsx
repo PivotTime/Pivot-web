@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import "../../../styles/guestBook.scss";
 import { Footer } from "../../../components/footer";
 import { CommentCard } from "../../../components/guestBookComponents";
-
+import WindowIntroWrapper from "../../../components/loading";
 const PAGE_LIMIT = 20;
 
 export default function GuestBook() {
@@ -209,6 +209,9 @@ export default function GuestBook() {
   const hasNoComments = allComment.every((col) => col.length === 0);
 
   return (
+            <WindowIntroWrapper
+            pageName={"메세지"}
+            children={
     <>
       <main className="GuestBook">
         <div className="addMassageContainer">
@@ -251,7 +254,7 @@ export default function GuestBook() {
                 maxLength={250}
                 required
               />
-              <p>{`${messageText.length} / 250`}</p>
+              <p className="maxLength">{`${messageText.length} / 250`}</p>
             </div>
             <button
               type="submit"
@@ -264,13 +267,7 @@ export default function GuestBook() {
         </div>
 
         <div className="commentList" ref={commentListRef}>
-          {loading ? (
-            <div>댓글을 불러오는 중...</div>
-          ) : error ? (
-            <div>{error}</div>
-          ) : hasNoComments ? (
-            <div>아직 댓글이 없어요.</div>
-          ) : (
+
             <>
               <div className="columns">
                 {allComment.map((column, colIndex) => (
@@ -298,10 +295,10 @@ export default function GuestBook() {
                 {!hasMore && <span>모든 메시지를 다 보았습니다.</span>}
               </div>
             </>
-          )}
+         
         </div>
       </main>
       <Footer />
-    </>
+    </>}/>
   );
 }

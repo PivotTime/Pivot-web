@@ -1,4 +1,4 @@
-"use client";
+import { forwardRef } from "react";
 import "../styles/footer.scss";
 import { PIVOTTIME } from "./svgCode";
 
@@ -95,9 +95,9 @@ const socialLinks = [
   },
 ];
 
-export  function Footer() {
+export const Footer = forwardRef(function Footer(props, ref) {
   return (
-    <footer className="footer">
+    <footer className="footer" ref={ref}>
       <div className="content">
         <div className="logo">
           <PIVOTTIME />
@@ -148,4 +148,4 @@ export  function Footer() {
       </div>
     </footer>
   );
-}
+});

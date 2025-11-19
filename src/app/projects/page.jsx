@@ -13,6 +13,7 @@ import Image from "next/image";
 import { ProjectDetail } from "../../../components/pjDetail";
 import "../../../styles/projects.scss";
 import { Footer } from "../../../components/footer";
+import WindowIntroWrapper from "../../../components/loading";
 
 import { shuffle } from "../../../lib/util/shuffle";
 
@@ -33,6 +34,7 @@ export default function Projects() {
     target: new Set(),
     media: new Set(),
   });
+
   const [reappearingFilter, setReappearingFilter] = useState(null);
   const [reentryKeys, setReentryKeys] = useState({});
   const [removingFilters, setRemovingFilters] = useState({
@@ -51,6 +53,20 @@ export default function Projects() {
         target: new Set(prevActive.target),
         media: new Set(prevActive.media),
       };
+
+      const isCurrentlyActive = nextActive[type].has(value);
+      const currentTotalActiveFilters =
+        nextActive.topic.size +
+        nextActive.field.size +
+        nextActive.target.size +
+        nextActive.media.size;
+
+      // If the filter is not currently active and adding it would exceed the limit
+      if (!isCurrentlyActive && currentTotalActiveFilters >= 6) {
+        // Prevent adding the filter
+        return prevActive;
+      }
+
       setRemovingFilters((prevRemoving) => {
         const nextRemoving = {
           topic: new Set(prevRemoving.topic),
@@ -58,10 +74,11 @@ export default function Projects() {
           target: new Set(prevRemoving.target),
           media: new Set(prevRemoving.media),
         };
-        if (nextActive[type].has(value)) {
+        if (isCurrentlyActive) {
+          nextActive[type].delete(value); // Remove filter
           nextRemoving[type].add(value);
         } else {
-          nextActive[type].add(value);
+          nextActive[type].add(value); // Add filter
           nextRemoving[type].delete(value);
         }
         return nextRemoving;
@@ -100,43 +117,55 @@ export default function Projects() {
   }
 
   // 3) 키워드 목록(데이터로만 계산)
-  const allTopic = useMemo(() => {
-    const s = new Set();
-    allProjects.forEach(
-      (p) => Array.isArray(p.topic) && p.topic.forEach((t) => s.add(t))
-    );
-    return Array.from(s);
-  }, [allProjects]);
+const allTopic = useMemo(() => {
+  const s = new Set();
+  allProjects.forEach((p) =>
+    Array.isArray(p.topic) && p.topic.forEach((t) => s.add(t))
+  );
+  return Array.from(s).sort((a, b) => a.localeCompare(b));
+}, [allProjects]);
 
-  const allField = useMemo(() => {
-    const s = new Set();
-    allProjects.forEach(
-      (p) => Array.isArray(p.field) && p.field.forEach((f) => s.add(f))
-    );
-    return Array.from(s);
-  }, [allProjects]);
+const allTarget = useMemo(() => {
+  const s = new Set();
+  allProjects.forEach((p) => {
+    const arr = Array.isArray(p.target) ? p.target : [];
+    arr.forEach((v) => s.add(v));
+  });
+  return Array.from(s).sort((a, b) => a.localeCompare(b));
+}, [allProjects]);
+const allMedia = useMemo(() => {
+  // 언어 우선순위: 영어(0) → 한글(1) → 기타(2)
+  const getPriority = (str) => {
+    const first = str?.[0];
+    
+    if (/[A-Za-z]/.test(first)) return 0;            // 영어
+    if (/^[ㄱ-ㅎㅏ-ㅣ가-힣]/.test(first)) return 1;   // 한글
+    return 2;                                        // 나머지
+  };
 
-  const allTarget = useMemo(() => {
-    const s = new Set();
-    allProjects.forEach((p) => {
-      const arr = Array.isArray(p.target) ? p.target : [];
-      arr.forEach((v) => s.add(v));
-    });
-    return Array.from(s);
-  }, [allProjects]);
+  const sortPriority = (a, b) => {
+    const pa = getPriority(a);
+    const pb = getPriority(b);
 
-  const allMedia = useMemo(() => {
-    const s = new Set();
-    allProjects.forEach((p) => {
-      const raw = Array.isArray(p.media)
-        ? p.media
-        : Array.isArray(p.Media)
-        ? p.Media
-        : [];
-      raw.forEach((v) => s.add(v));
-    });
-    return Array.from(s);
-  }, [allProjects]);
+    if (pa !== pb) return pa - pb;  // 언어 그룹 먼저 정렬
+
+    // 같은 그룹이면 자연스러운 사전순 정렬
+    return a.localeCompare(b, "ko-KR");
+  };
+
+  const s = new Set();
+  allProjects.forEach((p) => {
+    const raw = Array.isArray(p.media)
+      ? p.media
+      : Array.isArray(p.Media)
+      ? p.Media
+      : [];
+    raw.forEach((v) => s.add(v));
+  });
+
+  return Array.from(s).sort(sortPriority);
+}, [allProjects]);
+
 
   // 4) 표시용 리스트(초기는 stableBase, 이후 useEffect에서 필터+셔플)
   const [displayedProjects, setDisplayedProjects] = useState(stableBase);
@@ -206,11 +235,13 @@ export default function Projects() {
 
         return true;
       });
+    } else {
+      // If no filters are active, use the stable base
+      base = stableBase;
     }
 
-    // ⚠️ 마운트 후에만 순서가 섞이도록 useEffect에서 호출됨(SSR과 첫 CSR는 stable)
-    return shuffle(base);
-  }, [allProjects, activeFilters]);
+    return base;
+  }, [allProjects, activeFilters, stableBase]);
 
   useEffect(() => {
     setDisplayedProjects(buildFiltered());
@@ -245,34 +276,55 @@ export default function Projects() {
 
   // 9) 오른쪽 리스트 스크롤 따라오기
   const projectNameListRef = useRef(null);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const target = projectNameListRef.current;
-    if (!target) return;
+  const footerRef = useRef(null); // Add footerRef
 
+  useEffect(() => {
     let currentY = 0;
     let targetY = 0;
     const easing = 0.05;
     let raf;
-
-    const initialTop = target.getBoundingClientRect().top + window.scrollY;
+    let initialTop; // Declare initialTop here
 
     const animate = () => {
       currentY += (targetY - currentY) * easing;
-      target.style.transform = `translateY(${currentY}px)`;
+      if (projectNameListRef.current) { // Add null check for projectNameListRef.current
+        projectNameListRef.current.style.transform = `translateY(${currentY}px)`;
+      }
       raf = requestAnimationFrame(animate);
     };
 
     const onScroll = () => {
+      if (typeof window === "undefined" || !projectNameListRef.current || !footerRef.current) return;
+
+      const target = projectNameListRef.current;
+      const footer = footerRef.current;
+
       const vh = window.innerHeight / 100;
       const scrollY = window.scrollY;
       const topOffset = 20 * vh;
       const stickyPoint = initialTop - topOffset;
-      targetY = scrollY > stickyPoint ? scrollY - stickyPoint : 0;
+
+      const footerTop = footer.getBoundingClientRect().top + window.scrollY;
+      const targetHeight = target.offsetHeight;
+
+      const maxTargetY = footerTop - (initialTop + targetHeight);
+
+      let newTargetY = scrollY > stickyPoint ? scrollY - stickyPoint : 0;
+
+      targetY = Math.min(newTargetY, maxTargetY);
     };
 
+    if (typeof window === "undefined") return;
+    const target = projectNameListRef.current;
+    const footer = footerRef.current;
+    if (!target || !footer) return;
+
+    initialTop = target.getBoundingClientRect().top + window.scrollY; // Assign initialTop here
+
+    onScroll(); // Call once to set initial targetY
     window.addEventListener("scroll", onScroll);
-    animate();
+    animate(); // Start animation loop
+
     return () => {
       window.removeEventListener("scroll", onScroll);
       cancelAnimationFrame(raf);
@@ -321,6 +373,7 @@ export default function Projects() {
   }, [stableBase]);
 
   return (
+    <WindowIntroWrapper pageName={"작품"} children={
     <>
     <div className="projects blackBg">
       {modalState && selectedProject && (
@@ -353,8 +406,10 @@ export default function Projects() {
                       reentryKeys[`media-${mediaName}`] || "initial"
                     }`}
                     onClick={(e) => {
+                      
                       e.stopPropagation();
                       toggleFilter("media", mediaName);
+                    
                     }}
                   >
                     {mediaName}
@@ -409,7 +464,7 @@ export default function Projects() {
           className={`SortingBar ${targetSortingBar ? "is-open" : ""}`}
           onClick={targetToggle}
         >
-          타겟
+          대상
           {targetSortingBar && (
             <div className="keyWardList">
               {allTarget.map((targetName) => {
@@ -449,12 +504,12 @@ export default function Projects() {
               onClick={() => removeFilter("topic", t)}
             >
               <span className="chipLabel">{t}</span>
-              <span className="chipRemove">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.459473 0.459717L10.4341 10.4343" stroke="white" strokeWidth="1.3"/>
-                  <path d="M10.4341 0.459717L0.459478 10.4343" stroke="white" strokeWidth="1.3"/>
+                  <g opacity="0.5">
+                    <path d="M0.459473 0.459717L10.4341 10.4343" stroke="white" strokeWidth="2"/>
+                    <path d="M10.4341 0.459717L0.459478 10.4343" stroke="white" strokeWidth="2"/>
+                  </g>
                 </svg>
-              </span>
             </div>
           ))}
 
@@ -467,8 +522,10 @@ export default function Projects() {
               <span className="chipLabel">{f}</span>
               <span className="chipRemove">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0.459473 0.459717L10.4341 10.4343" stroke="white" strokeWidth="1.3"/>
-                <path d="M10.4341 0.459717L0.459478 10.4343" stroke="white" strokeWidth="1.3"/>
+                  <g opacity="0.5">
+                    <path d="M0.459473 0.459717L10.4341 10.4343" stroke="white" strokeWidth="2"/>
+                    <path d="M10.4341 0.459717L0.459478 10.4343" stroke="white" strokeWidth="2"/>
+                  </g>
                 </svg>
               </span>
             </div>
@@ -521,15 +578,7 @@ export default function Projects() {
             activeFilters.target.size > 0 ||
             activeFilters.media.size > 0) && (
             <div onClick={clearAllFilters} className="chip ClearAll">
-              Clear All{" "}
-              <span className="chipRemove">
-                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g opacity="0.5">
-                    <path d="M0.459473 0.459717L10.4341 10.4343" stroke="white" strokeWidth="2"/>
-                    <path d="M10.4341 0.459717L0.459478 10.4343" stroke="white" strokeWidth="2"/>
-                  </g>
-                </svg>
-              </span>
+              Clear All
             </div>
           )}
 
@@ -605,7 +654,7 @@ export default function Projects() {
         </div>
       </div>
     </div>
-    <Footer/>
-    </>
+    <Footer ref={footerRef}/>
+    </>}/>
   );
 }

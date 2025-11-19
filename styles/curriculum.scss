@@ -252,38 +252,10 @@ $blue: #0051ff;
       }
     }
 
-      .infoBox {
-    position: absolute;
-   align-self: center;
-  display: flex;
-  bottom: 0;
-  justify-content: space-between;
-  font-size: clamp(0.75rem, 0.73vw, 1.2rem);
-  font-weight: 500;
-  width: 93.85vw;
-  height: fit-content;
-  color: #fff;
-  letter-spacing: -0.03rem;
-  line-height: 1.35;
-  pointer-events: none;
-
-
-  .left {
-    display: flex;
-    column-gap: 4.5vw;
-    text-align: left;
-  }
-
-  .location {
-    text-align: left;
-  }
-
-  .nowrap {
-    white-space: nowrap;
-  }
-
-  }
-
+    .infoBox {
+      position: absolute;
+      bottom: 0;
+    }
   }
 
   .convergence-section {
@@ -488,13 +460,56 @@ $blue: #0051ff;
       padding: 0 14.69vw 0 10.94vw;
       transition-delay: 0.5s;
 
-      
+      .year-top {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 9.3vh; //inner gap
+        margin: 15.7vh 0 0 -0.2vw;
+
+        :nth-child(3) {
+          margin-top: 5.6vh;
+        }
+
+        :nth-child(4) {
+          margin-top: 11.2vh;
+        }
+
+        span {
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.04vw;
+          font-weight: 600;
+          line-height: 0.95;
+          letter-spacing: 0.05rem;
+        }
+      }
+
+      .year-bottom {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 9.5vh; //inner gap
+        margin: 113.8vh 0 0 -0.2vw;
+
+        span {
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.04vw;
+          font-weight: 600;
+          line-height: 0.95;
+          letter-spacing: 0.05rem;
+        }
+      }
 
       .studio {
         position: absolute;
         display: flex;
         flex-direction: column;
-        overflow-y: hidden;
         gap: 7.5vh;
         margin-top: 2.2vh;
         right: 13.7vw;
@@ -548,7 +563,7 @@ $blue: #0051ff;
       .wrapper-inner-top {
         display: grid;
         grid-template-columns: 0.5vw repeat(5, 1fr);
-        // grid-template-rows: auto repeat(4, auto);
+        grid-template-rows: auto repeat(4, auto);
         gap: 3vw; //year-content gap
         margin-top: 2.2vh;
         padding-right: 14.79vw;
@@ -650,32 +665,12 @@ $blue: #0051ff;
       }
     }
 
-    .core-job-skills,
-    .MajorGE {
-      p {
-        position: relative;
-        &[data-semester]::before {
-          content: attr(data-semester);
-          position: absolute;
-          left: -3.5vw;
-          top: 50%;
-          transform: translateY(-50%);
-          color: #fff;
-          font-size: 1.04vw;
-          font-weight: 600;
-          line-height: 0.95;
-          letter-spacing: 0.05rem;
-        }
-      }
-    }
-
     .wrapper-inner-bottom {
       display: grid;
       grid-template-columns: 0.5vw repeat(5, 1fr);
-      // grid-template-rows: auto repeat(4, auto);
+      grid-template-rows: auto repeat(4, auto);
       gap: 3vw; //year-content gap
       padding-right: 14.79vw;
-      overflow-y: hidden;
 
       .g3t1 {
         padding-top: 3vh;
@@ -783,7 +778,6 @@ $blue: #0051ff;
 
           .g4t2 {
             margin-top: 0.3vh;
-            
           }
         }
       }
@@ -791,7 +785,7 @@ $blue: #0051ff;
   }
 
   .career-section {
-    margin-top: 20vh;
+    margin-top: 14.5vh;
     @include smallTxt;
 
     .title {
@@ -831,14 +825,6 @@ $blue: #0051ff;
       .Immersive,
       .Advancement {
         position: relative;
-        height: fit-content;
-        width: fit-content;
-        overflow-y: hidden;
-        overflow-x: auto;
-
-        >p{
-          margin-top: 1.6vh;;
-        }
       }
     }
 

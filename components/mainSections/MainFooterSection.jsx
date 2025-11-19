@@ -1,10 +1,10 @@
 import "../../styles/mainSections/_main-footer.scss";
 import { PIVOTTIME } from "../svgCode";
-// import { Footer } from "../footer";
 
 export default function MainFooterSection() {
   return (
     <div className="main-footer">
+
       <div className="logo">
         <PIVOTTIME />
       </div>
@@ -237,7 +237,6 @@ export default function MainFooterSection() {
           </svg>
         </div>
       </div>
-     
     </div>
   );
 }

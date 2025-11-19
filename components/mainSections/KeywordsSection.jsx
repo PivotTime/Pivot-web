@@ -36,6 +36,8 @@ export default function KeywordsSection() {
     // 4. ref 연결
     <div className="keywords" ref={keywordsRef}>
 
+<img className="webImage" src="/images/keywords.png" alt="keywords.png" />
+
       <div className="graphics">
         {/* === Circle SVG === */}
         <svg

@@ -73,29 +73,19 @@
 $font-main: "Pretendard", sans-serif;
 $font-weight-medium: 500;
 
-// typography.scss (compact version)
-
-$font-main: "Pretendard", sans-serif;
-$font-weight-medium: 500;
-
 // TITLE
 // 약 33.5px max
 @mixin title {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.4rem,
-    // ~22.4px
-    1.8vw,
-    // 유동
-    2.09rem // ~33.5px
-  );
+  font-size: 1.8vw;
 }
 
 @mixin title2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(1.125rem, 1.979vw, 3rem);
+  font-size: 1.979vw;
+  letter-spacing: -0.04em;
 }
 
 // H1
@@ -103,13 +93,7 @@ $font-weight-medium: 500;
 @mixin h1 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.2rem,
-    // ~19.2px
-    1.4vw,
-    // 유동
-    1.63rem // ~26px
-  );
+  font-size: 1.4vw;
 }
 
 // H2
@@ -117,13 +101,9 @@ $font-weight-medium: 500;
 @mixin h2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.05rem,
-    // ~16.8px
-    1.2vw,
-    // 유동
-    1.44rem // ~23px
-  );
+  font-size: 1.2vw;
+  letter-spacing: -0.04em;
+  opacity: 0.8;
 }
 
 // 본문
@@ -131,13 +111,7 @@ $font-weight-medium: 500;
 @mixin body {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.9rem,
-    // ~14.4px
-    1vw,
-    // 유동
-    1.25rem // ~20px
-  );
+  font-size: 1vw;
 }
 
 // SUB
@@ -145,45 +119,36 @@ $font-weight-medium: 500;
 @mixin sub {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.8rem,
-    // ~12.8px
-    0.9vw,
-    // 유동
-    1.06rem // ~17px
-  );
+  font-size: 0.9vw;
 }
 
 @mixin bodyText {
-  font-size: clamp(0.875rem, 1.04vw, 1.375rem);
+  font-size: 1.04vw;
   font-family: "Pretendard";
 }
 
 @mixin infoText {
-  font-size: clamp(0.6em, 0.73vw, 1.2rem);
+  font-size: 0.73vw;
   font-weight: 500;
   color: #fff;
-  letter-spacing: -0.03rem;
+  letter-spacing: -0.03em;
   line-height: 1.35;
 }
 
 $blue: #0051ff;
-$height: 56.25vw;
-$section-height: 100dvh;
 
 .concept {
   position: relative;
-  height: $section-height;
+  height: 100vh;
   color: #fff;
   box-sizing: border-box;
-
+  
   .graphic {
     position: absolute;
     width: 100vw;
-    height: $height;
+    height: 100vh;
     z-index: 0;
     pointer-events: none;
-    // margin-top: -5vw;
 
     svg {
       width: 120%;
@@ -193,28 +158,45 @@ $section-height: 100dvh;
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
+    .orbit-text {
+      width: 9.58vw;
+      height: auto;
+      transform-origin: 0 0;
+    }
   }
 
   .txt {
+    position: absolute;
     display: flex;
     align-items: center;
     gap: 1vw;
-    top: 13.8vw;
-    left: 7.7vw;
-    transform: rotate(-8deg);
+    pointer-events: none;
 
-    div {
-      width: 0.7vw;
-      height: 0.7vw;
-      background-color: #fff;
+    &-dot {
+      width: 0.52vw;
+      height: 0.52vw;
+      background-color: $blue;
       border-radius: 50%;
       margin: 0;
     }
 
     p {
       margin: 0;
-      @include sub;
+      font-size: 0.72vw;
+      line-height: 1.6;
+      letter-spacing: -0.06em;
       margin-left: -0.5vw;
+    }
+
+    &--secondary {
+      flex-direction: row-reverse;
+
+      p {
+        margin-left: 0;
+        margin-right: -0.5vw;
+        text-align: right;
+      }
     }
   }
 
@@ -225,11 +207,11 @@ $section-height: 100dvh;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
-    padding-top: 42.8vw;
+    padding-top: 75.4vh;
     z-index: 999;
 
     .logo {
-      padding-top: 5.8vw;
+      padding-top: 10.4vh;
 
       svg {
         width: 21.6vw;
@@ -246,20 +228,20 @@ $section-height: 100dvh;
         @include title2;
       }
 
-      p {
+      .sub-title {
         @include h2;
         margin: 0;
-        padding-top: 0.5vw;
+        padding-top: 1.5vh;
         padding-left: 0.8vw;
-        opacity: 0.8;
-        letter-spacing: -0.04rem;
+        letter-spacing: -0.08em;
       }
     }
 
-    p {
+    .desc-text {
       @include body;
-      padding-top: 0.4vw;
-      line-height: 1.6;
+      padding-top: 1.5vh;
+      line-height: 1.65;
+      letter-spacing: -0.003em;
     }
   }
 }

@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useRef } from "react"; // React 훅 불러옴
 import * as flubber from "flubber";
 import "../../styles/mainSections/_slogan.scss";
-import { GETFEVER2, GOPIVOT, SLOGANSUBGRAPHIC } from "../svgCode";
+import { GETFEVER2, GOPIVOT } from "../svgCode";
 
 const easeInOutCubic = (t) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -18,7 +18,6 @@ export default function SloganSection() {
   const animationFrameRef = useRef(null);
   const isMorphingStartedRef = useRef(false);
   const morphActiveRef = useRef(false);
-  const subGraphicRef = useRef(null); // sub-graphic ref
   const forwardInterpolatorsRef = useRef([]);
   const backwardInterpolatorsRef = useRef([]);
 
@@ -345,11 +344,6 @@ export default function SloganSection() {
               </clipPath>
             </defs>
           </svg>
-        </div>
-
-        {/* --- '시작' SVG (Sub Graphic) --- */}
-        <div className="sub-graphic" ref={subGraphicRef}>
-          <SLOGANSUBGRAPHIC />
         </div>
 
         {/* --- 나머지 UI 요소들 (변경 없음) --- */}

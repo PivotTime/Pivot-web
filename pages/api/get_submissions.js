@@ -3,7 +3,32 @@ import { db } from '../../src/lib/firebase-admin.server.js';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
-    const { limit = 5, lastDocId = null, sinceDocId = null } = req.query;
+    const { limit = 5, lastDocId = null, sinceDocId = null, download } = req.query;
+
+    if (download === 'true') {
+      const allDocsQuery = db.collection('pivot-submissions').orderBy('createdAt', 'desc');
+      const snapshot = await allDocsQuery.get();
+      const submissions = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          name: data.name ?? 'Unknown',
+          tags: data.tags ?? [],
+          createdAt:
+            data.createdAt && data.createdAt.toDate
+              ? data.createdAt.toDate().toISOString()
+              : data.createdAt ?? null,
+          objects: data.objects ?? [],
+          trajectories: data.trajectories ?? [],
+        };
+      });
+
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Content-Disposition', 'attachment; filename="submissions.json"');
+      res.status(200).json(submissions);
+      return;
+    }
+
     let query = db.collection('pivot-submissions');
 
     if (sinceDocId) {

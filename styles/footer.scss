@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
   font-family: "Pretendard";
   src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
     format("woff");
@@ -11,7 +11,7 @@
   font-size: 0.83vw;
   font-weight: 500;
   color: #fff;
-  letter-spacing: -0.04rem;
+  letter-spacing: -0.04em;
   line-height: 1.5;
 }
 
@@ -21,7 +21,7 @@
   background: #000;
   @include footerText;
   border-top: 0.05vw solid rgba(225, 225, 225, 0.5);
-  padding: 4.5vh 0.94vw 5vh 0.57vw;
+  padding: 4.5vh 0.94vw 5vh 0.15vw;
   box-sizing: border-box;
 
 
@@ -32,9 +32,9 @@
     justify-content: space-between;
     gap: 3.6vw;
 
+
     .logo {
       padding-left: 0.52vw;
-      width: fit-content;
       svg {
       width: 13.28vw;
       height: auto;
@@ -53,8 +53,7 @@
     .address {
       display: flex;
       flex-direction: column;
-      gap: 0vw;
-      letter-spacing: -0.01vw;
+      letter-spacing: -0.05em;
       color: rgba(225, 225, 225, 0.88);
 
       span:last-child {
@@ -63,8 +62,9 @@
     }
 
     .copyright {
-      padding-top: 2.95vh;
+      padding-top: 2.7vh;
       color: rgba(225, 225, 225, 0.6);
+      letter-spacing: -0.04em;
     }
   }
 
@@ -72,7 +72,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5vh;
+    gap: 1.4vh;
     padding-top: 2.6vh;
     padding-left: 7vw;
 
@@ -104,8 +104,10 @@
   .contact {
     display: grid;
     grid-template-columns: auto auto;
-    gap: 0.6vh 5vw;
+    gap: 0.6vh 4.4vw;
     color: rgba(225, 225, 225, 0.85);
+    letter-spacing: -0.04em;
+
 
     dt {
       color: rgba(225, 225, 225, 0.65);
@@ -113,7 +115,6 @@
 
     dd {
       margin: 0;
-      letter-spacing: -0.01vw;
     }
 
     a {

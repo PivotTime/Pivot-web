@@ -9,8 +9,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"; // 스크롤 위치 기반 �
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"; // 부드러운 스크롤 이동 플러그인
 import { useRouter, useSearchParams } from "next/navigation";
 import archiveResponses from "../../../lib/data/gpArchive.json";
-
-
 // ScrollTrigger, ScrollToPlugin 플러그인 등록
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -391,7 +389,7 @@ export default function GetFever() {
 
     // --- 3. [수정] "빈 시간"이 포함된 4단계 회전 타임라인 ---
     const masterTl = gsap.timeline();
-    const animationDuration = 1; // 애니메이션(이동) 시간
+    const animationDuration = 3; // 애니메이션(이동) 시간
     const pauseDuration = 5; // 멈춰있는(스크롤만) 시간
     const initialPauseDuration = 5; // [추가] Step 1 시작 전 "빈 시간"
 
@@ -521,7 +519,7 @@ export default function GetFever() {
           gsap.set(archiveTitleRef.current, { transition: "" });
           gsap.set(archiveObjectRef.current, { transition: "" });
           
-          router.push(`/gpArchive-txt?id=${targetSemester.id}`);
+          router.push(`/gfArchive-txt?id=${targetSemester.id}`);
         },
       })
       .to(window, {
@@ -555,10 +553,9 @@ export default function GetFever() {
   return (
     // .getFever가 두 섹션을 감싸는 컨테이너 역할
     <div className="getFever">
-      <img className="webImage" src="/images/getFever.png" alt="getFever" />
 
       {/* Hero 섹션 */}
-      <section className="hero" ref={heroRef}>
+      <section className="gF-hero" ref={heroRef}>
         <div className="hero-txt">
           <div className="logo">
             <GETFEVER2 />
@@ -568,7 +565,7 @@ export default function GetFever() {
           </div>
         </div>
 
-        <div className="object hero-object">
+        <div className="hero-object">
           <div className="object-shell">
             <div className="orbit-layer">
               <div className="svg-container">
@@ -929,9 +926,9 @@ export default function GetFever() {
 
       <div style={{ height: "1700px" }}></div>
 
-      <div className="infoBox" ref={infoBoxRef}>
+      
         <InfoBox />
-      </div>
+    
     </div>
   );
 }

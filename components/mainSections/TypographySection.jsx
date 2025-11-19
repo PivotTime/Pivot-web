@@ -1,3 +1,5 @@
+"use client";
+
 import "../../styles/mainSections/_typography.scss";
 import { useEffect, useRef } from "react";
 
@@ -36,6 +38,7 @@ export default function TypographySection() {
 
   return (
     <div className="typography" ref={sectionRef}>
+
       <div className="typo-video">
         <video
           ref={videoRef}

@@ -52,11 +52,12 @@ export function StudentDetail({ student, onClick }) {
             src={`/images/profile/${student.Id}.webp`}
           // src={`/images/profile/kimyoungeun.png`}
           unoptimized                   // ← 원본 그대로 전달(재인코딩/리사이즈 X)
-  width={1000}                  // 원본 픽셀 크기 기입
-  height={2000}
-  style={{ maxWidth: "100%", height: "auto" }} // 업스케일 방지
-  priority
-    placeholder="blur"
+
+        fill
+        sizes="1000"
+        style={{ maxWidth: "40vw", }} // 업스케일 방지
+        priority
+          placeholder="blur"
         blurDataURL = {`/images/profile/${student.Id}.png`}
         />
       </div>
@@ -96,10 +97,8 @@ export function StudentDetail({ student, onClick }) {
 
               <a href={student.portfolioSrc} target="_blank" rel="noopener noreferrer">
               <p>{linkType(student.portfolioSrc) }</p>
-              <span>
+              <span className="goWebPage">
                 <svg
-                  width="7"
-                  height="12"
                   viewBox="0 0 7 12"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +106,7 @@ export function StudentDetail({ student, onClick }) {
                   <path
                     d="M0.528465 10.5014L5.54413 5.51666L0.528499 0.531987"
                     stroke="white"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                   />
                 </svg>
               </span>
@@ -123,7 +122,7 @@ export function StudentDetail({ student, onClick }) {
             <div className="ImagePlaceHolder projectPoster">
               <Image
                 alt={`${student.project} Poster image`}
-                src={`/images/project/wide/${getProjectIdByName(student.project)}.png`}
+                src={`/images/project/wide/${getProjectIdByName(student.project)}.webp`}
                fill
                sizes={1000}
                 style={{ objectFit: "cover" }}

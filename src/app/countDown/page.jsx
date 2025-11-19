@@ -5,6 +5,8 @@ import { PIVOTTIME } from "../../../components/svgCode";
 import Line3D from "../../../components/mainSections/3dKeyVisual/line3D";
 import "../../../styles/countDown.scss";
 
+
+
 const EVENT_START = new Date("2025-11-21T10:00:00+09:00");
 
 const MOBILE_AUTO_ROTATE_SPEED = 0.003;
@@ -29,32 +31,24 @@ const getTimeRemaining = () => {
 const formatSegment = (value) => String(value).padStart(2, "0");
 
 export default function CountDown() {
-  // ❌ 기존: useState(getTimeRemaining);
-  // ✅ 고정 초기값으로 시작 (SSR/CSR 동일)
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const [timeLeft, setTimeLeft] = useState(getTimeRemaining);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const tick = () => setTimeLeft(getTimeRemaining());
-
-    // ✅ 마운트 되자마자 한 번 실제 값으로 맞추기
-    tick();
-
     const intervalId = setInterval(tick, 1000);
     return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined") {
+      return undefined;
+    }
 
     const mediaQuery = window.matchMedia("(max-width: 640px)");
     const updateMatch = (event) => setIsMobile(event.matches);
 
+    // 초기 상태 동기화
     setIsMobile(mediaQuery.matches);
 
     if (typeof mediaQuery.addEventListener === "function") {
@@ -98,16 +92,10 @@ export default function CountDown() {
       </div>
       <div className="countDown" role="timer" aria-live="polite">
         {segments.map((value, index) => (
-          <div className="countDown-segment" key={`segment-${index}`}>
-            <span
-              className="countDown-value"
-              // 옵션: 혹시 또 미세한 차이가 나더라도 경고는 안 보고 싶으면
-              // suppressHydrationWarning
-            >
-              {value}
-            </span>
+          <div className="countDown-segment"  key={`segment-${index}`}>
+            <span className="countDown-value" style={{fontFamily: "Stack Sans Notch, Pretendard, sans-serif"}}>{value}</span>
             {index < segments.length - 1 && (
-              <span className="countDown-colon" aria-hidden="true">
+              <span className="countDown-colon" aria-hidden="true" >
                 :
               </span>
             )}

@@ -11,73 +11,73 @@ $color-lightGray:#E1E1E1;
 $color-darkGray:#313131;
 
 // 13px ~ 25px
-$fs-13-vw: clamp(10px, 0.68vw, 13px);
-$fs-14-vw: clamp(11px, 0.73vw, 14px);
-$fs-15-vw: clamp(12px, 0.78vw, 15px);
-$fs-16-vw: clamp(13px, 0.83vw, 16px);
-$fs-17-vw: clamp(14px, 0.89vw, 17px);
-$fs-18-vw: clamp(14px, 0.94vw, 18px);
-$fs-19-vw: clamp(15px, 0.99vw, 19px);
-$fs-20-vw: clamp(16px, 1.04vw, 20px);
-$fs-21-vw: clamp(17px, 1.09vw, 21px);
-$fs-22-vw: clamp(18px, 1.15vw, 22px);
-$fs-23-vw: clamp(18px, 1.20vw, 23px);
-$fs-24-vw: clamp(19px, 1.25vw, 24px);
-$fs-25-vw: clamp(20px, 1.30vw, 25px);
+$fs-13-vw: 0.68vw;
+$fs-14-vw: 0.73vw;
+$fs-15-vw: 0.78vw;
+$fs-16-vw: 0.83vw;
+$fs-17-vw: 0.89vw;
+$fs-18-vw: 0.94vw;
+$fs-19-vw: 0.99vw;
+$fs-20-vw: 1.04vw;
+$fs-21-vw: 1.09vw;
+$fs-22-vw: 1.15vw;
+$fs-23-vw: 1.20vw;
+$fs-24-vw: 1.25vw;
+$fs-25-vw: 1.30vw;
 
-$fs-13-vh: clamp(10px, 1.2vh, 13px);
-$fs-14-vh: clamp(11px, 1.3vh, 14px);
-$fs-15-vh: clamp(12px, 1.39vh, 15px);
-$fs-16-vh: clamp(13px, 1.48vh, 16px);
-$fs-17-vh: clamp(14px, 1.57vh, 17px);
-$fs-18-vh: clamp(14px, 1.67vh, 18px);
-$fs-19-vh: clamp(15px, 1.76vh, 19px);
-$fs-20-vh: clamp(16px, 1.85vh, 20px);
-$fs-21-vh: clamp(17px, 1.94vh, 21px);
-$fs-22-vh: clamp(18px, 2.04vh, 22px);
-$fs-23-vh: clamp(18px, 2.13vh, 23px);
-$fs-24-vh: clamp(19px, 2.22vh, 24px);
-$fs-25-vh: clamp(20px, 2.31vh, 25px);
+$fs-13-vh: 1.2vh;
+$fs-14-vh: 1.3vh;
+$fs-15-vh: 1.39vh;
+$fs-16-vh: 1.48vh;
+$fs-17-vh: 1.57vh;
+$fs-18-vh: 1.67vh;
+$fs-19-vh: 1.76vh;
+$fs-20-vh: 1.85vh;
+$fs-21-vh: 1.94vh;
+$fs-22-vh: 2.04vh;
+$fs-23-vh: 2.13vh;
+$fs-24-vh: 2.22vh;
+$fs-25-vh: 2.31vh;
 
 // 30px ~ 40px
-$fs-30-vw: clamp(24px, 1.56vw, 30px);
-$fs-31-vw: clamp(25px, 1.61vw, 31px);
-$fs-32-vw: clamp(26px, 1.67vw, 32px);
-$fs-33-vw: clamp(26px, 1.72vw, 33px);
-$fs-34-vw: clamp(27px, 1.77vw, 34px);
-$fs-35-vw: clamp(28px, 1.82vw, 35px);
-$fs-36-vw: clamp(29px, 1.88vw, 36px);
-$fs-37-vw: clamp(30px, 1.93vw, 37px);
-$fs-38-vw: clamp(30px, 1.98vw, 38px);
-$fs-39-vw: clamp(31px, 2.03vw, 39px);
-$fs-40-vw: clamp(32px, 2.08vw, 40px);
+$fs-30-vw: 1.56vw;
+$fs-31-vw: 1.61vw;
+$fs-32-vw: 1.67vw;
+$fs-33-vw: 1.72vw;
+$fs-34-vw: 1.77vw;
+$fs-35-vw: 1.82vw;
+$fs-36-vw: 1.88vw;
+$fs-37-vw: 1.93vw;
+$fs-38-vw: 1.98vw;
+$fs-39-vw: 2.03vw;
+$fs-40-vw: 2.08vw;
 
-$fs-150-vw: clamp(120px, 7.81vw, 150px);
-$fs-160-vw: clamp(128px, 8.33vw, 160px);
-$fs-170-vw: clamp(136px, 8.85vw, 170px);
-$fs-180-vw: clamp(144px, 9.38vw, 180px);
-$fs-190-vw: clamp(152px, 9.90vw, 190px);
-$fs-200-vw: clamp(160px, 10.42vw, 200px);
+$fs-150-vw: 7.81vw;
+$fs-160-vw: 8.33vw;
+$fs-170-vw: 8.85vw;
+$fs-180-vw: 9.38vw;
+$fs-190-vw: 9.90vw;
+$fs-200-vw: 10.42vw;
 
 // vh 기반
-$fs-150-vh: clamp(120px, 13.89vh, 150px);
-$fs-160-vh: clamp(128px, 14.81vh, 160px);
-$fs-170-vh: clamp(136px, 15.74vh, 170px);
-$fs-180-vh: clamp(144px, 16.67vh, 180px);
-$fs-190-vh: clamp(152px, 17.59vh, 190px);
-$fs-200-vh: clamp(160px, 18.52vh, 200px);
+$fs-150-vh: 13.89vh;
+$fs-160-vh: 14.81vh;
+$fs-170-vh: 15.74vh;
+$fs-180-vh: 16.67vh;
+$fs-190-vh: 17.59vh;
+$fs-200-vh: 18.52vh;
 
-$fs-30-vh: clamp(24px, 2.78vh, 30px);
-$fs-31-vh: clamp(25px, 2.87vh, 31px);
-$fs-32-vh: clamp(26px, 2.96vh, 32px);
-$fs-33-vh: clamp(26px, 3.06vh, 33px);
-$fs-34-vh: clamp(27px, 3.15vh, 34px);
-$fs-35-vh: clamp(28px, 3.24vh, 35px);
-$fs-36-vh: clamp(29px, 3.33vh, 36px);
-$fs-37-vh: clamp(30px, 3.43vh, 37px);
-$fs-38-vh: clamp(30px, 3.52vh, 38px);
-$fs-39-vh: clamp(31px, 3.61vh, 39px);
-$fs-40-vh: clamp(32px, 3.70vh, 40px);
+$fs-30-vh: 2.78vh;
+$fs-31-vh: 2.87vh;
+$fs-32-vh: 2.96vh;
+$fs-33-vh: 3.06vh;
+$fs-34-vh: 3.15vh;
+$fs-35-vh: 3.24vh;
+$fs-36-vh: 3.33vh;
+$fs-37-vh: 3.43vh;
+$fs-38-vh: 3.52vh;
+$fs-39-vh: 3.61vh;
+$fs-40-vh: 3.70vh;
 
 // ---------------------------------------------------------
 // Quick helpers (선택사항): VW / VH 버전 쉽게 쓰는 mixin
@@ -210,7 +210,7 @@ $color-darkGray:#313131;
 
 
 @mixin bodyText {
-    font-size: clamp(14px, 1.04vw, 22px);
+    font-size: 1.04vw;
     font-family: 'Pretendard';
     
 }
@@ -242,11 +242,7 @@ $font-weight-medium: 500;
 @mixin title {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.4rem,   // ~22.4px
-    1.8vw,    // 유동
-    2.09rem   // ~33.5px
-  );
+  font-size: 1.8vw;
 }
 
 // H1
@@ -254,11 +250,7 @@ $font-weight-medium: 500;
 @mixin h1 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.2rem,   // ~19.2px
-    1.4vw,    // 유동
-    1.63rem   // ~26px
-  );
+  font-size: 1.4vw;
 }
 
 // H2
@@ -266,11 +258,7 @@ $font-weight-medium: 500;
 @mixin h2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.05rem,  // ~16.8px
-    1.2vw,    // 유동
-    1.44rem   // ~23px
-  );
+  font-size: 1.2vw;
 }
 
 // 본문
@@ -278,11 +266,7 @@ $font-weight-medium: 500;
 @mixin body {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.9rem,   // ~14.4px
-    1vw,      // 유동
-    1.25rem   // ~20px
-  );
+  font-size: 1vw;
 }
 
 // SUB
@@ -290,11 +274,7 @@ $font-weight-medium: 500;
 @mixin sub {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.8rem,   // ~12.8px
-    0.9vw,    // 유동
-    1.06rem   // ~17px
-  );
+  font-size: 0.9vw;
 }
 
 .mouse-particles-canvas {

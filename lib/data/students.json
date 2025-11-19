@@ -1,3 +1,4 @@
+
 {
     "students": [
         {
@@ -293,7 +294,7 @@
         {
             "Id": "Leejeongwon",
             "name": "이정원",
-            "role": "Designer",
+            "role": "Developer",
             "comment": "경험을 새롭게 전환하는",
             "eMail": "weong0517@gmail.com",
             "enname": "LEE JEONGWON",
@@ -873,7 +874,7 @@
         {
             "Id": "Jangjuwon",
             "name": "장주원",
-            "role": "Developer",
+            "role": "Designer",
             "comment": "예술의 경계를 넘어 새로운 축을 세우는",
             "eMail": "ds1believe@naver.com",
             "enname": "CHANG JUWON",
@@ -963,7 +964,7 @@
         {
             "Id": "Parkjyeonhyun",
             "name": "박정연",
-            "role": "Planner",
+            "role": "Designer",
             "comment": "새로운 가능성을 향해 궤적을 그려가는",
             "eMail": "j995195@gmail.com",
             "enname": "PARK JEONGYEON",
@@ -1073,7 +1074,7 @@
         {
             "Id": "Namseoyeon",
             "name": "남서연",
-            "role": "Designer",
+            "role": "Developer",
             "comment": "궤적을 설계하는",
             "eMail": "synam02@gmail.com",
             "enname": "NAM SEOYEON",

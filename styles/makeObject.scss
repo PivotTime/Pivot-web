@@ -39,9 +39,9 @@ background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; 
     align-items: center;
     gap: 12px;
     padding: 10px 20px;
-    height: 65px;
+    height: 3vw;
     
-    background: rgba(#4A4A4A, 0.5);
+    background: rgba(#4A4A4A, 0.2);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -65,10 +65,10 @@ background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; 
         padding:  8px 34px;
         width: fit-content;
         aspect-ratio: auto;
-        font-size: clamp(16px, 1.7vh, 19px);
+        font-size: 0.8vw;
         font-weight: 500;
 line-height: normal;
-letter-spacing: -0.4px;
+letter-spacing: -0.03em;
         background-color: #E1E1E1;
 
       }

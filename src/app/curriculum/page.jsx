@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import "../../../styles/curriculum.scss";
 import InfoBox from "../../../components/infoBox";
+import WindowIntroWrapper from "../../../components/loading";
 
 
 const useIntersectionObserver = (options) => {
@@ -63,7 +64,10 @@ export default function Curriculum() {
   const [careerRef, isCareerVisible] = useIntersectionObserver(careerOptions);
 
   return (
-    <main className="curriculum">
+            <WindowIntroWrapper
+            pageName={"커리쿨럼"}
+            children={
+    <main className="curriculum visible">
       <img
         className="webImage"
         src="/images/curriculum.png"
@@ -1665,6 +1669,6 @@ export default function Curriculum() {
           </div>
         </div>
       </section>
-    </main>
+    </main>}/>
   );
 }

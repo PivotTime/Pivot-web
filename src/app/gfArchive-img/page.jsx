@@ -8,7 +8,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import responses from "../../../lib/data/gpArchive.json";
 import "../../../styles/gpArchiveImg.scss";
-
 gsap.registerPlugin(ScrollTrigger);
 
 // 학기 ID와 이미지 폴더명 매핑
@@ -66,7 +65,7 @@ function getNicNamesBySemester(semesterId) {
   });
 
   // 디버깅: 개수 확인
-  console.log(`[gpArchive-img] 학기 ${semesterId} (${folderName}): 총 ${nicNameMap.size}개의 고유 닉네임 발견`);
+  console.log(`[gfArchive-img] 학기 ${semesterId} (${folderName}): 총 ${nicNameMap.size}개의 고유 닉네임 발견`);
 
   return nicNameMap;
 }
@@ -113,7 +112,6 @@ function calculateCirclePositions(count = 20, radius = 200) {
   return positions;
 }
 
-// SVG 코드 (gpArchive-txt.jsx와 동일)
 function getSemesterSVG(semesterId) {
   const svgMap = {
     "01": (
@@ -254,7 +252,7 @@ function LazyImage({ src, alt, className, style, onLoad, onError, nicName }) {
   );
 }
 
-export default function GpArchiveImg() {
+export default function GfArchiveImg() {
   const searchParams = useSearchParams();
   const semesterId = searchParams?.get("id") ?? "01";
   const semesterInfo = SEMESTER_COPY[semesterId] ?? SEMESTER_COPY["01"];
@@ -286,7 +284,7 @@ export default function GpArchiveImg() {
   // 닉네임 목록만 추출
   const allNicNames = useMemo(() => {
     const names = Array.from(nicNameRoleMap.keys());
-    console.log(`[gpArchive-img] 학기 ${semesterId}: 최종 ${names.length}개의 이미지 로드 예정`);
+    console.log(`[gfArchive-img] 학기 ${semesterId}: 최종 ${names.length}개의 이미지 로드 예정`);
     return names;
   }, [nicNameRoleMap, semesterId]);
 
@@ -655,14 +653,14 @@ const circlePositions = useMemo(() => {
       const failedList = Array.from(failedImages);
       const failedPaths = failedList.map(nicName => getImagePath(folderName, nicName));
       
-      console.log(`[gpArchive-img] 학기 ${semesterId} (${folderName}):`);
+      console.log(`[gfArchive-img] 학기 ${semesterId} (${folderName}):`);
       console.log(`  - 전체 닉네임: ${allNicNames.length}개`);
       console.log(`  - 로드 성공: ${loadedImages.size}개`);
       console.log(`  - 로드 실패: ${failedImages.size}개`);
       console.log(`  - 예상 이미지 파일: ${allNicNames.length}개 (각 폴더에 ${allNicNames.length}개 파일 존재해야 함)`);
       
       if (failedList.length > 0) {
-        console.warn(`[gpArchive-img] 로드 실패한 파일 목록:`);
+        console.warn(`[gfArchive-img] 로드 실패한 파일 목록:`);
         failedList.forEach((nicName, index) => {
           console.warn(`  ${index + 1}. 닉네임: "${nicName}"`);
           console.warn(`     경로: ${failedPaths[index]}`);
@@ -692,7 +690,7 @@ const circlePositions = useMemo(() => {
       )}
 
       <section 
-        className={`gpArchiveImg ${isLoading ? "is-loading" : "is-loaded"}`} 
+        className={`gfArchiveImg ${isLoading ? "is-loading" : "is-loaded"}`} 
         ref={scrollContainerRef}
       >
       <Link
@@ -718,19 +716,20 @@ const circlePositions = useMemo(() => {
       </Link>
 
       {/* 검색 바 */}
-      <div className="searchBox">
+      <div className="gf-searchBox">
         <input
           ref={searchInputRef}
-          name="searchInput"
+          name="gf-searchInput"
           type="text"
           placeholder={searchNotFound ? "등록되지 않은 닉네임입니다." : "닉네임을 입력해 주세요."}
           onChange={handleSearchInput}
           onKeyDown={handleKeyDown}
           onFocus={handleFocus}
           autoComplete="off"
-          className={`searchInput ${searchNotFound ? 'not-found' : ''}`}
+          className={`gf-searchInput ${searchNotFound ? 'not-found' : ''}`}
         />
         <svg
+        className="gf-search-icon"
           viewBox="0 0 22 23"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -830,7 +829,7 @@ const circlePositions = useMemo(() => {
       <div className="scroll-spacer" style={{ height: "300vh" }} />
 
       {/* 푸터 */}
-      <footer className="footer">
+      <footer className="gfFooter">
         <div className="semesterBadge">
           {getSemesterSVG(semesterId)}
         </div>

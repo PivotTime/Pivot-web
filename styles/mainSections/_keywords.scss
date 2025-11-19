@@ -73,29 +73,18 @@
 $font-main: "Pretendard", sans-serif;
 $font-weight-medium: 500;
 
-// typography.scss (compact version)
-
-$font-main: "Pretendard", sans-serif;
-$font-weight-medium: 500;
-
 // TITLE
 // 약 33.5px max
 @mixin title {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.4rem,
-    // ~22.4px
-    1.8vw,
-    // 유동
-    2.09rem // ~33.5px
-  );
+  font-size: 1.8vw;
 }
 
 @mixin title2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(1.125rem, 1.979vw, 3rem);
+  font-size: 1.979vw;
 }
 
 // H1
@@ -103,13 +92,7 @@ $font-weight-medium: 500;
 @mixin h1 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.2rem,
-    // ~19.2px
-    1.4vw,
-    // 유동
-    1.63rem // ~26px
-  );
+  font-size: 1.4vw;
 }
 
 // H2
@@ -117,13 +100,7 @@ $font-weight-medium: 500;
 @mixin h2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.05rem,
-    // ~16.8px
-    1.2vw,
-    // 유동
-    1.44rem // ~23px
-  );
+  font-size: 1.2vw;
 }
 
 // 본문
@@ -131,13 +108,8 @@ $font-weight-medium: 500;
 @mixin body {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.9rem,
-    // ~14.4px
-    1vw,
-    // 유동
-    1.25rem // ~20px
-  );
+  font-size: 1vw;
+  letter-spacing: -0.005em;
 }
 
 // SUB
@@ -145,36 +117,28 @@ $font-weight-medium: 500;
 @mixin sub {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.8rem,
-    // ~12.8px
-    0.9vw,
-    // 유동
-    1.06rem // ~17px
-  );
+  font-size: 0.9vw;
 }
 
 @mixin bodyText {
-  font-size: clamp(0.875rem, 1.04vw, 1.375rem);
+  font-size: 1.04vw;
   font-family: "Pretendard";
 }
 
 @mixin infoText {
-  font-size: clamp(0.6em, 0.73vw, 1.2rem);
+  font-size: 0.73vw;
   font-weight: 500;
   color: #fff;
-  letter-spacing: -0.03rem;
+  letter-spacing: -0.03em;
   line-height: 1.35;
 }
 
 $blue: #0051ff;
-$height: 56.25vw;
-$section-height: 100dvh;
 $chewy-ease: cubic-bezier(0.34, 1.3, 0.64, 1);
 
 .keywords {
   width: 87.38vw;
-  height: $section-height;
+  height: 100vh;
   margin: 0 auto;
   color: #fff;
   box-sizing: border-box;
@@ -269,7 +233,7 @@ $chewy-ease: cubic-bezier(0.34, 1.3, 0.64, 1);
   .circle {
   width: 22.86vw;
   height: auto;
-  top: 12.2vw;
+  top: 21.7vh;
   left: -2.8vw;
   overflow: visible;
 }
@@ -277,7 +241,7 @@ $chewy-ease: cubic-bezier(0.34, 1.3, 0.64, 1);
   .line {
   width: 48.28vw;
   height: auto;
-  top: 15vw;
+  top: 26.7vh;
   left: 51.1%;
   transform: translateX(-50%);
   overflow: visible;
@@ -286,7 +250,7 @@ $chewy-ease: cubic-bezier(0.34, 1.3, 0.64, 1);
   .rectangle {
   width: 18.28vw;
   height: auto;
-  top: 25.2vw;
+  top: 43vh;
   right: -3vw;
   overflow: visible;
 }
@@ -294,28 +258,27 @@ $chewy-ease: cubic-bezier(0.34, 1.3, 0.64, 1);
   .txt {
   display: flex;
   justify-content: space-between;
-  padding-top: 46.3vw;
+  padding-top: 82.3vh;
 
   .delight {
     @include h2;
-    letter-spacing: -0.06rem;
+    letter-spacing: -0.06em;
     line-height: 1.2;
   }
 
   .logo {
-    padding-top: 1vw;
+    padding-top: 1.78vh;
     svg {
       width: 20.78vw;
     }
   }
-}
 
   p {
-  @include body;
-  margin-top: 0.7vw;
-  padding-right: 0.2vw;
-  line-height: 1.7;
-}
+    @include body;
+    margin-top: 1.24vh;
+    padding-right: 0.2vw;
+    line-height: 1.7;
+  }
 }
 
 
@@ -349,15 +312,15 @@ $chewy-ease: cubic-bezier(0.34, 1.3, 0.64, 1);
 
 @keyframes c1-move {
   0% {
-    transform: translate(18.5vw, 2.8vw) rotate(-90deg);
+    transform: translate(18.5vw, 4.98vh) rotate(-90deg);
     opacity: 0;
   }
   50% {
-    transform: translate(18.5vw, 2.8vw) rotate(-90deg);
+    transform: translate(18.5vw, 4.98vh) rotate(-90deg);
     opacity: 1;
   }
   100% {
-    transform: translate(-1.5vw, 2.8vw) rotate(-90deg);
+    transform: translate(-1.5vw, 4.98vh) rotate(-90deg);
     opacity: 1;
   }
 }
@@ -375,47 +338,47 @@ $chewy-ease: cubic-bezier(0.34, 1.3, 0.64, 1);
 
 @keyframes r1-move {
   0% {
-    transform: translate(-22.7vw, -2.3vw);
+    transform: translate(-22.7vw, -4.09vh);
     opacity: 0;
   }
 
   50% {
-    transform: translate(-22.7vw, -2.3vw);
+    transform: translate(-22.7vw, -4.09vh);
     opacity: 1;
   }
 
   100% {
-    transform: translate(-3.5vw, -5vw);
+    transform: translate(-3.5vw, -8.89vh);
     opacity: 1;
   }
 }
 
 @keyframes c2-anim {
   0% {
-    transform: translate(7.3vw, 4.2vw);
+    transform: translate(7.3vw, 7.47vh);
     opacity: 0;
   }
   66% {
-    transform: translate(7.3vw, 4.2vw);
+    transform: translate(7.3vw, 7.47vh);
     opacity: 0;
   }
   100% {
-    transform: translate(8.5vw, 0.1vw);
+    transform: translate(8.5vw, 0.18vh);
     opacity: 1;
   }
 }
 
 @keyframes c3-anim {
   0% {
-    transform: translate(5.5vw, -2.7vw);
+    transform: translate(5.5vw, -4.8vh);
     opacity: 0;
   }
   85% {
-    transform: translate(5.5vw, -2.7vw);
+    transform: translate(5.5vw, -4.8vh);
     opacity: 0;
   }
   100% {
-    transform: translate(8.3vw, -5.9vw);
+    transform: translate(8.3vw, -10.49vh);
     opacity: 1;
   }
 }
@@ -455,30 +418,34 @@ $chewy-ease: cubic-bezier(0.34, 1.3, 0.64, 1);
 
 @keyframes r2-anim {
   0% {
-    transform: translate(3.8vw, 2.6vw);
+    transform: translate(3.8vw, 4.62vh);
     opacity: 0;
   }
   66% {
-    transform: translate(3.8vw, 2.6vw);
+    transform: translate(3.8vw, 4.62vh);
     opacity: 0;
   }
   100% {
-    transform: translate(7.8vw, 5.3vw);
+    transform: translate(7.8vw, 9.42vh);
     opacity: 1;
   }
 }
 
 @keyframes r3-anim {
   0% {
-    transform: translate(5.9vw, -0.55vw);
+    transform: translate(5.9vw, -0.98vh);
     opacity: 0;
   }
   85% {
-    transform: translate(5.9vw, -0.55vw);
+    transform: translate(5.9vw, -0.98vh);
     opacity: 0;
   }
   100% {
-    transform: translate(3.8vw, 2.5vw);
+    transform: translate(3.8vw, 4.44vh);
     opacity: 1;
   }
 }
+}
+
+
+

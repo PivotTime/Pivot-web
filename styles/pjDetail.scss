@@ -24,7 +24,6 @@ a[aria-disabled="true"] {
   opacity: 0.5;
 }
 
-
 .ProjectDetailModal {
   display: flex;
   position: fixed;
@@ -41,13 +40,12 @@ a[aria-disabled="true"] {
     background: transparent;
   }
 
-  
-    .pjDetail{
+  .pjDetail {
     position: sticky;
     top: 0;
-    width: 65vw;
-    height: 100vh;}
-
+    width: 67vw;
+    height: 100vh;
+  }
 }
 
 .rightSec {
@@ -60,16 +58,29 @@ a[aria-disabled="true"] {
   display: flex;
   flex-direction: column;
   width: 100%;
-
   color: white;
 
   .infoPlaceHolder {
     display: flex;
     flex-direction: column;
     padding: clamp(2rem, 3vw, 4.5rem);
+    padding-left: clamp(1rem, 2vw, 3rem);
+    padding-right: clamp(3rem, 4vw, 5.5rem);
     gap: clamp(1rem, 3.5vh, 2rem);
     height: 100vh;
-    min-height: 1000px;
+
+    .firstSec {
+      display: flex;
+      gap: 1vw;
+      height: 100vh;
+      .left {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 3.5vh, 2rem);
+        // width: 100%;
+        flex: 1;
+      }
+    }
 
     > svg {
       align-self: flex-end;
@@ -83,7 +94,7 @@ a[aria-disabled="true"] {
 
       .infoBox {
         padding: 3px 15px;
-        font-size: clamp(0.75rem, 0.8vw, 0.9375rem);
+        font-size: 0.8vw; // clamp(0.75rem, 0.8vw, 0.9375rem)
         border: solid white 1px;
         border-radius: 30;
         background-color: white;
@@ -97,49 +108,34 @@ a[aria-disabled="true"] {
         }
       }
     }
+
     .titleBox {
       display: flex;
       flex-direction: column;
-      gap: clamp(0.25rem, 0.46vh, 0.3125rem);
+      gap: 0.6vh;
       width: 100%;
       height: fit-content;
 
       .title {
-        font-size: clamp(1.25rem, 2.6vw, 3.125rem);
-        letter-spacing: -1.5px;
+        font-size: 2.6vw; // clamp(1.25rem, 2.6vw, 3.125rem)
+        letter-spacing: -0.05em;
         font-weight: 600;
       }
+
       .oneLine {
         font-weight: 500;
-        letter-spacing: -0.5px;
-        font-size: clamp(
-          0.8rem,
-          // ~12.8px
-          0.9vw,
-          // 유동
-          1.2rem // ~17px
-        );
+        letter-spacing: -0.03em;
+        font-size: 0.9vw; // clamp(0.8rem, 0.9vw, 1.2rem)
       }
     }
+
     .explain {
-      width: 95%;
-      font-size: clamp(
-        0.8rem,
-        // ~12.8px
-        0.8vw,
-        // 유동
-        1rem // ~17px
-      );
-      padding-top: clamp(
-        0.8rem,
-        // ~12.8px
-        0.8vw,
-        // 유동
-        1rem // ~17px
-      );
+      width: 100%;
+      font-size: 0.8vw; // clamp(0.8rem, 0.8vw, 1rem)
+      padding-top: clamp(0.8rem, 0.8vw, 1rem);
       font-weight: 300;
-      line-height: 180%; /* 28.8px */
-      letter-spacing: -0.54px;
+      line-height: 180%;
+      letter-spacing: -0.04em;
       text-transform: uppercase;
     }
 
@@ -147,51 +143,49 @@ a[aria-disabled="true"] {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: clamp(
-        0.8rem,
-        // ~12.8px
-        0.8vw,
-        // 유동
-        1rem // ~17px
-      );
+      font-size: 0.8vw; // clamp(0.8rem, 0.8vw, 1rem)
       font-weight: 300;
       gap: 10px;
       width: fit-content;
       border: solid white 1px;
-      padding: 6px 17px;
-      padding-top: 7px;
-
+      padding: 0.4vw 0.8vw;
+      padding-top: 0.45vw;
       border-radius: 30px;
-        transition: all 0.3s ease-in-out;
-      &:hover{
+      transition: all 0.3s ease-in-out;
 
-        border: 1px solid #0051FF;
-background: #0051FF;
+      &:hover {
+        border: 1px solid #0051ff;
+        background: #0051ff;
       }
     }
 
     .overviewWrap {
       opacity: 50%;
       height: 100%;
+      width: fit-content;
       display: flex;
-      justify-content: end;
       align-items: end;
-      padding-right: 20px;
+      padding-bottom: 5vh;
+      padding-right: 2vw;
+
       .overviewBox {
         display: flex;
         flex-direction: column;
         gap: clamp(0.5rem, 1vh, 0.8rem);
         align-self: flex-end;
+        font-size: 0.8vw;
 
         > div {
           display: flex;
           gap: 20px;
+
           > span {
             font-weight: 300;
           }
         }
       }
     }
+
     .ScrollPlzBox {
       display: flex;
       flex-direction: column;
@@ -201,6 +195,7 @@ background: #0051FF;
       height: fit-content;
       min-height: 40px;
       gap: 10px;
+      font-size: 1vw;
       > svg {
         min-height: 20px;
         animation: floatDownHint 1.6s ease-in-out infinite both;
@@ -221,96 +216,122 @@ background: #0051FF;
   }
 }
 
-.rightSecB{
+.rightSecB {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(2rem, 3vw, 4.5rem);
+
+  .teamPlaceHolder {
     display: flex;
     flex-direction: column;
-        padding: clamp(2rem, 3vw, 4.5rem);
+    gap: clamp(1.5rem, 5vh, 3.2rem);
 
-    .teamPlaceHolder{
-            display: flex;
-    flex-direction: column;
-        gap: clamp(1.5rem, 5vh, 3.2rem);
+    .teamNameBox{
+      pointer-events: none;
+      color: white;
+      font-size: 0.8vw;
+      border: solid white 1px;
+      border-radius: 100;
+      width: fit-content;
+      align-self: center;
+      padding: 0.4vw 0.6vw;
+      margin-top:7vh;
     }
-    .team{
-      position: relative;
-        width: 100%;
-        aspect-ratio: 249/196;
+  }
 
-      .teamPhotoA, .teamPhotoB {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transition: opacity 0.3s ease-in-out;
-      }
+  .team {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 249/196;
 
+    .teamPhotoA,
+    .teamPhotoB {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .teamPhotoA {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .teamPhotoB {
+      z-index: 2;
+      opacity: 0;
+    }
+
+    &:hover {
       .teamPhotoA {
-        z-index: 1;
-        opacity: 1;
-      }
-
-      .teamPhotoB {
-        z-index: 2;
         opacity: 0;
       }
-
-      &:hover {
-        .teamPhotoA {
-          opacity: 0;
-        }
-        .teamPhotoB {
-          opacity: 1;
-        }
+      .teamPhotoB {
+        opacity: 1;
       }
     }
+  }
 
-    .bottomLine{
-        width:100%;
-        height:1px;
-        background-color: white;
-    }
+  .bottomLine {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    opacity: 0.1;
+  }
 
-    .members{
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
+  .members {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 5vh;
 
-        .memberCard{
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap:clamp(1rem, 2vh, 1.5rem);
-            .name{
-                font-size: clamp(1rem, 2.04vh, 1.375rem);
-                letter-spacing: 0.44px;
-                font-weight: 500;
-                line-height: 170%;
-            }
-            .role{
-                text-align: center;
-                padding:2px 12px;
-                border: white 1px solid;
-                border-radius: 100;
-                font-weight: 400;
-                font-size: clamp(0.75rem, 1.3vw, 0.9rem);
-            }
+    .memberCard {position: relative;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(1rem, 2vh, 1.5rem);
+
+      .name {
+        cursor: pointer;
+        
+        font-size: 1vw; // clamp(1rem, 2.04vh, 1.375rem)
+        letter-spacing: 0.03em;
+        font-weight: 500;
+        line-height: 170%;
+
+        &:hover{
+          color: #8C8C8C;
         }
-    }
+      }
 
-    .teamHistory{
-        width: 100%;
-        height:fit-content;
-        display: flex;
-        padding-top: 5%;
-        gap:clamp(0.75rem, 0.78vw, 0.9375rem);
-        .HistoryCard{
-          position: relative;
-            width: 100%;
-            aspect-ratio: 133/90;
-            
-        }
+      .role {
+        position: absolute;
+        top:100%;
+        text-align: center;
+        padding: 2px 12px;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        color: #8C8C8C;
+        font-size: 0.8vw; // clamp(0.75rem, 1.3vw, 0.9rem)
+      }
     }
+  }
+
+  .teamHistory {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding-top: 5%;
+    gap: clamp(0.75rem, 0.78vw, 0.9375rem);
+
+    .HistoryCard {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 133/90;
+    }
+  }
 }

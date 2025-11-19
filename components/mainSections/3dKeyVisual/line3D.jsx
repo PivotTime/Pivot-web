@@ -3,17 +3,29 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { gsap } from "gsap";
 import seedrandom from "seedrandom";
 
-export default function line3D({ isZoomed = false, interactive = true } = {}) {
+export default function line3D({
+  isZoomed = false,
+  interactive = true,
+  cameraDistance = null,
+  autoRotate = false,
+  autoRotateSpeed = 0.0045,
+  enableHover = true,
+} = {}) {
   const containerRef = useRef(null);
   const cameraRef = useRef(null);
   const interactiveRef = useRef(interactive);
+  const autoRotateRef = useRef(autoRotate);
+  const autoRotateSpeedRef = useRef(autoRotateSpeed);
+  const hoverEnabledRef = useRef(enableHover);
 
   // 1. 카메라의 '목표 거리'를 저장할 Ref를 생성합니다.
   const targetCameraDistanceRef = useRef(null);
   interactiveRef.current = interactive;
+  autoRotateRef.current = autoRotate;
+  autoRotateSpeedRef.current = autoRotateSpeed;
+  hoverEnabledRef.current = enableHover;
 
   // 3. Three.js 씬 초기 설정을 위한 useEffect (최초 1회 실행)
   useEffect(() => {
@@ -67,6 +79,20 @@ export default function line3D({ isZoomed = false, interactive = true } = {}) {
     // DOM에 추가 (클린업을 위해 ref.current를 변수에 저장)
     currentContainer.appendChild(renderer.domElement);
 
+    const handleContextLost = (event) => {
+      event.preventDefault();
+      console.warn("[Line3D] WebGL context lost – rendering paused.");
+    };
+    const handleContextRestored = () => {
+      console.info("[Line3D] WebGL context restored.");
+    };
+    renderer.domElement.addEventListener("webglcontextlost", handleContextLost, false);
+    renderer.domElement.addEventListener(
+      "webglcontextrestored",
+      handleContextRestored,
+      false
+    );
+
     // ===== 3D 오브젝트 그룹 생성 =====
     const objectGroup = new THREE.Group();
     scene.add(objectGroup);
@@ -86,6 +112,7 @@ export default function line3D({ isZoomed = false, interactive = true } = {}) {
       // 변수에 할당
       color: 0xffffff,
       transparent: true,
+      linewidth: 2,
     });
 
     // ===== 궤적을 구성할 라인 생성 =====
@@ -171,6 +198,9 @@ export default function line3D({ isZoomed = false, interactive = true } = {}) {
 
     // ... (handleMouseMove, animate, handleResize, cleanup 로직은 동일) ...
     const handleMouseMove = (e) => {
+      if (!hoverEnabledRef.current) {
+        return;
+      }
       // ⚠️ [수정 1/4] ⭐️
       // 마우스 좌표와 호버(회전) 로직은 항상 실행합니다.
       // (HeroSection과 VisualSection 모두 호버 회전이 필요)
@@ -285,14 +315,18 @@ export default function line3D({ isZoomed = false, interactive = true } = {}) {
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate); // ⚠️ ID 저장
 
-      // interactive가 false일 때 (HeroSection) + 드래그 중이 아닐 때만 중앙으로 복귀
-      if (!interactiveRef.current && !isLeftDragging && !isRightDragging) {
+      // interactive=false(HeroSection) 기본 복귀 로직, 단 자동 회전 중에는 유지
+      if (
+        !interactiveRef.current &&
+        !autoRotateRef.current &&
+        !isLeftDragging &&
+        !isRightDragging
+      ) {
         targetX += (initialRotationX - targetX) * 0.08;
         targetY += (initialRotationY - targetY) * 0.08;
         targetZ += (initialRotationZ - targetZ) * 0.08;
         targetLineCount += (BASE_LINES - targetLineCount) * 0.1;
-        // 줌 로직은 isZoomed useEffect가 담당하므로 여기서는 복귀 로직만 처리
-        // (isZoomed가 false일 때 baseCameraDistance로 돌아감)
+        // 기본 카메라 거리로 복귀
         targetCameraDistanceRef.current +=
           (baseCameraDistance - targetCameraDistanceRef.current) * 0.1;
       }
@@ -301,6 +335,11 @@ export default function line3D({ isZoomed = false, interactive = true } = {}) {
       const roundedCount = Math.round(currentLineCount);
       if (roundedCount !== lastAppliedLineCount) {
         applyLineVisibility(roundedCount);
+      }
+
+      if (autoRotateRef.current && !isLeftDragging && !isRightDragging) {
+        targetY += autoRotateSpeedRef.current;
+        targetZ += autoRotateSpeedRef.current * 0.15;
       }
 
       // 6. animate 루프가 Ref의 '목표' 값을 향해 '현재' 값을 갱신합니다.
@@ -316,13 +355,10 @@ export default function line3D({ isZoomed = false, interactive = true } = {}) {
         cameraRef.current.lookAt(0, 0, 0);
       }
 
-      gsap.to(objectGroup.rotation, {
-        x: targetX,
-        y: targetY,
-        z: targetZ,
-        duration: 1,
-        ease: "power2.out",
-      });
+      const rotationEase = 0.08;
+      objectGroup.rotation.x += (targetX - objectGroup.rotation.x) * rotationEase;
+      objectGroup.rotation.y += (targetY - objectGroup.rotation.y) * rotationEase;
+      objectGroup.rotation.z += (targetZ - objectGroup.rotation.z) * rotationEase;
 
       if (renderer && cameraRef.current) {
         // 렌더러와 카메라도 유효한지 확인
@@ -350,6 +386,18 @@ export default function line3D({ isZoomed = false, interactive = true } = {}) {
       window.removeEventListener("contextmenu", handleContextMenu);
 
       window.removeEventListener("resize", handleResize);
+      if (renderer?.domElement) {
+        renderer.domElement.removeEventListener(
+          "webglcontextlost",
+          handleContextLost,
+          false
+        );
+        renderer.domElement.removeEventListener(
+          "webglcontextrestored",
+          handleContextRestored,
+          false
+        );
+      }
       if (currentContainer && renderer.domElement) {
         currentContainer.removeChild(renderer.domElement);
       }
@@ -369,25 +417,22 @@ export default function line3D({ isZoomed = false, interactive = true } = {}) {
 
   // 8. 줌(스크롤)을 위한 별도의 useEffect (컴포넌트 최상위 레벨)
   useEffect(() => {
-    // ⚠️ [수정] ⭐️
-    // 1. interactive가 true일 때 (VisualSection)
-    // 짤리지 않도록 고정된 Z값을 설정합니다 (550).
+    const hasCustomDistance =
+      typeof cameraDistance === "number" && Number.isFinite(cameraDistance);
+
+    if (hasCustomDistance) {
+      targetCameraDistanceRef.current = cameraDistance;
+      return;
+    }
+
     if (interactiveRef.current) {
-      targetCameraDistanceRef.current = 550; // (이 값을 조절해서 짤리지 않게 하세요)
+      // interactive=true(VisualSection) 기본 거리
+      targetCameraDistanceRef.current = 550;
+    } else {
+      // interactive=false(HeroSection)에서는 기본 거리 유지 (300)
+      targetCameraDistanceRef.current = 300;
     }
-    // 2. interactive가 false일 때 (HeroSection)
-    // 기존 isZoomed 로직을 따릅니다.
-    else {
-      if (isZoomed) {
-        // 줌 아웃 (true)
-        targetCameraDistanceRef.current = 500; // 줌 아웃 시 더 멀리
-      } else {
-        // 줌 인 (false)
-        targetCameraDistanceRef.current = 300; // 줌 인 시 더 가까이
-      }
-    }
-    // ⚠️ [수정] isZoomed뿐만 아니라 interactive 값에도 의존하도록 변경
-  }, [isZoomed, interactive]);
+  }, [interactive, cameraDistance]);
 
   return (
     <div

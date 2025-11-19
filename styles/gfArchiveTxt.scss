@@ -112,11 +112,11 @@ body {
 
   .undo {
     position: absolute;
-    // margin: 0 3.125vw;
     top: 5.5vh;
     right: 0;
     width: 1.46vw;
     cursor: pointer;
+    padding: 0 3.07vw;
     z-index: 10;
     transition: opacity 0.3s ease, filter 0.3s ease;
   
@@ -494,4 +494,11 @@ body {
     height: 20vh;
   }
 }
+
+
+
+
+
+
+
 

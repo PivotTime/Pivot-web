@@ -15,10 +15,10 @@ export default function MouseParticlesToggle({ enabled }) {
 
   // 설정값들
   const SEGMENT_COUNT = 30;          // 뱀 몸통 조각 개수
-  const SEGMENT_SPACING = 5;         // 궤적에서 조각 간 간격
+  const SEGMENT_SPACING = 8;         // 궤적에서 조각 간 간격
   const OBJECT_SIZE = 72;            // 🔹 크기 4배로 키움
   const STROKE_WIDTH = 3;            // 테두리 두께
-  const ROTATION_SPEED = 0.04;       // 회전 속도 (라디안/frame)
+  const ROTATION_SPEED = 0.03;       // 회전 속도 (라디안/frame)
   const ROTATION_DELAY = 4;          // 세그먼트 간 회전 시작 딜레이 (프레임 단위)
   const MAX_HISTORY =
     SEGMENT_COUNT * SEGMENT_SPACING + 50; // 궤적 최대 길이

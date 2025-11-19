@@ -1,87 +1,78 @@
-@use "./variable";
+a {color: #fff; text-decoration: none; outline: none} a:hover, a:active {text-decoration: none; color:#fff; background-color:#f59000;}
 
-a {
-  color: inherit;
-  text-decoration: none;
-  background-color: transparent;
-  cursor: pointer;
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff")
+    format("woff");
+  font-weight: 100;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
-    font-weight: 100;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff")
+    format("woff");
+  font-weight: 200;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
-    font-weight: 200;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff")
+    format("woff");
+  font-weight: 300;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
-    font-weight: 300;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
-    font-weight: 500;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff")
+    format("woff");
+  font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
-    font-weight: 700;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff")
+    format("woff");
+  font-weight: 800;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
-    font-weight: 800;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff') format('woff');
-    font-weight: 900;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff")
+    format("woff");
+  font-weight: 900;
+  font-display: swap;
 }
 
 $font-main: "Pretendard", sans-serif;
-$font-weight-medium: 500;
-
-// typography.scss (compact version)
-
-$font-main: "Pretendard", sans-serif;
-$font-weight-medium: 500;
-
-// TITLE
-// 약 33.5px max
-
-$font-main: 'Pretendard', sans-serif;
 $font-weight-medium: 500;
 
 // TITLE
@@ -89,11 +80,13 @@ $font-weight-medium: 500;
 @mixin title {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.4rem,   // ~22.4px
-    1.8vw,    // 유동
-    2.09rem   // ~33.5px
-  );
+  font-size: 1.8vw;
+}
+
+@mixin title2 {
+  font-family: $font-main;
+  font-weight: $font-weight-medium;
+  font-size: 1.979vw;
 }
 
 // H1
@@ -101,11 +94,7 @@ $font-weight-medium: 500;
 @mixin h1 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.2rem,   // ~19.2px
-    1.4vw,    // 유동
-    1.63rem   // ~26px
-  );
+  font-size: 1.4vw;
 }
 
 // H2
@@ -113,11 +102,7 @@ $font-weight-medium: 500;
 @mixin h2 {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    1.05rem,  // ~16.8px
-    1.2vw,    // 유동
-    1.44rem   // ~23px
-  );
+  font-size: 1.2vw;
 }
 
 // 본문
@@ -125,11 +110,7 @@ $font-weight-medium: 500;
 @mixin body {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.9rem,   // ~14.4px
-    1vw,      // 유동
-    1.25rem   // ~20px
-  );
+  font-size: 1vw;
 }
 
 // SUB
@@ -137,35 +118,29 @@ $font-weight-medium: 500;
 @mixin sub {
   font-family: $font-main;
   font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.8rem,   // ~12.8px
-    0.9vw,    // 유동
-    1.06rem   // ~17px
-  );
-}
-
-
-// SUB
-// 약 17px max
-@mixin sub {
-  font-family: $font-main;
-  font-weight: $font-weight-medium;
-  font-size: clamp(
-    0.8rem,
-    // ~12.8px
-    0.9vw,
-    // 유동
-    1.06rem // ~17px
-  );
+  font-size: 0.9vw;
 }
 
 @mixin bodyText {
-  font-size: clamp(0.875rem, 1.04vw, 1.375rem);
+  font-size: 1.04vw;
+  font-family: "Pretendard";
+}
+
+@mixin infoText {
+  font-size: 0.73vw;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1.35;
+}
+
+@mixin bodyText {
+  font-size: 1.04vw;
   font-family: "Pretendard";
 }
 
 @mixin navText {
-  font-size: clamp(0.8125rem, 0.99vw, 1.375rem);
+  font-size: 0.99vw;
   font-family: "Pretendard";
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
@@ -220,398 +195,209 @@ nav {
   margin: 2.1vw 3.15vw;
   box-sizing: border-box;
   transition: all 0.6s ease-in-out;
-  z-index: 90;
+  z-index: 999;
+
+  &.zoom_out {
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .logo {
+    width: clamp(
+      6.25vw,
+      10.67vw,
+      16.67vw
+    ); /* 화면 크기에 따라 120~320px 사이로 유연하게 크기 조절 */
+    height: auto;
+    display: block;
+  }
   
-.logo {
-  width: clamp(
-    6.25vw,
-    10.67vw,
-    16.67vw
-  ); /* 화면 크기에 따라 120~320px 사이로 유연하게 크기 조절 */
-  height: auto;
-  display: block;
-}
-
-}
-
-.Tab_Switcher {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background-color: $nav-color;
-  backdrop-filter: blur(7.5px);
-  gap: 0.3vw;
-  margin-left: 9.5vw;
-  border-radius: 1.56vw;
-  padding: 0.5vw 0.3vw;
-
-  .Tab_Switcher-marker-mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    border-radius: 1.56vw;
-  }
-
-  .tab_btn {
-    @include navTap-btn;
-  }
-
-  .tab_btn.is-hovered:not(.is-active) {
-    color: #fff;
-  }
-
-  .tab_btn.is-active {
-    color: #000;
-  }
-
-  .tab_btn.is-dimmed {
-    color: rgba(255, 255, 255, 0.35);
-  }
-
-  .tab_btn:focus-visible {
-    outline: 0.12vw solid rgba(255, 255, 255, 0.85);
-    outline-offset: 0.08vw;
-  }
-
-  .line {
-    pointer-events: none;
+  .Tab_Switcher {
     display: flex;
-    z-index: 2;
-  }
-
-  .Tab_Switcher-marker {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    height: calc(100% - 0.4vw);
-    background: rgba(208, 208, 208, 0.1);
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: $nav-color;
     backdrop-filter: blur(7.5px);
-    border-radius: 2vw;
-    transform: translateY(-50%);
-    opacity: 0;
-    z-index: 1;
-    pointer-events: none;
-  }
-}
-
-.toggle-nav {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.15vw;
-}
-
-.toggle_btn {
-  position: relative;
-  width: 4.1vw;
-  height: 2.29vw;
-  background-color: $nav-color;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
-  backdrop-filter: blur(6.5226569175720215px);
-  border-radius: 1.36vw;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &.is-active {
-    background-color: $color-blue;
-  }
-}
-
-.toggle_btn::before {
-  position: absolute;
-  width: 1.5vw;
-  height: 1.5vw;
-  content: "";
-  background-color: #ebebeb;
-  border: 0.05vw solid #c9c9c9;
-  border-radius: 50%;
-  top: 0.36vw;
-  left: 0.36vw;
-  transition: transform 0.3s ease;
-}
-
-.toggle_btn.is-active::before {
-  transform: translateX(1.88vw);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background-color: $nav-color;
-  backdrop-filter: blur(7.5px);
-  gap: 0.25vw;
-  border-radius: 1.56vw;
-  padding: 0.3vw 0.3vw;
-
-  .nav-marker-mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
+    gap: 0.3vw;
+    margin-left: 9.5vw;
     border-radius: 1.56vw;
-  }
-
-  .nav_btn {
-    @include navTap-btn;
-  }
-
-  .nav_btn--icon {
-    padding: 0.2vw;
-
-    path {
-      stroke: white; // 기본 아이콘 색상
-      transition: stroke 0.25s ease;
-    }
-  }
-
-  .nav_btn.is-hovered:not(.is-active) {
-    color: #fff;
-
-    path {
-      stroke: #fff;
-    }
-  }
-
-  .nav_btn.is-active {
-    color: #000;
-
-    path {
-      stroke: #000; // 활성화 시 아이콘 색상
-    }
-  }
-
-  .nav_btn.is-dimmed {
-    color: rgba(255, 255, 255, 0.35);
-
-    path {
-      stroke: rgba(255, 255, 255, 0.35);
-    }
-  }
-
-  .line {
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    z-index: 2;
-  }
-
-  .nav-marker {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    height: calc(100% - 0.4vw);
-    background: rgba(208, 208, 208, 0.1);
-    border-radius: 2vw;
-    transform: translateY(-50%);
-    opacity: 0;
-    z-index: 1;
-    pointer-events: none;
-  }
-}
-
-
-.hamburgerModal{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #E1E1E1;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height:100vh;
-  padding: 20vh 12vw;
-  padding-bottom: 17vh;
-  background-color: #000;
-  z-index: 500;
-
-  .btnList{
-    display: flex;
-    width: 100%;
-  }
-  .LogoPlaceHolder{
-    position: relative;
-  }
-  >svg{
-    height: 100%;
-    width: auto;
-  }
-  .exitBtn{
-    position: absolute;
-    right: 5vw;
-    top:5vh;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    background-color: #C5C5C5;
-    height: 3vh;
-    aspect-ratio:1/1 ;
-    border-radius: 100%;
-    min-height: 36px;
-  }
-
-  .BtnPlaceHolder{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
-
-
-    .middleLine{
+    padding: 0.5vw 0.3vw;
+  
+    .Tab_Switcher-marker-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 1px;
-      background-color: #E1E1E1;
-      opacity: 0.2;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 1.56vw;
     }
-    .BtnList{
-      position: relative;
-      width:100%; 
-      height: auto;
+  
+    .tab_btn {
+      @include navTap-btn;
+    }
+  
+    .tab_btn.is-hovered:not(.is-active) {
+      color: #fff;
+    }
+  
+    .tab_btn.is-active {
+      color: #000;
+    }
+  
+    .tab_btn.is-dimmed {
+      color: rgba(255, 255, 255, 0.35);
+    }
+  
+    .tab_btn:focus-visible {
+      outline: 0.12vw solid rgba(255, 255, 255, 0.85);
+      outline-offset: 0.08vw;
+    }
+  
+    .line {
+      pointer-events: none;
       display: flex;
-      justify-content: space-between;
-      .Btn{
-        display: flex;
-        width: 30%;
-        height: 2.8vw;
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-
-
-      path, rect{
-        transition: all 0.3s ease-in-out;
-      }
-
-      &:hover{
-        color: #0051ff;
-        .gpGpInfo{
-         color: #0051ff; 
-        }
-        
-        svg{
-          rect,
-          
-          path{fill:#0051ff;}
-
-          
-        }
-      }
-        
-
-        .gpGpInfo{
-          position: absolute;
-          top:  calc((clamp(40px, 4vh, 50px)) * -1) ;
-          letter-spacing: -0.3px;
-          font-size: variable.$fs-16-vw;
-          color: #e1e1e1;
-          opacity: 0.6;
-          font-weight: 400;
-          transition: all 0.3s ease-in-out;
-        }
-
-        >span{
-          font-size: clamp(55px, 4.11vw, 77px);
-          display: flex;
-          align-items: center;
-          font-weight: 400;
-          letter-spacing: -2px;
-          padding-bottom: 5px;
-        }
-
-        &.middle{
-          >p{
-            margin-left: 10px;
-            font-weight: 400;
-            letter-spacing: 0.6px;
-          }
-        }
-
-        &.top{
-
-          >div{
-            height: 100%;
-            width: auto;
-            >svg{
-            height: 100%;
-            
-          }
-          }
-          flex-direction: column;
-          
-        }
-
+      z-index: 2;
+    }
+  
+    .Tab_Switcher-marker {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: calc(100% - 0.4vw);
+      background: rgba(208, 208, 208, 0.1);
+      backdrop-filter: blur(7.5px);
+      border-radius: 2vw;
+      transform: translateY(-50%);
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+  
+  .toggle-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.15vw;
+  }
+  
+  .toggle_btn {
+    position: relative;
+    width: 4.1vw;
+    height: 2.29vw;
+    background-color: $nav-color;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+    backdrop-filter: blur(6.5226569175720215px);
+    border-radius: 1.36vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &.is-active {
+      background-color: $color-blue;
+    }
+  }
+  
+  .toggle_btn::before {
+    position: absolute;
+    width: 1.5vw;
+    height: 1.5vw;
+    content: "";
+    background-color: #ebebeb;
+    border: 0.05vw solid #c9c9c9;
+    border-radius: 50%;
+    top: 0.36vw;
+    left: 0.36vw;
+    transition: transform 0.3s ease;
+  }
+  
+  .toggle_btn.is-active::before {
+    transform: translateX(1.88vw);
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: $nav-color;
+    backdrop-filter: blur(7.5px);
+    gap: 0.25vw;
+    border-radius: 1.56vw;
+    padding: 0.3vw 0.3vw;
+  
+    .nav-marker-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 1.56vw;
+    }
+  
+    .nav_btn {
+      @include navTap-btn;
+    }
+  
+    .nav_btn--icon {
+      padding: 0.2vw;
+  
+      path {
+        stroke: white; // 기본 아이콘 색상
+        transition: stroke 0.25s ease;
       }
     }
-    .infoText{
-      position: relative;
+  
+    .nav_btn.is-hovered:not(.is-active) {
+      color: #fff;
+  
+      path {
+        stroke: #fff;
+      }
+    }
+  
+    .nav_btn.is-active {
+      color: #000;
+  
+      path {
+        stroke: #000; // 활성화 시 아이콘 색상
+      }
+    }
+  
+    .nav_btn.is-dimmed {
+      color: rgba(255, 255, 255, 0.35);
+  
+      path {
+        stroke: rgba(255, 255, 255, 0.35);
+      }
+    }
+  
+    .line {
+      pointer-events: none;
       display: flex;
       align-items: center;
-      gap: clamp(50px, 5.21vw, 100px);
-
-      .bottomInfo{
-        display: flex;
-        flex-direction: column;
-        gap: variable.$fs-16-vh;
-
-        &.last{
-          align-self: flex-end;
-          justify-self: end;
-          align-items: end;
-          text-align: end;
-          flex: 1;
-
-          .LogoPlaceHolder{
-            height: 25px;
-            width: 80px;
-          }
-          .info{
-            opacity: 0.8;
-          }
-        }
-      }
-
-     
-
-
-      .title{
-        font-size: variable.$fs-18-vw;
-        font-weight: 400;
-        letter-spacing: -0.4px;
-        color: #E1E1E1;
-        opacity: 0.7;
-      }
-      .info{
-        position: relative;
-        font-weight: 200;
-        letter-spacing: -0.3px;
-        font-size: variable.$fs-14-vw;
-        color: #E1E1E1;
-        opacity: 0.5;
-        line-height: 150%;
-         .number{
-        font-size: 10px;
-        position: absolute;
-          margin-left: 3px;
-          margin-top: -3;
-      }
-      }
-      .subTitle{
-        display: inline-block;
-        width:variable.$fs-40-vw ;
-        margin-right: 10px;
-      }
+      z-index: 2;
+    }
+  
+    .nav-marker {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: calc(100% - 0.4vw);
+      background: rgba(208, 208, 208, 0.1);
+      border-radius: 2vw;
+      transform: translateY(-50%);
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
     }
   }
+  
 }
+

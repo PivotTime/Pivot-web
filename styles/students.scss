@@ -1,18 +1,24 @@
 .studentsList {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
+  gap: 6vh 1.6vw;
+  min-height: 50vh;
 }
 
 .Students {
   width: 100%;
-  padding-top: clamp(200px, 40vh, 240px);
-  padding-left: clamp(1.75rem, 3.1vw, 3.75rem);
-  padding-right: clamp(1.75rem, 3.1vw, 3.75rem);
-  padding-bottom: clamp(200px, 40vh, 240px);
+  padding-top: 30vh;                // clamp(200px, 40vh, 240px)
+  padding-left: 3.1vw;              // clamp(1.75rem, 3.1vw, 3.75rem)
+  padding-right: 3.1vw;             // clamp(1.75rem, 3.1vw, 3.75rem)
+  padding-bottom: 40vh;             // clamp(200px, 40vh, 240px)
   display: flex;
   flex-direction: column;
-  gap: clamp(40px, 7.04vh, 76px);
+  gap: 9vh;
+
+  .notFind {
+    color: #ffffff;
+    letter-spacing: -0.04em;
+  }
 
   .sortingSection {
     position: relative;
@@ -21,7 +27,7 @@
     justify-content: space-between;
 
     .searchBox {
-      width: clamp(200px, 17.7vw, 360px);
+      width: 17.7vw;               // clamp(200px, 17.7vw, 360px)
       height: fit-content;
       display: flex;
       justify-content: space-between;
@@ -37,81 +43,83 @@
       background-color: transparent;
       outline: none;
       border: none;
-      font-size: clamp(17px, 1.09vw, 21px);
+      font-size: 0.8vw;
+      letter-spacing: -0.04em;
+
       &::placeholder {
         color: #ffffff;
-        opacity: 0.6; // 브라우저별로 기본 투명도 제어
-                transition: opacity 0.15s ease-in-out;
+        opacity: 1;
+        transition: opacity 0.15s ease-in-out;
+        font-weight: 400;
       }
 
-      /* ✅ 브라우저 호환성 (특히 Safari) */
       &::-webkit-input-placeholder {
         color: #ffffff;
-        opacity: 0.6;
+        opacity: 1;
       }
       &::-moz-placeholder {
         color: #ffffff;
-        opacity: 0.6;
+        opacity: 1;
       }
       &:-ms-input-placeholder {
         color: #ffffff;
-        opacity: 0.6;
+        opacity: 1;
       }
       &:-moz-placeholder {
         color: #ffffff;
-        opacity: 0.6;
+        opacity: 1;
       }
 
-     &:focus,
-    &:focus-visible{
-       outline: none;
-  border: none;
-   &::placeholder {
-        color: #ffffff;
-        opacity: 0; // 브라우저별로 기본 투명도 제어
-        transition: opacity 0.15s ease-in-out;
-      }
-    }
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        border: none;
 
-         
+        &::placeholder {
+          color: #ffffff;
+          opacity: 0;
+          transition: opacity 0.15s ease-in-out;
+        }
+      }
     }
 
     .sortingBar {
       display: flex;
-      font-size: clamp(14px, 1.15vw, 22px);
+      font-size: 1.15vw;           // clamp(14px, 1.15vw, 22px)
       font-style: normal;
       font-weight: 500;
       line-height: 132%; /* 29.04px */
-      letter-spacing: -0.66px;
+      letter-spacing: -0.04em;
       gap: 22px;
 
       > div {
-        color: #ffffff;
+        color: #8e8e8e;
         cursor: pointer;
-        opacity: 0.4;
         transition: opacity 0.2s ease-in-out;
+
         &:hover {
-          opacity: 1;
+          color: #ffffff;
         }
 
         &.active {
-          opacity: 1;
+          color: #ffffff;
         }
       }
     }
   }
-  @keyframes cardAddRight {
-  0% {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-  .DecorationPivot{
+  @keyframes cardAddRight {
+    0% {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .DecorationPivot {
     position: absolute;
   }
 
@@ -120,29 +128,42 @@
     display: flex;
     flex-direction: column;
     color: white;
-    gap: clamp(1rem, 2.31vh, 1.5625rem);
+    gap: 2.31vh;                    // clamp(1rem, 2.31vh, 1.5625rem)
     cursor: pointer;
     opacity: 0;
     animation: cardAddRight 0.5s ease-out forwards;
     animation-delay: var(--animation-delay);
     z-index: 10;
-    .DecorationPivot{
+
+    .DecorationPivot {
       z-index: 1;
       pointer-events: none;
-          .RectSvg, .LineSvg, .CircleSvg{
-        z-index:1;
+      width: 100%;
+      height: 100%;
+
+      >div{
+        width: 100%;
+        height: 100%;
+      }
+
+      svg {
+        z-index: 1;
+        width: 20vw;
+        &.rect{
+          width: 30vw;
+        }
       }
     }
+
     &.empty {
       position: relative;
       opacity: 0;
       cursor: default;
       z-index: 1;
 
-      >p{
+      > p {
         opacity: 0;
       }
-
     }
 
     .ImgPlaceHolder {
@@ -151,13 +172,12 @@
       z-index: 10;
 
       &.Profile {
-
         width: 100%;
-        aspect-ratio: 337/481;
+        aspect-ratio: 337 / 481;
 
         img {
           transition: transform 0.3s ease-in-out;
-                  transform: scale(1);
+          transform: scale(1);
         }
       }
     }
@@ -165,12 +185,19 @@
     .textBox {
       display: flex;
       flex-direction: column;
-      gap: clamp(0.625rem, 0.93vh, 0.75rem);
+      gap: 1vh;                  
+
       .name {
         font-weight: 600;
-        line-height: 132%; /* 34.32px */
-        letter-spacing: -0.78px;
-        font-size: clamp(1rem, 1.35vw, 1.625rem);
+        line-height: 132%; 
+        letter-spacing: -0.05em;
+        font-size: 1.35vw;          
+      }
+
+      .info{
+        letter-spacing: -0.05em;
+        font-size: 0.9vw;  
+        font-weight: 400;
       }
     }
 
@@ -182,14 +209,13 @@
   }
 }
 
-
 .LineSvg {
   animation: spin 25s linear infinite;
   transform-origin: center center;
 }
 
 .RectSvg {
-  animation:reverseSpin 25s linear infinite;
+  animation: reverseSpin 25s linear infinite;
   transform-origin: center center;
 }
 

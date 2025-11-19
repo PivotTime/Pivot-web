@@ -240,7 +240,7 @@ export default function DrawingCanvas({
       const result = await response.json();
 
       if (response.ok) {
-        alert(`도형이 Firestore에 저장되었습니다! ID: ${result.docId}`);
+     
         if (onSave) {
           onSave({ id: result.docId, shapes: shapes, createdAt: Date.now() });
         }
