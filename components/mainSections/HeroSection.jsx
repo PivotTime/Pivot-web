@@ -103,55 +103,7 @@ export default function HeroSection() {
     return () => observer.disconnect();
   }, []);
 
-  // 4. 스크롤 이벤트 로직 (가장 중요)
-  useEffect(() => {
-    if (!isHeroActive) {
-      return undefined;
-    }
-
-    const navElement = document.querySelector("nav");
-    if (!navElement) return;
-
-    const getScrollTop = () => {
-      return window.scrollY || window.pageYOffset || 0;
-    };
-
-    const handleWheel = (e) => {
-      const scrollTop = getScrollTop();
-      const atTop = scrollTop <= 0;
-
-      const shouldZoomOut = e.deltaY < 0 && atTop && !isZoomedRef.current;
-      const shouldZoomIn = e.deltaY > 0 && isZoomedRef.current;
-
-      if (!shouldZoomIn && !shouldZoomOut) {
-        return;
-      }
-
-      e.preventDefault();
-
-      if (shouldZoomOut) {
-        setIsZoomed(true);
-        navElement.classList.add("zoom_out");
-        navZoomAppliedRef.current = true;
-      } else if (shouldZoomIn) {
-        setIsZoomed(false);
-        navElement.classList.remove("zoom_out");
-        navZoomAppliedRef.current = false;
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-
-    // 5. 클린업 함수
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      if (navZoomAppliedRef.current) {
-        navElement.classList.remove("zoom_out");
-        navZoomAppliedRef.current = false;
-      }
-    };
-  }, [isHeroActive]);
-
+  
   return (
     // 6. HeroSection 자신에게도 isZoomed 상태에 따라 클래스 적용
     <div ref={heroRef} className={`hero ${isZoomed ? "zoom_out" : ""}`.trim()}>
@@ -357,20 +309,7 @@ export default function HeroSection() {
             <p>피봇 변경</p>
           </div>
 
-          <div className="scroll">
-          <svg viewBox="0 0 43 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.406006" y="0.406006" width="29.2854" height="40.0328" rx="14.6427" stroke="white" strokeWidth="0.81225"/>
-<path d="M0.4646 16.2971H29.8385" stroke="white" strokeWidth="0.81225"/>
-<path d="M15.1548 0.406006L15.1548 16.2968" stroke="white" strokeWidth="0.81225"/>
-<rect x="12.0505" y="9.22607" width="5.99669" height="10.8211" rx="2.99834" fill="#282828" stroke="white" strokeWidth="0.81225"/>
-<path d="M37.3628 11.9583L37.3628 1.67944" stroke="white" strokeWidth="0.81225"/>
-<path d="M32.2239 6.81787L37.3638 1.67799L42.5036 6.81787" stroke="white" strokeWidth="0.81225"/>
-</svg>
 
-
-            <span>SCROLL</span>
-            <p>팀 오브젝트</p>
-          </div>
         </div>
       </div>
 

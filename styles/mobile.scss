@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap");
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+body {
+  position: relative;
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  font-family: "Pretendard";
+  color: #e1e1e1;
+  line-height: 1.35;
+  letter-spacing: -0.03rem;
+}
+
+.d-day > div {
+  //   position: absolute;
+  display: flex;
+  width: 93.9%;
+  margin: 7.04vh 3.125vw 4.62vh;
+}
+
+.delight {
+  font-size: 1.25vw;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  justify-content: center;
+  padding-top: 2vh;
+  svg {
+    width: 34.45vw;
+  }
+}
+
+.object {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  justify-content: center;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+
+
+.countDown {
+  position: absolute;
+  font-family: "Pretendard", sans-serif;
+  font-size: 5.34vw;
+  font-weight: 500;
+  justify-content: center;
+  text-align: center;
+  bottom: 13vh;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 3.82vh 5.09vw;
+  }
+
+  .d-day {
+    width: 89.82%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .info {
+  position: absolute;
+  color: rgba(225, 225, 225, 0.3);
+  font-size: 0.75vw;
+  justify-content: space-between;
+  bottom: 4.72vh;
+  p {
+    margin: 0;
+  }
+
+  p:first-child {
+    text-align: left;
+  }
+  p:nth-child(2) {
+    text-align: center;
+    margin-left: -4vw;
+  }
+  p:last-child {
+    text-align: right;
+  }
+}
+  }
+
+  .d-day > div {
+    justify-content: center;
+  }
+
+  .delight {
+    font-size: 3.09vw;
+    padding-top: 6.5vh;
+  }
+
+  .logo {
+    padding-top: 1.5vh;
+    svg {
+      width: 76.42vw;
+    }
+  }
+
+  .object {
+    position: absolute;
+    width: 100vw;
+    max-width: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .countDown {
+    position: absolute;
+    bottom: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5.34vw;
+    bottom: 13vh;
+  }
+
+  .countDown-colon {
+    margin-left: 1vw;
+  }
+
+  .info {
+    position: absolute;
+    height: 92.36%;
+    margin: auto 5.09vw;
+    display: block;
+    font-size: 2.04vw;
+    line-height: 1.4;
+    letter-spacing: 0;
+    p {
+      position: absolute;
+      margin: 0;
+      width: 100vw;
+    }
+    p:first-child {
+      top: 1vh;
+      left: 1.5vw;
+    }
+    p:last-child {
+      top: 1vh;
+      right: 1.5vw;
+    }
+    p:nth-child(2) {
+      bottom: 1vh;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-left: 0;
+    }
+  }
+}

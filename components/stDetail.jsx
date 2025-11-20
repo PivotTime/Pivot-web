@@ -98,7 +98,10 @@ export function StudentDetail({ student, onClick }) {
         </div>
 
         <div className="overviewList">
+          {student.portfolioSrc && 
           <div className="overviewBox">
+            
+            <>
             <p className="contentsName">Portfolio</p>
             <div className="portfolio">
 
@@ -119,7 +122,9 @@ export function StudentDetail({ student, onClick }) {
               </span>
               </a>
             </div>
-          </div>
+            </>
+
+          </div>}
           <div className="overviewBox">
             <p className="contentsName">Contact</p>
             <p className="email"> {student.eMail}</p>
