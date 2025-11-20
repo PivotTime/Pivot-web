@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PIVOTTIME } from "../components/svgCode";
-import Line3D from "../components/mainSections/3dKeyVisual/line3D";
-import "../styles/mobile.scss";
+import { PIVOTTIME } from "../../../components/svgCode";
+import Line3D from "../../../components/mainSections/3dKeyVisual/line3D";
+import "../../../styles/mobile.scss";
 
 const MOBILE_AUTO_ROTATE_SPEED = 0.003;
 
@@ -15,7 +15,7 @@ export default function Mobile() {
       return undefined;
     }
 
-    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     const updateMatch = (event) => setIsMobile(event.matches);
 
     // 초기 상태 동기화
