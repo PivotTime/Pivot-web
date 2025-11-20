@@ -64,9 +64,7 @@ export default function Curriculum() {
   const [careerRef, isCareerVisible] = useIntersectionObserver(careerOptions);
 
   return (
-            <WindowIntroWrapper
-            pageName={"커리쿨럼"}
-            children={
+
     <main className="curriculum visible">
       <img
         className="webImage"
@@ -640,9 +638,9 @@ export default function Curriculum() {
             />
           </svg>
         </div>
-        <div className="infoBox">
+        
           <InfoBox />
-        </div>
+        
       </section>
 
       <section ref={convergenceRef} className={`convergence-section ${isConvergenceVisible ? "visible" : ""}`}>
@@ -1669,6 +1667,6 @@ export default function Curriculum() {
           </div>
         </div>
       </section>
-    </main>}/>
+    </main>
   );
 }

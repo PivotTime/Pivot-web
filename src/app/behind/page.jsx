@@ -51,9 +51,9 @@ export default function Behind() {
   }, [isAutoScrolling, windowLoaded]);
 
   return (
-    <WindowIntroWrapper
-      pageName={"비하인드"}
-      children={
+  
+      // pageName={"비하인드"}
+ 
         <div className="BehindPage">
           <div className="videoPlaceHolder">
             <video
@@ -406,7 +406,7 @@ export default function Behind() {
             </div>
           </div>
         </div>
-      }
-    />
+     
+    
   );
 }

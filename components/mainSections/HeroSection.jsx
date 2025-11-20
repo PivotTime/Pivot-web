@@ -374,7 +374,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <TeamObjects submissions={teamObjects} isZoomed={isZoomed} />
+      {/* <TeamObjects submissions={teamObjects} isZoomed={isZoomed} /> */}
 
       <div
         className="main-object"

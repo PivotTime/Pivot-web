@@ -5,8 +5,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import responses from "../../../lib/data/gpArchive.json";
-import "../../../styles/gpArchiveTxt.scss";
+import responses from "../../../lib/data/gfArchive.json";
+import "../../../styles/gfArchiveTxt.scss";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -426,7 +426,7 @@ export default function GfArchiveTxt() {
 
   return (
     <section className="gfArchiveTxt" onClick={handleBackgroundClick}>
-      <img className="webImage" src="/images/GET FEVER TXT.png" alt="GET FEVER TXT.png" />
+      {/* <img className="webImage" src="/images/GET FEVER TXT.png" alt="GET FEVER TXT.png" /> */}
       <Link
         href="/getFever?section=archive"
         className={`undo ${selectedCard ? "is-dimmed" : ""}`}

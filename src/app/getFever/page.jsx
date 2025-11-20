@@ -6,8 +6,12 @@ import WindowIntroWrapper from "../../../components/loading";
 
 export default function GetFeverPage() {
   return (
-    <Suspense fallback={<WindowIntroWrapper children={<></>}/>}>
-      <GetFeverClientWrapper />
+    <Suspense fallback={<></>}>
+      <WindowIntroWrapper
+      children={<GetFeverClientWrapper />}
+      
+
+      />
     </Suspense>
   );
 }

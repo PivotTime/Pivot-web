@@ -209,9 +209,7 @@ export default function GuestBook() {
   const hasNoComments = allComment.every((col) => col.length === 0);
 
   return (
-            <WindowIntroWrapper
-            pageName={"메세지"}
-            children={
+  
     <>
       <main className="GuestBook">
         <div className="addMassageContainer">
@@ -299,6 +297,6 @@ export default function GuestBook() {
         </div>
       </main>
       <Footer />
-    </>}/>
+    </>
   );
 }

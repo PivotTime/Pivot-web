@@ -13,7 +13,7 @@
   padding-bottom: 40vh;             // clamp(200px, 40vh, 240px)
   display: flex;
   flex-direction: column;
-  gap: 9vh;
+  gap: 3vw;
 
   .notFind {
     color: #ffffff;
@@ -32,7 +32,14 @@
       display: flex;
       justify-content: space-between;
       border-bottom: #ffffff solid 1px;
-      padding-bottom: 15px;
+      padding-bottom: .8vw;
+
+         >svg{
+        position: absolute;
+        right: .8vw;
+        pointer-events: none;
+      }
+
     }
 
     .searchInput {
@@ -46,28 +53,29 @@
       font-size: 0.8vw;
       letter-spacing: -0.04em;
 
+   
       &::placeholder {
         color: #ffffff;
-        opacity: 1;
+        opacity: 0.8;
         transition: opacity 0.15s ease-in-out;
         font-weight: 400;
       }
 
       &::-webkit-input-placeholder {
         color: #ffffff;
-        opacity: 1;
+        opacity: 0.8;
       }
       &::-moz-placeholder {
         color: #ffffff;
-        opacity: 1;
+        opacity: 0.8;
       }
       &:-ms-input-placeholder {
         color: #ffffff;
-        opacity: 1;
+        opacity: 0.8;
       }
       &:-moz-placeholder {
         color: #ffffff;
-        opacity: 1;
+        opacity: 0.8;
       }
 
       &:focus,
@@ -90,7 +98,7 @@
       font-weight: 500;
       line-height: 132%; /* 29.04px */
       letter-spacing: -0.04em;
-      gap: 22px;
+      gap: 2vw;
 
       > div {
         color: #8e8e8e;

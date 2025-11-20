@@ -215,6 +215,7 @@ nav {
   position: fixed;
   width: 93.85vw;
   display: flex;
+
   align-items: center;
   justify-content: space-between;
   margin: 2.1vw 3.15vw;
@@ -345,11 +346,13 @@ nav {
   align-items: center;
   justify-content: center;
   position: relative;
+  height: 2.29vw;
   background-color: $nav-color;
   backdrop-filter: blur(7.5px);
   gap: 0.25vw;
   border-radius: 1.56vw;
   padding: 0.3vw 0.3vw;
+  padding-right: 0.7vw;
 
   .nav-marker-mask {
     position: absolute;
@@ -420,8 +423,101 @@ nav {
   }
 }
 
+.hamburgerBtn{
+  position: relative;
+  height: 1vw;
+  width: 1.4vw;
+  padding: 0.2vw;
+  z-index: 1001;
+
+  .blackBg{
+    position: absolute;
+    border-radius: 100%;
+    width: 1.2vw;
+    height: 1.2vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 400;
+    background-color: #262626;
+    pointer-events: none;
+    transition: 
+  width 1s ease-out,
+  height 1s ease-out;
+
+
+  }
+  .line{
+    position: absolute;
+    width: 80%;
+    height: 0.1vw;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.2s ease-out;
+    transform-origin: center;
+    z-index: 1001;
+    cursor: pointer;
+&.A {
+  top: 20%;
+}
+&.B {
+  top: 50%;
+}
+&.C {
+  top: 80%;
+}}
+
+&:hover {
+  .line {
+    top: 50%;
+    transform: translateX(-50%) rotate(30deg); // ← 이렇게
+    &.B {
+      transform: translateX(-50%) rotate(90deg);
+      
+    }
+    &.C {
+      transform: translateX(-50%) rotate(-30deg);
+    }
+  }
+}
+
+  &.active{
+    .line {
+    top: 50%;
+    transform: translateX(-50%) rotate(45deg); // ← 이렇게
+    &.B {
+      transform: translateX(-50%) rotate(45deg);
+      opacity: 0;
+    }
+    &.C {
+      transform: translateX(-50%) rotate(-45deg);
+    }
+  }
+  .blackBg{
+    opacity: 1;
+        width: 350vw;
+    height: 350vw;
+    pointer-events: none;
+       transition: 
+  width 1s ease-in,
+  height 1s ease-in;
+
+
+  
+
+      &.close{
+    width: 0vw;
+    height: 0vw;
+  }
+  }
+  }
+}
+
 
 .hamburgerModal{
+  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -433,12 +529,13 @@ nav {
   height:100vh;
   padding: 20vh 12vw;
   padding-bottom: 17vh;
-  background-color: #000;
+  // background-color: #000;
   z-index: 500;
 
   .btnList{
     display: flex;
     width: 100%;
+    pointer-events: auto;
   }
   .LogoPlaceHolder{
     position: relative;
@@ -469,12 +566,32 @@ nav {
     height: 100%;
     width: 100%;
 
+    > :nth-child(1){
+      animation: fadeIn 0.3s 0.6s ease-out forwards;
+    }
+    > :nth-child(2){
+      animation: fadeInLil 0.3s 0.7s ease-out forwards;
+    }
+    > :nth-child(3){
+      animation: fadeIn 0.3s 0.8s ease-out forwards;
+    }
+    > :nth-child(4){
+      animation: fadeIn 0.3s 1s ease-out forwards;
+    }
+    > :nth-child(5){
+      animation: fadeInLil 0.3s 1.05s ease-out forwards;
+    }
+        > :nth-child(6){
+      animation: fadeIn 0.3s 1.07s ease-out forwards;
+    }
+
+
 
     .middleLine{
       width: 100%;
       height: 1px;
       background-color: #E1E1E1;
-      opacity: 0.2;
+      opacity: 0;
     }
     .BtnList{
       position: relative;
@@ -482,23 +599,20 @@ nav {
       height: auto;
       display: flex;
       justify-content: space-between;
+      opacity: 0;
       .Btn{
         display: flex;
         width: 30%;
         height: 2.8vw;
-        transition: all 0.3s ease-in-out;
         cursor: pointer;
+        pointer-events: all;
 
 
-      path, rect{
-        transition: all 0.3s ease-in-out;
-      }
+
 
       &:hover{
         color: #0051ff;
-        .gpGpInfo{
-         color: #0051ff; 
-        }
+
         
         svg{
           rect,
@@ -522,7 +636,7 @@ nav {
         }
 
         >span{
-          font-size: clamp(55px, 4.11vw, 77px);
+          font-size: 4.11vw;
           display: flex;
           align-items: center;
           font-weight: 400;
@@ -559,6 +673,7 @@ nav {
       display: flex;
       align-items: center;
       gap: clamp(50px, 5.21vw, 100px);
+      opacity: 0;
 
       .bottomInfo{
         display: flex;
@@ -614,4 +729,29 @@ nav {
       }
     }
   }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLil{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 0.2;
+  }
+}
+
+
+
+.blinking {
+      color: #0051ff;
+    fill: #0051ff;
 }

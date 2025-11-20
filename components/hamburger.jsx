@@ -1,30 +1,35 @@
 import "../styles/nav.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export function Hamburger({ exit }) {
+  const [animating, setAnimating] = useState(false);
+  const router = useRouter();
+
+  const handleClick = (e, href) => {
+    e.preventDefault();
+    if (animating) return;
+
+    const target = e.currentTarget;
+    setAnimating(true);
+    target.classList.add("blinking");
+
+    setTimeout(() => {
+      target.classList.remove("blinking");
+      setAnimating(false);
+      exit();
+      router.push(href);
+    }, 1000);
+  };
+
   return (
     <div className="hamburgerModal">
-      <div
-        className="exitBtn"
-        onClick={exit}
-      >
-        <svg viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M7.65723 19.3652L20.3872 6.63524"
-            stroke="black"
-            strokeWidth="2"
-          />
-          <path
-            d="M7.66406 6.63672L20.3941 19.3667"
-            stroke="black"
-            strokeWidth="2"
-          />
-        </svg>
-      </div>
+      
       <div className="BtnPlaceHolder">
         <div className="BtnList">
-          <Link href="/getFever" className="Btn top" onClick={exit}>
+          <Link href="/getFever" className="Btn top" onClick={(e) => handleClick(e, "/getFever")}>
             <p className="gpGpInfo">120명의 열정이 모여 만들어진 아카이브</p>
             <div>
               <svg
@@ -39,7 +44,7 @@ export function Hamburger({ exit }) {
               </svg>
             </div>
           </Link>
-          <Link href="/goPivot" className="Btn top" onClick={exit}>
+          <Link href="/goPivot" className="Btn top" onClick={(e) => handleClick(e, "/goPivot")}>
             <p className="gpGpInfo">전환이 모여 궤적을 이루는 나만의 피봇</p>
             <div>
               <svg
@@ -142,7 +147,7 @@ export function Hamburger({ exit }) {
         </div>
         <div className="middleLine"></div>
         <div className="BtnList">
-          <Link href="/projects" className="Btn middle" onClick={exit}>
+          <Link href="/projects" className="Btn middle" onClick={(e) => handleClick(e, "/projects")}>
             <svg
               viewBox="0 0 50 57"
               fill="none"
@@ -168,7 +173,7 @@ export function Hamburger({ exit }) {
             <span>roject</span>
             <p>20</p>
           </Link>
-          <Link href="/guestBook" className="Btn middle" onClick={exit}>
+          <Link href="/guestBook" className="Btn middle" onClick={(e) => handleClick(e, "/guestBook")}>
             <svg
               viewBox="0 0 50 57"
               fill="none"
@@ -204,7 +209,7 @@ export function Hamburger({ exit }) {
           <div className="Btn middle"></div>
         </div>
         <div className="BtnList">
-          <Link href="/students" className="Btn middle" onClick={exit}>
+          <Link href="/students" className="Btn middle" onClick={(e) => handleClick(e, "/students")}>
             <svg
               viewBox="0 0 50 57"
               fill="none"
@@ -243,7 +248,7 @@ export function Hamburger({ exit }) {
             <p>120</p>
           </Link>
 
-          <Link href="/behind" className="Btn middle" onClick={exit}>
+          <Link href="/behind" className="Btn middle" onClick={(e) => handleClick(e, "/behind")}>
             <svg
               viewBox="0 0 50 57"
               fill="none"
@@ -277,7 +282,7 @@ export function Hamburger({ exit }) {
 
             <span>ehind</span>
           </Link>
-          <Link href="/curriculum" className="Btn middle" onClick={exit}>
+          <Link href="/curriculum" className="Btn middle" onClick={(e) => handleClick(e, "/curriculum")}>
             <svg
               viewBox="0 0 50 57"
               fill="none"

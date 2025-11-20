@@ -376,7 +376,7 @@ export default function ProjectsClient() {
 
   return (
     <WindowIntroWrapper
-      pageName={"작품"}
+      // pageName={"작품"}
       children={
         <>
           <div className="projects blackBg">

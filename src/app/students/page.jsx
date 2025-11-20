@@ -110,7 +110,7 @@ export default function Students() {
 
   return (
     <WindowIntroWrapper
-    pageName={"학생 목록"}
+    // pageName={"학생 목록"}
     children={
     <>
       {mounted && detailModal && selectStudent && (
@@ -129,7 +129,7 @@ export default function Students() {
               onClick={() => listHandler('All')}
               className={selectedButton === 'All' ? 'active' : ''}
             >
-              All
+              ALL
             </div>
             <div
               onClick={() => listHandler('Planner')}

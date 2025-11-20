@@ -25,7 +25,49 @@ const TAB_ITEMS = [
   { id: "pivot", label: "GO PIVOT" },
 ];
 
-const NAV_ITEMS = [
+
+// 다른 파일에서 이 네비게이션 컴포넌트를 사용할 수 있도록 Nav 함수를 기본으로 내보냅니다.
+export default function Nav({ setMouseParticlesEnabled }) {
+
+  const [hamburger,setHamburger] = useState(false)
+  const [hamburgerExit,setHamburgerExit] = useState(false)
+
+
+  function closeModal(){
+    setHamburgerExit(true)
+    setTimeout(()=> {
+      setHamburgerExit(true)
+      setHamburger(false)
+    }, 1000)
+
+    setTimeout(()=> {
+      setHamburgerExit(false)
+    }, 1500)
+  }
+
+  
+
+
+  // Tab_Switcher 상태
+  const [activeTab, setActiveTab] = useState("none");
+  const [hoveredTab, setHoveredTab] = useState(null);
+  const containerRef = useRef(null);
+  const markerRef = useRef(null);
+  const tabRefs = useRef({});
+
+  // .nav 상태
+  const [activeNavTab, setActiveNavTab] = useState(null);
+  const [hoveredNavTab, setHoveredNavTab] = useState(null);
+  const navContainerRef = useRef(null);
+  const navMarkerRef = useRef(null);
+  const navTabRefs = useRef({});
+
+  const [isToggled, setIsToggled] = useState(false);
+
+  const highlightTarget = activeTab !== "none" ? activeTab : hoveredTab;
+  const highlightNavTarget = activeNavTab !== null ? activeNavTab : hoveredNavTab;
+
+  const NAV_ITEMS = [
     { id: "project", content: "Project" },
     {
       id: "line1",
@@ -46,44 +88,16 @@ const NAV_ITEMS = [
     {
       id: "hamburger",
       content: (
-        <svg
-          width="1.55vw"
-          height="1.35vw"
-          viewBox="0 0 28 26"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M5.0249 7H23.0278" strokeWidth="2" />
-          <path d="M5.0249 13H23.0278" strokeWidth="2" />
-          <path d="M5.0249 19H23.0278" strokeWidth="2" />
-        </svg>
+        <div className={`hamburgerBtn ${hamburger ? `active` : ``}`}>
+          <div className="line A"></div>
+          <div className="line B"></div>
+          <div className="line C"></div>
+          <div className={`blackBg ${hamburgerExit ? `close` : ``}`}></div>
+        </div>
       ),
     },
   ];
 
-// 다른 파일에서 이 네비게이션 컴포넌트를 사용할 수 있도록 Nav 함수를 기본으로 내보냅니다.
-export default function Nav({ setMouseParticlesEnabled }) {
-
-  const [hamburger,setHamburger] = useState(false)
-
-  // Tab_Switcher 상태
-  const [activeTab, setActiveTab] = useState("none");
-  const [hoveredTab, setHoveredTab] = useState(null);
-  const containerRef = useRef(null);
-  const markerRef = useRef(null);
-  const tabRefs = useRef({});
-
-  // .nav 상태
-  const [activeNavTab, setActiveNavTab] = useState(null);
-  const [hoveredNavTab, setHoveredNavTab] = useState(null);
-  const navContainerRef = useRef(null);
-  const navMarkerRef = useRef(null);
-  const navTabRefs = useRef({});
-
-  const [isToggled, setIsToggled] = useState(false);
-
-  const highlightTarget = activeTab !== "none" ? activeTab : hoveredTab;
-  const highlightNavTarget = activeNavTab !== null ? activeNavTab : hoveredNavTab;
 
   const handleLogoClick = () => {
     setActiveTab("none");
@@ -201,7 +215,7 @@ export default function Nav({ setMouseParticlesEnabled }) {
         {hamburger && 
         
         <Hamburger
-          exit={() => setHamburger(false)}
+          exit={() => closeModal()}
         />
         }
         <div>
@@ -359,7 +373,8 @@ export default function Nav({ setMouseParticlesEnabled }) {
                     }}
                     onClick={
                       item.id === "hamburger"
-                        ? () => setHamburger(true)
+                        ? () => {        if (hamburger) closeModal();
+        else setHamburger(true);}
                         : () => handleNavTabToggle(item.id)
                     }
                     onMouseEnter={() => setHoveredNavTab(item.id)}

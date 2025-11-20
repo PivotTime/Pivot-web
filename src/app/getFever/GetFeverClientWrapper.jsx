@@ -5,7 +5,7 @@ import WindowIntroWrapper from "../../../components/loading";
 
 const GetFeverClient = dynamic(() => import("./GetFeverClient"), {
   ssr: false,
-  loading: () => <WindowIntroWrapper children={<></>}/>,
+  loading: () => <></>,
 });
 
 export default function GetFeverClientWrapper() {

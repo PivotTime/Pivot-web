@@ -2,7 +2,7 @@ export default function InfoBox() {
   return (
     <div className="infoBox" style={styles.infoBox}>
       <div className="left" style={styles.left}>
-        <div className="title" style={styles.nowrap}>
+        <div className="title" style={{...styles.nowrap, ...styles.title}}>
           Kaywon University of Arts &amp; Design
           <br />
           32nd Delight Insight
@@ -35,6 +35,12 @@ const styles = {
     lineHeight: 1.35,
     pointerEvents: 'none',
     paddingBottom: "4.5vh", 
+  },
+  title:{
+    textAlign:"left",
+    fontSize: 'clamp(0.75rem, 0.73vw, 1.2rem)',
+    fontWeight: 500,
+    color: '#fff',
   },
   link:{
     textAlign:"left",

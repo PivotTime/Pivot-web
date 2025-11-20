@@ -586,7 +586,7 @@ export default function GoPivot() {
 
   return (
     <WindowIntroWrapper
-      pageName={"피봇 만들기"}
+      // pageName={"피봇 만들기"}
       children={
         <>
           <MouseParticlesToggle enabled={mouseParticlesEnabled} />

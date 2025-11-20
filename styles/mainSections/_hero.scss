@@ -148,6 +148,10 @@ $zoom-out-scale-square: 0.3;
   overflow: hidden;
   box-sizing: border-box;
 
+  .infoBox{
+    margin-top: 0!important;
+  }
+
   .webImage {
     position: absolute;
     width: 100vw;

@@ -158,7 +158,7 @@ export default function ArchiveClient() {
   }, [loadMoreSubmissions, loading]);
 
   if (loading) {
-    return <WindowIntroWrapper pageName={"피봇"} children={<></>} />;
+    return <WindowIntroWrapper  children={<></>} />;
   }
 
   if (error) {
@@ -194,7 +194,7 @@ export default function ArchiveClient() {
         onWheel={handleWheelScroll}
       >
         {loadingCustomObjects ? (
-          <WindowIntroWrapper pageName={"피봇"} children={<></>} />
+          <WindowIntroWrapper  children={<></>} />
         ) : (
           submissions.map((submission) => (
             <ArchiveCard

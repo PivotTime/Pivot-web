@@ -9,7 +9,7 @@ import { gsap } from "gsap"; // GSAP 애니메이션 라이브러리
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // 스크롤 위치 기반 애니메이션 플러그인
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"; // 부드러운 스크롤 이동 플러그인
 import { useRouter, useSearchParams } from "next/navigation";
-import archiveResponses from "../../../lib/data/gpArchive.json";
+import archiveResponses from "../../../lib/data/gfArchive.json";
 
 // ScrollTrigger, ScrollToPlugin 플러그인 등록
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
