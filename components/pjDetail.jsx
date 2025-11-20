@@ -68,6 +68,8 @@ export function ProjectDetail({ project, closeModal }) {
 
                 <p className="explain">{project.explain}</p>
 
+
+              
                 <a
                   className="GoWebsite"
                   href={getProjectLink(project.id)}
@@ -185,11 +187,11 @@ export function ProjectDetail({ project, closeModal }) {
                 </div>
               ))}
             </div>
-            <div className="teamNameBox">TRAM. {project.teamName}</div>
+            <div className="teamNameBox">TEAM. {project.teamName}</div>
             <div className="teamHistory">
               <div className="HistoryCard ImagePlaceHolder">
                 <Image
-                  alt={`${project.teamName} 추억 사진 1`}
+                  alt={`${project.teamName} 추억d 사진 1`}
                   src={`/images/team/history/${project.id}.webp`}
                   size="auto"
                   fill

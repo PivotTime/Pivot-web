@@ -424,6 +424,7 @@ nav {
 }
 
 .hamburgerBtn{
+  pointer-events: all;
   position: relative;
   height: 1vw;
   width: 1.4vw;
@@ -440,8 +441,9 @@ nav {
     transform: translate(-50%, -50%);
     opacity: 0;
     z-index: 400;
-    background-color: #262626;
-    pointer-events: none;
+    background-color: #1E1E1E;
+    pointer-events: all;
+    cursor:default ;
     transition: 
   width 1s ease-out,
   height 1s ease-out;
@@ -485,6 +487,7 @@ nav {
 
   &.active{
     .line {
+      cursor: pointer;
     top: 50%;
     transform: translateX(-50%) rotate(45deg); // ← 이렇게
     &.B {
@@ -499,7 +502,8 @@ nav {
     opacity: 1;
         width: 350vw;
     height: 350vw;
-    pointer-events: none;
+        pointer-events: all;
+    cursor:default ;
        transition: 
   width 1s ease-in,
   height 1s ease-in;
@@ -517,7 +521,7 @@ nav {
 
 
 .hamburgerModal{
-  pointer-events: all;
+  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
