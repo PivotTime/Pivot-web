@@ -15,11 +15,42 @@ export default function VisualSection() {
   const labelKorRef = useRef(null); // 1. 한글 라벨 Ref 추가
   const labelEngRef = useRef(null); // 2. 영문 라벨 Ref 추가
   const finalLabelsRef = useRef(null); // 최종 고정 라벨 컨테이너
+  const graphicLabelsRef = useRef(null);
+
+  const labelStateRef = useRef("line");
+  const setLabelState = (state) => {
+    if (labelStateRef.current === state) return;
+    labelStateRef.current = state;
+    if (graphicLabelsRef.current) {
+      graphicLabelsRef.current.dataset.state = state;
+    }
+  };
 
   useEffect(() => {
     const sectionEl = sectionRef.current;
     const objectsEl = objectsRef.current;
     if (!sectionEl || !objectsEl) return;
+    setLabelState("line");
+
+    // 섹션 페이드인을 위한 IntersectionObserver
+    const fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio >= 0.8) {
+            gsap.to(sectionEl, {
+              opacity: 1,
+              duration: 1,
+              ease: "power2.out",
+            });
+          }
+        });
+      },
+      { threshold: [0, 0.8, 1] }
+    );
+
+    // 초기 상태: 투명하게 설정
+    gsap.set(sectionEl, { opacity: 0 });
+    fadeObserver.observe(sectionEl);
 
     // 3. ScrollTrigger만 등록
     gsap.registerPlugin(ScrollTrigger);
@@ -27,10 +58,6 @@ export default function VisualSection() {
     const line = objectsEl.querySelector(".line");
     const circle = objectsEl.querySelector(".circle");
     const square = objectsEl.querySelector(".square");
-    // 각 오브젝트의 canvas 요소 (스케일 조정 전용)
-    const lineCanvas = line?.querySelector("canvas");
-    const circleCanvas = circle?.querySelector("canvas");
-    const squareCanvas = square?.querySelector("canvas");
     const labelKor = labelKorRef.current; // 4. 라벨 element 가져오기
     const labelEng = labelEngRef.current; // 4. 라벨 element 가져오기
     const finalLabels = finalLabelsRef.current; // 최종 라벨 래퍼
@@ -58,7 +85,7 @@ export default function VisualSection() {
 
     // --- 6. [수정] 라벨 텍스트를 포함한 페이드인/아웃 타임라인 ---
     const fadeDuration = 0.8; // 교체(페이드)되는 시간 (스크롤 기준)
-    const holdDuration = 3.0; // 각 위치에서 잠시 머무는 시간 (스크롤 기준)
+    const holdDuration = 5.0; // 각 위치에서 잠시 머무는 시간 (스크롤 기준)
 
     // 1. "Line" + "도전" 상태로 1초간 머뭄
     tl.to({}, { duration: holdDuration });
@@ -78,19 +105,13 @@ export default function VisualSection() {
     // 페이드 아웃 직후, 텍스트와 *위치*를 즉시 변경(set)
     tl.set(labelKor, {
       textContent: "창의성",
-      top: "9.5vw", // (여기에 '창의성' KOR top 위치 입력)
-      left: "13vw", // (여기에 '창의성' KOR left 위치 입력)
-      right: "auto",
     });
     tl.set(
       labelEng,
       {
         textContent: "CREATIVITY",
-        top: "32vw", // (여기에 '창의성' ENG top 위치 입력)
-        right: "3.5vw", // (여기에 '창의성' ENG right 위치 입력)
-        left: "auto",
       },
-      "<" // "<" = labelKor와 동시에 실행
+      "<"
     );
 
     // "Circle"과 "창의성" 라벨 동시 페이드 인
@@ -116,21 +137,15 @@ export default function VisualSection() {
 
     // 페이드 아웃 직후, 텍스트와 *위치*를 즉시 변경(set)
     tl.set(labelKor, {
-      textContent: "균형", // (플레이스홀더)
-      top: "38.7vw", // (여기에 새 KOR top 위치 입력)
-      left: "12vw", // (여기에 새 KOR left 위치 입력)
-      right: "auto", // (필요시 'auto'로 초기화)
+      textContent: "균형",
     });
     tl.set(
       labelEng,
       {
-        textContent: "BALANCE", // (플레이스홀더)
-        top: "6.1vw", // (여기에 새 ENG top 위치 입력)
-        right: "2vw", // (여기에 새 ENG right 위치 입력)
-        left: "auto", // (필요시 'auto'로 초기화)
+        textContent: "BALANCE",
       },
       "<"
-    ); // "<" = labelKor와 동시에 실행
+    );
 
     // "Square"와 "균형" 라벨 동시 페이드 인 (새 위치에서)
     tl.to([square, labelKor, labelEng], {
@@ -149,42 +164,49 @@ export default function VisualSection() {
       "final"
     );
 
-    // 최종 위치 고정(set) - 보이지 않는 상태에서 적용
-    tl.set(line, { x: "7vw", y: "-14vw" });
-    tl.set(circle, { x: "-16vw", y: "2.6vw" });
-    tl.set(square, { x: "7vw", y: "10.5vw" });
-
-    // 최종 스케일 즉시 세팅 (캔버스 기준) - 보이지 않는 상태에서 적용
-    if (lineCanvas || circleCanvas || squareCanvas) {
-      tl.set([lineCanvas, circleCanvas, squareCanvas].filter(Boolean), {
-        scale: (i) => [0.65, 0.45, 0.36][i] ?? 1,
-        transformOrigin: "50% 50%",
-      });
-    }
-
     // 페이드인 전에 오브젝트 자체도 숨김 상태 보장
     tl.set([line, circle, square], { autoAlpha: 0 });
     // 세 오브젝트 동시 페이드인
     tl.to([line, circle, square], { autoAlpha: 1, duration: fadeDuration });
-    // 최종 단계 진입 시 호버/포인터 상호작용 차단
-    tl.set(objectsEl, { pointerEvents: "none" }, "<");
-    tl.add(() => objectsEl.classList.add("no-interaction"), "<");
     tl.to([labelKor, labelEng], { autoAlpha: 0, duration: fadeDuration }, "<");
     if (finalLabels) {
       tl.to(finalLabels, { autoAlpha: 1, duration: fadeDuration }, "<");
     }
 
-    // 6-1. 최종 단계에서 각 오브젝트 스케일을 즉시 세팅 (애니메이션 없이)
-    if (lineCanvas || circleCanvas || squareCanvas) {
-      tl.set([lineCanvas, circleCanvas, squareCanvas].filter(Boolean), {
-        scale: (i) => [0.65, 0.45, 0.36][i] ?? 1,
-        transformOrigin: "50% 50%",
-      });
-    }
 
-    // 6-2. 이동 애니메이션 제거(이미 위에서 set으로 위치 고정 후 페이드인)
+    const change1Progress = tl.labels.change1 / tl.duration();
+    const change2Progress = tl.labels.change2 / tl.duration();
+    const finalProgress = tl.labels.final / tl.duration();
+    let isFinalActive = false;
+    const updateLabelStateByProgress = (progress) => {
+      if (progress < change1Progress - 0.001) {
+        setLabelState("line");
+      } else if (progress < change2Progress - 0.001) {
+        setLabelState("circle");
+      } else {
+        setLabelState("square");
+      }
+
+      const shouldBeFinal = progress >= finalProgress - 0.001;
+      if (shouldBeFinal && !isFinalActive) {
+        isFinalActive = true;
+        objectsEl.classList.add("no-interaction");
+      } else if (!shouldBeFinal && isFinalActive) {
+        isFinalActive = false;
+        objectsEl.classList.remove("no-interaction");
+      }
+    };
+
+    updateLabelStateByProgress(0);
+    tl.eventCallback("onUpdate", () => {
+      updateLabelStateByProgress(tl.progress());
+    });
 
     return () => {
+      fadeObserver.disconnect();
+      if (objectsEl) {
+        objectsEl.classList.remove("no-interaction");
+      }
       if (tl.scrollTrigger) {
         tl.scrollTrigger.kill();
       }
@@ -194,6 +216,8 @@ export default function VisualSection() {
 
   return (
     <div className="visual" ref={sectionRef}>
+
+<img className="webImage" src="/images/visual.png" alt="visual.png" />
 
       <div className="txt-wrap">
         <div className="logo">
@@ -208,22 +232,25 @@ export default function VisualSection() {
       <div className="graphic">
         <div className="graphic-objects" ref={objectsRef}>
           <div className="graphic-slot line">
-            <Line3D />
+            <div className="graphic-slot__inner">
+              <Line3D />
+            </div>
           </div>
           <div className="graphic-slot circle">
-            <Circle3D interactive={true} isZoomed={false} />
+            <div className="graphic-slot__inner">
+              <Circle3D interactive={true} isZoomed={false} />
+            </div>
           </div>
           <div className="graphic-slot square">
-            <Square3D interactive={true} />
+            <div className="graphic-slot__inner">
+              <Square3D
+                interactive={true}
+                cameraOverrides={{
+                  interactive: { x: 300, y: 0, z: 800 },
+                }}
+              />
+            </div>
           </div>
-        </div>
-
-        {/* 7. 라벨에 ref 연결 */}
-        <div className="label kor" ref={labelKorRef}>
-          도전
-        </div>
-        <div className="label en" ref={labelEngRef}>
-          CHALLENGE
         </div>
 
         {/* 최종 상태에서만 보이는 새 라벨 세트 */}
@@ -330,6 +357,15 @@ export default function VisualSection() {
             </svg>
             <p>PROGRAMMING</p>
           </div>
+        </div>
+      </div>
+
+      <div className="graphic-labels" ref={graphicLabelsRef} data-state="line">
+        <div className="label kor" ref={labelKorRef}>
+          도전
+        </div>
+        <div className="label en" ref={labelEngRef}>
+          CHALLENGE
         </div>
       </div>
     </div>
