@@ -96,7 +96,11 @@ export function ProjectDetail({ project, closeModal }) {
                 <div className="overviewBox">
                   <div>
                     <p>매체</p>
-                    <span>{project.Media}</span>
+                    <span>
+                    {project.Media.map((m, i)=>(
+                      <span>{m}{i===project.Media.length -1 ? "" : ","} </span>
+                    ))}
+                    </span>
                   </div>
                   <div>
                     <p>주제</p>

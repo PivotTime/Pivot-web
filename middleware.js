@@ -4,7 +4,7 @@ export function middleware(req) {
   const url = req.nextUrl.clone();
 
 
-  const targetIso = "2025-11-21T10:00:00+09:00";
+  const targetIso = "2025-11-21T09:00:00+09:00";
   const now = new Date();
   const target = Date.parse(targetIso);
 
