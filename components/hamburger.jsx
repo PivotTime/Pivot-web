@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 export function Hamburger({ exit }) {
   const [animating, setAnimating] = useState(false);
+  const [selected, setSelected] = useState(false);
   const router = useRouter();
 
   const handleClick = (e, href) => {
@@ -14,6 +15,7 @@ export function Hamburger({ exit }) {
 
     const target = e.currentTarget;
     setAnimating(true);
+    setSelected(true)
     target.classList.add("blinking");
 
     setTimeout(() => {
@@ -21,15 +23,16 @@ export function Hamburger({ exit }) {
       setAnimating(false);
       exit();
       router.push(href);
+      
     }, 1000);
   };
 
   return (
     <div className="hamburgerModal">
       
-      <div className="BtnPlaceHolder">
+      <div className={`BtnPlaceHolder ${selected ? "fadeOut" : ""}`}>
         <div className="BtnList">
-          <Link href="/getFever" className="Btn top" onClick={(e) => handleClick(e, "/getFever")}>
+          <Link href="/getFever" className="Btn top" onClick={(e) => handleClick(e, "/getFever") }>
             <p className="gpGpInfo">120명의 열정이 모여 만들어진 아카이브</p>
             <div>
               <svg

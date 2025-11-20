@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "lib/util/getProjectId.js", "lib/util/projectLink.js"  ],
   "exclude": [
     "node_modules"
   ]

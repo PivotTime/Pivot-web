@@ -1,11 +1,11 @@
 "use client";
-import { getProjectLink } from "../lib/util/projectLink";
+import { getProjectLink } from "../lib/util/projectLink.js";
 import Image from "next/image";
 import "../styles/pjDetail.scss";
 
 import { useState } from "react"; // Import useState
 import { useRouter } from "next/navigation"; // Import useRouter
-import { array } from "p5";
+
 
 export function ProjectDetail({ project, closeModal }) {
   if (!project) {

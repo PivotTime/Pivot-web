@@ -2,10 +2,17 @@ import Image from "next/image";
 import '../styles/stDetail.scss';
 import { DeveloperPivot, DesignerPivot, PlannerPivot } from "./keyObject";
 import { getProjectIdByName } from "../lib/util/getProjectId";
+import { useRouter } from "next/navigation";
 
 export function StudentDetail({ student, onClick }) {
+  const router = useRouter();
 
-
+  const handleProjectClick = (projectName) => {
+    const projectId = getProjectIdByName(projectName);
+    if (projectId) {
+      router.push(`/pjDetails?id=${projectId}`);
+    }
+  };
 
   const roleText = (r) => {
     switch(r){
@@ -119,7 +126,7 @@ export function StudentDetail({ student, onClick }) {
           </div>
           <div className="overviewBox">
             <p className="contentsName">Project</p>
-            <div className="ImagePlaceHolder projectPoster">
+            <div className="ImagePlaceHolder projectPoster" onClick={() => handleProjectClick(student.project)}>
               <Image
                 alt={`${student.project} Poster image`}
                 src={`/images/project/wide/${getProjectIdByName(student.project)}.webp`}

@@ -10,6 +10,7 @@ export default function Behind() {
   const allCreditNames = CreditNames;
   const windowLoaded = useWindowLoaded();
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [animate, setAnimate] = useState(true)
 
   useEffect(() => {
     if (!windowLoaded) return; // Don't start until the window is fully loaded
@@ -220,7 +221,7 @@ export default function Behind() {
               />
             </svg>
           </div>
-          <div className="nameListBox">
+          <div className={`nameListBox ${animate ? 'scrollDown' : ''}`}>
            
             <div className="sec A">
               <CreditBox

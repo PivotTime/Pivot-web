@@ -164,7 +164,8 @@ $blue: #0051ff;
     p {
       @include body;
       line-height: 1.6;
-      padding-top: 1.42vh;
+      padding-top: 3.2vh;
+      margin: 0;
     }
 
     .logo svg {

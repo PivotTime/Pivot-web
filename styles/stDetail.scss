@@ -120,8 +120,8 @@
       .overviewBox {
         display: flex;
         gap: clamp(50px, 3.65vw, 70px);
-        font-weight: 500;
-                  letter-spacing: -0.03em;
+        font-weight: 400;
+        letter-spacing: -0.03em;
         .contentsName {
           font-size: globals.$fs-18-vw;
           font-weight: 600;
@@ -197,7 +197,8 @@
               position: absolute;
               padding: 0.1vw 0.4vw;
               border: #ffffff 1px solid;
-              font-size: clamp(9px, 0.625vw, 12px);
+              font-size: 0.8vw;
+              font-weight: 200;
               border-radius: 100;
               right: 16px;
               bottom: 18px;
