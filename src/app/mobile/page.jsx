@@ -39,7 +39,7 @@ export default function Mobile() {
   const cameraDistance = isMobile ? 650 : 400;
 
   return (
-    <div className="d-day">
+      <div className="mobile">
       <div className="delight">2025 DELIGHT INSIGHT</div>
       <div className="logo">
         <PIVOTTIME />

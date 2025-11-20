@@ -7,7 +7,8 @@
   font-weight: 500;
   font-display: swap;
 }
-body {
+
+.mobile {
   position: relative;
   background-color: #000;
   width: 100vw;
@@ -15,101 +16,32 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   margin: 0;
-  font-family: "Pretendard";
+  padding: 3.82vh 5.09vw;
+  font-family: "Pretendard", sans-serif;
   color: #e1e1e1;
   line-height: 1.35;
-  letter-spacing: -0.03rem;
-}
-
-.d-day > div {
-  //   position: absolute;
+  letter-spacing: -0.03em;
   display: flex;
-  width: 93.9%;
-  margin: 7.04vh 3.125vw 4.62vh;
-}
+  flex-direction: column;
+  align-items: center;
 
-.delight {
-  font-size: 1.25vw;
-  justify-content: center;
-  text-align: center;
-}
-
-.logo {
-  justify-content: center;
-  padding-top: 2vh;
-  svg {
-    width: 34.45vw;
-  }
-}
-
-.object {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  justify-content: center;
-  z-index: 0;
-  opacity: 0.5;
-}
-
-
-
-.countDown {
-  position: absolute;
-  font-family: "Pretendard", sans-serif;
-  font-size: 5.34vw;
-  font-weight: 500;
-  justify-content: center;
-  text-align: center;
-  bottom: 13vh;
-}
-
-@media (max-width: 640px) {
-  body {
-    padding: 3.82vh 5.09vw;
-  }
-
-  .d-day {
+  > div {
     width: 89.82%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    .info {
-  position: absolute;
-  color: rgba(225, 225, 225, 0.3);
-  font-size: 0.75vw;
-  justify-content: space-between;
-  bottom: 4.72vh;
-  p {
-    margin: 0;
-  }
-
-  p:first-child {
-    text-align: left;
-  }
-  p:nth-child(2) {
-    text-align: center;
-    margin-left: -4vw;
-  }
-  p:last-child {
-    text-align: right;
-  }
-}
-  }
-
-  .d-day > div {
     justify-content: center;
   }
 
   .delight {
     font-size: 3.09vw;
     padding-top: 6.5vh;
+    text-align: center;
   }
 
   .logo {
     padding-top: 1.5vh;
+    justify-content: center;
+
     svg {
       width: 76.42vw;
     }
@@ -130,7 +62,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "Stack Sans Notch", "Pretendard", sans-serif;
     font-size: 5.34vw;
+    font-weight: 500;
+    text-align: center;
     bottom: 13vh;
   }
 
@@ -146,24 +81,33 @@ body {
     font-size: 2.04vw;
     line-height: 1.4;
     letter-spacing: 0;
+    color: rgba(225, 225, 225, 0.3);
+
     p {
       position: absolute;
       margin: 0;
       width: 100vw;
     }
+
     p:first-child {
       top: 1vh;
       left: 1.5vw;
+      text-align: left;
     }
-    p:last-child {
-      top: 1vh;
-      right: 1.5vw;
-    }
+
     p:nth-child(2) {
       bottom: 1vh;
       left: 50%;
       transform: translateX(-50%);
+      text-align: center;
       margin-left: 0;
+    }
+
+    p:last-child {
+      top: 1vh;
+      right: 1.5vw;
+      text-align: right;
     }
   }
 }
+
