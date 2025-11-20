@@ -58,12 +58,12 @@ export default function Behind() {
         <div className="BehindPage">
           <div className="videoPlaceHolder">
             <video
-              src="/videos/mainVideo.mp4"
+              src="/videos/behind.mp4"
               autoPlay
               loop
               muted
               playsInline
-              style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
+              style={{ width: "100%", height: "auto", aspectRatio: "16/9", opacity: "0.5" }}
             />
           </div>
 

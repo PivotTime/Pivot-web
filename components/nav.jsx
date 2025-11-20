@@ -42,7 +42,7 @@ export default function Nav({ setMouseParticlesEnabled }) {
 
     setTimeout(()=> {
       setHamburgerExit(false)
-    }, 1500)
+    }, 2000)
   }
 
   
