@@ -9,11 +9,6 @@ export function middleware(req) {
   const target = Date.parse(targetIso);
 
 
-  if (now.getTime() < target) {
-    url.pathname = "/countDown"; 
-    return NextResponse.redirect(url);
-  }
-
 
   return NextResponse.next();
 }
