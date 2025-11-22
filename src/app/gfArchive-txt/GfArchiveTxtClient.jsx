@@ -429,7 +429,7 @@ export default function GfArchiveTxt() {
       {/* <img className="webImage" src="/images/GET FEVER TXT.png" alt="GET FEVER TXT.png" /> */}
       <Link
         href="/getFever?section=archive"
-        className={`undo ${selectedCard ? "is-dimmed" : ""}`}
+        className="undo"
         aria-label="돌아가기"
         onClick={(e) => {
           e.preventDefault();
@@ -448,6 +448,7 @@ export default function GfArchiveTxt() {
           <path d="M28.3535 0.353516L0.353513 28.3535" stroke="#E1E1E1" />
         </svg>
       </Link>
+
 
       <div className="columns">
         {currentQuestions.map((question, columnIndex) => {
