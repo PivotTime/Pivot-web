@@ -538,7 +538,7 @@ export default function GetFeverClient() {
           <div className="logo">
             <GETFEVER2 />
           </div>
-          <div className="slogan">
+          <div className="gf-slogan">
             입학부터 졸업까지, 열정 가득한 우리의 이야기를 확인해 보세요.
           </div>
         </div>
