@@ -15,8 +15,7 @@ import { ProjectDetail } from "../../../components/pjDetail";
 import "../../../styles/projects.scss";
 import { Footer } from "../../../components/footer";
 import WindowIntroWrapper from "../../../components/loading";
-
-
+import { shuffle } from "../../../lib/util/shuffle";
 
 export default function ProjectsClient() {
   const allProjects = projects;
@@ -27,6 +26,11 @@ export default function ProjectsClient() {
       String(a.id).localeCompare(String(b.id))
     );
   }, [allProjects]);
+
+  const [clientProjects, setClientProjects] = useState(stableBase);
+  useEffect(() => {
+    setClientProjects(shuffle([...stableBase]));
+  }, [stableBase]);
 
   // 2) 필터 상태
   const [activeFilters, setActiveFilters] = useState({
@@ -169,76 +173,73 @@ export default function ProjectsClient() {
   const [displayedProjects, setDisplayedProjects] = useState(stableBase);
 
   const buildFiltered = useCallback(() => {
-    const hasTopic = activeFilters.topic.size > 0;
-    const hasField = activeFilters.field.size > 0;
-    const hasTarget = activeFilters.target.size > 0;
-    const hasMedia = activeFilters.media.size > 0;
+    const hasAnyFilter =
+      activeFilters.topic.size > 0 ||
+      activeFilters.field.size > 0 ||
+      activeFilters.target.size > 0 ||
+      activeFilters.media.size > 0;
 
-    let base = allProjects;
-
-    if (hasTopic || hasField || hasTarget || hasMedia) {
-      base = allProjects.filter((p) => {
-        const pTopics = Array.isArray(p.topic) ? p.topic : [];
-        const pFields = Array.isArray(p.field) ? p.field : [];
-        const pTargets = Array.isArray(p.target) ? p.target : [];
-        const pMedias = Array.isArray(p.media)
-          ? p.media
-          : Array.isArray(p.Media)
-          ? p.Media
-          : [];
-
-        if (hasTopic) {
-          let ok = false;
-          for (const t of activeFilters.topic) {
-            if (pTopics.includes(t)) {
-              ok = true;
-              break;
-            }
-          }
-          if (!ok) return false;
-        }
-
-        if (hasField) {
-          let ok = false;
-          for (const f of activeFilters.field) {
-            if (pFields.includes(f)) {
-              ok = true;
-              break;
-            }
-          }
-          if (!ok) return false;
-        }
-
-        if (hasTarget) {
-          let ok = false;
-          for (const tg of activeFilters.target) {
-            if (pTargets.includes(tg)) {
-              ok = true;
-              break;
-            }
-          }
-          if (!ok) return false;
-        }
-
-        if (hasMedia) {
-          let ok = false;
-          for (const m of activeFilters.media) {
-            if (pMedias.includes(m)) {
-              ok = true;
-              break;
-            }
-          }
-          if (!ok) return false;
-        }
-
-        return true;
-      });
-    } else {
-      base = stableBase;
+    if (!hasAnyFilter) {
+      return clientProjects;
     }
 
-    return base;
-  }, [allProjects, activeFilters, stableBase]);
+    return clientProjects.filter((p) => {
+      const pTopics = Array.isArray(p.topic) ? p.topic : [];
+      const pFields = Array.isArray(p.field) ? p.field : [];
+      const pTargets = Array.isArray(p.target) ? p.target : [];
+      const pMedias = Array.isArray(p.media)
+        ? p.media
+        : Array.isArray(p.Media)
+        ? p.Media
+        : [];
+
+      if (activeFilters.topic.size > 0) {
+        let ok = false;
+        for (const t of activeFilters.topic) {
+          if (pTopics.includes(t)) {
+            ok = true;
+            break;
+          }
+        }
+        if (!ok) return false;
+      }
+
+      if (activeFilters.field.size > 0) {
+        let ok = false;
+        for (const f of activeFilters.field) {
+          if (pFields.includes(f)) {
+            ok = true;
+            break;
+          }
+        }
+        if (!ok) return false;
+      }
+
+      if (activeFilters.target.size > 0) {
+        let ok = false;
+        for (const tg of activeFilters.target) {
+          if (pTargets.includes(tg)) {
+            ok = true;
+            break;
+          }
+        }
+        if (!ok) return false;
+      }
+
+      if (activeFilters.media.size > 0) {
+        let ok = false;
+        for (const m of activeFilters.media) {
+          if (pMedias.includes(m)) {
+            ok = true;
+            break;
+          }
+        }
+        if (!ok) return false;
+      }
+
+      return true;
+    });
+  }, [clientProjects, activeFilters]);
 
   useEffect(() => {
     setDisplayedProjects(buildFiltered());
