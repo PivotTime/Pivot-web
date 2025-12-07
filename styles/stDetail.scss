@@ -10,6 +10,7 @@
   .profileImagePlaceholder {
     position: relative;
     height: 100%;
+    max-width: 40vw;
     width: fit-content;
     aspect-ratio: 32/45;
     overflow: hidden;

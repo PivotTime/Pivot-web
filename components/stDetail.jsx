@@ -62,7 +62,7 @@ export function StudentDetail({ student, onClick }) {
 
         fill
         sizes="1000"
-        style={{ maxWidth: "40vw", }} // 업스케일 방지
+        style={{ maxWidth: "40vw", objectFit:"cover"}}
         priority
           placeholder="blur"
         blurDataURL = {`/images/profile/${student.Id}.png`}

@@ -1,1204 +1,1204 @@
 {
-    "students": [
-        {
-            "Id": "Choiyejun",
-            "name": "최예준",
-            "role": "Designer",
-            "comment": "유일한 궤적을 그려나가는",
-            "eMail": "adding.choi@gmail.com",
-            "enname": "CHOI YEJUN",
-            "portfolioSrc": "https://www.behance.net/addchoi",
-            "project": "PIVOT TIME"
-        },
-        {
-            "Id": "Kimyoungeun",
-            "name": "김영은",
-            "role": "Planner",
-            "comment": "오늘의 열정으로 내일의 궤적을 그리는",
-            "eMail": "koo86610@gmail.com",
-            "enname": "KIM YOUNGEUN",
-            "portfolioSrc": "https://www.notion.so/20ea5950c644804bbc82e6e67fb0e863?source=copy_link",
-            "project": "PIVOT TIME"
-        },
-        {
-            "Id": "Jeongsehyun",
-            "name": "정세현",
-            "role": "Designer",
-            "comment": "흐름 속에 중심을 세우는",
-            "eMail": "udtpgus@gmail.com",
-            "enname": "JEONG SEHYEON",
-            "portfolioSrc": "https://www.behance.net/senoeyh",
-            "project": "PIVOT TIME"
-        },
-        {
-            "Id": "Kimgayoung",
-            "name": "김가영",
-            "role": "Developer",
-            "comment": "변화를 기다리지 않고, 스스로 전환을 만들어가는",
-            "eMail": "kimgy071928@gmail.com",
-            "enname": "KIM GAYOUNG",
-            "portfolioSrc": "https://rkyxung.github.io/react-portfolio/",
-            "project": "PIVOT TIME"
-        },
-        {
-            "Id": "Jeongyeonsu",
-            "name": "정연수",
-            "role": "Developer",
-            "comment": "부드러운 궤적 위에서, 자연스러운 전환을 만드는",
-            "eMail": "Yunsu0224@gmail.com",
-            "enname": "JUNG YEONSU",
-            "portfolioSrc": "https://portfolio-chi-two-12.vercel.app/",
-            "project": "PIVOT TIME"
-        },
-        {
-            "Id": "Honghyunsu",
-            "name": "홍현수",
-            "role": "Designer",
-            "comment": "유연한 전환을 만들어가는",
-            "eMail": "lory051999@gmail.com",
-            "enname": "HONG HYEONSU",
-            "portfolioSrc": "https://www.behance.net/lory0519991c06",
-            "project": "PIVOT TIME"
-        },
-        {
-            "Id": "Chohyejin",
-            "name": "조혜진",
-            "role": "Planner",
-            "comment": "열정이 그린 궤적을 따라 새로운 방향을 읽어내는",
-            "eMail": "dongry04@naver.com",
-            "enname": "CHO HAEJIN",
-            "portfolioSrc": "",
-            "project": "MEMO:Re"
-        },
-        {
-            "Id": "Jeonkwonhee",
-            "name": "전권희",
-            "role": "Designer",
-            "comment": "순간의 중심을 포착하는",
-            "eMail": "jkh9917@naver.com",
-            "enname": "JEON KWONHEE",
-            "portfolioSrc": "",
-            "project": "MEMO:Re"
-        },
-        {
-            "Id": "Limeojin",
-            "name": "임어진",
-            "role": "Planner",
-            "comment": "중심을 잡고, 회전을 이끄는",
-            "eMail": "imajin51@naver.com",
-            "enname": "IM EOJIN",
-            "portfolioSrc": "",
-            "project": "MEMO:Re"
-        },
-        {
-            "Id": "Hwangtaehtun",
-            "name": "황태현",
-            "role": "Designer",
-            "comment": "관점을 회전시켜, 새로운 해답을 찾는",
-            "eMail": "hyunending@gmail.com",
-            "enname": "HWANG TAEHYUN",
-            "portfolioSrc": "",
-            "project": "MEMO:Re"
-        },
-        {
-            "Id": "Hongeunjae",
-            "name": "홍은재",
-            "role": "Designer",
-            "comment": "변화의 축 위에서 새로운 흐름을 설계하는",
-            "eMail": "ysluvme@naver.com",
-            "enname": "HONG EUNJAE",
-            "portfolioSrc": "",
-            "project": "MEMO:Re"
-        },
-        {
-            "Id": "Yanghyeonjeong",
-            "name": "양현정",
-            "role": "Designer",
-            "comment": "변화의 축을 따라 새로운 궤적을 만드는",
-            "eMail": "ylog.moments@gmail.com",
-            "enname": "YANG HYUNJUNG",
-            "portfolioSrc": "",
-            "project": "MEMO:Re"
-        },
-        {
-            "Id": "Kangminji",
-            "name": "강민지",
-            "role": "Designer",
-            "comment": "사람의 마음을 잇는 중심의 축",
-            "eMail": "minjigang026@gmail.com",
-            "enname": "KANG MINJI",
-            "portfolioSrc": "https://www.behance.net/7f026be3",
-            "project": "빛결"
-        },
-        {
-            "Id": "Parkyeojin",
-            "name": "박여진",
-            "role": "Designer",
-            "comment": "다채로운 시선으로 궤적을 그려가는",
-            "eMail": "rtoo2dtoo2@naver.com",
-            "enname": "PARK YEOJIN",
-            "portfolioSrc": "https://www.behance.net/24c9c9af",
-            "project": "빛결"
-        },
-        {
-            "Id": "Simeunbi",
-            "name": "심은비",
-            "role": "Designer",
-            "comment": "회전 속에서도 중심을 잃지 않는",
-            "eMail": "unbee0906@gmail.com",
-            "enname": "SIM EUNBI",
-            "portfolioSrc": "https://www.behance.net/ximxunxi",
-            "project": "빛결"
-        },
-        {
-            "Id": "Hwangseonha",
-            "name": "황선하",
-            "role": "Designer",
-            "comment": "멈추지 않고 회전하면서 진화하는",
-            "eMail": "hayley05405@gmail.com ",
-            "enname": "HWANG SUNHA",
-            "portfolioSrc": "",
-            "project": "빛결"
-        },
-        {
-            "Id": "Chayerin",
-            "name": "차예린",
-            "role": "Planner",
-            "comment": "아이디어의 중심에서 회전을 그리는",
-            "eMail": "yerin5205@naver.com",
-            "enname": "CHA YERIN",
-            "portfolioSrc": "",
-            "project": "빛결"
-        },
-        {
-            "Id": "Kimyein",
-            "name": "김예인",
-            "role": "Designer",
-            "comment": "변화의 순간마다 새로운 궤적을 그려가는",
-            "eMail": "yeing7174@gmail.com",
-            "enname": "KIM YEIN",
-            "portfolioSrc": "https://www.behance.net/4aefb7cf",
-            "project": "빛결"
-        },
-        {
-            "Id": "Leeyeonseo",
-            "name": "이연서",
-            "role": "Planner",
-            "comment": "흐름의 중심에서 변화를 그려가는",
-            "eMail": "yeon0514seo@gmail.com",
-            "enname": "LEE YEONSEO",
-            "portfolioSrc": "https://www.notion.so/27fe7ffa500880918635ef547b987d1e?source=copy_link",
-            "project": "한올"
-        },
-        {
-            "Id": "Parkminji",
-            "name": "박민지",
-            "role": "Planner",
-            "comment": "변화 속에서도 중심을 지키며, 새 궤적을 그리는",
-            "eMail": "9932asdf@naver.com",
-            "enname": "PARK MINJI",
-            "portfolioSrc": "",
-            "project": "한올"
-        },
-        {
-            "Id": "Parksihyeon",
-            "name": "박시현",
-            "role": "Designer",
-            "comment": "새로운 전환과 안정적인 궤적, 그 사이의 흐름을 유영하는",
-            "eMail": "sihyun3016@gmail.com",
-            "enname": "PARK SIHYUN",
-            "portfolioSrc": "https://www.behance.net/sihyun3016",
-            "project": "한올"
-        },
-        {
-            "Id": "Kimminju",
-            "name": "김민주",
-            "role": "Designer",
-            "comment": "흔들림 없는 중심, 끊임없는 전환을 시도하는",
-            "eMail": "minju040401@gmail.com",
-            "enname": "KIM MINJU",
-            "portfolioSrc": "",
-            "project": "한올"
-        },
-        {
-            "Id": "KimminseoA",
-            "name": "김민서",
-            "role": "Designer",
-            "comment": "아이디어의 궤적을 그리고 경험의 깊이를 더하는",
-            "eMail": "min050721@gmail.com",
-            "enname": "KIM MINSEO",
-            "portfolioSrc": "https://www.behance.net/29cf22f9",
-            "project": "한올"
-        },
-        {
-            "Id": "Joheewon",
-            "name": "조희원",
-            "role": "Designer",
-            "comment": "궤적처럼 이어지는 감각의 선을 그리는",
-            "eMail": "h2akaibu@gmail.com",
-            "enname": "CHO HEEWON",
-            "portfolioSrc": "",
-            "project": "O.K"
-        },
-        {
-            "Id": "Gilljeongjun",
-            "name": "길정준",
-            "role": "Designer",
-            "comment": "회전과 전환 속에서도 중심을 잃지 않는",
-            "eMail": "jeongjunee@gmail.com",
-            "enname": "GIL JEONGJUN",
-            "portfolioSrc": "",
-            "project": "O.K"
-        },
-        {
-            "Id": "Annahee",
-            "name": "안나희",
-            "role": "Designer",
-            "comment": "사용자의 중심에서 시각적 경험을 설계하는",
-            "eMail": "an-nahee@naver.com",
-            "enname": "AN NAHEE ",
-            "portfolioSrc": "",
-            "project": "O.K"
-        },
-        {
-            "Id": "Limwooseok",
-            "name": "임우석",
-            "role": "Designer",
-            "comment": "꺼지지 않는 열정을 가진",
-            "eMail": "woosuk703@gmail.com",
-            "enname": "LIM WOOSUK",
-            "portfolioSrc": "https://www.behance.net/2e804544",
-            "project": "O.K"
-        },
-        {
-            "Id": "Parkmingyu",
-            "name": "박민규",
-            "role": "Developer",
-            "comment": "중심을 지키며 전환을 이끄는",
-            "eMail": "dbullssg123@naver.com",
-            "enname": "PARK MINGYU",
-            "portfolioSrc": "https://github.com/mnmnlilimnmnlil",
-            "project": "O.K"
-        },
-        {
-            "Id": "Jeonghyejin",
-            "name": "정혜진",
-            "role": "Developer",
-            "comment": "전환의 순간을 설계하는",
-            "eMail": "jhj030424@gmail.com",
-            "enname": "JUNG HYEJIN",
-            "portfolioSrc": "",
-            "project": "O.K"
-        },
-        {
-            "Id": "Leejeongwon",
-            "name": "이정원",
-            "role": "Developer",
-            "comment": "경험을 새롭게 전환하는",
-            "eMail": "weong0517@gmail.com",
-            "enname": "LEE JEONGWON",
-            "portfolioSrc": "",
-            "project": "Pinimo"
-        },
-        {
-            "Id": "Jojaeyoon",
-            "name": "조재윤",
-            "role": "Planner",
-            "comment": "정지 없이 매 순간 회전하며 다음 가능성을 설계하는",
-            "eMail": "jeayoon456@naver.com",
-            "enname": "CHO JEAYOON",
-            "portfolioSrc": "",
-            "project": "Pinimo"
-        },
-        {
-            "Id": "Kangsarang",
-            "name": "강사랑",
-            "role": "Designer",
-            "comment": "상상과 현실의 궤적을 잇는",
-            "eMail": "srng1003@gmail.com",
-            "enname": "KANG SALANG",
-            "portfolioSrc": "https://www.behance.net/c3d41728",
-            "project": "Pinimo"
-        },
-        {
-            "Id": "Leeyujin",
-            "name": "이유진",
-            "role": "Designer",
-            "comment": "디자인 트렌드의 중심 축",
-            "eMail": "katie8738@naver.com",
-            "enname": "LEE YUJIN",
-            "portfolioSrc": "https://www.behance.net/2ceb5739",
-            "project": "Pinimo"
-        },
-        {
-            "Id": "Moonkyungjae",
-            "name": "문경재",
-            "role": "Designer",
-            "comment": "트렌드를 중심으로 브랜드를 이미지로 전환시키는",
-            "eMail": "greatmgj524@naver.com",
-            "enname": "MUN KHEUNGJAE",
-            "portfolioSrc": "https://www.behance.net/7b73af85",
-            "project": "Pinimo"
-        },
-        {
-            "Id": "Janghyunseo",
-            "name": "장현서",
-            "role": "Designer",
-            "comment": "관점의 전환을 통해 새로운 가치를 제안하는",
-            "eMail": "hs506492@gmail.com",
-            "enname": "JANG HYEONSEO",
-            "portfolioSrc": "https://www.behance.net/6e2fc7aa",
-            "project": "Pinimo"
-        },
-        {
-            "Id": "LeeWonYoung",
-            "name": "이원영",
-            "role": "Developer",
-            "comment": "궤적을 분석해 감각적인 여정을 설계하는",
-            "eMail": "wonyoung@kaywon.ac.kr",
-            "enname": "YI WONYOUNG",
-            "portfolioSrc": "",
-            "project": "피하몽"
-        },
-        {
-            "Id": "Kimsolhwi",
-            "name": "김솔휘",
-            "role": "Planner",
-            "comment": "작은 축의 회전으로 큰 무대를 움직이는",
-            "eMail": "solhui0411@gmail.com",
-            "enname": "example",
-            "portfolioSrc": "",
-            "project": "피하몽"
-        },
-        {
-            "Id": "Kimyoungchan",
-            "name": "김영찬",
-            "role": "Planner",
-            "comment": "회전하는 세상 속에서 기획의 축을 세우는",
-            "eMail": "djfrksdl4@naver.com",
-            "enname": "KIM YEONGCHAN",
-            "portfolioSrc": "",
-            "project": "피하몽"
-        },
-        {
-            "Id": "Kangjaeyeon",
-            "name": "강재연",
-            "role": "Designer",
-            "comment": "수많은 궤적을 쌓아 하나의 우주를 만들어 나가는",
-            "eMail": "jaeyeon3279@gmail.com",
-            "enname": "KANG JAEYEON ",
-            "portfolioSrc": "https://www.behance.net/a9623903/projects",
-            "project": "피하몽"
-        },
-        {
-            "Id": "Kwondannwoo",
-            "name": "권단우",
-            "role": "Designer",
-            "comment": "넘치는 열정으로 팀의 중심 축을 잡아주는",
-            "eMail": "danwoo.kwon.1126@gmail.com",
-            "enname": "KWON DANWOO",
-            "portfolioSrc": "",
-            "project": "피하몽"
-        },
-        {
-            "Id": "Kimjeonga",
-            "name": "김정아",
-            "role": "Designer",
-            "comment": "생각의 전환과 함께 새로운 궤적을 그려 나가는",
-            "eMail": "kja040112@gmail.com",
-            "enname": "KIM JUNGA",
-            "portfolioSrc": "",
-            "project": "피하몽"
-        },
-        {
-            "Id": "Baekdana",
-            "name": "백다나",
-            "role": "Planner",
-            "comment": "깊이 파고들어 나만의 궤적을 그려가는",
-            "eMail": "eksk117@naver.com",
-            "enname": "BAEK DANA",
-            "portfolioSrc": "",
-            "project": "COPS"
-        },
-        {
-            "Id": "Hayeonseo",
-            "name": "하연서",
-            "role": "Designer",
-            "comment": "시선의 전환으로 새로운 가치를 만드는",
-            "eMail": "yseo0413@naver.com",
-            "enname": "HA YEONSEO",
-            "portfolioSrc": "https://www.behance.net/4535a8e9",
-            "project": "COPS"
-        },
-        {
-            "Id": "Kimsuyeon",
-            "name": "김수연",
-            "role": "Developer",
-            "comment": "기술의 축을 세우고 변화를 전환시키는",
-            "eMail": "necoga3za@gmail.com",
-            "enname": "KIM SUYEON",
-            "portfolioSrc": "",
-            "project": "COPS"
-        },
-        {
-            "Id": "Goodahye",
-            "name": "구다혜",
-            "role": "Developer",
-            "comment": "감각과 구조의 중심을 잡는",
-            "eMail": "hda4508@gmail.com",
-            "enname": "KOO DAHYE",
-            "portfolioSrc": "",
-            "project": "COPS"
-        },
-        {
-            "Id": "Goeunah",
-            "name": "고은아",
-            "role": "Designer",
-            "comment": "하나의 궤적이 다음 여정을 만들어가는",
-            "eMail": "rhdmsdk_@naver.com",
-            "enname": "KO EUNAH",
-            "portfolioSrc": "https://www.behance.net/rhdmsdk",
-            "project": "COPS"
-        },
-        {
-            "Id": "Ansoyoon",
-            "name": "안소윤",
-            "role": "Designer",
-            "comment": "잔잔하지만 깊은 열정으로 감각을 채우는",
-            "eMail": "soyuni05@naver.com",
-            "enname": "AHN SOYOON",
-            "portfolioSrc": "https://www.behance.net/ssyooni",
-            "project": "COPS"
-        },
-        {
-            "Id": "Choihyunyoung",
-            "name": "최현영",
-            "role": "Planner",
-            "comment": "멈추지 않는 성장으로 중심 축을 탄탄하게 구축할",
-            "eMail": "gusdud529@naver.com",
-            "enname": "CHOI HYEONYOUNG",
-            "portfolioSrc": "https://www.notion.so/2adfbb3e866480ac98fbe7b0c978b0b1?source=copy_link",
-            "project": "Qpid"
-        },
-        {
-            "Id": "KimminseoB",
-            "name": "김민서",
-            "role": "Designer",
-            "comment": "멈추지 않고 열정의 상승 궤적을 그려나가는",
-            "eMail": "4715qwe@gmail.com",
-            "enname": "KIM MINSEO",
-            "portfolioSrc": "https://www.behance.net/047109b9",
-            "project": "Qpid"
-        },
-        {
-            "Id": "Nodohee",
-            "name": "노도희",
-            "role": "Designer",
-            "comment": "감성과 논리의 축 위에서 균형을 찾는",
-            "eMail": "xoxee18@gmail.com",
-            "enname": "NOH DOHEE",
-            "portfolioSrc": "https://www.behance.net/xoxee",
-            "project": "Qpid"
-        },
-        {
-            "Id": "Baekyuri",
-            "name": "백유리",
-            "role": "Designer",
-            "comment": "끊임없이 확장하며, 스스로를 디자인하는 사람",
-            "eMail": "yuribaik@naver.com",
-            "enname": "BAIK YURI",
-            "portfolioSrc": "https://www.behance.net/baikyuri",
-            "project": "Qpid"
-        },
-        {
-            "Id": "Chominseo",
-            "name": "조민서",
-            "role": "Developer",
-            "comment": "열정의 축을 중심으로 궤적을 그리는",
-            "eMail": "meyrrill@gmail.com",
-            "enname": "JO MINSEO",
-            "portfolioSrc": "",
-            "project": "Qpid"
-        },
-        {
-            "Id": "Hongjeongmin",
-            "name": "홍정민",
-            "role": "Developer",
-            "comment": "안전한 중심을 의심하며 새로운 전환에 반응하는",
-            "eMail": "illxoyxx@naver.com",
-            "enname": "HONG JUNGMIN",
-            "portfolioSrc": "",
-            "project": "Qpid"
-        },
-        {
-            "Id": "Leesia",
-            "name": "이시아",
-            "role": "Planner",
-            "comment": "축이 되는 기획으로, 전환을 이끄는",
-            "eMail": "dungesia@gmail.com",
-            "enname": "LEE SIA",
-            "portfolioSrc": "",
-            "project": "아트랑"
-        },
-        {
-            "Id": "Jigangju",
-            "name": "지강주",
-            "role": "Designer",
-            "comment": "발상의 전환으로 새로운 궤적을 그리는",
-            "eMail": "66eksldpf@naver.com",
-            "enname": "JI KANGJU",
-            "portfolioSrc": "https://www.behance.net/7b6c159b",
-            "project": "아트랑"
-        },
-        {
-            "Id": "Leegayoung",
-            "name": "이가영",
-            "role": "Designer",
-            "comment": "즐거움을 바탕으로 다채로운 궤적을 찾아나가는",
-            "eMail": "0ooyoung09@gmail.com",
-            "enname": "example",
-            "portfolioSrc": "",
-            "project": "아트랑"
-        },
-        {
-            "Id": "Janghyeyeon",
-            "name": "장혜연",
-            "role": "Planner",
-            "comment": "막다른 길에서도, 전환점을 찾아내는",
-            "eMail": "janghyeyeon57@gmail.com",
-            "enname": "JANG HYEYEON",
-            "portfolioSrc": "https://hyeyeon-portfolio.vercel.app/",
-            "project": "아트랑"
-        },
-        {
-            "Id": "Hansubin",
-            "name": "한수빈",
-            "role": "Designer",
-            "comment": "끊없이 전환하며 나만의 궤적을 그려나가는",
-            "eMail": "gzm659913@gmail.com",
-            "enname": "HAN SUBIN",
-            "portfolioSrc": "https://www.behance.net/suuub__in",
-            "project": "아트랑"
-        },
-        {
-            "Id": "Leejei",
-            "name": "이제이",
-            "role": "Designer",
-            "comment": "중심을 잡고, 멈추지 않는",
-            "eMail": "jay041127@gmail.com",
-            "enname": "LEE JEYI",
-            "portfolioSrc": "",
-            "project": "아트랑"
-        },
-        {
-            "Id": "Baekseoyoon",
-            "name": "백서윤",
-            "role": "Planner",
-            "comment": "사용자 중심의 아이디어 회전 속에서 길을 찾는",
-            "eMail": "psy091212@naver.com",
-            "enname": "BAEKSEOYOONe",
-            "portfolioSrc": "",
-            "project": "Boutine"
-        },
-        {
-            "Id": "Kimbomin",
-            "name": "김보민",
-            "role": "Designer",
-            "comment": "열정으로 나만의 궤적을 만들어가는",
-            "eMail": "kimbomin0801@naver.com ",
-            "enname": "KIMBOMIN",
-            "portfolioSrc": "",
-            "project": "Boutine"
-        },
-        {
-            "Id": "Leenakyoung",
-            "name": "이나경",
-            "role": "Designer",
-            "comment": "열정과 진심을 담아 디자인하는",
-            "eMail": "inagyeong195@gamil.com",
-            "enname": "LEE NAKYEONG",
-            "portfolioSrc": "",
-            "project": "Boutine"
-        },
-        {
-            "Id": "Parksohyeon",
-            "name": "박소현",
-            "role": "Designer",
-            "comment": "언제나 열정을 다해 새로운 중심이 되는",
-            "eMail": "pqkrthgus@naver.com",
-            "enname": "PARK SOHYUN",
-            "portfolioSrc": "",
-            "project": "Boutine"
-        },
-        {
-            "Id": "Moonminkyung",
-            "name": "문민경",
-            "role": "Designer",
-            "comment": "끊임없는 회전을 통해 사람과 감각을 잇는",
-            "eMail": "direvan0606@naver.com",
-            "enname": "MOON MINKYUNG",
-            "portfolioSrc": "https://www.behance.net/bbce7083",
-            "project": "Boutine"
-        },
-        {
-            "Id": "Parkjihye",
-            "name": "박지혜",
-            "role": "Developer",
-            "comment": "웹의 중심축에서 회전하며 전환을 이끄는 인터랙티브",
-            "eMail": "ji020201@kaywon.ac.kr",
-            "enname": "PARK JIHYE",
-            "portfolioSrc": "",
-            "project": "Boutine"
-        },
-        {
-            "Id": "Kimeunbi",
-            "name": "김은비",
-            "role": "Designer",
-            "comment": "전환의 축 위에서 궤적을 그립니다.",
-            "eMail": "keb0510@naver.com",
-            "enname": "KIM EUNBI",
-            "portfolioSrc": "",
-            "project": "J와P"
-        },
-        {
-            "Id": "Minkyunghwa",
-            "name": "민경화",
-            "role": "Planner",
-            "comment": "끊임없이 회전하며 새로운 방향을 찾아가는",
-            "eMail": "mkh050827@gmail.com",
-            "enname": "MIN KYOUNGHWA",
-            "portfolioSrc": "https://www.notion.so/2a7e4120ea4a8069b500c5e76fd4c88d?source=copy_link",
-            "project": "J와P"
-        },
-        {
-            "Id": "Joeunchae",
-            "name": "조은채",
-            "role": "Designer",
-            "comment": "끊임없는 전환으로 완성되는",
-            "eMail": "joecho0510@gmail.com",
-            "enname": "CHO EUNCHAE",
-            "portfolioSrc": "",
-            "project": "J와P"
-        },
-        {
-            "Id": "Jeongsoeun",
-            "name": "정소은",
-            "role": "Designer",
-            "comment": "회전과 전환 사이에서 새로운 질서를 시각화하는",
-            "eMail": "ydjuj0202@kaywon.ac.kr",
-            "enname": "JEONG SOEUN",
-            "portfolioSrc": "",
-            "project": "J와P"
-        },
-        {
-            "Id": "KimminseoC",
-            "name": "김민서",
-            "role": "Planner",
-            "comment": "축 처진 어깨도 열정으로 일으키는",
-            "eMail": "kimminseo1207@kaywon.ac.kr",
-            "enname": "KIM MINSEO",
-            "portfolioSrc": "https://www.notion.so/2a8eace753828000aca7c611e39e44bd",
-            "project": "J와P"
-        },
-        {
-            "Id": "Leetaehyung",
-            "name": "이태형",
-            "role": "Developer",
-            "comment": "기술과 예술의 궤적을 엮어 정교한 경험을 구현하는",
-            "eMail": "dlxogud426@gmail.com",
-            "enname": "LEE TAEHYUNG",
-            "portfolioSrc": "",
-            "project": "NOL:EUM"
-        },
-        {
-            "Id": "Leenarin",
-            "name": "이나린",
-            "role": "Designer",
-            "comment": "자유롭게 흐르고, 전환의 순간에도 균형을 잡는",
-            "eMail": "narineee03@naver.com",
-            "enname": "LEE NARIN",
-            "portfolioSrc": "",
-            "project": "NOL:EUM"
-        },
-        {
-            "Id": "Hongheekwon",
-            "name": "홍희권",
-            "role": "Designer",
-            "comment": "수많은 시도 속에서 누군가의 일상에 전환를 주는",
-            "eMail": "honghk0312@naver.com",
-            "enname": "HONG HEEKWUN",
-            "portfolioSrc": "",
-            "project": "NOL:EUM"
-        },
-        {
-            "Id": "Yangchaeyoon",
-            "name": "양채윤",
-            "role": "Developer",
-            "comment": "변화를 읽되 중심을 지키는",
-            "eMail": "woqpal1229@naver.com",
-            "enname": "YANG CHAEYOON",
-            "portfolioSrc": "https://www.behance.net/yam1031",
-            "project": "NOL:EUM"
-        },
-        {
-            "Id": "Kwonhyukmin",
-            "name": "권혁민",
-            "role": "Designer",
-            "comment": "열정을 중심에 두고, 진심을 디자인하는",
-            "eMail": "hyeokmin6080@naver.com",
-            "enname": "KWON HYEOKMIN",
-            "portfolioSrc": "https://www.behance.net/cffbd364",
-            "project": "NOL:EUM"
-        },
-        {
-            "Id": "Yoonseohyun",
-            "name": "윤서현",
-            "role": "Designer",
-            "comment": "열정으로 새로운 궤적을 그리는, 장르를 넘나드는",
-            "eMail": "havenseohyun@gmail.com",
-            "enname": "YUN SEOHYUN",
-            "portfolioSrc": "https://linktr.ee/Se0hyun_0",
-            "project": "NOL:EUM"
-        },
-        {
-            "Id": "Choijiye",
-            "name": "최지예",
-            "role": "Planner",
-            "comment": "빠르게 회전하며 변화하는 콘텐츠들 속 중심을 잡는",
-            "eMail": "chjy21chjy21@gmail.com",
-            "enname": "CHOI JIYE",
-            "portfolioSrc": "",
-            "project": "NOL:EUM"
-        },
-        {
-            "Id": "Kimkyungrin",
-            "name": "김경린",
-            "role": "Planner",
-            "comment": "콘텐츠의 우주를 거침없는 궤적으로 항해하는",
-            "eMail": "772kkr@gmail.com",
-            "enname": "KIM KYUNGRIN",
-            "portfolioSrc": "https://772kkr.notion.site/17a6494984c3800eb64df211ea3abb5b",
-            "project": "BEYOND THE ABYSS"
-        },
-        {
-            "Id": "Kimdongjoon",
-            "name": "김동준",
-            "role": "Planner",
-            "comment": "창의력을 중심으로 정밀하게 분석하는",
-            "eMail": "dongjunkima@gmail.com",
-            "enname": "KIM DONGJUN",
-            "portfolioSrc": "https://www.behance.net/b3f411fb",
-            "project": "BEYOND THE ABYSS"
-        },
-        {
-            "Id": "Jeonghyunbin",
-            "name": "정현빈",
-            "role": "Designer",
-            "comment": "하나의 선으로 무한한 형태의 궤적을 그리는",
-            "eMail": "thddkwl2101@naver.com",
-            "enname": "JUNG HYUNBIN",
-            "portfolioSrc": "https://www.behance.net/b3f411fb",
-            "project": "BEYOND THE ABYSS"
-        },
-        {
-            "Id": "Moonjeongil",
-            "name": "문정일",
-            "role": "Designer",
-            "comment": "공백에서 무한한 가능성으로 전환하는",
-            "eMail": "lunaticji1019@naver.com",
-            "enname": "MOON JUNGILL",
-            "portfolioSrc": "https://www.behance.net/siriusa2",
-            "project": "BEYOND THE ABYSS"
-        },
-        {
-            "Id": "Choiminseok",
-            "name": "최민석",
-            "role": "Designer",
-            "comment": "시대의 중심에서 흐름을 디자인하는",
-            "eMail": "alstjr1208@gmail.com",
-            "enname": "CHOI MINSEOK",
-            "portfolioSrc": " https://www.behance.net/ac7a352a",
-            "project": "BEYOND THE ABYSS"
-        },
-        {
-            "Id": "Leeminseok",
-            "name": "이민석",
-            "role": "Developer",
-            "comment": "전환은 빠른데 궤적은 수상한",
-            "eMail": "elmo0915@naver.com",
-            "enname": "example",
-            "portfolioSrc": "https://minguri22261078.github.io/min-portfolio/",
-            "project": "BEYOND THE ABYSS"
-        },
-        {
-            "Id": "Kimyeji",
-            "name": "김예지",
-            "role": "Designer",
-            "comment": "변화의 축 위에서, 매 순간 전환을 즐기는",
-            "eMail": "seyo27@naver.com",
-            "enname": "KIM YEJI",
-            "portfolioSrc": "https://www.behance.net/b2f8f17a",
-            "project": "BEYOND THE ABYSS"
-        },
-        {
-            "Id": "Yooyeeun",
-            "name": "유예은",
-            "role": "Planner",
-            "comment": "아이디어의 중심축에서 방향을 설계하는",
-            "eMail": "lilyye426@gmail.com",
-            "enname": "YOO YEEUN",
-            "portfolioSrc": "https://www.notion.so/Re-GO-2a678270bc5f801dbed6ff6a5b98d433?source=copy_link",
-            "project": "Melt0℃"
-        },
-        {
-            "Id": "Limseohyun",
-            "name": "임서현",
-            "role": "Designer",
-            "comment": "감각이 머무는 궤적을 그리는",
-            "eMail": "tigus505010@gmail.com",
-            "enname": "LIM SEOHYUN",
-            "portfolioSrc": "https://www.behance.net/se0oh",
-            "project": "Melt0℃"
-        },
-        {
-            "Id": "Kimminji",
-            "name": "김민지",
-            "role": "Designer",
-            "comment": "전환의 순간마다 또 다른 궤적을 그려내는",
-            "eMail": "mkk6351@gmail.com",
-            "enname": "KIM MINJI",
-            "portfolioSrc": "https://www.behance.net/dd47a8c1",
-            "project": "Melt0℃"
-        },
-        {
-            "Id": "Jangjuwon",
-            "name": "장주원",
-            "role": "Designer",
-            "comment": "예술의 경계를 넘어 새로운 축을 세우는",
-            "eMail": "ds1believe@naver.com",
-            "enname": "CHANG JUWON",
-            "portfolioSrc": "https://www.behance.net/ONECHIVE",
-            "project": "Melt0℃"
-        },
-        {
-            "Id": "Kimsieun",
-            "name": "김시은",
-            "role": "Developer",
-            "comment": "아이디어의 궤적을 따라 최상의 경험을 구현하는",
-            "eMail": "hdeun1512@gmail.com",
-            "enname": "KIM SIEUN",
-            "portfolioSrc": "https://sieun533.github.io/react-portfolio/",
-            "project": "Melt0℃"
-        },
-        {
-            "Id": "Yeonsuhyun",
-            "name": "연수현",
-            "role": "Developer",
-            "comment": "감정과 기술이 만나는 중심에서 새로운 경험을 전하는",
-            "eMail": "yeonsh030@gmail.com",
-            "enname": "YEON SUHYEON",
-            "portfolioSrc": "https://suhyeon549.github.io/react-portfolio/",
-            "project": "Melt0℃"
-        },
-        {
-            "Id": "Jeongsieun",
-            "name": "정시은",
-            "role": "Designer",
-            "comment": "끝없는 회전 속에서 새로운 궤적을 그리는",
-            "eMail": "sieunj1114@gmail.com",
-            "enname": "JUNG SIEUN",
-            "portfolioSrc": "https://www.behance.net/43d30e17",
-            "project": "Log!n"
-        },
-        {
-            "Id": "Jangyeryeong",
-            "name": "장예령",
-            "role": "Designer",
-            "comment": "스스로 빛나는 궤적을 만들어가는",
-            "eMail": "wkddpfud04@naver.com",
-            "enname": "JANG YERYEONG",
-            "portfolioSrc": "https://yrjang0331.wixsite.com/my-site-1",
-            "project": "Log!n"
-        },
-        {
-            "Id": "Kimgyubin",
-            "name": "김규빈",
-            "role": "Designer",
-            "comment": "열정으로 회전하며, 새로운 궤적을 만드는",
-            "eMail": "lams06222@gmail.com",
-            "enname": "KIM KYUBIN",
-            "portfolioSrc": "https://www.behance.net/d70e9fad/projects",
-            "project": "Log!n"
-        },
-        {
-            "Id": "Kimseohyun",
-            "name": "김서현",
-            "role": "Developer",
-            "comment": "열정으로 전환의 순간을 만드는",
-            "eMail": "shshseo1122@gmail.com",
-            "enname": "KIM SEOHYUN",
-            "portfolioSrc": "",
-            "project": "Log!n"
-        },
-        {
-            "Id": "Hwangyujin",
-            "name": "황유진",
-            "role": "Developer",
-            "comment": "열정으로 붙잡고, 생각을 전환하며 완성하는",
-            "eMail": "ghkdsb65@gmail.com",
-            "enname": "HWANG YUJIN",
-            "portfolioSrc": "https://ghkdsb.github.io/yujin-portfolio/",
-            "project": "Log!n"
-        },
-        {
-            "Id": "Kimmoonjeong",
-            "name": "김문정",
-            "role":"Designer",
-            "comment": "전환의 순간마다 나만의 궤적을 그려가는",
-            "eMail": "mj_kim0@naver.com",
-            "enname": "KIM MUNJUNG",
-            "portfolioSrc": "https://www.behance.net/23f2ad1c",
-            "project": "Log!n"
-        },
-        {
-            "Id": "Parkjyeonhyun",
-            "name": "박정연",
-            "role": "Designer",
-            "comment": "새로운 가능성을 향해 궤적을 그려가는",
-            "eMail": "j995195@gmail.com",
-            "enname": "PARK JEONGYEON",
-            "portfolioSrc": "https://www.behance.net/6b6041be",
-            "project": "피하몽"
-        },
-        {
-            "Id": "Parkdabin",
-            "name": "박다빈",
-            "role": "Planner",
-            "comment": "작은 회전으로 큰 궤적을 만드는",
-            "eMail": "iisosick@gmail.com",
-            "enname": "PARK DABIN",
-            "portfolioSrc": "https://planner-dabinpark.notion.site",
-            "project": "project H."
-        },
-        {
-            "Id": "Nokwonhoo",
-            "name": "노권후",
-            "role": "Planner",
-            "comment": "맥락의 축 위에서 회전하며 성장의 궤적을 그리는",
-            "eMail": "hello@stile.im",
-            "enname": "ROH KWONHOO ",
-            "portfolioSrc": "https://stile.im",
-            "project": "project H."
-        },
-        {
-            "Id": "Simjeongbin",
-            "name": "심정빈",
-            "role": "Designer",
-            "comment": "식지 않는 열정으로 목표를 향해 나아가는",
-            "eMail": "simjb05@gmail.com",
-            "enname": "SIM JUNGBIN",
-            "portfolioSrc": "https://www.instagram.com/oneul_is_day/",
-            "project": "project H."
-        },
-        {
-            "Id": "Oheongeun",
-            "name": "오정은",
-            "role": "Designer",
-            "comment": "열정이 과속해도 중심을 잃지 않는",
-            "eMail": "kiiiikiki666@gmail.com",
-            "enname": "O JEONGEUN",
-            "portfolioSrc": "https://www.behance.net/caf4d781",
-            "project": "project H."
-        },
-        {
-            "Id": "Kimjihyeon",
-            "name": "김지현",
-            "role": "Developer",
-            "comment": "축을 중심으로 방향을 잃지 않는",
-            "eMail": "dmdhyun146@gmail.com",
-            "enname": "KIM JIHYUN",
-            "portfolioSrc": "https://dmdhyunk.github.io/react-portfolio/",
-            "project": "project H."
-        },
-        {
-            "Id": "Baejunil",
-            "name": "배준일",
-            "role": "Developer",
-            "comment": "변화의 전환점마다 성장하는",
-            "eMail": "ji009868@naver.com",
-            "enname": "BAE JUNIL",
-            "portfolioSrc": "https://ji009868.github.io/react-portfolio/",
-            "project": "project H."
-        },
-        {
-            "Id": "Chuoohyun",
-            "name": "추주현",
-            "role": "Designer",
-            "comment": "세상의 회전 속, 중심을 그리는 ",
-            "eMail": "zxzxrnldyal@naver.com",
-            "enname": "CHOO JOOHYUN",
-            "portfolioSrc": "https://www.behance.net/CH0000",
-            "project": "GYEOB"
-        },
-        {
-            "Id": "Seoyeon",
-            "name": "서연",
-            "role": "Designer",
-            "comment": "궤적 위에 열정을 새기는",
-            "eMail": "koharuchichi@gmail.com",
-            "enname": "SEO YEON",
-            "portfolioSrc": "",
-            "project": "GYEOB"
-        },
-        {
-            "Id": "Ohjihyeon",
-            "name": "오지현",
-            "role": "Designer",
-            "comment": "흐름에 질문을 던지고, 중심을 세우는",
-            "eMail": "minnnn111n@gmail.com",
-            "enname": "OH JIHYEON",
-            "portfolioSrc": "https://www.behance.net/1b92e2fa/projects",
-            "project": "GYEOB"
-        },
-        {
-            "Id": "Leegahyun",
-            "name": "이가연",
-            "role": "Designer",
-            "comment": "순간의 전환 속, 새로운 감각을 그리는",
-            "eMail": "rkdus13570@naver.com",
-            "enname": "LEE GAYEON",
-            "portfolioSrc": "https://www.behance.net/255e3eab/projects",
-            "project": "GYEOB"
-        },
-        {
-            "Id": "Namseoyeon",
-            "name": "남서연",
-            "role": "Developer",
-            "comment": "궤적을 설계하는",
-            "eMail": "synam02@gmail.com",
-            "enname": "NAM SEOYEON",
-            "portfolioSrc": "",
-            "project": "GYEOB"
-        },
-        {
-            "Id": "Parkrin",
-            "name": "박린",
-            "role": "Designer",
-            "comment": "시각적 메시지의 중심을 설계하는",
-            "eMail": "qkrfls7@gmail.com",
-            "enname": "PARK LYN ",
-            "portfolioSrc": "https://www.behance.net/rinpark1",
-            "project": "GYEOB"
-        },
-        {
-            "Id": "Kimjian",
-            "name": "김지안",
-            "role": "Designer",
-            "comment": "궤적 위 자신만의 결을 새기는",
-            "eMail": "ja.kim9158@gmail.com",
-            "enname": "KIM JIAN",
-            "portfolioSrc": "https://www.behance.net/jakim9158",
-            "project": "돈쭐"
-        },
-        {
-            "Id": "Yoonnayoon",
-            "name": "윤나윤",
-            "role": "Designer",
-            "comment": "나만의 궤적을 따라 방향을 찾아가는",
-            "eMail": "sjnddjw@gmail.com",
-            "enname": "YOON NAYOON",
-            "portfolioSrc": "https://www.behance.net/eead21e9",
-            "project": "돈쭐"
-        },
-        {
-            "Id": "Leeyoosin",
-            "name": "이유신",
-            "role": "Planner",
-            "comment": "사용자 중심으로 궤적을 그려나가는",
-            "eMail": "iyusin26@gmail.com",
-            "enname": "LEE YOOSHIN",
-            "portfolioSrc": "",
-            "project": "돈쭐"
-        },
-        {
-            "Id": "Leeboram",
-            "name": "이보람",
-            "role": "Designer",
-            "comment": "남과 다른 궤적으로 디자인의 경계를 확장하는",
-            "eMail": "anny8641@naver.com",
-            "enname": "LEE BORAM",
-            "portfolioSrc": "https://www.behance.net/boramlogin",
-            "project": "돈쭐"
-        },
-        {
-            "Id": "Kimhyunchae",
-            "name": "김현채",
-            "role": "Designer",
-            "comment": "머리속에서 일어나는 모든 창의성을 세상으로 전환하는",
-            "eMail": "legendchoi73@gmail.com",
-            "enname": "KIM HYUNCHAE",
-            "portfolioSrc": "",
-            "project": "돈쭐"
-        },
-        {
-            "Id": "Jeonggayoung",
-            "name": "정가영",
-            "role": "Planner",
-            "comment": "언제나 사용자를 중심에 두는",
-            "eMail": "mempqk@gmail.com",
-            "enname": "JUNG KAYOUNG",
-            "portfolioSrc": "https://kayoungjung.notion.site/",
-            "project": "돈쭐"
-        },
-        {
-            "Id": "Jeongyoochan",
-            "name": "정유찬",
-            "role": "Designer",
-            "comment": "작은 외침으로 세상에 궤적을 남기는",
-            "eMail": "yuchanjung.design@gmail.com",
-            "enname": "JUNG YUCHAN",
-            "portfolioSrc": "https://www.behance.net/yuchanjungBE",
-            "project": "EvidenceClicker"
-        },
-        {
-            "Id": "Yooyongseok",
-            "name": "유용석",
-            "role": "Designer",
-            "comment": "열정이란 이름으로 자신만의 궤적을 그려가는",
-            "eMail": "yys24308676@gmail.com",
-            "enname": "YU YONGSEOK",
-            "portfolioSrc": "",
-            "project": "EvidenceClicker"
-        },
-        {
-            "Id": "Leejoohwan",
-            "name": "이주환",
-            "role": "Designer",
-            "comment": "고통을 중심으로 결과를 내는",
-            "eMail": "neckle4399@kakao.com",
-            "enname": "LEE JUHWAN",
-            "portfolioSrc": "",
-            "project": "EvidenceClicker"
-        },
-        {
-            "Id": "Leejiyoon",
-            "name": "이지윤",
-            "role": "Designer",
-            "comment": "시간의 궤적 속에서 새로운 감정을 설계하는",
-            "eMail": "dlgmlfka04@gmail.com",
-            "enname": "YI JIYOON",
-            "portfolioSrc": "",
-            "project": "EvidenceClicker"
-        },
-        {
-            "Id": "Gaminjin",
-            "name": "가민진",
-            "role": "Planner",
-            "comment": "궤적 속 점들을 잇는",
-            "eMail": "youtubu1116@gmail.com",
-            "enname": "KA MINJIN",
-            "portfolioSrc": "https://minjinportfolio.notion.site/29b24a3a66d980b68dd2f342d734a35f?source=copy_link",
-            "project": "EvidenceClicker"
-        }
-    ]
+  "students": [
+    {
+      "Id": "Choiyejun",
+      "name": "최예준",
+      "role": "Designer",
+      "comment": "유일한 궤적을 그려나가는",
+      "eMail": "adding.choi@gmail.com",
+      "enname": "CHOI YEJUN",
+      "portfolioSrc": "https://www.behance.net/addchoi",
+      "project": "PIVOT TIME"
+    },
+    {
+      "Id": "Kimyoungeun",
+      "name": "김영은",
+      "role": "Planner",
+      "comment": "오늘의 열정으로 내일의 궤적을 그리는",
+      "eMail": "koo86610@gmail.com",
+      "enname": "KIM YOUNGEUN",
+      "portfolioSrc": "https://www.notion.so/20ea5950c644804bbc82e6e67fb0e863?source=copy_link",
+      "project": "PIVOT TIME"
+    },
+    {
+      "Id": "Jeongsehyun",
+      "name": "정세현",
+      "role": "Designer",
+      "comment": "흐름 속에 중심을 세우는",
+      "eMail": "udtpgus@gmail.com",
+      "enname": "JEONG SEHYEON",
+      "portfolioSrc": "https://senoeyh.figma.site/",
+      "project": "PIVOT TIME"
+    },
+    {
+      "Id": "Kimgayoung",
+      "name": "김가영",
+      "role": "Developer",
+      "comment": "변화를 기다리지 않고, 스스로 전환을 만들어가는",
+      "eMail": "kimgy071928@gmail.com",
+      "enname": "KIM GAYOUNG",
+      "portfolioSrc": "https://rkyxung.github.io/react-portfolio/",
+      "project": "PIVOT TIME"
+    },
+    {
+      "Id": "Jeongyeonsu",
+      "name": "정연수",
+      "role": "Developer",
+      "comment": "부드러운 궤적 위에서, 자연스러운 전환을 만드는",
+      "eMail": "Yunsu0224@gmail.com",
+      "enname": "JUNG YEONSU",
+      "portfolioSrc": "https://portfolio-chi-two-12.vercel.app/",
+      "project": "PIVOT TIME"
+    },
+    {
+      "Id": "Honghyunsu",
+      "name": "홍현수",
+      "role": "Designer",
+      "comment": "유연한 전환을 만들어가는",
+      "eMail": "lory051999@gmail.com",
+      "enname": "HONG HYEONSU",
+      "portfolioSrc": "https://www.behance.net/hyvnsv",
+      "project": "PIVOT TIME"
+    },
+    {
+      "Id": "Chohyejin",
+      "name": "조혜진",
+      "role": "Planner",
+      "comment": "열정이 그린 궤적을 따라 새로운 방향을 읽어내는",
+      "eMail": "dongry04@naver.com",
+      "enname": "CHO HAEJIN",
+      "portfolioSrc": "",
+      "project": "MEMO:Re"
+    },
+    {
+      "Id": "Jeonkwonhee",
+      "name": "전권희",
+      "role": "Designer",
+      "comment": "순간의 중심을 포착하는",
+      "eMail": "jkh9917@naver.com",
+      "enname": "JEON KWONHEE",
+      "portfolioSrc": "",
+      "project": "MEMO:Re"
+    },
+    {
+      "Id": "Limeojin",
+      "name": "임어진",
+      "role": "Planner",
+      "comment": "중심을 잡고, 회전을 이끄는",
+      "eMail": "imajin51@naver.com",
+      "enname": "IM EOJIN",
+      "portfolioSrc": "https://www.notion.so/EMERGENCY-2b5cfba139d180e38c7ffa18bd21706e?source=copy_link",
+      "project": "MEMO:Re"
+    },
+    {
+      "Id": "Hwangtaehtun",
+      "name": "황태현",
+      "role": "Designer",
+      "comment": "관점을 회전시켜, 새로운 해답을 찾는",
+      "eMail": "hyunending@gmail.com",
+      "enname": "HWANG TAEHYUN",
+      "portfolioSrc": "",
+      "project": "MEMO:Re"
+    },
+    {
+      "Id": "Hongeunjae",
+      "name": "홍은재",
+      "role": "Designer",
+      "comment": "변화의 축 위에서 새로운 흐름을 설계하는",
+      "eMail": "ysluvme@naver.com",
+      "enname": "HONG EUNJAE",
+      "portfolioSrc": "",
+      "project": "MEMO:Re"
+    },
+    {
+      "Id": "Yanghyeonjeong",
+      "name": "양현정",
+      "role": "Designer",
+      "comment": "변화의 축을 따라 새로운 궤적을 만드는",
+      "eMail": "ylog.moments@gmail.com",
+      "enname": "YANG HYUNJUNG",
+      "portfolioSrc": "",
+      "project": "MEMO:Re"
+    },
+    {
+      "Id": "Kangminji",
+      "name": "강민지",
+      "role": "Designer",
+      "comment": "사람의 마음을 잇는 중심의 축",
+      "eMail": "minjigang026@gmail.com",
+      "enname": "KANG MINJI",
+      "portfolioSrc": "https://mmxjpotfolio.framer.website/",
+      "project": "빛결"
+    },
+    {
+      "Id": "Parkyeojin",
+      "name": "박여진",
+      "role": "Designer",
+      "comment": "다채로운 시선으로 궤적을 그려가는",
+      "eMail": "rtoo2dtoo2@naver.com",
+      "enname": "PARK YEOJIN",
+      "portfolioSrc": "https://www.behance.net/24c9c9af",
+      "project": "빛결"
+    },
+    {
+      "Id": "Simeunbi",
+      "name": "심은비",
+      "role": "Designer",
+      "comment": "회전 속에서도 중심을 잃지 않는",
+      "eMail": "unbee0906@gmail.com",
+      "enname": "SIM EUNBI",
+      "portfolioSrc": "https://www.behance.net/ximxunxi",
+      "project": "빛결"
+    },
+    {
+      "Id": "Hwangseonha",
+      "name": "황선하",
+      "role": "Designer",
+      "comment": "멈추지 않고 회전하면서 진화하는",
+      "eMail": "hayley05405@gmail.com ",
+      "enname": "HWANG SUNHA",
+      "portfolioSrc": "",
+      "project": "빛결"
+    },
+    {
+      "Id": "Chayerin",
+      "name": "차예린",
+      "role": "Planner",
+      "comment": "아이디어의 중심에서 회전을 그리는",
+      "eMail": "yerin5205@naver.com",
+      "enname": "CHA YERIN",
+      "portfolioSrc": "",
+      "project": "빛결"
+    },
+    {
+      "Id": "Kimyein",
+      "name": "김예인",
+      "role": "Designer",
+      "comment": "변화의 순간마다 새로운 궤적을 그려가는",
+      "eMail": "yeing7174@gmail.com",
+      "enname": "KIM YEIN",
+      "portfolioSrc": "https://yein-highlighter-portfolio.framer.website/",
+      "project": "빛결"
+    },
+    {
+      "Id": "Leeyeonseo",
+      "name": "이연서",
+      "role": "Planner",
+      "comment": "흐름의 중심에서 변화를 그려가는",
+      "eMail": "yeon0514seo@gmail.com",
+      "enname": "LEE YEONSEO",
+      "portfolioSrc": "https://www.notion.so/27fe7ffa500880918635ef547b987d1e?source=copy_link",
+      "project": "한올"
+    },
+    {
+      "Id": "Parkminji",
+      "name": "박민지",
+      "role": "Planner",
+      "comment": "변화 속에서도 중심을 지키며, 새 궤적을 그리는",
+      "eMail": "9932asdf@naver.com",
+      "enname": "PARK MINJI",
+      "portfolioSrc": "https://heavenly-armadillo-018.notion.site/2ae0c0e8669280e49ebbf4949fdd28c7?source=copy_link",
+      "project": "한올"
+    },
+    {
+      "Id": "Parksihyeon",
+      "name": "박시현",
+      "role": "Designer",
+      "comment": "새로운 전환과 안정적인 궤적, 그 사이의 흐름을 유영하는",
+      "eMail": "sihyun3016@gmail.com",
+      "enname": "PARK SIHYUN",
+      "portfolioSrc": "https://hyn-studio.figma.site",
+      "project": "한올"
+    },
+    {
+      "Id": "Kimminju",
+      "name": "김민주",
+      "role": "Designer",
+      "comment": "흔들림 없는 중심, 끊임없는 전환을 시도하는",
+      "eMail": "minju040401@gmail.com",
+      "enname": "KIM MINJU",
+      "portfolioSrc": "",
+      "project": "한올"
+    },
+    {
+      "Id": "KimminseoA",
+      "name": "김민서",
+      "role": "Designer",
+      "comment": "아이디어의 궤적을 그리고 경험의 깊이를 더하는",
+      "eMail": "min050721@gmail.com",
+      "enname": "KIM MINSEO",
+      "portfolioSrc": "https://www.behance.net/29cf22f9",
+      "project": "한올"
+    },
+    {
+      "Id": "Joheewon",
+      "name": "조희원",
+      "role": "Designer",
+      "comment": "궤적처럼 이어지는 감각의 선을 그리는",
+      "eMail": "h2akaibu@gmail.com",
+      "enname": "CHO HEEWON",
+      "portfolioSrc": "https://salmon-enjoy-71374100.figma.site",
+      "project": "O.K"
+    },
+    {
+      "Id": "Gilljeongjun",
+      "name": "길정준",
+      "role": "Designer",
+      "comment": "회전과 전환 속에서도 중심을 잃지 않는",
+      "eMail": "jeongjunee@gmail.com",
+      "enname": "GIL JEONGJUN",
+      "portfolioSrc": "",
+      "project": "O.K"
+    },
+    {
+      "Id": "Annahee",
+      "name": "안나희",
+      "role": "Designer",
+      "comment": "사용자의 중심에서 시각적 경험을 설계하는",
+      "eMail": "an-nahee@naver.com",
+      "enname": "AN NAHEE ",
+      "portfolioSrc": "https://www.behance.net/f92ac591/projects",
+      "project": "O.K"
+    },
+    {
+      "Id": "Limwooseok",
+      "name": "임우석",
+      "role": "Designer",
+      "comment": "꺼지지 않는 열정을 가진",
+      "eMail": "woosuk703@gmail.com",
+      "enname": "LIM WOOSUK",
+      "portfolioSrc": "https://www.behance.net/2e804544",
+      "project": "O.K"
+    },
+    {
+      "Id": "Parkmingyu",
+      "name": "박민규",
+      "role": "Developer",
+      "comment": "중심을 지키며 전환을 이끄는",
+      "eMail": "dbullssg123@naver.com",
+      "enname": "PARK MINGYU",
+      "portfolioSrc": "https://github.com/mnmnlilimnmnlil",
+      "project": "O.K"
+    },
+    {
+      "Id": "Jeonghyejin",
+      "name": "정혜진",
+      "role": "Developer",
+      "comment": "전환의 순간을 설계하는",
+      "eMail": "jhj030424@gmail.com",
+      "enname": "JUNG HYEJIN",
+      "portfolioSrc": "",
+      "project": "O.K"
+    },
+    {
+      "Id": "Leejeongwon",
+      "name": "이정원",
+      "role": "Developer",
+      "comment": "경험을 새롭게 전환하는",
+      "eMail": "weong0517@gmail.com",
+      "enname": "LEE JEONGWON",
+      "portfolioSrc": "https://jeongwon-portfolio.notion.site/",
+      "project": "Pinimo"
+    },
+    {
+      "Id": "Jojaeyoon",
+      "name": "조재윤",
+      "role": "Planner",
+      "comment": "정지 없이 매 순간 회전하며 다음 가능성을 설계하는",
+      "eMail": "jeayoon456@naver.com",
+      "enname": "CHO JEAYOON",
+      "portfolioSrc": "https://planner-uxhitman-bang.notion.site/UX-HITMAN-2ae6840fb6858083b966f64e85ee32f9",
+      "project": "Pinimo"
+    },
+    {
+      "Id": "Kangsarang",
+      "name": "강사랑",
+      "role": "Designer",
+      "comment": "상상과 현실의 궤적을 잇는",
+      "eMail": "srng1003@gmail.com",
+      "enname": "KANG SALANG",
+      "portfolioSrc": "https://www.behance.net/kgnaras",
+      "project": "Pinimo"
+    },
+    {
+      "Id": "Leeyujin",
+      "name": "이유진",
+      "role": "Designer",
+      "comment": "디자인 트렌드의 중심 축",
+      "eMail": "katie8738@naver.com",
+      "enname": "LEE YUJIN",
+      "portfolioSrc": "https://www.behance.net/2ceb5739",
+      "project": "Pinimo"
+    },
+    {
+      "Id": "Moonkyungjae",
+      "name": "문경재",
+      "role": "Designer",
+      "comment": "트렌드를 중심으로 브랜드를 이미지로 전환시키는",
+      "eMail": "greatmgj524@naver.com",
+      "enname": "MUN KHEUNGJAE",
+      "portfolioSrc": "https://www.behance.net/7b73af85",
+      "project": "Pinimo"
+    },
+    {
+      "Id": "Janghyunseo",
+      "name": "장현서",
+      "role": "Designer",
+      "comment": "관점의 전환을 통해 새로운 가치를 제안하는",
+      "eMail": "hs506492@gmail.com",
+      "enname": "JANG HYEONSEO",
+      "portfolioSrc": "https://www.behance.net/6e2fc7aa",
+      "project": "Pinimo"
+    },
+    {
+      "Id": "LeeWonYoung",
+      "name": "이원영",
+      "role": "Developer",
+      "comment": "궤적을 분석해 감각적인 여정을 설계하는",
+      "eMail": "wonyoung@kaywon.ac.kr",
+      "enname": "YI WONYOUNG",
+      "portfolioSrc": "https://wonyoung0514.github.io/wonyoung-porfolio/",
+      "project": "피하몽"
+    },
+    {
+      "Id": "Kimsolhwi",
+      "name": "김솔휘",
+      "role": "Planner",
+      "comment": "작은 축의 회전으로 큰 무대를 움직이는",
+      "eMail": "solhui0411@gmail.com",
+      "enname": "KIM SOLHUI",
+      "portfolioSrc": "https://www.notion.so/2afe85d12d5681e0b201d44e1c417021?source=copy_link",
+      "project": "피하몽"
+    },
+    {
+      "Id": "Kimyoungchan",
+      "name": "김영찬",
+      "role": "Planner",
+      "comment": "회전하는 세상 속에서 기획의 축을 세우는",
+      "eMail": "djfrksdl4@naver.com",
+      "enname": "KIM YEONGCHAN",
+      "portfolioSrc": "https://www.notion.so/2afa30c2cff7800f849bd2f09787af6b?source=copy_link",
+      "project": "피하몽"
+    },
+    {
+      "Id": "Kangjaeyeon",
+      "name": "강재연",
+      "role": "Designer",
+      "comment": "수많은 궤적을 쌓아 하나의 우주를 만들어 나가는",
+      "eMail": "jaeyeon3279@gmail.com",
+      "enname": "KANG JAEYEON ",
+      "portfolioSrc": "https://www.behance.net/a9623903/projects",
+      "project": "피하몽"
+    },
+    {
+      "Id": "Kwondannwoo",
+      "name": "권단우",
+      "role": "Designer",
+      "comment": "넘치는 열정으로 팀의 중심 축을 잡아주는",
+      "eMail": "danwoo.kwon.1126@gmail.com",
+      "enname": "KWON DANWOO",
+      "portfolioSrc": "",
+      "project": "피하몽"
+    },
+    {
+      "Id": "Kimjeonga",
+      "name": "김정아",
+      "role": "Designer",
+      "comment": "생각의 전환과 함께 새로운 궤적을 그려 나가는",
+      "eMail": "kja040112@gmail.com",
+      "enname": "KIM JUNGA",
+      "portfolioSrc": "https://www.behance.net/moment_112",
+      "project": "피하몽"
+    },
+    {
+      "Id": "Baekdana",
+      "name": "백다나",
+      "role": "Planner",
+      "comment": "깊이 파고들어 나만의 궤적을 그려가는",
+      "eMail": "eksk117@naver.com",
+      "enname": "BAEK DANA",
+      "portfolioSrc": "https://baek-dana-portfolio.notion.site/2af15fca46d9803c81d7f1713679577a?source=copy_link",
+      "project": "COPS"
+    },
+    {
+      "Id": "Hayeonseo",
+      "name": "하연서",
+      "role": "Designer",
+      "comment": "시선의 전환으로 새로운 가치를 만드는",
+      "eMail": "yseo0413@naver.com",
+      "enname": "HA YEONSEO",
+      "portfolioSrc": "https://yseo.figma.site/",
+      "project": "COPS"
+    },
+    {
+      "Id": "Kimsuyeon",
+      "name": "김수연",
+      "role": "Developer",
+      "comment": "기술의 축을 세우고 변화를 전환시키는",
+      "eMail": "necoga3za@gmail.com",
+      "enname": "KIM SUYEON",
+      "portfolioSrc": "",
+      "project": "COPS"
+    },
+    {
+      "Id": "Goodahye",
+      "name": "구다혜",
+      "role": "Developer",
+      "comment": "감각과 구조의 중심을 잡는",
+      "eMail": "hda4508@gmail.com",
+      "enname": "KOO DAHYE",
+      "portfolioSrc": "https://hda4508.github.io/react-portfolio/",
+      "project": "COPS"
+    },
+    {
+      "Id": "Goeunah",
+      "name": "고은아",
+      "role": "Designer",
+      "comment": "하나의 궤적이 다음 여정을 만들어가는",
+      "eMail": "rhdmsdk_@naver.com",
+      "enname": "KO EUNAH",
+      "portfolioSrc": "https://www.behance.net/rhdmsdk",
+      "project": "COPS"
+    },
+    {
+      "Id": "Ansoyoon",
+      "name": "안소윤",
+      "role": "Designer",
+      "comment": "잔잔하지만 깊은 열정으로 감각을 채우는",
+      "eMail": "soyuni05@naver.com",
+      "enname": "AHN SOYOON",
+      "portfolioSrc": "https://www.behance.net/ssyooni",
+      "project": "COPS"
+    },
+    {
+      "Id": "Choihyunyoung",
+      "name": "최현영",
+      "role": "Planner",
+      "comment": "멈추지 않는 성장으로 중심 축을 탄탄하게 구축할",
+      "eMail": "gusdud529@naver.com",
+      "enname": "CHOI HYEONYOUNG",
+      "portfolioSrc": "https://www.notion.so/2adfbb3e866480ac98fbe7b0c978b0b1?source=copy_link",
+      "project": "Qpid"
+    },
+    {
+      "Id": "KimminseoB",
+      "name": "김민서",
+      "role": "Designer",
+      "comment": "멈추지 않고 열정의 상승 궤적을 그려나가는",
+      "eMail": "4715qwe@gmail.com",
+      "enname": "KIM MINSEO",
+      "portfolioSrc": "https://www.behance.net/kminsuh",
+      "project": "Qpid"
+    },
+    {
+      "Id": "Nodohee",
+      "name": "노도희",
+      "role": "Designer",
+      "comment": "감성과 논리의 축 위에서 균형을 찾는",
+      "eMail": "xoxee18@gmail.com",
+      "enname": "NOH DOHEE",
+      "portfolioSrc": "https://www.behance.net/xoxee",
+      "project": "Qpid"
+    },
+    {
+      "Id": "Baekyuri",
+      "name": "백유리",
+      "role": "Designer",
+      "comment": "끊임없이 확장하며, 스스로를 디자인하는 사람",
+      "eMail": "yuribaik@naver.com",
+      "enname": "BAIK YURI",
+      "portfolioSrc": "https://www.behance.net/baikyuri",
+      "project": "Qpid"
+    },
+    {
+      "Id": "Chominseo",
+      "name": "조민서",
+      "role": "Developer",
+      "comment": "열정의 축을 중심으로 궤적을 그리는",
+      "eMail": "meyrrill@gmail.com",
+      "enname": "JO MINSEO",
+      "portfolioSrc": "https://github.com/myoxko",
+      "project": "Qpid"
+    },
+    {
+      "Id": "Hongjeongmin",
+      "name": "홍정민",
+      "role": "Developer",
+      "comment": "안전한 중심을 의심하며 새로운 전환에 반응하는",
+      "eMail": "illxoyxx@naver.com",
+      "enname": "HONG JUNGMIN",
+      "portfolioSrc": "https://jungmin225.github.io/react-portfolio/",
+      "project": "Qpid"
+    },
+    {
+      "Id": "Leesia",
+      "name": "이시아",
+      "role": "Planner",
+      "comment": "축이 되는 기획으로, 전환을 이끄는",
+      "eMail": "dungesia@gmail.com",
+      "enname": "LEE SIA",
+      "portfolioSrc": "",
+      "project": "아트랑"
+    },
+    {
+      "Id": "Jigangju",
+      "name": "지강주",
+      "role": "Designer",
+      "comment": "발상의 전환으로 새로운 궤적을 그리는",
+      "eMail": "66eksldpf@naver.com",
+      "enname": "JI KANGJU",
+      "portfolioSrc": "https://www.behance.net/7b6c159b",
+      "project": "아트랑"
+    },
+    {
+      "Id": "Leegayoung",
+      "name": "이가영",
+      "role": "Designer",
+      "comment": "즐거움을 바탕으로 다채로운 궤적을 찾아나가는",
+      "eMail": "0ooyoung09@gmail.com",
+      "enname": "LEE GAYOUNG",
+      "portfolioSrc": "https://young00.framer.website/",
+      "project": "아트랑"
+    },
+    {
+      "Id": "Janghyeyeon",
+      "name": "장혜연",
+      "role": "Planner",
+      "comment": "막다른 길에서도, 전환점을 찾아내는",
+      "eMail": "janghyeyeon57@gmail.com",
+      "enname": "JANG HYEYEON",
+      "portfolioSrc": "https://hyeyeon-portfolio.vercel.app/",
+      "project": "아트랑"
+    },
+    {
+      "Id": "Hansubin",
+      "name": "한수빈",
+      "role": "Designer",
+      "comment": "끊없이 전환하며 나만의 궤적을 그려나가는",
+      "eMail": "gzm659913@gmail.com",
+      "enname": "HAN SUBIN",
+      "portfolioSrc": "https://www.behance.net/suuub__in",
+      "project": "아트랑"
+    },
+    {
+      "Id": "Leejei",
+      "name": "이제이",
+      "role": "Designer",
+      "comment": "중심을 잡고, 멈추지 않는",
+      "eMail": "jay041127@gmail.com",
+      "enname": "LEE JEYI",
+      "portfolioSrc": "https://www.behance.net/6e1ba061",
+      "project": "아트랑"
+    },
+    {
+      "Id": "Baekseoyoon",
+      "name": "백서윤",
+      "role": "Planner",
+      "comment": "사용자 중심의 아이디어 회전 속에서 길을 찾는",
+      "eMail": "psy091212@naver.com",
+      "enname": "BAEKSEOYOONe",
+      "portfolioSrc": "https://www.notion.so/2a842302ff0f81b29fe2ce1f10d1f1d9?source=copy_link",
+      "project": "Boutine"
+    },
+    {
+      "Id": "Kimbomin",
+      "name": "김보민",
+      "role": "Designer",
+      "comment": "열정으로 나만의 궤적을 만들어가는",
+      "eMail": "kimbomin0801@naver.com ",
+      "enname": "KIMBOMIN",
+      "portfolioSrc": "",
+      "project": "Boutine"
+    },
+    {
+      "Id": "Leenakyoung",
+      "name": "이나경",
+      "role": "Designer",
+      "comment": "열정과 진심을 담아 디자인하는",
+      "eMail": "inagyeong195@gamil.com",
+      "enname": "LEE NAKYEONG",
+      "portfolioSrc": "https://www.behance.net/5b2c0ef7",
+      "project": "Boutine"
+    },
+    {
+      "Id": "Parksohyeon",
+      "name": "박소현",
+      "role": "Designer",
+      "comment": "언제나 열정을 다해 새로운 중심이 되는",
+      "eMail": "pqkrthgus@naver.com",
+      "enname": "PARK SOHYUN",
+      "portfolioSrc": "",
+      "project": "Boutine"
+    },
+    {
+      "Id": "Moonminkyung",
+      "name": "문민경",
+      "role": "Designer",
+      "comment": "끊임없는 회전을 통해 사람과 감각을 잇는",
+      "eMail": "direvan0606@naver.com",
+      "enname": "MOON MINKYUNG",
+      "portfolioSrc": "https://www.behance.net/bbce7083",
+      "project": "Boutine"
+    },
+    {
+      "Id": "Parkjihye",
+      "name": "박지혜",
+      "role": "Developer",
+      "comment": "웹의 중심축에서 회전하며 전환을 이끄는 인터랙티브",
+      "eMail": "ji020201@kaywon.ac.kr",
+      "enname": "PARK JIHYE",
+      "portfolioSrc": "",
+      "project": "Boutine"
+    },
+    {
+      "Id": "Kimeunbi",
+      "name": "김은비",
+      "role": "Designer",
+      "comment": "전환의 축 위에서 궤적을 그립니다.",
+      "eMail": "keb0510@naver.com",
+      "enname": "KIM EUNBI",
+      "portfolioSrc": "",
+      "project": "J와P"
+    },
+    {
+      "Id": "Minkyunghwa",
+      "name": "민경화",
+      "role": "Planner",
+      "comment": "끊임없이 회전하며 새로운 방향을 찾아가는",
+      "eMail": "mkh050827@gmail.com",
+      "enname": "MIN KYOUNGHWA",
+      "portfolioSrc": "https://www.notion.so/2a7e4120ea4a8069b500c5e76fd4c88d?source=copy_link",
+      "project": "J와P"
+    },
+    {
+      "Id": "Joeunchae",
+      "name": "조은채",
+      "role": "Designer",
+      "comment": "끊임없는 전환으로 완성되는",
+      "eMail": "joecho0510@gmail.com",
+      "enname": "CHO EUNCHAE",
+      "portfolioSrc": "https://free-background-378630.framer.app/",
+      "project": "J와P"
+    },
+    {
+      "Id": "Jeongsoeun",
+      "name": "정소은",
+      "role": "Designer",
+      "comment": "회전과 전환 사이에서 새로운 질서를 시각화하는",
+      "eMail": "ydjuj0202@kaywon.ac.kr",
+      "enname": "JEONG SOEUN",
+      "portfolioSrc": "https://www.behance.net/684d311f",
+      "project": "J와P"
+    },
+    {
+      "Id": "KimminseoC",
+      "name": "김민서",
+      "role": "Planner",
+      "comment": "축 처진 어깨도 열정으로 일으키는",
+      "eMail": "kimminseo1207@kaywon.ac.kr",
+      "enname": "KIM MINSEO",
+      "portfolioSrc": "https://www.notion.so/2a8eace753828000aca7c611e39e44bd",
+      "project": "J와P"
+    },
+    {
+      "Id": "Leetaehyung",
+      "name": "이태형",
+      "role": "Developer",
+      "comment": "기술과 예술의 궤적을 엮어 정교한 경험을 구현하는",
+      "eMail": "dlxogud426@gmail.com",
+      "enname": "LEE TAEHYUNG",
+      "portfolioSrc": "https://www.notion.so/28886706c4a981409a22e426ddf6536a?source=copy_link",
+      "project": "NOL:EUM"
+    },
+    {
+      "Id": "Leenarin",
+      "name": "이나린",
+      "role": "Designer",
+      "comment": "자유롭게 흐르고, 전환의 순간에도 균형을 잡는",
+      "eMail": "narineee03@naver.com",
+      "enname": "LEE NARIN",
+      "portfolioSrc": "",
+      "project": "NOL:EUM"
+    },
+    {
+      "Id": "Hongheekwon",
+      "name": "홍희권",
+      "role": "Designer",
+      "comment": "수많은 시도 속에서 누군가의 일상에 전환를 주는",
+      "eMail": "honghk0312@naver.com",
+      "enname": "HONG HEEKWUN",
+      "portfolioSrc": "",
+      "project": "NOL:EUM"
+    },
+    {
+      "Id": "Yangchaeyoon",
+      "name": "양채윤",
+      "role": "Developer",
+      "comment": "변화를 읽되 중심을 지키는",
+      "eMail": "woqpal1229@naver.com",
+      "enname": "YANG CHAEYOON",
+      "portfolioSrc": "https://www.behance.net/yam1031",
+      "project": "NOL:EUM"
+    },
+    {
+      "Id": "Kwonhyukmin",
+      "name": "권혁민",
+      "role": "Designer",
+      "comment": "열정을 중심에 두고, 진심을 디자인하는",
+      "eMail": "hyeokmin6080@naver.com",
+      "enname": "KWON HYEOKMIN",
+      "portfolioSrc": "https://www.behance.net/cffbd364",
+      "project": "NOL:EUM"
+    },
+    {
+      "Id": "Yoonseohyun",
+      "name": "윤서현",
+      "role": "Designer",
+      "comment": "열정으로 새로운 궤적을 그리는, 장르를 넘나드는",
+      "eMail": "havenseohyun@gmail.com",
+      "enname": "YUN SEOHYUN",
+      "portfolioSrc": "https://linktr.ee/Se0hyun_0",
+      "project": "NOL:EUM"
+    },
+    {
+      "Id": "Choijiye",
+      "name": "최지예",
+      "role": "Planner",
+      "comment": "빠르게 회전하며 변화하는 콘텐츠들 속 중심을 잡는",
+      "eMail": "chjy21chjy21@gmail.com",
+      "enname": "CHOI JIYE",
+      "portfolioSrc": "",
+      "project": "NOL:EUM"
+    },
+    {
+      "Id": "Kimkyungrin",
+      "name": "김경린",
+      "role": "Planner",
+      "comment": "콘텐츠의 우주를 거침없는 궤적으로 항해하는",
+      "eMail": "772kkr@gmail.com",
+      "enname": "KIM KYUNGRIN",
+      "portfolioSrc": "https://772kkr.notion.site/17a6494984c3800eb64df211ea3abb5b",
+      "project": "BEYOND THE ABYSS"
+    },
+    {
+      "Id": "Kimdongjoon",
+      "name": "김동준",
+      "role": "Planner",
+      "comment": "창의력을 중심으로 정밀하게 분석하는",
+      "eMail": "dongjunkima@gmail.com",
+      "enname": "KIM DONGJUN",
+      "portfolioSrc": "https://kdjportfolio.notion.site/2bc2172182df8031ba78d4cde024a6b1?source=copy_link",
+      "project": "BEYOND THE ABYSS"
+    },
+    {
+      "Id": "Jeonghyunbin",
+      "name": "정현빈",
+      "role": "Designer",
+      "comment": "하나의 선으로 무한한 형태의 궤적을 그리는",
+      "eMail": "thddkwl2101@naver.com",
+      "enname": "JUNG HYUNBIN",
+      "portfolioSrc": "https://modern-platforms-923850.framer.app/",
+      "project": "BEYOND THE ABYSS"
+    },
+    {
+      "Id": "Moonjeongil",
+      "name": "문정일",
+      "role": "Designer",
+      "comment": "공백에서 무한한 가능성으로 전환하는",
+      "eMail": "lunaticji1019@naver.com",
+      "enname": "MOON JUNGILL",
+      "portfolioSrc": "https://blank2025.framer.website/",
+      "project": "BEYOND THE ABYSS"
+    },
+    {
+      "Id": "Choiminseok",
+      "name": "최민석",
+      "role": "Designer",
+      "comment": "시대의 중심에서 흐름을 디자인하는",
+      "eMail": "alstjr1208@gmail.com",
+      "enname": "CHOI MINSEOK",
+      "portfolioSrc": " https://www.behance.net/ac7a352a",
+      "project": "BEYOND THE ABYSS"
+    },
+    {
+      "Id": "Leeminseok",
+      "name": "이민석",
+      "role": "Developer",
+      "comment": "전환은 빠른데 궤적은 수상한",
+      "eMail": "elmo0915@naver.com",
+      "enname": "example",
+      "portfolioSrc": "https://minguri22261078.github.io/min-portfolio/",
+      "project": "BEYOND THE ABYSS"
+    },
+    {
+      "Id": "Kimyeji",
+      "name": "김예지",
+      "role": "Designer",
+      "comment": "변화의 축 위에서, 매 순간 전환을 즐기는",
+      "eMail": "seyo27@naver.com",
+      "enname": "KIM YEJI",
+      "portfolioSrc": "https://www.behance.net/b2f8f17a",
+      "project": "BEYOND THE ABYSS"
+    },
+    {
+      "Id": "Yooyeeun",
+      "name": "유예은",
+      "role": "Planner",
+      "comment": "아이디어의 중심축에서 방향을 설계하는",
+      "eMail": "lilyye426@gmail.com",
+      "enname": "YOO YEEUN",
+      "portfolioSrc": "https://www.notion.so/Re-GO-2a678270bc5f801dbed6ff6a5b98d433?source=copy_link",
+      "project": "Melt0℃"
+    },
+    {
+      "Id": "Limseohyun",
+      "name": "임서현",
+      "role": "Designer",
+      "comment": "감각이 머무는 궤적을 그리는",
+      "eMail": "tigus505010@gmail.com",
+      "enname": "LIM SEOHYUN",
+      "portfolioSrc": "https://www.behance.net/se0oh",
+      "project": "Melt0℃"
+    },
+    {
+      "Id": "Kimminji",
+      "name": "김민지",
+      "role": "Designer",
+      "comment": "전환의 순간마다 또 다른 궤적을 그려내는",
+      "eMail": "mkk6351@gmail.com",
+      "enname": "KIM MINJI",
+      "portfolioSrc": "https://www.behance.net/dd47a8c1",
+      "project": "Melt0℃"
+    },
+    {
+      "Id": "Jangjuwon",
+      "name": "장주원",
+      "role": "Designer",
+      "comment": "예술의 경계를 넘어 새로운 축을 세우는",
+      "eMail": "ds1believe@naver.com",
+      "enname": "CHANG JUWON",
+      "portfolioSrc": "https://www.behance.net/ONECHIVE",
+      "project": "Melt0℃"
+    },
+    {
+      "Id": "Kimsieun",
+      "name": "김시은",
+      "role": "Developer",
+      "comment": "아이디어의 궤적을 따라 최상의 경험을 구현하는",
+      "eMail": "hdeun1512@gmail.com",
+      "enname": "KIM SIEUN",
+      "portfolioSrc": "https://sieun533.github.io/react-portfolio/",
+      "project": "Melt0℃"
+    },
+    {
+      "Id": "Yeonsuhyun",
+      "name": "연수현",
+      "role": "Developer",
+      "comment": "감정과 기술이 만나는 중심에서 새로운 경험을 전하는",
+      "eMail": "yeonsh030@gmail.com",
+      "enname": "YEON SUHYEON",
+      "portfolioSrc": "https://suhyeon549.github.io/react-portfolio/",
+      "project": "Melt0℃"
+    },
+    {
+      "Id": "Jeongsieun",
+      "name": "정시은",
+      "role": "Designer",
+      "comment": "끝없는 회전 속에서 새로운 궤적을 그리는",
+      "eMail": "sieunj1114@gmail.com",
+      "enname": "JUNG SIEUN",
+      "portfolioSrc": "https://www.behance.net/43d30e17",
+      "project": "Log!n"
+    },
+    {
+      "Id": "Jangyeryeong",
+      "name": "장예령",
+      "role": "Designer",
+      "comment": "스스로 빛나는 궤적을 만들어가는",
+      "eMail": "wkddpfud04@naver.com",
+      "enname": "JANG YERYEONG",
+      "portfolioSrc": "https://yrjang0331.wixsite.com/my-site-1",
+      "project": "Log!n"
+    },
+    {
+      "Id": "Kimgyubin",
+      "name": "김규빈",
+      "role": "Designer",
+      "comment": "열정으로 회전하며, 새로운 궤적을 만드는",
+      "eMail": "lams06222@gmail.com",
+      "enname": "KIM KYUBIN",
+      "portfolioSrc": "https://www.behance.net/d70e9fad/projects",
+      "project": "Log!n"
+    },
+    {
+      "Id": "Kimseohyun",
+      "name": "김서현",
+      "role": "Developer",
+      "comment": "열정으로 전환의 순간을 만드는",
+      "eMail": "shshseo1122@gmail.com",
+      "enname": "KIM SEOHYUN",
+      "portfolioSrc": "https://readymag.website/u2334680768/5977522/",
+      "project": "Log!n"
+    },
+    {
+      "Id": "Hwangyujin",
+      "name": "황유진",
+      "role": "Developer",
+      "comment": "열정으로 붙잡고, 생각을 전환하며 완성하는",
+      "eMail": "ghkdsb65@gmail.com",
+      "enname": "HWANG YUJIN",
+      "portfolioSrc": "https://ghkdsb.github.io/yujin-portfolio/",
+      "project": "Log!n"
+    },
+    {
+      "Id": "Kimmoonjeong",
+      "name": "김문정",
+      "role": "Designer",
+      "comment": "전환의 순간마다 나만의 궤적을 그려가는",
+      "eMail": "mj_kim0@naver.com",
+      "enname": "KIM MUNJUNG",
+      "portfolioSrc": "https://www.behance.net/mjkimmuse",
+      "project": "Log!n"
+    },
+    {
+      "Id": "Parkjyeonhyun",
+      "name": "박정연",
+      "role": "Designer",
+      "comment": "새로운 가능성을 향해 궤적을 그려가는",
+      "eMail": "j995195@gmail.com",
+      "enname": "PARK JEONGYEON",
+      "portfolioSrc": "https://www.behance.net/6b6041be",
+      "project": "피하몽"
+    },
+    {
+      "Id": "Parkdabin",
+      "name": "박다빈",
+      "role": "Planner",
+      "comment": "작은 회전으로 큰 궤적을 만드는",
+      "eMail": "iisosick@gmail.com",
+      "enname": "PARK DABIN",
+      "portfolioSrc": "https://planner-dabinpark.notion.site/25",
+      "project": "project H."
+    },
+    {
+      "Id": "Nokwonhoo",
+      "name": "노권후",
+      "role": "Planner",
+      "comment": "맥락의 축 위에서 회전하며 성장의 궤적을 그리는",
+      "eMail": "hello@stile.im",
+      "enname": "ROH KWONHOO ",
+      "portfolioSrc": "https://stile.im",
+      "project": "project H."
+    },
+    {
+      "Id": "Simjeongbin",
+      "name": "심정빈",
+      "role": "Designer",
+      "comment": "식지 않는 열정으로 목표를 향해 나아가는",
+      "eMail": "simjb05@gmail.com",
+      "enname": "SIM JUNGBIN",
+      "portfolioSrc": "https://simjungbin.figma.site/",
+      "project": "project H."
+    },
+    {
+      "Id": "Oheongeun",
+      "name": "오정은",
+      "role": "Designer",
+      "comment": "열정이 과속해도 중심을 잃지 않는",
+      "eMail": "kiiiikiki666@gmail.com",
+      "enname": "O JEONGEUN",
+      "portfolioSrc": "https://www.behance.net/caf4d781",
+      "project": "project H."
+    },
+    {
+      "Id": "Kimjihyeon",
+      "name": "김지현",
+      "role": "Developer",
+      "comment": "축을 중심으로 방향을 잃지 않는",
+      "eMail": "dmdhyun146@gmail.com",
+      "enname": "KIM JIHYUN",
+      "portfolioSrc": "https://dmdhyunk.github.io/react-portfolio/",
+      "project": "project H."
+    },
+    {
+      "Id": "Baejunil",
+      "name": "배준일",
+      "role": "Developer",
+      "comment": "변화의 전환점마다 성장하는",
+      "eMail": "ji009868@naver.com",
+      "enname": "BAE JUNIL",
+      "portfolioSrc": "https://ji009868.github.io/react-portfolio/",
+      "project": "project H."
+    },
+    {
+      "Id": "Chuoohyun",
+      "name": "추주현",
+      "role": "Designer",
+      "comment": "세상의 회전 속, 중심을 그리는 ",
+      "eMail": "zxzxrnldyal@naver.com",
+      "enname": "CHOO JOOHYUN",
+      "portfolioSrc": "https://www.behance.net/CH0000",
+      "project": "GYEOB"
+    },
+    {
+      "Id": "Seoyeon",
+      "name": "서연",
+      "role": "Designer",
+      "comment": "궤적 위에 열정을 새기는",
+      "eMail": "koharuchichi@gmail.com",
+      "enname": "SEO YEON",
+      "portfolioSrc": "",
+      "project": "GYEOB"
+    },
+    {
+      "Id": "Ohjihyeon",
+      "name": "오지현",
+      "role": "Designer",
+      "comment": "흐름에 질문을 던지고, 중심을 세우는",
+      "eMail": "minnnn111n@gmail.com",
+      "enname": "OH JIHYEON",
+      "portfolioSrc": "https://www.behance.net/1b92e2fa/projects",
+      "project": "GYEOB"
+    },
+    {
+      "Id": "Leegahyun",
+      "name": "이가연",
+      "role": "Designer",
+      "comment": "순간의 전환 속, 새로운 감각을 그리는",
+      "eMail": "rkdus13570@naver.com",
+      "enname": "LEE GAYEON",
+      "portfolioSrc": "https://www.behance.net/255e3eab/projects",
+      "project": "GYEOB"
+    },
+    {
+      "Id": "Namseoyeon",
+      "name": "남서연",
+      "role": "Developer",
+      "comment": "궤적을 설계하는",
+      "eMail": "synam02@gmail.com",
+      "enname": "NAM SEOYEON",
+      "portfolioSrc": "https://anirama16.github.io/react-portfolio/",
+      "project": "GYEOB"
+    },
+    {
+      "Id": "Parkrin",
+      "name": "박린",
+      "role": "Designer",
+      "comment": "시각적 메시지의 중심을 설계하는",
+      "eMail": "qkrfls7@gmail.com",
+      "enname": "PARK LYN ",
+      "portfolioSrc": "https://www.behance.net/rinpark1",
+      "project": "GYEOB"
+    },
+    {
+      "Id": "Kimjian",
+      "name": "김지안",
+      "role": "Designer",
+      "comment": "궤적 위 자신만의 결을 새기는",
+      "eMail": "ja.kim9158@gmail.com",
+      "enname": "KIM JIAN",
+      "portfolioSrc": "https://www.behance.net/jakim9158",
+      "project": "돈쭐"
+    },
+    {
+      "Id": "Yoonnayoon",
+      "name": "윤나윤",
+      "role": "Designer",
+      "comment": "나만의 궤적을 따라 방향을 찾아가는",
+      "eMail": "sjnddjw@gmail.com",
+      "enname": "YOON NAYOON",
+      "portfolioSrc": "https://www.behance.net/eead21e9",
+      "project": "돈쭐"
+    },
+    {
+      "Id": "Leeyoosin",
+      "name": "이유신",
+      "role": "Planner",
+      "comment": "사용자 중심으로 궤적을 그려나가는",
+      "eMail": "iyusin26@gmail.com",
+      "enname": "LEE YOOSHIN",
+      "portfolioSrc": "",
+      "project": "돈쭐"
+    },
+    {
+      "Id": "Leeboram",
+      "name": "이보람",
+      "role": "Designer",
+      "comment": "남과 다른 궤적으로 디자인의 경계를 확장하는",
+      "eMail": "anny8641@naver.com",
+      "enname": "LEE BORAM",
+      "portfolioSrc": "https://www.behance.net/boramlogin",
+      "project": "돈쭐"
+    },
+    {
+      "Id": "Kimhyunchae",
+      "name": "김현채",
+      "role": "Designer",
+      "comment": "머리속에서 일어나는 모든 창의성을 세상으로 전환하는",
+      "eMail": "legendchoi73@gmail.com",
+      "enname": "KIM HYUNCHAE",
+      "portfolioSrc": "",
+      "project": "돈쭐"
+    },
+    {
+      "Id": "Jeonggayoung",
+      "name": "정가영",
+      "role": "Planner",
+      "comment": "언제나 사용자를 중심에 두는",
+      "eMail": "mempqk@gmail.com",
+      "enname": "JUNG KAYOUNG",
+      "portfolioSrc": "https://kayoungjung.notion.site/",
+      "project": "돈쭐"
+    },
+    {
+      "Id": "Jeongyoochan",
+      "name": "정유찬",
+      "role": "Designer",
+      "comment": "작은 외침으로 세상에 궤적을 남기는",
+      "eMail": "yuchanjung.design@gmail.com",
+      "enname": "JUNG YUCHAN",
+      "portfolioSrc": "https://www.behance.net/yuchanjungBE",
+      "project": "EvidenceClicker"
+    },
+    {
+      "Id": "Yooyongseok",
+      "name": "유용석",
+      "role": "Designer",
+      "comment": "열정이란 이름으로 자신만의 궤적을 그려가는",
+      "eMail": "yys24308676@gmail.com",
+      "enname": "YU YONGSEOK",
+      "portfolioSrc": "",
+      "project": "EvidenceClicker"
+    },
+    {
+      "Id": "Leejoohwan",
+      "name": "이주환",
+      "role": "Designer",
+      "comment": "고통을 중심으로 결과를 내는",
+      "eMail": "neckle4399@kakao.com",
+      "enname": "LEE JUHWAN",
+      "portfolioSrc": "",
+      "project": "EvidenceClicker"
+    },
+    {
+      "Id": "Leejiyoon",
+      "name": "이지윤",
+      "role": "Designer",
+      "comment": "시간의 궤적 속에서 새로운 감정을 설계하는",
+      "eMail": "dlgmlfka04@gmail.com",
+      "enname": "YI JIYOON",
+      "portfolioSrc": "",
+      "project": "EvidenceClicker"
+    },
+    {
+      "Id": "Gaminjin",
+      "name": "가민진",
+      "role": "Planner",
+      "comment": "궤적 속 점들을 잇는",
+      "eMail": "youtubu1116@gmail.com",
+      "enname": "KA MINJIN",
+      "portfolioSrc": "https://minjinportfolio.notion.site/29b24a3a66d980b68dd2f342d734a35f?source=copy_link",
+      "project": "EvidenceClicker"
+    }
+  ]
 }
