@@ -1800,9 +1800,9 @@ export default function GoPivot() {
                               />
                             </svg>
                             <span className="CUSTOMtextLine">CUSTOM  <span><svg  viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8.50412 0.570068L12.9121 0.570068L12.9121 4.97805" stroke="#9A9A9A" stroke-width="1.14"/>
-<path d="M12.9114 0.570068L6.80859 6.67285" stroke="#9A9A9A" stroke-width="1.14"/>
-<path d="M5.42253 0.570654L0.569923 0.570654L0.569922 12.9207L6.74492 12.9207L12.9199 12.9207L12.9199 8.06805" stroke="#9A9A9A" stroke-width="1.14"/>
+<path d="M8.50412 0.570068L12.9121 0.570068L12.9121 4.97805" stroke="#9A9A9A" strokeWidth="1.14"/>
+<path d="M12.9114 0.570068L6.80859 6.67285" stroke="#9A9A9A" strokeWidth="1.14"/>
+<path d="M5.42253 0.570654L0.569923 0.570654L0.569922 12.9207L6.74492 12.9207L12.9199 12.9207L12.9199 8.06805" stroke="#9A9A9A" strokeWidth="1.14"/>
 </svg>
 </span></span>
                            
