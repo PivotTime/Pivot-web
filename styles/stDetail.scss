@@ -212,6 +212,7 @@
       }
     }
     .roleSvg {
+      pointer-events: none;
       width: 50vw; 
       height: auto;
       position: absolute;
